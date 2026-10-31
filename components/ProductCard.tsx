@@ -4,11 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-  Zap, 
-  Leaf, 
-  Star, 
-  Flame, 
-  Sparkles, 
   Heart, 
   Scale, 
   Settings, 
@@ -26,47 +21,6 @@ interface ProductCardProps {
   onOpenSubsidy?: (product: Product) => void;
   onOpenQuote?: (product: Product) => void;
   layout?: 'vertical' | 'horizontal';
-}
-
-// 1. Badge Generator (Top-Left of Visual)
-function getProductBadge(product: Product): { text: string; icon: React.ReactNode; bgClass: string } {
-  const name = (product.name || '').toLowerCase();
-  const desc = (product.description || '').toLowerCase();
-  const cat = (product.category || '').toLowerCase();
-
-  if (name.includes('battery') || desc.includes('battery') || desc.includes('12v') || desc.includes('ah')) {
-    return {
-      text: 'Battery',
-      icon: <Zap className="w-2.5 h-2.5 text-yellow-300 fill-yellow-300 shrink-0" />,
-      bgClass: 'bg-[#15803d]'
-    };
-  }
-  if (name.includes('manual') || desc.includes('manual')) {
-    return {
-      text: 'Manual',
-      icon: <Leaf className="w-2.5 h-2.5 text-emerald-300 shrink-0" />,
-      bgClass: 'bg-[#15803d]'
-    };
-  }
-  if (name.includes('pro') || name.includes('heavy') || cat.includes('brush') || cat.includes('harvester') || cat.includes('weed')) {
-    return {
-      text: 'Pro',
-      icon: <Star className="w-2.5 h-2.5 text-yellow-300 fill-yellow-300 shrink-0" />,
-      bgClass: 'bg-[#15803d]'
-    };
-  }
-  if (name.includes('petrol') || name.includes('4s') || name.includes('2s') || desc.includes('engine') || cat.includes('saw') || cat.includes('intercultivator')) {
-    return {
-      text: 'Petrol',
-      icon: <Flame className="w-2.5 h-2.5 text-orange-300 fill-orange-300 shrink-0" />,
-      bgClass: 'bg-[#15803d]'
-    };
-  }
-  return {
-    text: product.brand || 'RIPL',
-    icon: <Sparkles className="w-2.5 h-2.5 text-emerald-300 shrink-0" />,
-    bgClass: 'bg-[#15803d]'
-  };
 }
 
 export default function ProductCard({ 
@@ -133,8 +87,6 @@ export default function ProductCard({
     }
   };
 
-  const badge = getProductBadge(product);
-
   return (
     <>
       {layout === 'horizontal' ? (
@@ -142,14 +94,6 @@ export default function ProductCard({
         <div className="group relative bg-white rounded-lg sm:rounded-xl border border-gray-200/90 hover:border-[#2d7d32] shadow-2xs hover:shadow-md transition-all duration-200 flex flex-row items-stretch overflow-hidden h-[135px] sm:h-[148px]">
           {/* Left: Product Visual Thumbnail */}
           <div className="relative w-[38%] sm:w-[40%] shrink-0 bg-white border-r border-gray-100 flex items-center justify-center p-2 overflow-hidden">
-            {/* Top-Left Feature Pill Badge */}
-            <div className="absolute top-1.5 left-1.5 z-10">
-              <div className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-white text-[8px] sm:text-[9px] font-bold shadow-xs ${badge.bgClass}`}>
-                {badge.icon}
-                <span className="leading-none">{badge.text}</span>
-              </div>
-            </div>
-
             {/* Top-Right Heart Wishlist Button */}
             <button
               type="button"
@@ -223,14 +167,6 @@ export default function ProductCard({
           
           {/* Top: Compact Product Visual (Fixed height ~140-160px so it is NEVER oversized) */}
           <div className="relative w-full h-36 sm:h-40 rounded-lg sm:rounded-xl bg-white border border-gray-100 flex items-center justify-center p-1.5 overflow-hidden">
-            {/* Top-Left Feature Pill Badge */}
-            <div className="absolute top-2 left-2 z-10">
-              <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-white text-[9px] sm:text-[10px] font-bold shadow-xs ${badge.bgClass}`}>
-                {badge.icon}
-                <span className="leading-none">{badge.text}</span>
-              </div>
-            </div>
-
             {/* Top-Right Heart Wishlist Button */}
             <button
               type="button"

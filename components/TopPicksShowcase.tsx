@@ -146,7 +146,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
       className="w-full bg-white pt-2 sm:pt-4 pb-12 sm:pb-16 overflow-hidden select-none border-b border-gray-100"
     >
       {/* Generous left and right margins/padding leaving ample space on the left */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-12 lg:px-20">
         
         {/* ================= SECTION HEADER ================= */}
         <div className="mb-5 sm:mb-6">
@@ -261,8 +261,8 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
 
             </div>
 
-            {/* Right Column: FULL LANDSCAPE BRAND BANNER IN EXACT MARKED HEIGHT */}
-            <div className="w-full md:flex-1 relative h-[200px] md:h-full overflow-hidden group bg-white flex items-center justify-center">
+            {/* Right Column: FULL LANDSCAPE BRAND BANNER IN EXACT MARKED HEIGHT ON DESKTOP, PERFECT ASPECT RATIO ON MOBILE */}
+            <div className="w-full md:flex-1 relative aspect-[1024/426] md:aspect-auto md:h-full overflow-hidden group bg-white flex items-center justify-center">
               
               {/* Top-Right Circular Pause/Play Button on Photo */}
               <div className="absolute top-2.5 right-2.5 z-30">

@@ -65,41 +65,24 @@ export default function ContactPage() {
     <div className="bg-[#f8fafc] min-h-screen py-10">
       <div className="agri-container">
         {/* Breadcrumb */}
-        <div className="text-xs text-gray-500 mb-4 flex items-center space-x-1.5">
+        <div className="text-xs text-gray-500 mb-6 flex items-center space-x-1.5">
           <Link href="/" className="hover:text-green-700">Home</Link>
           <span>/</span>
           <span className="text-gray-900 font-semibold">Contact Us</span>
         </div>
 
-        {/* Hero Banner Created Using Website's Agricultural Machinery Products */}
-        <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-10 shadow-sm border border-gray-200">
-          <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[390px]">
-            <Image
-              src="/assets/banners/contact_hero_banner_hd.png"
-              alt="Contact Agrimart Machinery Support"
-              fill
-              priority
-              className="object-cover object-right md:object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/60 to-transparent flex items-center">
-              <div className="max-w-xl p-6 sm:p-8 lg:p-12 text-white">
-                <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 backdrop-blur-xs">
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>Pan-India Sales & Service Support</span>
-                </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-2.5">
-                  Connect With Agrimart Specialists
-                </h1>
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed font-normal mb-4 max-w-md">
-                  Expert consultation for agricultural machinery selection, institutional subsidies, genuine spare parts, and nationwide dealer network assistance.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs font-semibold text-emerald-100">
-                  <span className="bg-white/10 backdrop-blur-xs px-3 py-1 rounded-lg border border-white/10">Quick Response Desk</span>
-                  <span className="bg-white/10 backdrop-blur-xs px-3 py-1 rounded-lg border border-white/10">100% Genuine RIPL Spares</span>
-                </div>
-              </div>
-            </div>
+        {/* Clean Page Header */}
+        <div className="mb-8">
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+            <Phone className="w-3.5 h-3.5" />
+            <span>Pan-India Sales &amp; Service Support</span>
           </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            Contact Agrimart
+          </h1>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl leading-relaxed">
+            Expert consultation for agricultural machinery selection, institutional subsidies, genuine spare parts, and nationwide dealer network assistance.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

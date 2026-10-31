@@ -10,9 +10,13 @@ import {
   X, 
   ChevronDown, 
   ChevronRight, 
-  Search
+  Search,
+  ShoppingCart,
+  Download,
+  Layers
 } from 'lucide-react';
 import categoriesData from '@/data/import/categories.json';
+import { useCart } from '@/context/CartContext';
 
 interface HeaderProps {
   onOpenAuth?: (mode: 'signin' | 'otp' | 'register' | 'b2b' | 'admin') => void;
@@ -23,8 +27,12 @@ export default function Header({ onOpenAuth }: HeaderProps) {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
   const [activeCategoryHover, setActiveCategoryHover] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const cartContext = useCart();
+  const totalItems = cartContext?.totalItems || 0;
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -38,34 +46,51 @@ export default function Header({ onOpenAuth }: HeaderProps) {
     e.preventDefault();
     if (searchQuery.trim()) {
       router.push(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+      setMobileMenuOpen(false);
     }
   };
 
   return (
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      {/* 1. Top Bar */}
-      <div className="bg-[#242424] text-white text-xs py-1.5 px-4">
-        <div className="agri-container flex flex-wrap justify-between items-center gap-2">
+      {/* 1. Top Utility Bar */}
+      <div className="bg-[#1f2937] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4">
+        <div className="agri-container flex justify-between items-center gap-2">
           {/* Slogan & Phone */}
-          <div className="flex items-center space-x-4">
-            <span className="text-[#a0a0a0] hidden sm:inline font-medium">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <span className="text-gray-300 hidden md:inline font-medium">
               Farm Equipment | Green Care | Services
             </span>
             <div className="flex items-center space-x-1.5 text-white font-semibold">
-              <Phone className="w-3.5 h-3.5 text-[#2d7d32]" />
-              <span>Toll Free: </span>
-              <a href="tel:7393938938" className="hover:text-green-400 font-bold">7393 938 938</a>
+              <Phone className="w-3.5 h-3.5 text-[#4ade80]" />
+              <span className="hidden xs:inline">Toll Free: </span>
+              <a href="tel:7393938938" className="hover:text-green-300 font-bold transition-colors">
+                7393 938 938
+              </a>
             </div>
+          </div>
+
+          {/* Quick Right Links */}
+          <div className="flex items-center gap-3 text-[11px]">
+            <a 
+              href="/assets/brochures/corporate_brochure.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white flex items-center gap-1 transition-colors"
+            >
+              <Download className="w-3 h-3 text-yellow-400" />
+              <span className="hidden sm:inline">Corporate</span> Brochure
+            </a>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Header (Logo, Search) */}
-      <div className="py-3 px-4 bg-white border-b border-gray-100">
-        <div className="agri-container flex justify-between items-center gap-4">
-          {/* Logo with 30-Second Periodic Spin */}
-          <Link href="/" className="flex items-center group" aria-label="Agrimart Home">
-            <div className="logo-spin-30s inline-block origin-center will-change-transform">
+      {/* 2. Main Header Bar (Logo, Desktop Search, Cart & Mobile Toggle) */}
+      <div className="py-2.5 sm:py-3 px-3 sm:px-4 bg-white border-b border-gray-100">
+        <div className="agri-container flex justify-between items-center gap-3 sm:gap-4">
+          
+          {/* Logo with Smooth Gentle Scale on Hover (Zero 3D Mirroring) */}
+          <Link href="/" className="flex items-center shrink-0 group" aria-label="Agrimart Home">
+            <div className="relative h-10 sm:h-12 w-auto flex items-center">
               <Image
                 src="/assets/branding/logo.png"
                 alt="Agrimart"
@@ -73,27 +98,27 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                 height={55}
                 priority
                 unoptimized
-                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-9 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </Link>
 
-          {/* Search bar */}
-          <div className="hidden md:flex flex-1 max-w-xl mx-6 justify-end">
+          {/* Desktop Search Bar */}
+          <div className="hidden md:flex flex-1 max-w-xl mx-4 lg:mx-8 justify-end">
             <form 
               onSubmit={handleSearchSubmit}
-              className="w-full max-w-md flex items-center border-2 border-[#2d7d32] rounded-md overflow-hidden"
+              className="w-full max-w-md flex items-center border-2 border-[#2d7d32] rounded-lg overflow-hidden shadow-2xs focus-within:ring-2 focus-within:ring-[#2d7d32]/20"
             >
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products by Name, RIPL Code, Brand..."
-                className="w-full px-4 py-2 text-sm focus:outline-none"
+                className="w-full px-3.5 py-2 text-xs sm:text-sm focus:outline-none"
               />
               <button
                 type="submit"
-                className="bg-[#2d7d32] text-white px-5 py-2 hover:bg-[#1b5e20] transition-colors cursor-pointer"
+                className="bg-[#2d7d32] text-white px-4 py-2.5 hover:bg-[#1b5e20] transition-colors cursor-pointer flex items-center justify-center shrink-0"
                 aria-label="Search products"
               >
                 <Search className="w-4 h-4" />
@@ -101,19 +126,62 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             </form>
           </div>
 
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-green-700"
-            aria-label="Toggle menu"
+          {/* Right Action Icons: Cart & Mobile Menu Toggle */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            {/* Shopping Cart Icon with Live Badge */}
+            <Link
+              href="/cart"
+              className="relative p-2 text-gray-700 hover:text-[#2d7d32] hover:bg-gray-50 rounded-xl transition-all flex items-center justify-center cursor-pointer"
+              aria-label={`Shopping Cart with ${totalItems} items`}
+              title="View Cart"
+            >
+              <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-[#2d7d32] text-white text-[10px] font-black w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                  {totalItems > 99 ? '99+' : totalItems}
+                </span>
+              )}
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-[#2d7d32] hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+        </div>
+
+        {/* Mobile Search Bar Row (Clean, dedicated & always accessible on mobile) */}
+        <div className="mt-2.5 md:hidden">
+          <form 
+            onSubmit={handleSearchSubmit}
+            className="w-full flex items-center border border-gray-300 rounded-lg overflow-hidden bg-gray-50 focus-within:bg-white focus-within:border-[#2d7d32] focus-within:ring-2 focus-within:ring-[#2d7d32]/20 transition-all"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search machinery, RIPL code, brands..."
+              className="w-full px-3 py-2 text-xs bg-transparent focus:outline-none text-gray-900 placeholder:text-gray-400"
+            />
+            <button
+              type="submit"
+              className="bg-[#2d7d32] text-white px-3.5 py-2 hover:bg-[#1b5e20] transition-colors cursor-pointer shrink-0"
+              aria-label="Search"
+            >
+              <Search className="w-3.5 h-3.5" />
+            </button>
+          </form>
         </div>
       </div>
 
-      {/* 3. Navigation Bar (Category Mega Dropdown & Nav Links) */}
-      <nav className="bg-[#2d7d32] text-white relative">
+      {/* 3. Desktop Navigation Bar (Hidden on Mobile) */}
+      <nav className="hidden md:block bg-[#2d7d32] text-white relative">
         <div className="agri-container flex justify-between items-center">
           <div className="flex items-center">
             {/* Mega Dropdown Button */}
@@ -127,6 +195,8 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             >
               <button 
                 className="bg-[#1b5e20] hover:bg-[#144718] px-5 py-3.5 flex items-center gap-2.5 font-bold text-sm tracking-wide transition-colors cursor-pointer"
+                aria-haspopup="true"
+                aria-expanded={categoryMenuOpen}
               >
                 <Menu className="w-4 h-4" />
                 <span>SHOP BY CATEGORIES</span>
@@ -202,7 +272,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center">
+            <div className="flex items-center">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -235,72 +305,105 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               rel="noopener noreferrer"
               className="text-xs bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 py-1.5 rounded transition-colors shadow-sm flex items-center gap-1.5"
             >
+              <Download className="w-3.5 h-3.5" />
               <span>Download Brochure</span>
             </a>
           </div>
         </div>
-
-        {/* Mobile Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-[#1b5e20] border-t border-green-700 px-4 py-3 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (link.href === '/products') {
-                    window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
-                  }
-                }}
-                className="block py-2 text-sm font-medium hover:text-yellow-300"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="pt-2 border-t border-green-800">
-              <Link
-                href="/products"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
-                }}
-                className="block py-2 text-sm font-bold text-yellow-300"
-              >
-                Browse All Product Categories →
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
 
-      {/* 30-Second Periodic Logo Spin Animation */}
-      <style jsx>{`
-        @keyframes logoPeriodicSpin {
-          0% {
-            transform: perspective(800px) rotateY(0deg);
-          }
-          /* Spins 360 degrees smoothly in 1.4 seconds (4.67% of 30s) */
-          4.67% {
-            transform: perspective(800px) rotateY(360deg);
-          }
-          /* Stays still and upright for the rest of the 30-second cycle */
-          100% {
-            transform: perspective(800px) rotateY(360deg);
-          }
-        }
+      {/* 4. Complete Mobile Navigation Drawer (Smooth, Rich, Touch-Friendly) */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#1b5e20] text-white border-t border-green-700/80 px-4 py-3 shadow-2xl max-h-[80vh] overflow-y-auto">
+          {/* Main Page Links */}
+          <div className="space-y-1 mb-3">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (link.href === '/products') {
+                      window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
+                    }
+                  }}
+                  className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-bold transition-colors ${
+                    isActive 
+                      ? 'bg-white/15 text-yellow-300' 
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  <ChevronRight className="w-4 h-4 opacity-70" />
+                </Link>
+              );
+            })}
+          </div>
 
-        .logo-spin-30s {
-          display: inline-block;
-          transform-style: preserve-3d;
-          backface-visibility: visible;
-          animation: logoPeriodicSpin 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
+          {/* Mobile Accordion for "Shop by Categories" */}
+          <div className="border-t border-green-700/80 pt-2 mb-3">
+            <button
+              type="button"
+              onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
+              className="w-full flex items-center justify-between py-2 px-3 rounded-lg text-sm font-black text-yellow-300 hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Layers className="w-4 h-4" />
+                <span>Shop by Categories</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileCategoriesOpen ? 'rotate-180' : ''}`} />
+            </button>
 
-        .logo-spin-30s:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+            {mobileCategoriesOpen && (
+              <div className="mt-1.5 pl-3 pr-1 py-1 space-y-0.5 bg-black/20 rounded-lg max-h-60 overflow-y-auto">
+                <Link
+                  href="/products"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
+                  }}
+                  className="block py-1.5 px-2 text-xs font-bold text-yellow-200 hover:text-white"
+                >
+                  ★ Browse All 227 Products →
+                </Link>
+                {categoriesData.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={`/products?category=${encodeURIComponent(cat.name)}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1.5 px-2 text-xs text-gray-200 hover:text-white hover:bg-white/10 rounded truncate"
+                  >
+                    {cat.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Action CTAs in Mobile Menu */}
+          <div className="border-t border-green-700/80 pt-3 space-y-2">
+            <a
+              href="/assets/brochures/corporate_brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 px-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-extrabold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download Corporate Brochure (PDF)</span>
+            </a>
+
+            <a
+              href="tel:7393938938"
+              className="w-full py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 border border-white/20"
+            >
+              <Phone className="w-4 h-4 text-[#4ade80]" />
+              <span>Call Toll Free: 7393 938 938</span>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

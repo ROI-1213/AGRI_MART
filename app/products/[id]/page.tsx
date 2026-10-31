@@ -49,19 +49,19 @@ export default function ProductDetailPage() {
     <div className="bg-[#f8fafc] min-h-screen py-8">
       <div className="agri-container">
         {/* Breadcrumb */}
-        <div className="text-xs text-gray-500 mb-6 flex items-center space-x-1.5 flex-wrap">
-          <Link href="/" className="hover:text-green-700">Home</Link>
+        <div className="text-xs text-gray-500 mb-4 sm:mb-6 flex items-center space-x-1.5 overflow-x-auto whitespace-nowrap no-scrollbar py-0.5">
+          <Link href="/" className="hover:text-green-700 shrink-0">Home</Link>
           <span>/</span>
-          <Link href="/products" className="hover:text-green-700">Products</Link>
+          <Link href="/products" className="hover:text-green-700 shrink-0">Products</Link>
           <span>/</span>
           <Link 
             href={`/products?category=${encodeURIComponent(product.category)}`}
-            className="hover:text-green-700"
+            className="hover:text-green-700 shrink-0"
           >
             {product.category}
           </Link>
           <span>/</span>
-          <span className="text-gray-900 font-semibold truncate max-w-xs">{product.name}</span>
+          <span className="text-gray-900 font-semibold truncate max-w-xs shrink-0">{product.name}</span>
         </div>
 
         {/* Product Details Main Card */}
@@ -190,19 +190,19 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Government Subsidy Trigger Banner */}
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3.5 flex items-center justify-between gap-3">
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <h4 className="text-xs font-bold text-amber-900 flex items-center gap-1.5">
-                      <FileCheck2 className="w-4 h-4 text-amber-600" />
-                      Govt. Subsidy Scheme Available
+                      <FileCheck2 className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>Govt. Subsidy Scheme Available</span>
                     </h4>
                     <p className="text-[11px] text-amber-700 mt-0.5">
-                      Eligible for state & central farm mechanization subsidies up to 50%.
+                      Eligible for state &amp; central farm mechanization subsidies up to 50%.
                     </p>
                   </div>
                   <button
                     onClick={() => setSubsidyModalOpen(true)}
-                    className="shrink-0 text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded transition-colors"
+                    className="w-full sm:w-auto shrink-0 text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded transition-colors text-center cursor-pointer"
                   >
                     Apply Now
                   </button>

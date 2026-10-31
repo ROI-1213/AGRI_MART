@@ -117,7 +117,7 @@ export default function HomePage() {
     <div className="w-full bg-white">
       {/* 1. Hero Banner Carousel: Formal High-Definition Agrimart Showcase */}
       <section className="relative w-full bg-[#f8faf8] overflow-hidden border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto relative aspect-[1024/341] w-full">
+        <div className="max-w-[1440px] mx-auto relative aspect-[16/9] sm:aspect-[1024/400] md:aspect-[1024/341] min-h-[190px] sm:min-h-[260px] w-full">
           {heroBanners.map((banner, idx) => {
             const isVisible = idx === currentSlide;
             return (
@@ -183,8 +183,8 @@ export default function HomePage() {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  idx === currentSlide ? 'w-7 sm:w-8 bg-[#0a692d]' : 'w-2 bg-gray-400/80 hover:bg-gray-600'
+                className={`h-1.5 sm:h-2 rounded-full transition-all cursor-pointer ${
+                  idx === currentSlide ? 'w-6 sm:w-8 bg-[#0a692d]' : 'w-2 bg-gray-400/80 hover:bg-gray-600'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -240,12 +240,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Circular Next Arrow Floating Button (Exact like Image 2) */}
+            {/* Circular Next Arrow Floating Button (Desktop) */}
             {totalBrushCutterPages > 1 && (
               <button
                 type="button"
                 onClick={() => setBrushCuttersPage((p) => (p + 1) % totalBrushCutterPages)}
-                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Next Products"
                 aria-label="Next Products"
               >
@@ -253,17 +253,42 @@ export default function HomePage() {
               </button>
             )}
 
-            {/* Circular Prev Arrow Floating Button */}
+            {/* Circular Prev Arrow Floating Button (Desktop) */}
             {brushCuttersPage > 0 && (
               <button
                 type="button"
                 onClick={() => setBrushCuttersPage((p) => Math.max(0, p - 1))}
-                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Previous Products"
                 aria-label="Previous Products"
               >
                 <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
               </button>
+            )}
+
+            {/* Mobile Pagination Controls */}
+            {totalBrushCutterPages > 1 && (
+              <div className="sm:hidden flex items-center justify-between mt-4 px-1">
+                <button
+                  type="button"
+                  disabled={brushCuttersPage === 0}
+                  onClick={() => setBrushCuttersPage((p) => Math.max(0, p - 1))}
+                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
+                >
+                  ← Prev
+                </button>
+                <span className="text-xs font-semibold text-gray-500">
+                  Page {brushCuttersPage + 1} of {totalBrushCutterPages}
+                </span>
+                <button
+                  type="button"
+                  disabled={brushCuttersPage >= totalBrushCutterPages - 1}
+                  onClick={() => setBrushCuttersPage((p) => Math.min(totalBrushCutterPages - 1, p + 1))}
+                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
+                >
+                  Next →
+                </button>
+              </div>
             )}
           </div>
 
@@ -428,12 +453,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Circular Next Arrow Floating Button (Exact like Image 2) */}
+            {/* Circular Next Arrow Floating Button (Desktop) */}
             {totalSprayerPages > 1 && (
               <button
                 type="button"
                 onClick={() => setSprayersPage((p) => (p + 1) % totalSprayerPages)}
-                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Next Sprayers"
                 aria-label="Next Sprayers"
               >
@@ -441,17 +466,42 @@ export default function HomePage() {
               </button>
             )}
 
-            {/* Circular Prev Arrow Floating Button */}
+            {/* Circular Prev Arrow Floating Button (Desktop) */}
             {sprayersPage > 0 && (
               <button
                 type="button"
                 onClick={() => setSprayersPage((p) => Math.max(0, p - 1))}
-                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Previous Sprayers"
                 aria-label="Previous Sprayers"
               >
                 <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
               </button>
+            )}
+
+            {/* Mobile Pagination Controls */}
+            {totalSprayerPages > 1 && (
+              <div className="sm:hidden flex items-center justify-between mt-4 px-1">
+                <button
+                  type="button"
+                  disabled={sprayersPage === 0}
+                  onClick={() => setSprayersPage((p) => Math.max(0, p - 1))}
+                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
+                >
+                  ← Prev
+                </button>
+                <span className="text-xs font-semibold text-gray-500">
+                  Page {sprayersPage + 1} of {totalSprayerPages}
+                </span>
+                <button
+                  type="button"
+                  disabled={sprayersPage >= totalSprayerPages - 1}
+                  onClick={() => setSprayersPage((p) => Math.min(totalSprayerPages - 1, p + 1))}
+                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
+                >
+                  Next →
+                </button>
+              </div>
             )}
           </div>
 

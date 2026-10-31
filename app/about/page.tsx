@@ -8,42 +8,10 @@ export default function AboutPage() {
     <div className="bg-white min-h-screen py-10">
       <div className="agri-container">
         {/* Breadcrumb */}
-        <div className="text-xs text-gray-500 mb-4 flex items-center space-x-1.5">
+        <div className="text-xs text-gray-500 mb-6 flex items-center space-x-1.5">
           <Link href="/" className="hover:text-green-700">Home</Link>
           <span>/</span>
           <span className="text-gray-900 font-semibold">About Us</span>
-        </div>
-
-        {/* Hero Banner Created Using Website's Agricultural Machinery Products */}
-        <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-12 shadow-sm border border-gray-200">
-          <div className="relative w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[440px]">
-            <Image
-              src="/assets/banners/about_hero_banner_hd.png"
-              alt="Ratnagiri Impex & Agrimart Agricultural Machinery Fleet"
-              fill
-              priority
-              className="object-cover object-right md:object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/60 to-transparent flex items-center">
-              <div className="max-w-xl p-6 sm:p-10 lg:p-12 text-white">
-                <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 backdrop-blur-xs">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Estd. 2000 • Over 2 Decades of Excellence</span>
-                </div>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-3">
-                  Empowering Farmers Across India
-                </h1>
-                <p className="text-xs sm:text-sm lg:text-base text-gray-200 leading-relaxed font-normal mb-5 max-w-lg">
-                  Supplying premier farm machinery, power weeders, sprayers, and specialized crop implements with complete after-sales nationwide support.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs font-semibold text-emerald-100">
-                  <span className="bg-white/10 backdrop-blur-xs px-3 py-1 rounded-lg border border-white/10">750+ Service Centers</span>
-                  <span className="bg-white/10 backdrop-blur-xs px-3 py-1 rounded-lg border border-white/10">ICAR & FMTTI Tested</span>
-                  <span className="bg-white/10 backdrop-blur-xs px-3 py-1 rounded-lg border border-white/10">Govt. Subsidy Registered</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Section 1: Welcome to Ratnagiri Impex */}

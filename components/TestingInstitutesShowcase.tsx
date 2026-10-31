@@ -138,13 +138,13 @@ export default function TestingInstitutesShowcase() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-3 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
               <span>Institutional Validation</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
               Tested &amp; Approved by Premier Agricultural Universities &amp; FM&amp;TTI Institutes
             </h2>
             <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl leading-relaxed">
@@ -173,8 +173,8 @@ export default function TestingInstitutesShowcase() {
           </div>
         </div>
 
-        {/* Carousel Container Displaying 3 Cards at Once in Seamless 1-by-1 Motion */}
-        <div className="relative overflow-hidden px-2 py-2">
+        {/* Carousel Container Displaying Cards in Seamless Motion */}
+        <div className="relative overflow-hidden px-1 sm:px-2 py-2">
           {/* Sliding Track */}
           <div 
             className="flex"
@@ -186,29 +186,29 @@ export default function TestingInstitutesShowcase() {
             {carouselItems.map((inst, index) => (
               <div
                 key={`${inst.id}-${index}`}
-                className="shrink-0 px-2 sm:px-3"
+                className="shrink-0 px-1.5 sm:px-3"
                 style={{
                   width: `${100 / itemsVisible}%`,
                 }}
               >
                 <div
-                  className="group relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl bg-white border-2 border-gray-200/80 hover:border-emerald-600 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center p-6 cursor-pointer"
+                  className="group relative aspect-[4/3] sm:aspect-[16/9] rounded-2xl bg-white border-2 border-gray-200/80 hover:border-emerald-600 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center p-3 sm:p-6 cursor-pointer"
                   title={inst.name}
                 >
                   {/* Clean Centered Logo Image */}
-                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative w-28 h-28 sm:w-44 sm:h-44 md:w-48 md:h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     <Image
                       src={inst.logo}
                       alt={`${inst.code} Logo`}
                       fill
-                      sizes="(max-width: 768px) 160px, 200px"
+                      sizes="(max-width: 640px) 120px, (max-width: 1024px) 180px, 200px"
                       className="object-contain"
                       quality={100}
                     />
                   </div>
 
                   {/* Institute Code Label */}
-                  <span className="text-sm sm:text-base md:text-lg font-extrabold text-gray-800 mt-2 text-center group-hover:text-emerald-700 transition-colors tracking-wide uppercase">
+                  <span className="text-xs sm:text-base md:text-lg font-extrabold text-gray-800 mt-2 text-center group-hover:text-emerald-700 transition-colors tracking-wide uppercase">
                     {inst.code}
                   </span>
                 </div>
@@ -220,22 +220,22 @@ export default function TestingInstitutesShowcase() {
           <button
             type="button"
             onClick={handleNext}
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-800 hover:text-emerald-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-800 hover:text-emerald-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
             title="Next Institution"
             aria-label="Next Institution"
           >
-            <ArrowRight className="w-5 h-5 stroke-[2.2]" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
           </button>
 
           {/* Floating Circular Prev Arrow Button on Left Edge */}
           <button
             type="button"
             onClick={handlePrev}
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-800 hover:text-emerald-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 flex items-center justify-center text-gray-800 hover:text-emerald-700 hover:scale-110 active:scale-95 transition-all cursor-pointer"
             title="Previous Institution"
             aria-label="Previous Institution"
           >
-            <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
           </button>
         </div>
       </div>

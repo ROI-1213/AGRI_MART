@@ -34,16 +34,28 @@ export default function HomePage() {
   const heroBanners = [
     {
       id: 1,
-      image: '/assets/banners/hero_trusted_farmers_ultrahd.png',
-      alt: 'Trusted by Farmers Across India — 20 Years of Agricultural Excellence | Agrimart',
-      buttonStyle: { left: '6.35%', top: '75.1%', width: '15.33%', height: '8.8%' }
+      image: '/assets/banners/hero_agrimate_hd.png',
+      alt: 'AGRIMATE — Reliable Farm Equipment for a Better Tomorrow | Agrimart',
+      link: '/products?brand=AGRIMATE',
     },
     {
       id: 2,
-      image: '/assets/banners/hero_reliable_equipment_ultrahd.png',
-      alt: 'Reliable Farm Equipment for a Better Tomorrow — Supporting Farmers Across India | Agrimart',
-      buttonStyle: { left: '5.86%', top: '70.1%', width: '13.38%', height: '9.68%' }
-    }
+      image: '/assets/banners/hero_kasei_hd.png',
+      alt: 'KASEI — Advanced Technology Powerful Performance | Agrimart',
+      link: '/products?brand=KASEI',
+    },
+    {
+      id: 3,
+      image: '/assets/banners/hero_oleomac_hd.png',
+      alt: 'OLEO-MAC — Italian Design & Engineering to meet Indian Fields | Agrimart',
+      link: '/products?brand=OLEO-MAC',
+    },
+    {
+      id: 4,
+      image: '/assets/banners/hero_dealer_partner_hd.png',
+      alt: 'Become a Dealer Today — Ratnagiri Impex & Agrimart Authorised Dealer | Elevate your Future',
+      link: '/become-a-partner',
+    },
   ];
 
   const promoBanners = [
@@ -110,7 +122,7 @@ export default function HomePage() {
     <div className="w-full bg-white">
       {/* 1. Hero Banner Carousel: Formal High-Definition Agrimart Showcase */}
       <section className="relative w-full bg-[#f8faf8] overflow-hidden border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto relative aspect-[16/9] sm:aspect-[1024/400] md:aspect-[1024/341] min-h-[190px] sm:min-h-[260px] w-full">
+        <div className="max-w-[1440px] mx-auto relative aspect-[3/1] min-h-[120px] sm:min-h-[220px] md:min-h-[280px] w-full">
           {heroBanners.map((banner, idx) => {
             const isVisible = idx === currentSlide;
             return (
@@ -122,7 +134,7 @@ export default function HomePage() {
               >
                 {/* Formal Pristine Ultra-HD Banner Artwork */}
                 <Link
-                  href="/products"
+                  href={banner.link}
                   className="block relative w-full h-full cursor-pointer select-none"
                   aria-label={banner.alt}
                 >
@@ -132,23 +144,11 @@ export default function HomePage() {
                     fill
                     priority={idx === 0}
                     loading={idx === 0 ? 'eager' : 'lazy'}
-                    sizes="(max-width: 1440px) 100vw, 1440px"
-                    className="object-cover object-center pointer-events-none select-none"
+                    unoptimized
                     quality={100}
+                    sizes="(max-width: 1440px) 100vw, 1440px"
+                    className="object-contain object-center pointer-events-none select-none"
                   />
-                </Link>
-
-                {/* Interactive Working "Explore Products" Button Overlay */}
-                <Link
-                  href="/products"
-                  className="absolute z-20 rounded-[3px] sm:rounded-[5px] transition-all duration-200 cursor-pointer overflow-hidden group focus:outline-none focus:ring-2 focus:ring-[#0a692d]"
-                  style={banner.buttonStyle}
-                  aria-label="Explore Products"
-                  title="Explore Products"
-                >
-                  {/* Subtle interactive hover highlight & glow ring */}
-                  <span className="absolute inset-0 bg-white/0 group-hover:bg-white/20 group-active:bg-black/15 transition-colors duration-200 rounded-[4px]" />
-                  <span className="absolute inset-0 rounded-[4px] ring-0 group-hover:ring-2 group-hover:ring-white/60 transition-all duration-200 shadow-sm group-hover:shadow-md" />
                 </Link>
               </div>
             );

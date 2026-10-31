@@ -29,8 +29,8 @@ const BRANDS: BrandItem[] = [
     tagline: 'High-Performance Power Equipment',
     href: '/products?brand=KASEI',
     logo: '/assets/brands/partner_strip/kasei_hd.png',
-    width: 740,
-    height: 229,
+    width: 800,
+    height: 225,
     customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
   },
   {

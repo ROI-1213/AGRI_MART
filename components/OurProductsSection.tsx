@@ -199,19 +199,8 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 {/* Visual Glow Spotlight on Hover */}
                 <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
-                {/* Top Row: Badge & Wishlist Heart */}
-                <div className="relative z-10 flex items-center justify-between mb-2">
-                  <span 
-                    className={`inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-2xs ${
-                      product.isFlagship
-                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white'
-                        : 'bg-[#15803d] text-white'
-                    }`}
-                  >
-                    {product.isFlagship ? <Sparkles className="w-2.5 h-2.5 text-yellow-200 fill-yellow-200" /> : <ShieldCheck className="w-2.5 h-2.5 text-emerald-200" />}
-                    <span>{product.badge}</span>
-                  </span>
-
+                {/* Top Row: Wishlist Heart */}
+                <div className="relative z-10 flex items-center justify-end mb-2">
                   <button
                     type="button"
                     onClick={(e) => toggleWishlist(e, product.id)}

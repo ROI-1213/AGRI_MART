@@ -118,9 +118,10 @@ export default function ProductCard({
                 alt={product.name}
                 fill
                 unoptimized
+                quality={100}
                 loading="lazy"
                 onError={handleImageError}
-                sizes="(max-width: 640px) 130px, 160px"
+                sizes="(max-width: 640px) 260px, 320px"
                 className="object-contain p-1 group-hover:scale-105 transition-transform duration-200"
               />
             </Link>
@@ -191,9 +192,10 @@ export default function ProductCard({
                 alt={product.name}
                 fill
                 unoptimized
+                quality={100}
                 loading="lazy"
                 onError={handleImageError}
-                sizes="(max-width: 640px) 160px, (max-width: 1024px) 220px, 260px"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
                 className="object-contain p-1 group-hover:scale-105 transition-transform duration-200"
               />
             </Link>

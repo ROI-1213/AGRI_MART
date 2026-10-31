@@ -155,6 +155,8 @@ export default function ProductDetailPage() {
                   fill
                   priority
                   unoptimized
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 650px"
                   onError={() => setSelectedImage('/assets/branding/logo.png')}
                   className="object-contain p-1 transition-all duration-300"
                 />

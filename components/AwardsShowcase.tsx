@@ -16,43 +16,43 @@ export const AWARDS: AwardItem[] = [
     id: 1,
     title: 'Lifetime Achievement to our CMD by Franchise India',
     organization: 'Franchise India',
-    image: '/assets/awards/clean_cards/award_card_1.png',
+    image: '/assets/awards/clean_cards/award_card_1_hd.png',
   },
   {
     id: 2,
     title: 'Agri Business of the Year 2011',
     organization: 'Annual Agri Excellence',
-    image: '/assets/awards/clean_cards/award_card_2.png',
+    image: '/assets/awards/clean_cards/award_card_2_hd.png',
   },
   {
     id: 3,
     title: 'Best Innovative Retail Concept for Agriculture Equipments & Sprayers - TOI',
     organization: 'Times of India',
-    image: '/assets/awards/clean_cards/award_card_3.png',
+    image: '/assets/awards/clean_cards/award_card_3_hd.png',
   },
   {
     id: 4,
     title: 'ET Business Excellence 2019',
     organization: 'The Economic Times',
-    image: '/assets/awards/clean_cards/award_card_4.png',
+    image: '/assets/awards/clean_cards/award_card_4_hd.png',
   },
   {
     id: 5,
     title: 'Innovative Retail Concept - CMO Asia',
     organization: 'CMO Asia',
-    image: '/assets/awards/clean_cards/award_card_5.png',
+    image: '/assets/awards/clean_cards/award_card_5_hd.png',
   },
   {
     id: 6,
     title: 'Retail Excellence under Rural Impact & CSR Category Asia - ET Now',
     organization: 'ET Now',
-    image: '/assets/awards/clean_cards/award_card_6.png',
+    image: '/assets/awards/clean_cards/award_card_6_hd.png',
   },
   {
     id: 7,
     title: 'Top 100 Franchise Opportunities by Franchise World',
     organization: 'Franchise World',
-    image: '/assets/awards/clean_cards/award_card_7.png',
+    image: '/assets/awards/clean_cards/award_card_7_hd.png',
   },
 ];
 
@@ -125,7 +125,8 @@ export default function AwardsShowcase() {
                   alt={award.title}
                   fill
                   unoptimized
-                  sizes="(max-width: 640px) 210px, (max-width: 1024px) 240px, 260px"
+                  quality={100}
+                  sizes="(max-width: 640px) 420px, (max-width: 1024px) 480px, 520px"
                   className="object-contain drop-shadow-2xs group-hover/card:scale-102 transition-transform duration-300"
                 />
               </div>

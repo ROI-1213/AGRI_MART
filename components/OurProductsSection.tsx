@@ -35,7 +35,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     brand: 'AGRIMATE',
     category: 'POWER WEEDER & TILLERS',
     keyFeature: '12 HP Commercial Diesel • 4WD Traction • Steering & Seat',
-    image: '/assets/products/ripl038524/img_1.jpg',
+    image: '/assets/products/ripl038524/img_1_hd.jpg',
     badge: '★ Flagship 4WD Tractor',
     isFlagship: true,
   },
@@ -226,8 +226,9 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                       alt={product.name}
                       fill
                       unoptimized
+                      quality={100}
                       loading="lazy"
-                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 220px, 280px"
+                      sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
                       className="object-contain p-1 transition-all duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 drop-shadow-sm group-hover:drop-shadow-xl"
                     />
                   </div>

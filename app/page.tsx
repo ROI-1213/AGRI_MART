@@ -17,6 +17,7 @@ import TrustedBrandsShowcase from '@/components/TrustedBrandsShowcase';
 import TopPicksShowcase from '@/components/TopPicksShowcase';
 import TestingInstitutesShowcase from '@/components/TestingInstitutesShowcase';
 import OurProductsSection from '@/components/OurProductsSection';
+import AwardsShowcase from '@/components/AwardsShowcase';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
 import { Product } from '@/types';
@@ -307,23 +308,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Awards & Recognition Section (Complete All 7 Awards Showcase) */}
-      <section className="relative w-full bg-[#f4f7f4] border-t border-b border-gray-200 overflow-hidden py-2 sm:py-4">
-        <div className="w-full max-w-[1536px] mx-auto px-2 sm:px-4">
-          <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-xs">
-            <Image
-              src="/assets/awards/awards_showcase_all7_hd.png"
-              alt="Agrimart Awards — Recognition for our commitment to a stronger, greener tomorrow (All 7 Awards)"
-              width={3072}
-              height={1024}
-              sizes="(max-width: 1536px) 100vw, 1536px"
-              className="w-full h-auto object-contain select-none pointer-events-none block"
-              quality={100}
-              priority
-            />
-          </div>
-        </div>
-      </section>
+      {/* 6. Awards & Recognition Showcase (Clean Background with Continuous Smooth Sliding) */}
+      <AwardsShowcase />
 
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}
       <TestingInstitutesShowcase />

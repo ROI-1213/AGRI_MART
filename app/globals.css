@@ -200,3 +200,24 @@ p, span, div, a, button, input, textarea, select, label {
   animation: nameFade 0.35s ease-out forwards;
 }
 
+@keyframes continuousSlide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-awards-slide {
+  display: flex;
+  width: max-content;
+  animation: continuousSlide 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-awards-slide:hover,
+.animate-awards-slide:focus-within {
+  animation-play-state: paused;
+}
+

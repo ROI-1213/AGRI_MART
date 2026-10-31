@@ -10,10 +10,8 @@ import {
   Truck,
   Wrench,
   FileCheck2,
-  ArrowRight,
-  ArrowLeft
+  ArrowRight
 } from 'lucide-react';
-import ProductCard from '@/components/ProductCard';
 import ShopByCategory from '@/components/ShopByCategory';
 import TrustedBrandsShowcase from '@/components/TrustedBrandsShowcase';
 import TopPicksShowcase from '@/components/TopPicksShowcase';
@@ -21,8 +19,6 @@ import TestingInstitutesShowcase from '@/components/TestingInstitutesShowcase';
 import OurProductsSection from '@/components/OurProductsSection';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
-import productsData from '@/data/import/products.json';
-import categoriesData from '@/data/import/categories.json';
 import { Product } from '@/types';
 
 export default function HomePage() {
@@ -98,19 +94,6 @@ export default function HomePage() {
     }, 2500);
     return () => clearInterval(timer);
   }, [isPromoPaused, promoBanners.length]);
-
-  const allProducts = productsData as unknown as Product[];
-  const allBrushCutters = allProducts.filter((p) => p.category === 'BRUSH CUTTER - WEED CUTTER');
-  const allSprayers = allProducts.filter((p) => p.category === 'SPRAYER');
-
-  const [brushCuttersPage, setBrushCuttersPage] = useState(0);
-  const [sprayersPage, setSprayersPage] = useState(0);
-
-  const totalBrushCutterPages = Math.ceil(allBrushCutters.length / 6);
-  const visibleBrushCutters = allBrushCutters.slice(brushCuttersPage * 6, (brushCuttersPage + 1) * 6);
-
-  const totalSprayerPages = Math.ceil(allSprayers.length / 6);
-  const visibleSprayers = allSprayers.slice(sprayersPage * 6, (sprayersPage + 1) * 6);
 
   const handleOpenSubsidy = (product: Product) => {
     setSelectedSubsidyProduct(product);
@@ -214,110 +197,7 @@ export default function HomePage() {
       {/* 5. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
       <OurProductsSection onOpenQuote={handleOpenQuote} />
 
-      {/* 5. Category Section 1: Brush Cutters & Weed Cutters */}
-      <section className="py-12 bg-white">
-        <div className="agri-container">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 border-b border-gray-100 pb-5">
-            <div>
-              <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
-                <span>Crop Harvesting & Weeding</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                Brush Cutters & Weed Cutters
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                Heavy-duty 2-stroke, 4-stroke, and backpack brush cutters engineered for tough field conditions.
-              </p>
-            </div>
-            <Link
-              href="/products?category=BRUSH+CUTTER+-+WEED+CUTTER"
-              className="text-xs sm:text-sm font-bold text-[#2d7d32] hover:text-[#1b5e20] flex items-center gap-1 shrink-0 group hover:underline"
-            >
-              <span>View All Brush Cutters ({allBrushCutters.length})</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </div>
-
-          {/* 3x2 Grid with Floating Carousel Next Button (Matching Reference Image 2) */}
-          <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-              {visibleBrushCutters.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  layout="horizontal"
-                  onOpenSubsidy={handleOpenSubsidy}
-                />
-              ))}
-            </div>
-
-            {/* Circular Next Arrow Floating Button (Desktop) */}
-            {totalBrushCutterPages > 1 && (
-              <button
-                type="button"
-                onClick={() => setBrushCuttersPage((p) => (p + 1) % totalBrushCutterPages)}
-                className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                title="Next Products"
-                aria-label="Next Products"
-              >
-                <ArrowRight className="w-5 h-5 stroke-[2.2]" />
-              </button>
-            )}
-
-            {/* Circular Prev Arrow Floating Button (Desktop) */}
-            {brushCuttersPage > 0 && (
-              <button
-                type="button"
-                onClick={() => setBrushCuttersPage((p) => Math.max(0, p - 1))}
-                className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                title="Previous Products"
-                aria-label="Previous Products"
-              >
-                <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
-              </button>
-            )}
-
-            {/* Mobile Pagination Controls */}
-            {totalBrushCutterPages > 1 && (
-              <div className="sm:hidden flex items-center justify-between mt-4 px-1">
-                <button
-                  type="button"
-                  disabled={brushCuttersPage === 0}
-                  onClick={() => setBrushCuttersPage((p) => Math.max(0, p - 1))}
-                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
-                >
-                  ← Prev
-                </button>
-                <span className="text-xs font-semibold text-gray-500">
-                  Page {brushCuttersPage + 1} of {totalBrushCutterPages}
-                </span>
-                <button
-                  type="button"
-                  disabled={brushCuttersPage >= totalBrushCutterPages - 1}
-                  onClick={() => setBrushCuttersPage((p) => Math.min(totalBrushCutterPages - 1, p + 1))}
-                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
-                >
-                  Next →
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Primary View All Products Button */}
-          <div className="mt-8 sm:mt-10 flex justify-center">
-            <Link
-              href="/products?category=BRUSH+CUTTER+-+WEED+CUTTER"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-98 group cursor-pointer"
-            >
-              <span>See All Brush Cutters &amp; Weed Cutters ({allBrushCutters.length})</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Dynamic Promotional Showcase Banner: Agrimart Growth & Opportunities (Directly Below Brush Cutters & Weed Cutters) */}
+      {/* 5. Dynamic Promotional Showcase Banner: Agrimart Growth & Opportunities */}
       <section className="py-6 bg-gradient-to-b from-[#f8fafc] to-white border-t border-b border-gray-200">
         <div className="agri-container">
           {/* Section Category Header & Tab Controls */}
@@ -427,110 +307,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Category Section 2: Agricultural Sprayers & Mist Blowers */}
-      <section className="py-12 bg-white">
-        <div className="agri-container">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 border-b border-gray-100 pb-5">
-            <div>
-              <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
-                <span>Plant Protection & Pest Control</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                Agricultural Sprayers & Foggers
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                Battery sprayers, diaphragm pumps, fog sprayers, and HTP engines for precision crop nourishment.
-              </p>
-            </div>
-            <Link
-              href="/products?category=SPRAYER"
-              className="text-xs sm:text-sm font-bold text-[#2d7d32] hover:text-[#1b5e20] flex items-center gap-1 shrink-0 group hover:underline"
-            >
-              <span>View All Sprayers ({allSprayers.length})</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </div>
-
-          {/* 3x2 Grid with Floating Carousel Next Button (Matching Reference Image 2) */}
-          <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-              {visibleSprayers.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  layout="horizontal"
-                  onOpenSubsidy={handleOpenSubsidy}
-                />
-              ))}
-            </div>
-
-            {/* Circular Next Arrow Floating Button (Desktop) */}
-            {totalSprayerPages > 1 && (
-              <button
-                type="button"
-                onClick={() => setSprayersPage((p) => (p + 1) % totalSprayerPages)}
-                className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                title="Next Sprayers"
-                aria-label="Next Sprayers"
-              >
-                <ArrowRight className="w-5 h-5 stroke-[2.2]" />
-              </button>
-            )}
-
-            {/* Circular Prev Arrow Floating Button (Desktop) */}
-            {sprayersPage > 0 && (
-              <button
-                type="button"
-                onClick={() => setSprayersPage((p) => Math.max(0, p - 1))}
-                className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-xl border border-gray-200/90 items-center justify-center text-gray-700 hover:text-[#2d7d32] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                title="Previous Sprayers"
-                aria-label="Previous Sprayers"
-              >
-                <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
-              </button>
-            )}
-
-            {/* Mobile Pagination Controls */}
-            {totalSprayerPages > 1 && (
-              <div className="sm:hidden flex items-center justify-between mt-4 px-1">
-                <button
-                  type="button"
-                  disabled={sprayersPage === 0}
-                  onClick={() => setSprayersPage((p) => Math.max(0, p - 1))}
-                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
-                >
-                  ← Prev
-                </button>
-                <span className="text-xs font-semibold text-gray-500">
-                  Page {sprayersPage + 1} of {totalSprayerPages}
-                </span>
-                <button
-                  type="button"
-                  disabled={sprayersPage >= totalSprayerPages - 1}
-                  onClick={() => setSprayersPage((p) => Math.min(totalSprayerPages - 1, p + 1))}
-                  className="px-3.5 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 disabled:opacity-30 disabled:pointer-events-none bg-white shadow-2xs active:bg-gray-100"
-                >
-                  Next →
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Primary View All Sprayers Button */}
-          <div className="mt-8 sm:mt-10 flex justify-center">
-            <Link
-              href="/products?category=SPRAYER"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-98 group cursor-pointer"
-            >
-              <span>See All Sprayers &amp; Foggers ({allSprayers.length})</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. Awards & Recognition Section (Complete All 7 Awards Showcase) */}
+      {/* 6. Awards & Recognition Section (Complete All 7 Awards Showcase) */}
       <section className="relative w-full bg-[#f4f7f4] border-t border-b border-gray-200 overflow-hidden py-2 sm:py-4">
         <div className="w-full max-w-[1536px] mx-auto px-2 sm:px-4">
           <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-xs">

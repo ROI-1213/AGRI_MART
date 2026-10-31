@@ -16,43 +16,43 @@ export const AWARDS: AwardItem[] = [
     id: 1,
     title: 'Lifetime Achievement to our CMD by Franchise India',
     organization: 'Franchise India',
-    image: '/assets/awards/clean_cards/award_card_1_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_1_rgba.png',
   },
   {
     id: 2,
     title: 'Agri Business of the Year 2011',
     organization: 'Annual Agri Excellence',
-    image: '/assets/awards/clean_cards/award_card_2_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_2_rgba.png',
   },
   {
     id: 3,
     title: 'Best Innovative Retail Concept for Agriculture Equipments & Sprayers - TOI',
     organization: 'Times of India',
-    image: '/assets/awards/clean_cards/award_card_3_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_3_rgba.png',
   },
   {
     id: 4,
     title: 'ET Business Excellence 2019',
     organization: 'The Economic Times',
-    image: '/assets/awards/clean_cards/award_card_4_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_4_rgba.png',
   },
   {
     id: 5,
     title: 'Innovative Retail Concept - CMO Asia',
     organization: 'CMO Asia',
-    image: '/assets/awards/clean_cards/award_card_5_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_5_rgba.png',
   },
   {
     id: 6,
     title: 'Retail Excellence under Rural Impact & CSR Category Asia - ET Now',
     organization: 'ET Now',
-    image: '/assets/awards/clean_cards/award_card_6_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_6_rgba.png',
   },
   {
     id: 7,
     title: 'Top 100 Franchise Opportunities by Franchise World',
     organization: 'Franchise World',
-    image: '/assets/awards/clean_cards/award_card_7_hd.png',
+    image: '/assets/awards/hd_trophies/trophy_7_rgba.png',
   },
 ];
 
@@ -112,23 +112,38 @@ export default function AwardsShowcase() {
           {slidingAwards.map((award, idx) => (
             <div
               key={`${award.id}-${idx}`}
-              className="relative shrink-0 w-[210px] sm:w-[240px] md:w-[260px] aspect-[370/446] rounded-2xl bg-white border border-gray-200/90 shadow-xs hover:shadow-xl hover:border-amber-400/90 transition-all duration-300 hover:-translate-y-2 p-2 sm:p-2.5 flex items-center justify-center cursor-pointer group/card overflow-hidden"
+              className="relative shrink-0 w-[240px] sm:w-[260px] md:w-[280px] h-[370px] sm:h-[400px] rounded-2xl bg-white border border-gray-200/90 shadow-xs hover:shadow-xl hover:border-amber-400/90 transition-all duration-300 hover:-translate-y-2 p-4 sm:p-5 flex flex-col items-center justify-between cursor-pointer group/card overflow-hidden"
               title={award.title}
             >
               {/* Subtle Ambient Radial Highlight on Hover */}
               <div className="absolute inset-0 bg-radial from-amber-400/10 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
 
-              {/* Award Card Image */}
-              <div className="relative w-full h-full flex items-center justify-center">
+              {/* Award Trophy HD Visual */}
+              <div className="relative w-full flex-1 min-h-[190px] flex items-center justify-center p-1">
                 <Image
                   src={award.image}
                   alt={award.title}
                   fill
                   unoptimized
                   quality={100}
-                  sizes="(max-width: 640px) 420px, (max-width: 1024px) 480px, 520px"
-                  className="object-contain drop-shadow-2xs group-hover/card:scale-102 transition-transform duration-300"
+                  sizes="(max-width: 640px) 480px, 600px"
+                  className="object-contain drop-shadow-sm group-hover/card:scale-108 transition-transform duration-500"
                 />
+              </div>
+
+              {/* Award Text: 100% Crisp Vector HTML (Never Blurry on Any Display) */}
+              <div className="w-full flex flex-col items-center text-center pt-2.5 border-t border-gray-100/90 mt-auto">
+                <h3 className="text-xs sm:text-[13px] font-extrabold text-gray-900 leading-snug line-clamp-2 min-h-[34px] flex items-center justify-center px-1">
+                  {award.title}
+                </h3>
+
+                {/* Golden Underline Bar */}
+                <div className="w-8 h-0.5 bg-[#eab308] rounded-full my-2 group-hover/card:w-14 transition-all duration-300" />
+
+                {/* Organization */}
+                <p className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                  {award.organization}
+                </p>
               </div>
             </div>
           ))}

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { 
   ArrowRight, 
   FileText, 
-  Heart,
   ExternalLink
 } from 'lucide-react';
 import { Product } from '@/types';
@@ -129,16 +128,6 @@ interface OurProductsSectionProps {
 }
 
 export default function OurProductsSection({ onOpenQuote }: OurProductsSectionProps) {
-  const [wishlistedIds, setWishlistedIds] = useState<string[]>([]);
-
-  const toggleWishlist = (e: React.MouseEvent, id: string) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setWishlistedIds(prev => 
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-    );
-  };
-
   const handleRequestQuote = (e: React.MouseEvent, item: FeaturedProductItem) => {
     e.preventDefault();
     e.stopPropagation();
@@ -182,7 +171,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
         {/* ================= 8 FEATURED PRODUCTS GRID: FULL PAGE DISPLAY ================= */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {FEATURED_PRODUCTS.map((product) => {
-            const isWishlisted = wishlistedIds.includes(product.id);
             return (
               <div
                 key={product.id}
@@ -193,20 +181,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
 
                 {/* Full-Bleed Top Image Container: Machine Fills the Upper Card */}
                 <div className="relative w-full h-64 sm:h-72 lg:h-80 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 overflow-hidden flex items-center justify-center select-none">
-                  {/* Top-Right Wishlist Heart Button */}
-                  <button
-                    type="button"
-                    onClick={(e) => toggleWishlist(e, product.id)}
-                    className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/95 hover:bg-white hover:scale-110 active:scale-95 backdrop-blur-xs flex items-center justify-center shadow-sm text-gray-400 hover:text-red-500 transition-all cursor-pointer border border-gray-100"
-                    aria-label="Add to Wishlist"
-                  >
-                    <Heart 
-                      className={`w-4 h-4 transition-colors ${
-                        isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-500'
-                      }`} 
-                    />
-                  </button>
-
                   {/* Clickable Image Showcase */}
                   <Link
                     href={`/products/${product.id}`}

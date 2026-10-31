@@ -203,29 +203,16 @@ export default function ProductCard({
               </p>
             </div>
 
-            {/* Bottom Row: Price / Quote (matches '₹68.5 L') & Action Buttons */}
-            <div className="flex items-center justify-between pt-1.5 border-t border-gray-100/80 mt-auto gap-1">
-              <div>
-                <span className="font-black text-xs sm:text-[13px] text-[#1b5e20] block leading-tight">
-                  Price on Request
-                </span>
-                <button
-                  type="button"
-                  onClick={handleOpenSubsidyModal}
-                  className="text-[9px] text-[#b45309] font-bold hover:underline leading-tight block mt-0.5 cursor-pointer"
-                >
-                  Subsidy Eligible
-                </button>
-              </div>
-
+            {/* Bottom Row: Action Button */}
+            <div className="flex items-center justify-end pt-1.5 border-t border-gray-100/80 mt-auto">
               <button
                 type="button"
                 onClick={handleRequestQuote}
-                className="bg-green-50 hover:bg-[#2d7d32] text-[#2d7d32] hover:text-white border border-green-200/90 text-[10px] sm:text-[11px] font-bold py-1 px-2 rounded transition-colors duration-150 flex items-center gap-1 cursor-pointer shrink-0"
+                className="bg-green-50 hover:bg-[#2d7d32] text-[#2d7d32] hover:text-white border border-green-200/90 text-[10px] sm:text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors duration-150 flex items-center gap-1 cursor-pointer"
                 title="Request a Quote"
               >
-                <FileText className="w-2.5 h-2.5" />
-                <span>Quote</span>
+                <FileText className="w-3 h-3" />
+                <span>Request Quote</span>
               </button>
             </div>
           </div>
@@ -292,22 +279,8 @@ export default function ProductCard({
               </Link>
             </div>
 
-            {/* Bottom: Request a Quote & Subsidy Action */}
+            {/* Bottom: Request a Quote Action */}
             <div className="pt-2 border-t border-gray-100 mt-auto">
-              <div className="flex items-center justify-between mb-2 text-[10px] sm:text-[11px]">
-                <span className="font-bold text-[#1b5e20] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
-                  Price on Request
-                </span>
-                <button
-                  type="button"
-                  onClick={handleOpenSubsidyModal}
-                  className="font-bold text-[#b45309] hover:underline cursor-pointer"
-                >
-                  Subsidy
-                </button>
-              </div>
-
               <button
                 type="button"
                 onClick={handleRequestQuote}

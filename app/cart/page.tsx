@@ -79,7 +79,7 @@ export default function CartPage() {
                         {item.product.name}
                       </h3>
                       <p className="text-[11px] font-mono text-gray-500 mt-0.5">
-                        RIPL: <strong>{item.product.riplCode}</strong>
+                        Code: <strong>{item.product.riplCode}</strong>
                       </p>
                       <p className="text-xs font-bold text-[#1b5e20] mt-1 sm:hidden">
                         ₹ {item.product.sellingPrice.toLocaleString('en-IN')}

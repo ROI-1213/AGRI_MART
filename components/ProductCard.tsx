@@ -192,9 +192,9 @@ export default function ProductCard({
                 </h3>
               </Link>
 
-              {/* Sub-label (by Brand / RIPL Code, exactly like 'by Memco Skyline...') */}
+              {/* Sub-label (by Brand / Code) */}
               <p className="text-[11px] text-gray-500 font-medium truncate mt-0.5">
-                by <strong className="text-gray-700">{product.brand || 'Ratnagiri Impex'}</strong> <span className="text-gray-300">•</span> <span className="font-mono text-[10px] text-gray-400">RIPL: {product.riplCode}</span>
+                by <strong className="text-gray-700">{product.brand || 'Ratnagiri Impex'}</strong> <span className="text-gray-300">•</span> <span className="font-mono text-[10px] text-gray-400">Code: {product.riplCode}</span>
               </p>
 
               {/* Category */}
@@ -266,9 +266,9 @@ export default function ProductCard({
           {/* Middle: Details & Specs */}
           <div className="flex-1 flex flex-col justify-between pt-2.5">
             <div>
-              {/* RIPL Code */}
+              {/* Product Code */}
               <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block mb-0.5">
-                RIPL: <strong className="text-gray-700 font-bold">{product.riplCode}</strong>
+                Code: <strong className="text-gray-700 font-bold">{product.riplCode}</strong>
               </span>
 
               {/* Product Title */}

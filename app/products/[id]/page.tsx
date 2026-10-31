@@ -217,10 +217,10 @@ export default function ProductDetailPage() {
                   {product.name}
                 </h1>
 
-                {/* RIPL Code */}
+                {/* Product Code */}
                 <div className="bg-gray-50 border border-gray-200 px-3 py-1.5 rounded inline-block mb-4">
                   <span className="text-xs text-gray-500 font-mono">
-                    RIPL Code: <strong className="text-gray-900 text-sm font-bold">{product.riplCode}</strong>
+                    Code: <strong className="text-gray-900 text-sm font-bold">{product.riplCode}</strong>
                   </span>
                 </div>
 

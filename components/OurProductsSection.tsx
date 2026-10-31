@@ -161,7 +161,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
       aria-label="Our Products"
       className="w-full bg-[#f8faf8]/70 py-12 sm:py-16 border-t border-b border-gray-200/80 select-none"
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         
         {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-gray-200/80 pb-6">
@@ -179,119 +179,120 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
           </div>
         </div>
 
-        {/* ================= 8 FEATURED PRODUCTS GRID ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* ================= 8 FEATURED PRODUCTS GRID: FULL PAGE DISPLAY ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {FEATURED_PRODUCTS.map((product) => {
             const isWishlisted = wishlistedIds.includes(product.id);
             return (
               <div
                 key={product.id}
-                className="group relative bg-white rounded-2xl border-0 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between overflow-hidden p-3.5 sm:p-4 cursor-pointer"
+                className="group relative bg-white rounded-2xl border-0 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 {/* Visual Glow Spotlight on Hover */}
                 <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
-                {/* Top Row: Wishlist Heart */}
-                <div className="relative z-10 flex items-center justify-end mb-2">
+                {/* Full-Bleed Top Image Container: Machine Fills the Upper Card */}
+                <div className="relative w-full h-64 sm:h-72 lg:h-80 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 overflow-hidden flex items-center justify-center select-none">
+                  {/* Top-Right Wishlist Heart Button */}
                   <button
                     type="button"
                     onClick={(e) => toggleWishlist(e, product.id)}
-                    className="w-7 h-7 rounded-full bg-white/90 hover:bg-gray-100 backdrop-blur-xs flex items-center justify-center shadow-xs text-gray-400 hover:text-red-500 transition-colors cursor-pointer border border-gray-100 shrink-0"
+                    className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/95 hover:bg-white hover:scale-110 active:scale-95 backdrop-blur-xs flex items-center justify-center shadow-sm text-gray-400 hover:text-red-500 transition-all cursor-pointer border border-gray-100"
                     aria-label="Add to Wishlist"
                   >
                     <Heart 
-                      className={`w-3.5 h-3.5 transition-colors ${
+                      className={`w-4 h-4 transition-colors ${
                         isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-500'
                       }`} 
                     />
                   </button>
-                </div>
 
-                {/* Center Image Container: Enlarged Showroom Display with Zoom & Dual-Angle Reveal */}
-                <Link
-                  href={`/products/${product.id}`}
-                  className="relative w-full h-52 sm:h-56 rounded-2xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 flex items-center justify-center p-2 overflow-hidden my-1 shadow-inner/5 group/img"
-                >
-                  {/* Subtle radial spotlight glow behind machine */}
-                  <div className="absolute inset-0 bg-radial from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
+                  {/* Clickable Image Showcase */}
+                  <Link
+                    href={`/products/${product.id}`}
+                    className="relative w-full h-full flex items-center justify-center p-2 z-1 group/img"
+                  >
+                    {/* Subtle radial spotlight glow behind machine */}
+                    <div className="absolute inset-0 bg-radial from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Multi-Angle Machine Showcase (Auto-zoomed to fill card without empty space) */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    {/* Primary Image: Zoomed & Centered */}
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      unoptimized
-                      quality={100}
-                      loading="lazy"
-                      sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
-                      className="object-contain p-1 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-sm scale-102"
-                    />
-
-                    {/* Secondary Angle Revealed on Hover with Magnified Zoom */}
-                    {product.secondaryImage && (
+                    {/* Multi-Angle Machine Showcase (Auto-zoomed to fill card without empty space) */}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      {/* Primary Image: Zoomed & Centered to Fill the Full Container */}
                       <Image
-                        src={product.secondaryImage}
-                        alt={`${product.name} alternate angle`}
+                        src={product.image}
+                        alt={product.name}
                         fill
                         unoptimized
                         quality={100}
                         loading="lazy"
-                        sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
-                        className="object-contain p-1 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-xl"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-contain p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-110"
                       />
-                    )}
-                  </div>
 
-                  {/* Brand Watermark Pill on Bottom-Right of Photo */}
-                  <span className="absolute bottom-2 right-2 text-[9px] font-black uppercase tracking-wider text-gray-500 bg-white/95 px-2 py-0.5 rounded-md border border-gray-200 shadow-2xs backdrop-blur-xs z-10 pointer-events-none">
-                    {product.brand}
-                  </span>
-                </Link>
+                      {/* Secondary Angle Revealed on Hover with Magnified Zoom */}
+                      {product.secondaryImage && (
+                        <Image
+                          src={product.secondaryImage}
+                          alt={`${product.name} alternate angle`}
+                          fill
+                          unoptimized
+                          quality={100}
+                          loading="lazy"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-contain p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-115 drop-shadow-2xl"
+                        />
+                      )}
+                    </div>
 
-                {/* Meta Information */}
-                <div className="relative z-10 pt-2 flex-1 flex flex-col justify-between">
+                    {/* Brand Watermark Pill on Bottom-Right of Photo */}
+                    <span className="absolute bottom-3 right-3 text-[10px] font-black uppercase tracking-wider text-gray-500 bg-white/95 px-2.5 py-0.5 rounded-md border border-gray-200 shadow-2xs backdrop-blur-xs z-10 pointer-events-none">
+                      {product.brand}
+                    </span>
+                  </Link>
+                </div>
+
+                {/* Lower Meta Information & Actions Container */}
+                <div className="relative z-10 p-4 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
                   <div>
                     {/* Product Code */}
-                    <div className="flex items-center justify-between text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 uppercase tracking-wider mb-1.5">
                       <span>Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
-                      <span className="text-[9px] text-[#2d7d32] font-bold lowercase tracking-normal">verified</span>
+                      <span className="text-[10px] text-[#2d7d32] font-bold lowercase tracking-normal">verified</span>
                     </div>
 
                     {/* Product Title */}
                     <Link href={`/products/${product.id}`} className="block group-hover:text-[#2d7d32] transition-colors">
-                      <h3 className="font-extrabold text-xs sm:text-[13px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-1.5 min-h-[34px]" title={product.name}>
+                      <h3 className="font-extrabold text-sm sm:text-[15px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[40px]" title={product.name}>
                         {product.name}
                       </h3>
                     </Link>
 
                     {/* Key Feature Highlight Pill */}
-                    <div className="bg-gray-50/90 rounded-lg p-2 border border-gray-100 mb-3">
-                      <p className="text-[10px] text-gray-600 font-medium line-clamp-2 leading-relaxed">
+                    <div className="bg-gray-50/90 rounded-xl p-2.5 border border-gray-100 mb-3.5">
+                      <p className="text-[11px] text-gray-600 font-medium line-clamp-2 leading-relaxed">
                         {product.keyFeature}
                       </p>
                     </div>
                   </div>
 
                   {/* Action Buttons Row */}
-                  <div className="pt-2 border-t border-gray-100 mt-auto flex items-center gap-1.5">
+                  <div className="pt-3 border-t border-gray-100 mt-auto flex items-center gap-2">
                     <button
                       type="button"
                       onClick={(e) => handleRequestQuote(e, product)}
-                      className="flex-1 bg-[#2d7d32] hover:bg-[#1b5e20] active:scale-[0.98] text-white text-[11px] font-extrabold py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
+                      className="flex-1 bg-[#2d7d32] hover:bg-[#1b5e20] active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
                     >
-                      <FileText className="w-3 h-3 text-yellow-300" />
+                      <FileText className="w-4 h-4 text-yellow-300" />
                       <span>Request Quote</span>
                     </button>
 
                     <Link
                       href={`/products/${product.id}`}
-                      className="p-2 rounded-lg border border-gray-200 hover:border-[#2d7d32] text-gray-600 hover:text-[#2d7d32] bg-white transition-colors shrink-0 shadow-2xs"
+                      className="p-2.5 rounded-xl border border-gray-200 hover:border-[#2d7d32] text-gray-600 hover:text-[#2d7d32] bg-white transition-colors shrink-0 shadow-2xs"
                       title="View Full Specifications"
                       aria-label="View Full Specifications"
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>

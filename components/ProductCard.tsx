@@ -32,6 +32,7 @@ export default function ProductCard({
   const [internalQuoteOpen, setInternalQuoteOpen] = useState(false);
   const [internalSubsidyOpen, setInternalSubsidyOpen] = useState(false);
   const primaryImg = product.thumbnailImage || (product.images && product.images[0]) || '/assets/branding/logo.png';
+  const secondaryImg = (product.images && product.images.length > 1) ? product.images[1] : null;
   const [imgSrc, setImgSrc] = useState(primaryImg);
   const [isWishlisted, setIsWishlisted] = useState(false);
 
@@ -166,13 +167,13 @@ export default function ProductCard({
         /* ================= COMPACT 4x4 / 3x3 VERTICAL CARD STYLE ================= */
         <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/90 hover:border-[#2d7d32] shadow-2xs hover:shadow-md transition-all duration-200 p-2.5 sm:p-3 flex flex-col justify-between overflow-hidden">
           
-          {/* Top: Compact Product Visual (Fixed height ~140-160px so it is NEVER oversized) */}
-          <div className="relative w-full h-36 sm:h-40 rounded-lg sm:rounded-xl bg-white border border-gray-100 flex items-center justify-center p-1.5 overflow-hidden">
+          {/* Top: Product Visual with Image Zoom & 3D Flip / Secondary Image Reveal */}
+          <div className="relative w-full h-44 sm:h-48 rounded-lg sm:rounded-xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 border border-gray-100 flex items-center justify-center p-2 overflow-hidden [perspective:1000px]">
             {/* Top-Right Heart Wishlist Button */}
             <button
               type="button"
               onClick={toggleWishlist}
-              className="absolute top-2 right-2 z-10 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 hover:bg-gray-100 backdrop-blur-xs flex items-center justify-center shadow-xs text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+              className="absolute top-2 right-2 z-20 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 hover:bg-gray-100 backdrop-blur-xs flex items-center justify-center shadow-xs text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
               aria-label="Save to Wishlist"
             >
               <Heart 
@@ -187,17 +188,61 @@ export default function ProductCard({
               href={`/products/${product.id}`}
               className="relative w-full h-full flex items-center justify-center z-1"
             >
-              <Image
-                src={imgSrc}
-                alt={product.name}
-                fill
-                unoptimized
-                quality={100}
-                loading="lazy"
-                onError={handleImageError}
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
-                className="object-contain p-1 group-hover:scale-105 transition-transform duration-200"
-              />
+              {secondaryImg ? (
+                /* Multi-image: crossfade to next image with zoom on hover */
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={imgSrc}
+                    alt={product.name}
+                    fill
+                    unoptimized
+                    quality={100}
+                    loading="lazy"
+                    onError={handleImageError}
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
+                    className="object-contain p-1 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-sm"
+                  />
+                  <Image
+                    src={secondaryImg}
+                    alt={`${product.name} alternate view`}
+                    fill
+                    unoptimized
+                    quality={100}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
+                    className="object-contain p-1 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md"
+                  />
+                </div>
+              ) : (
+                /* Single-image: 3D flip card effect on hover */
+                <div className="relative w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  <div className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden]">
+                    <Image
+                      src={imgSrc}
+                      alt={product.name}
+                      fill
+                      unoptimized
+                      quality={100}
+                      loading="lazy"
+                      onError={handleImageError}
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
+                      className="object-contain p-1 transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <Image
+                      src={imgSrc}
+                      alt={`${product.name} flipped`}
+                      fill
+                      unoptimized
+                      quality={100}
+                      loading="lazy"
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 520px"
+                      className="object-contain p-1 scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-110 drop-shadow-md"
+                    />
+                  </div>
+                </div>
+              )}
             </Link>
           </div>
 

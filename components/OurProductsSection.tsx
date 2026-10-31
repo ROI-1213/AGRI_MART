@@ -19,6 +19,7 @@ export interface FeaturedProductItem {
   category: string;
   keyFeature: string;
   image: string;
+  secondaryImage?: string;
   badge: string;
   isFlagship?: boolean;
 }
@@ -33,6 +34,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'POWER WEEDER & TILLERS',
     keyFeature: '12 HP Commercial Diesel • 4WD Traction • Steering & Seat',
     image: '/assets/products/ripl038524/img_1_hd.jpg',
+    secondaryImage: '/assets/products/ripl038524/img_2.jpg',
     badge: '★ Flagship 4WD Tractor',
     isFlagship: true,
   },
@@ -45,6 +47,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'BLOWER - MISTBLOWER',
     keyFeature: '63.3 CC 2-Stroke • High-Velocity Air Flow • Orchard Grade',
     image: '/assets/products/ripl019627/img_1.jpg',
+    secondaryImage: '/assets/products/ripl019627/img_2.jpg',
     badge: 'Japanese Technology',
   },
   // 3. Oleo-Mac Commercial Intercultivator
@@ -56,6 +59,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'INTERCULTIVATOR',
     keyFeature: 'High-Torque Petrol Engine • Multi-Crop Rotavator Tillers',
     image: '/assets/products/ripl010104/img_1.jpg',
+    secondaryImage: '/assets/products/ripl010104/img_2.jpg',
     badge: 'Italian Precision',
   },
   // 4. Agrimate Heavy HTP Power Sprayer with Engine
@@ -67,6 +71,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'SPRAYER',
     keyFeature: 'Heavy-Duty 4-Stroke Engine • High-Pressure Triple Piston Pump',
     image: '/assets/products/ripl036359/img_1.jpg',
+    secondaryImage: '/assets/products/ripl036359/img_2.jpg',
     badge: 'Heavy Plant Protection',
   },
   // 5. Kasei Commercial Earth Auger
@@ -78,9 +83,10 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'EARTH AUGER',
     keyFeature: '51.7 CC High-Torque Motor • Precision Post-Hole Drilling Bit',
     image: '/assets/products/ripl026714/img_1.jpg',
+    secondaryImage: '/assets/products/ripl026714/img_2.jpg',
     badge: 'Heavy Plantation Drill',
   },
-  // 6. Agrimate 22" Commercial Chain Saw
+  // 6. Agrimate 22" Commercial Chain Saw (Single Image -> 3D Flip Card Effect)
   {
     id: 'am-cs-6022k-pro-agrimate-chain-saw-22-bar',
     name: 'AM-CS-6022K-PRO Heavy Chain Saw 22" Bar',
@@ -89,6 +95,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'CHAIN SAW',
     keyFeature: '60 CC High-Power Engine • 22" Solid Alloy Bar • Low-Vibration',
     image: '/assets/products/ripl038172/img_1.jpg',
+    // No secondary image -> will trigger 3D Flip Card transition
     badge: 'Commercial Forestry',
   },
   // 7. Agrimate 4-in-1 Turbo Mist Blower
@@ -100,6 +107,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'MIST BLOWER',
     keyFeature: '56.5 CC 2-Stroke • 14L Tank • Dusting, Misting & Spraying',
     image: '/assets/products/ripl027535/img_1.jpg',
+    secondaryImage: '/assets/products/ripl027535/img_2.jpg',
     badge: '4-in-1 Versatility',
   },
   // 8. Agrimate Commercial Handheld Blower
@@ -111,6 +119,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     category: 'BLOWER - MISTBLOWER',
     keyFeature: '25.4 CC High Velocity • 720 m³/hr Air Volume • Ergonomic',
     image: '/assets/products/ripl037328/img_1.jpg',
+    secondaryImage: '/assets/products/ripl037328/img_2.jpg',
     badge: 'Ergonomic Cleanup',
   },
 ];
@@ -186,12 +195,18 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 {/* Visual Glow Spotlight on Hover */}
                 <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
-                {/* Top Row: Wishlist Heart */}
-                <div className="relative z-10 flex items-center justify-end mb-2">
+                {/* Top Row: Flagship Badge & Wishlist Heart */}
+                <div className="relative z-10 flex items-center justify-between mb-2 min-h-[28px]">
+                  {product.isFlagship ? (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-800 bg-amber-100/90 border border-amber-300 px-2.5 py-0.5 rounded-md shadow-2xs">
+                      <span>★</span> Flagship 4WD Tractor
+                    </span>
+                  ) : <span />}
+
                   <button
                     type="button"
                     onClick={(e) => toggleWishlist(e, product.id)}
-                    className="w-7 h-7 rounded-full bg-white/90 hover:bg-gray-100 backdrop-blur-xs flex items-center justify-center shadow-xs text-gray-400 hover:text-red-500 transition-colors cursor-pointer border border-gray-100"
+                    className="w-7 h-7 rounded-full bg-white/90 hover:bg-gray-100 backdrop-blur-xs flex items-center justify-center shadow-xs text-gray-400 hover:text-red-500 transition-colors cursor-pointer border border-gray-100 shrink-0"
                     aria-label="Add to Wishlist"
                   >
                     <Heart 
@@ -202,26 +217,94 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                   </button>
                 </div>
 
-                {/* Center Image Container with Smooth 3D Hover & Subtle Float Animation */}
+                {/* Center Image Container: Enlarged Showroom Display with 3D Flip or Next Image Reveal */}
                 <Link
                   href={`/products/${product.id}`}
-                  className="relative w-full h-44 sm:h-48 rounded-xl bg-gradient-to-b from-gray-50/60 to-white border border-gray-100/90 flex items-center justify-center p-2.5 overflow-hidden my-1"
+                  className="relative w-full h-56 sm:h-64 rounded-2xl bg-gradient-to-b from-gray-50/90 via-white to-gray-50/60 border border-gray-100 flex items-center justify-center p-2.5 overflow-hidden my-1 shadow-inner/5 group/img"
+                  style={{ perspective: '1000px' }}
                 >
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      unoptimized
-                      quality={100}
-                      loading="lazy"
-                      sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
-                      className="object-contain p-1 transition-all duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 drop-shadow-sm group-hover:drop-shadow-xl"
-                    />
-                  </div>
+                  {/* Subtle radial spotlight glow behind machine */}
+                  <div className="absolute inset-0 bg-radial from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
+
+                  {product.secondaryImage ? (
+                    /* CASE A: Multi-Image Product -> Next Image Reveal on Hover with Zoom */
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      {/* Primary Image */}
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        unoptimized
+                        quality={100}
+                        loading="lazy"
+                        sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
+                        className="object-contain p-1 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-sm"
+                      />
+
+                      {/* Secondary Image Revealed on Hover with Zoom */}
+                      <Image
+                        src={product.secondaryImage}
+                        alt={`${product.name} alternate view`}
+                        fill
+                        unoptimized
+                        quality={100}
+                        loading="lazy"
+                        sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
+                        className="object-contain p-1 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-xl"
+                      />
+
+                      {/* Angle View Badge Pill */}
+                      <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/65 backdrop-blur-md text-white text-[9.5px] font-bold px-2.5 py-0.5 rounded-full border border-white/10 shadow-xs transition-all pointer-events-none">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:bg-amber-400 animate-pulse" />
+                        <span className="group-hover:hidden tracking-wider uppercase text-[8.5px]">Front View</span>
+                        <span className="hidden group-hover:inline tracking-wider uppercase text-[8.5px] text-amber-300">Angle 2 • Zoomed</span>
+                      </div>
+                    </div>
+                  ) : (
+                    /* CASE B: Single Image Product -> 3D Flip Card Animation */
+                    <div 
+                      className="relative w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+                    >
+                      {/* Front Face */}
+                      <div className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden]">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          unoptimized
+                          quality={100}
+                          loading="lazy"
+                          sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
+                          className="object-contain p-1 transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
+                        />
+                        <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/65 backdrop-blur-md text-white text-[9.5px] font-bold px-2.5 py-0.5 rounded-full border border-white/10 shadow-xs pointer-events-none">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <span className="tracking-wider uppercase text-[8.5px]">Standard View</span>
+                        </div>
+                      </div>
+
+                      {/* Back Face: 3D Flipped Perspective with Zoom */}
+                      <div className="absolute inset-0 flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                        <Image
+                          src={product.image}
+                          alt={`${product.name} 3D flipped`}
+                          fill
+                          unoptimized
+                          quality={100}
+                          loading="lazy"
+                          sizes="(max-width: 640px) 560px, (max-width: 1024px) 440px, 560px"
+                          className="object-contain p-1 scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-115 drop-shadow-2xl"
+                        />
+                        <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-[#1b5e20] text-white text-[9.5px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-300/30 shadow-sm pointer-events-none">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-ping" />
+                          <span className="tracking-wider uppercase text-[8.5px] text-emerald-100">✦ 3D Flip View</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Brand Watermark Pill on Bottom-Right of Photo */}
-                  <span className="absolute bottom-2 right-2 text-[9px] font-black uppercase tracking-wider text-gray-500 bg-white/95 px-2 py-0.5 rounded-md border border-gray-200 shadow-2xs backdrop-blur-xs">
+                  <span className="absolute bottom-2 right-2 text-[9px] font-black uppercase tracking-wider text-gray-500 bg-white/95 px-2 py-0.5 rounded-md border border-gray-200 shadow-2xs backdrop-blur-xs z-10 pointer-events-none">
                     {product.brand}
                   </span>
                 </Link>

@@ -11,7 +11,6 @@ import {
   ChevronDown, 
   ChevronRight, 
   Search,
-  ShoppingCart,
   Download,
   Layers
 } from 'lucide-react';
@@ -126,23 +125,8 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             </form>
           </div>
 
-          {/* Right Action Icons: Cart & Mobile Menu Toggle */}
+          {/* Right Action Icons: Mobile Menu Toggle */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            {/* Shopping Cart Icon with Live Badge */}
-            <Link
-              href="/cart"
-              className="relative p-2 text-gray-700 hover:text-[#2d7d32] hover:bg-gray-50 rounded-xl transition-all flex items-center justify-center cursor-pointer"
-              aria-label={`Shopping Cart with ${totalItems} items`}
-              title="View Cart"
-            >
-              <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
-              {totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-[#2d7d32] text-white text-[10px] font-black w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
-                  {totalItems > 99 ? '99+' : totalItems}
-                </span>
-              )}
-            </Link>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

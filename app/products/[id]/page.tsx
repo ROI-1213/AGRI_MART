@@ -303,25 +303,6 @@ export default function ProductDetailPage() {
                     </button>
                   </div>
                 </div>
-
-                {/* Government Subsidy Trigger Banner */}
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <h4 className="text-xs font-bold text-amber-900 flex items-center gap-1.5">
-                      <FileCheck2 className="w-4 h-4 text-amber-600 shrink-0" />
-                      <span>Govt. Subsidy Scheme Available</span>
-                    </h4>
-                    <p className="text-[11px] text-amber-700 mt-0.5">
-                      Eligible for state &amp; central farm mechanization subsidies up to 50%.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setSubsidyModalOpen(true)}
-                    className="w-full sm:w-auto shrink-0 text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded transition-colors text-center cursor-pointer"
-                  >
-                    Apply Now
-                  </button>
-                </div>
               </div>
 
               {/* Trust Badges */}

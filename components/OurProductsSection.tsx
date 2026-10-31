@@ -5,11 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ArrowRight, 
-  Sparkles, 
   FileText, 
-  ShieldCheck, 
   Heart,
-  ChevronRight,
   ExternalLink
 } from 'lucide-react';
 import { Product } from '@/types';
@@ -157,7 +154,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-16">
         
-        {/* ================= SECTION HEADER WITH TOP "SEE ALL PRODUCTS" BUTTON ================= */}
+        {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-gray-200/80 pb-6">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#1b5e20] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-emerald-200/80 shadow-2xs">
@@ -171,16 +168,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
               Explore our top-tier agricultural machinery, heavy-duty 4WD tillers, commercial sprayers, and precision farm solutions built for maximum field productivity.
             </p>
           </div>
-
-          {/* Top "See All Products" Header Button */}
-          <Link
-            href="/products"
-            className="inline-flex items-center justify-center gap-2 bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-xs hover:shadow-md transition-all duration-200 self-start md:self-end shrink-0 group active:scale-95"
-            title="Browse Complete Catalog"
-          >
-            <span>See All Products (227+)</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
         {/* ================= 8 FEATURED PRODUCTS GRID ================= */}
@@ -290,26 +277,13 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
           })}
         </div>
 
-        {/* ================= BOTTOM "SEE ALL PRODUCTS" CALLOUT BANNER ================= */}
-        <div className="mt-10 sm:mt-12 rounded-2xl bg-gradient-to-r from-[#1b5e20] via-[#2d7d32] to-[#1e6b23] text-white p-6 sm:p-8 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <span className="text-yellow-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 mb-1">
-              <Sparkles className="w-3.5 h-3.5 fill-yellow-300" />
-              <span>Full Agricultural Machinery Portfolio</span>
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black tracking-tight">
-              Looking for More Specialized Farming Equipment?
-            </h3>
-            <p className="text-xs sm:text-sm text-green-100 mt-1 max-w-xl">
-              Browse our complete catalog of 227+ power weeders, sprayers, harvesters, augers, and genuine RIPL spare parts.
-            </p>
-          </div>
-
+        {/* ================= SINGLE "VIEW ALL PRODUCTS" BUTTON ================= */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
           <Link
             href="/products"
-            className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-[#1b5e20] font-black text-sm px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 shrink-0 text-center cursor-pointer group"
+            className="inline-flex items-center justify-center gap-2.5 bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 group cursor-pointer"
           >
-            <span>See All Products (227+)</span>
+            <span>View All Products</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </Link>
         </div>

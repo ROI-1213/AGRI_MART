@@ -18,7 +18,9 @@ import ShopByCategory from '@/components/ShopByCategory';
 import TrustedBrandsShowcase from '@/components/TrustedBrandsShowcase';
 import TopPicksShowcase from '@/components/TopPicksShowcase';
 import TestingInstitutesShowcase from '@/components/TestingInstitutesShowcase';
+import OurProductsSection from '@/components/OurProductsSection';
 import SubsidyModal from '@/components/SubsidyModal';
+import QuoteModal from '@/components/QuoteModal';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
 import { Product } from '@/types';
@@ -29,6 +31,8 @@ export default function HomePage() {
   const [isPromoPaused, setIsPromoPaused] = useState(false);
   const [selectedSubsidyProduct, setSelectedSubsidyProduct] = useState<Product | null>(null);
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
+  const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   const heroBanners = [
     {
@@ -111,6 +115,11 @@ export default function HomePage() {
   const handleOpenSubsidy = (product: Product) => {
     setSelectedSubsidyProduct(product);
     setSubsidyModalOpen(true);
+  };
+
+  const handleOpenQuote = (product: Product) => {
+    setSelectedQuoteProduct(product);
+    setQuoteModalOpen(true);
   };
 
   return (
@@ -201,6 +210,9 @@ export default function HomePage() {
 
       {/* 4. Agrimart's Top Picks Showcase (Matching Reference Design) */}
       <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
+
+      {/* 5. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
+      <OurProductsSection onOpenQuote={handleOpenQuote} />
 
       {/* 5. Category Section 1: Brush Cutters & Weed Cutters */}
       <section className="py-12 bg-white">
@@ -598,6 +610,13 @@ export default function HomePage() {
         product={selectedSubsidyProduct}
         isOpen={subsidyModalOpen}
         onClose={() => setSubsidyModalOpen(false)}
+      />
+
+      {/* Quote Request Modal */}
+      <QuoteModal
+        product={selectedQuoteProduct}
+        isOpen={quoteModalOpen}
+        onClose={() => setQuoteModalOpen(false)}
       />
     </div>
   );

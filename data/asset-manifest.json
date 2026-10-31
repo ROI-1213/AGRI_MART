@@ -1,0 +1,4272 @@
+[
+  {
+    "sourceUrl": "https://agrimart.in/uploads/vendor_logo_image/logo_1.png",
+    "localPath": "/assets/branding/logo.png",
+    "originalFilename": "logo_1.png",
+    "type": "logo",
+    "page": "all",
+    "sizeBytes": 20961,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.053Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/logo.png",
+    "localPath": "/assets/branding/logo_footer.png",
+    "originalFilename": "logo.png",
+    "type": "logo",
+    "page": "footer",
+    "sizeBytes": 16005,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.197Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/icon_new.png",
+    "localPath": "/assets/branding/icon_new.png",
+    "originalFilename": "icon_new.png",
+    "type": "icon",
+    "page": "header",
+    "sizeBytes": 1250,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.237Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/favicon.png",
+    "localPath": "/assets/branding/favicon.png",
+    "originalFilename": "favicon.png",
+    "type": "favicon",
+    "page": "all",
+    "sizeBytes": 12222,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.284Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/slides/banner-04.jpg",
+    "localPath": "/assets/banners/banner-04.jpg",
+    "originalFilename": "banner-04.jpg",
+    "type": "banner",
+    "page": "home",
+    "sizeBytes": 402929,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.517Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/slides/banner-03.jpg",
+    "localPath": "/assets/banners/banner-03.jpg",
+    "originalFilename": "banner-03.jpg",
+    "type": "banner",
+    "page": "home",
+    "sizeBytes": 256672,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.696Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/slides/banner-05.jpg",
+    "localPath": "/assets/banners/banner-05.jpg",
+    "originalFilename": "banner-05.jpg",
+    "type": "banner",
+    "page": "home",
+    "sizeBytes": 173019,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.773Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/banner-five.jpg",
+    "localPath": "/assets/banners/banner-five.jpg",
+    "originalFilename": "banner-five.jpg",
+    "type": "banner",
+    "page": "home",
+    "sizeBytes": 207435,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.883Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/brand_image/1/brand_3.jpg",
+    "localPath": "/assets/brands/kasei.jpg",
+    "originalFilename": "brand_3.jpg",
+    "type": "brand",
+    "page": "home",
+    "sizeBytes": 160571,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:45.967Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/brand_image/1/brand_2.jpeg",
+    "localPath": "/assets/brands/oleo_mac.jpeg",
+    "originalFilename": "brand_2.jpeg",
+    "type": "brand",
+    "page": "home",
+    "sizeBytes": 78627,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.008Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/brand_image/1/brand_1.jpeg",
+    "localPath": "/assets/brands/agrimate.jpeg",
+    "originalFilename": "brand_1.jpeg",
+    "type": "brand",
+    "page": "home",
+    "sizeBytes": 62066,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.046Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/brand_image/1/brand_12.jpeg",
+    "localPath": "/assets/brands/green_panther.jpeg",
+    "originalFilename": "brand_12.jpeg",
+    "type": "brand",
+    "page": "home",
+    "sizeBytes": 125340,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.121Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/aboutFin.png",
+    "localPath": "/assets/about/aboutFin.png",
+    "originalFilename": "aboutFin.png",
+    "type": "about",
+    "page": "about_us",
+    "sizeBytes": 82563,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.161Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/our_network.jpg",
+    "localPath": "/assets/services/our_network.jpg",
+    "originalFilename": "our_network.jpg",
+    "type": "service",
+    "page": "services",
+    "sizeBytes": 94823,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.197Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/one_india.png",
+    "localPath": "/assets/services/one_india.png",
+    "originalFilename": "one_india.png",
+    "type": "service",
+    "page": "footer",
+    "sizeBytes": 47574,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.236Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/google.png",
+    "localPath": "/assets/branding/google_play.png",
+    "originalFilename": "google.png",
+    "type": "badge",
+    "page": "footer",
+    "sizeBytes": 3427,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.273Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/apple.png",
+    "localPath": "/assets/branding/app_store.png",
+    "originalFilename": "apple.png",
+    "type": "badge",
+    "page": "footer",
+    "sizeBytes": 3138,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.305Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/01.jpg",
+    "localPath": "/assets/awards/award_01.jpg",
+    "originalFilename": "01.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 184458,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.402Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/02.jpg",
+    "localPath": "/assets/awards/award_02.jpg",
+    "originalFilename": "02.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 187450,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.479Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/03.jpg",
+    "localPath": "/assets/awards/award_03.jpg",
+    "originalFilename": "03.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 190411,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.563Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/04.jpg",
+    "localPath": "/assets/awards/award_04.jpg",
+    "originalFilename": "04.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 198205,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.668Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/05.jpg",
+    "localPath": "/assets/awards/award_05.jpg",
+    "originalFilename": "05.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 187189,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.763Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/06.jpg",
+    "localPath": "/assets/awards/award_06.jpg",
+    "originalFilename": "06.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 194992,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.854Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/07.jpg",
+    "localPath": "/assets/awards/award_07.jpg",
+    "originalFilename": "07.jpg",
+    "type": "award",
+    "page": "home",
+    "sizeBytes": 66189,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.896Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/angrau.jpg",
+    "localPath": "/assets/recognition/angrau.jpg",
+    "originalFilename": "angrau.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 179643,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:46.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/ciae.jpg",
+    "localPath": "/assets/recognition/ciae.jpg",
+    "originalFilename": "ciae.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 174213,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.041Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/nerfmtti.jpg",
+    "localPath": "/assets/recognition/nerfmtti.jpg",
+    "originalFilename": "nerfmtti.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 179344,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.125Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/nrfmtti.jpg",
+    "localPath": "/assets/recognition/nrfmtti.jpg",
+    "originalFilename": "nrfmtti.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 174648,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.200Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/srfmtti.jpg",
+    "localPath": "/assets/recognition/srfmtti.jpg",
+    "originalFilename": "srfmtti.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 181583,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.271Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/tnau.jpg",
+    "localPath": "/assets/recognition/tnau.jpg",
+    "originalFilename": "tnau.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 169245,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.348Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assests/theme_1/images/awards/badge/uas.jpg",
+    "localPath": "/assets/recognition/uas.jpg",
+    "originalFilename": "uas.jpg",
+    "type": "recognition",
+    "page": "home",
+    "sizeBytes": 172929,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.404Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/corporate_brochure.pdf",
+    "localPath": "/assets/brochures/corporate_brochure.pdf",
+    "originalFilename": "corporate_brochure.pdf",
+    "type": "brochure",
+    "page": "about_us / footer",
+    "sizeBytes": 802199,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.405Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/company_profile.pdf",
+    "localPath": "/assets/brochures/company_profile.pdf",
+    "originalFilename": "company_profile.pdf",
+    "type": "brochure",
+    "page": "about_us / footer",
+    "sizeBytes": 14977828,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.405Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/uploads/agrimart_brochure.pdf",
+    "localPath": "/assets/brochures/agrimart_brochure.pdf",
+    "originalFilename": "agrimart_brochure.pdf",
+    "type": "brochure",
+    "page": "about_us / footer",
+    "sizeBytes": 11616714,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:22:47.406Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl code/img_1.jpg",
+    "localPath": "/assets/products/ripl code/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25207,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.943Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl code/img_2.jpg",
+    "localPath": "/assets/products/ripl code/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 59399,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.945Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl code/img_3.jpg",
+    "localPath": "/assets/products/ripl code/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 54077,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.945Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl code/img_4.jpg",
+    "localPath": "/assets/products/ripl code/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37568,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.945Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl code/img_5.jpg",
+    "localPath": "/assets/products/ripl code/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 36513,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.945Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl010001/img_1.jpg",
+    "localPath": "/assets/products/ripl010001/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 29315,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.946Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl010001/img_2.jpg",
+    "localPath": "/assets/products/ripl010001/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 58548,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.946Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl010163/img_1.jpg",
+    "localPath": "/assets/products/ripl010163/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 20134,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.946Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl010163/img_2.jpg",
+    "localPath": "/assets/products/ripl010163/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15167,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.946Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl010163/img_3.jpg",
+    "localPath": "/assets/products/ripl010163/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 44433,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.947Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl014295/img_1.jpg",
+    "localPath": "/assets/products/ripl014295/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33464,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.947Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl014295/img_2.jpg",
+    "localPath": "/assets/products/ripl014295/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 83214,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.947Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_1.jpg",
+    "localPath": "/assets/products/ripl019547/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.947Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_10.jpg",
+    "localPath": "/assets/products/ripl019547/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_11.jpg",
+    "localPath": "/assets/products/ripl019547/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_12.jpg",
+    "localPath": "/assets/products/ripl019547/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_13.jpg",
+    "localPath": "/assets/products/ripl019547/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_14.jpg",
+    "localPath": "/assets/products/ripl019547/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_15.jpg",
+    "localPath": "/assets/products/ripl019547/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_16.jpg",
+    "localPath": "/assets/products/ripl019547/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_17.jpg",
+    "localPath": "/assets/products/ripl019547/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.948Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_18.jpg",
+    "localPath": "/assets/products/ripl019547/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.949Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_19.jpg",
+    "localPath": "/assets/products/ripl019547/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.949Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_2.jpg",
+    "localPath": "/assets/products/ripl019547/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28910,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.953Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_20.jpg",
+    "localPath": "/assets/products/ripl019547/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.953Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_21.jpg",
+    "localPath": "/assets/products/ripl019547/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.953Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_22.jpg",
+    "localPath": "/assets/products/ripl019547/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.953Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_23.jpg",
+    "localPath": "/assets/products/ripl019547/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.953Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_24.jpg",
+    "localPath": "/assets/products/ripl019547/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.954Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_25.jpg",
+    "localPath": "/assets/products/ripl019547/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.954Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_26.jpg",
+    "localPath": "/assets/products/ripl019547/img_26.jpg",
+    "originalFilename": "img_26.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.954Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_3.jpg",
+    "localPath": "/assets/products/ripl019547/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12570,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.954Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_4.jpg",
+    "localPath": "/assets/products/ripl019547/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 39261,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_5.jpg",
+    "localPath": "/assets/products/ripl019547/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_6.jpg",
+    "localPath": "/assets/products/ripl019547/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_7.jpg",
+    "localPath": "/assets/products/ripl019547/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_8.jpg",
+    "localPath": "/assets/products/ripl019547/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019547/img_9.jpg",
+    "localPath": "/assets/products/ripl019547/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.955Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_1.jpg",
+    "localPath": "/assets/products/ripl019621/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.969Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_10.jpg",
+    "localPath": "/assets/products/ripl019621/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.969Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_11.jpg",
+    "localPath": "/assets/products/ripl019621/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.969Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_12.jpg",
+    "localPath": "/assets/products/ripl019621/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.969Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_13.jpg",
+    "localPath": "/assets/products/ripl019621/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.969Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_14.jpg",
+    "localPath": "/assets/products/ripl019621/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_15.jpg",
+    "localPath": "/assets/products/ripl019621/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_16.jpg",
+    "localPath": "/assets/products/ripl019621/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_17.jpg",
+    "localPath": "/assets/products/ripl019621/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_18.jpg",
+    "localPath": "/assets/products/ripl019621/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_19.jpg",
+    "localPath": "/assets/products/ripl019621/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_2.jpg",
+    "localPath": "/assets/products/ripl019621/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22242,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.970Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_20.jpg",
+    "localPath": "/assets/products/ripl019621/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.971Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_21.jpg",
+    "localPath": "/assets/products/ripl019621/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.971Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_22.jpg",
+    "localPath": "/assets/products/ripl019621/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.971Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_23.jpg",
+    "localPath": "/assets/products/ripl019621/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.971Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_24.jpg",
+    "localPath": "/assets/products/ripl019621/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_25.jpg",
+    "localPath": "/assets/products/ripl019621/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_3.jpg",
+    "localPath": "/assets/products/ripl019621/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 41159,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_4.jpg",
+    "localPath": "/assets/products/ripl019621/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_5.jpg",
+    "localPath": "/assets/products/ripl019621/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_6.jpg",
+    "localPath": "/assets/products/ripl019621/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_7.jpg",
+    "localPath": "/assets/products/ripl019621/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.972Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_8.jpg",
+    "localPath": "/assets/products/ripl019621/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl019621/img_9.jpg",
+    "localPath": "/assets/products/ripl019621/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_1.jpg",
+    "localPath": "/assets/products/ripl023199/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15779,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_2.jpg",
+    "localPath": "/assets/products/ripl023199/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14920,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_3.jpg",
+    "localPath": "/assets/products/ripl023199/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 42019,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_4.jpg",
+    "localPath": "/assets/products/ripl023199/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24861,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.973Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_5.jpg",
+    "localPath": "/assets/products/ripl023199/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24976,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl023199/img_6.jpg",
+    "localPath": "/assets/products/ripl023199/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14920,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_1.jpg",
+    "localPath": "/assets/products/ripl025186/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14920,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_2.jpg",
+    "localPath": "/assets/products/ripl025186/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15779,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_3.jpg",
+    "localPath": "/assets/products/ripl025186/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37481,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_4.jpg",
+    "localPath": "/assets/products/ripl025186/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24861,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.974Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_5.jpg",
+    "localPath": "/assets/products/ripl025186/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24976,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.975Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025186/img_6.jpg",
+    "localPath": "/assets/products/ripl025186/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15779,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.975Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_1.jpg",
+    "localPath": "/assets/products/ripl025188/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 36603,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.975Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_2.jpg",
+    "localPath": "/assets/products/ripl025188/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 82640,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.975Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_3.jpg",
+    "localPath": "/assets/products/ripl025188/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 34131,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.975Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_4.jpg",
+    "localPath": "/assets/products/ripl025188/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 43255,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.976Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_5.jpg",
+    "localPath": "/assets/products/ripl025188/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19926,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.976Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl025188/img_6.jpg",
+    "localPath": "/assets/products/ripl025188/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 43472,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.976Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl026669/img_1.jpg",
+    "localPath": "/assets/products/ripl026669/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19924,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.976Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl026669/img_2.jpg",
+    "localPath": "/assets/products/ripl026669/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21122,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.976Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl026669/img_3.jpg",
+    "localPath": "/assets/products/ripl026669/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18200,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.977Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl026669/img_4.jpg",
+    "localPath": "/assets/products/ripl026669/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 43633,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.977Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_1.jpg",
+    "localPath": "/assets/products/ripl027076/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 36513,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.977Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_2.jpg",
+    "localPath": "/assets/products/ripl027076/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 31483,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.977Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_3.jpg",
+    "localPath": "/assets/products/ripl027076/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25269,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.977Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_4.jpg",
+    "localPath": "/assets/products/ripl027076/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 58415,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_5.jpg",
+    "localPath": "/assets/products/ripl027076/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 73663,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_6.jpg",
+    "localPath": "/assets/products/ripl027076/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37568,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027076/img_7.jpg",
+    "localPath": "/assets/products/ripl027076/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25207,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_1.jpg",
+    "localPath": "/assets/products/ripl027210/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37568,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_2.jpg",
+    "localPath": "/assets/products/ripl027210/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 31126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_3.jpg",
+    "localPath": "/assets/products/ripl027210/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22838,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.978Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_4.jpg",
+    "localPath": "/assets/products/ripl027210/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 58739,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_5.jpg",
+    "localPath": "/assets/products/ripl027210/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 76661,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_6.jpg",
+    "localPath": "/assets/products/ripl027210/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 36513,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl027210/img_7.jpg",
+    "localPath": "/assets/products/ripl027210/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25207,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_1.jpg",
+    "localPath": "/assets/products/ripl028161/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13538,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_2.jpg",
+    "localPath": "/assets/products/ripl028161/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 11389,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.979Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_3.jpg",
+    "localPath": "/assets/products/ripl028161/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18551,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_4.jpg",
+    "localPath": "/assets/products/ripl028161/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 31001,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_5.jpg",
+    "localPath": "/assets/products/ripl028161/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 11824,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028161/img_6.jpg",
+    "localPath": "/assets/products/ripl028161/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10263,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028696/img_1.jpg",
+    "localPath": "/assets/products/ripl028696/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10263,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028696/img_2.jpg",
+    "localPath": "/assets/products/ripl028696/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24309,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.980Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028696/img_3.jpg",
+    "localPath": "/assets/products/ripl028696/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13538,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.981Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028696/img_4.jpg",
+    "localPath": "/assets/products/ripl028696/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 11824,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.981Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028697/img_1.jpg",
+    "localPath": "/assets/products/ripl028697/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 11824,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.981Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028697/img_2.jpg",
+    "localPath": "/assets/products/ripl028697/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28664,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.981Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028697/img_3.jpg",
+    "localPath": "/assets/products/ripl028697/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13538,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.981Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl028697/img_4.jpg",
+    "localPath": "/assets/products/ripl028697/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10263,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.982Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl029392/img_1.jpg",
+    "localPath": "/assets/products/ripl029392/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18626,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.982Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl029392/img_2.jpg",
+    "localPath": "/assets/products/ripl029392/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 43709,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.982Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl029392/img_3.jpg",
+    "localPath": "/assets/products/ripl029392/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13372,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.982Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_1.jpg",
+    "localPath": "/assets/products/ripl036291/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19374,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_10.jpg",
+    "localPath": "/assets/products/ripl036291/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 38112,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_11.jpg",
+    "localPath": "/assets/products/ripl036291/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23669,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_12.jpg",
+    "localPath": "/assets/products/ripl036291/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28073,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_13.jpg",
+    "localPath": "/assets/products/ripl036291/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14306,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_14.jpg",
+    "localPath": "/assets/products/ripl036291/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15630,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_2.jpg",
+    "localPath": "/assets/products/ripl036291/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 42992,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_3.jpg",
+    "localPath": "/assets/products/ripl036291/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 30769,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.983Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_4.jpg",
+    "localPath": "/assets/products/ripl036291/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22116,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_5.jpg",
+    "localPath": "/assets/products/ripl036291/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25377,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_6.jpg",
+    "localPath": "/assets/products/ripl036291/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 25731,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_7.jpg",
+    "localPath": "/assets/products/ripl036291/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28156,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_8.jpg",
+    "localPath": "/assets/products/ripl036291/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 24892,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036291/img_9.jpg",
+    "localPath": "/assets/products/ripl036291/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 20374,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.984Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_1.jpg",
+    "localPath": "/assets/products/ripl036418/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_10.jpg",
+    "localPath": "/assets/products/ripl036418/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_11.jpg",
+    "localPath": "/assets/products/ripl036418/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_12.jpg",
+    "localPath": "/assets/products/ripl036418/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_13.jpg",
+    "localPath": "/assets/products/ripl036418/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_14.jpg",
+    "localPath": "/assets/products/ripl036418/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_15.jpg",
+    "localPath": "/assets/products/ripl036418/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.985Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_16.jpg",
+    "localPath": "/assets/products/ripl036418/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_17.jpg",
+    "localPath": "/assets/products/ripl036418/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_18.jpg",
+    "localPath": "/assets/products/ripl036418/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_19.jpg",
+    "localPath": "/assets/products/ripl036418/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_2.jpg",
+    "localPath": "/assets/products/ripl036418/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23118,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_20.jpg",
+    "localPath": "/assets/products/ripl036418/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_21.jpg",
+    "localPath": "/assets/products/ripl036418/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.986Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_22.jpg",
+    "localPath": "/assets/products/ripl036418/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.987Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_23.jpg",
+    "localPath": "/assets/products/ripl036418/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.987Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_24.jpg",
+    "localPath": "/assets/products/ripl036418/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.987Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_25.jpg",
+    "localPath": "/assets/products/ripl036418/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.987Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_3.jpg",
+    "localPath": "/assets/products/ripl036418/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 49148,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.987Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_4.jpg",
+    "localPath": "/assets/products/ripl036418/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.990Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_5.jpg",
+    "localPath": "/assets/products/ripl036418/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.990Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_6.jpg",
+    "localPath": "/assets/products/ripl036418/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.990Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_7.jpg",
+    "localPath": "/assets/products/ripl036418/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.990Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_8.jpg",
+    "localPath": "/assets/products/ripl036418/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.990Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036418/img_9.jpg",
+    "localPath": "/assets/products/ripl036418/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.991Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_1.jpg",
+    "localPath": "/assets/products/ripl036439/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.991Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_10.jpg",
+    "localPath": "/assets/products/ripl036439/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.992Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_11.jpg",
+    "localPath": "/assets/products/ripl036439/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.992Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_12.jpg",
+    "localPath": "/assets/products/ripl036439/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.992Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_13.jpg",
+    "localPath": "/assets/products/ripl036439/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_14.jpg",
+    "localPath": "/assets/products/ripl036439/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_15.jpg",
+    "localPath": "/assets/products/ripl036439/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_16.jpg",
+    "localPath": "/assets/products/ripl036439/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_17.jpg",
+    "localPath": "/assets/products/ripl036439/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_18.jpg",
+    "localPath": "/assets/products/ripl036439/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_19.jpg",
+    "localPath": "/assets/products/ripl036439/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_2.jpg",
+    "localPath": "/assets/products/ripl036439/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 73987,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.993Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_20.jpg",
+    "localPath": "/assets/products/ripl036439/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_21.jpg",
+    "localPath": "/assets/products/ripl036439/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_22.jpg",
+    "localPath": "/assets/products/ripl036439/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_23.jpg",
+    "localPath": "/assets/products/ripl036439/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_24.jpg",
+    "localPath": "/assets/products/ripl036439/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_25.jpg",
+    "localPath": "/assets/products/ripl036439/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_3.jpg",
+    "localPath": "/assets/products/ripl036439/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 31594,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_4.jpg",
+    "localPath": "/assets/products/ripl036439/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.994Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_5.jpg",
+    "localPath": "/assets/products/ripl036439/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.995Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_6.jpg",
+    "localPath": "/assets/products/ripl036439/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.995Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_7.jpg",
+    "localPath": "/assets/products/ripl036439/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.995Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_8.jpg",
+    "localPath": "/assets/products/ripl036439/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.995Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036439/img_9.jpg",
+    "localPath": "/assets/products/ripl036439/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.995Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_1.jpg",
+    "localPath": "/assets/products/ripl036440/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_10.jpg",
+    "localPath": "/assets/products/ripl036440/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_11.jpg",
+    "localPath": "/assets/products/ripl036440/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_12.jpg",
+    "localPath": "/assets/products/ripl036440/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_13.jpg",
+    "localPath": "/assets/products/ripl036440/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_14.jpg",
+    "localPath": "/assets/products/ripl036440/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_15.jpg",
+    "localPath": "/assets/products/ripl036440/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_16.jpg",
+    "localPath": "/assets/products/ripl036440/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.996Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_17.jpg",
+    "localPath": "/assets/products/ripl036440/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_18.jpg",
+    "localPath": "/assets/products/ripl036440/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_19.jpg",
+    "localPath": "/assets/products/ripl036440/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_2.jpg",
+    "localPath": "/assets/products/ripl036440/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 63458,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_20.jpg",
+    "localPath": "/assets/products/ripl036440/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_21.jpg",
+    "localPath": "/assets/products/ripl036440/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_22.jpg",
+    "localPath": "/assets/products/ripl036440/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_23.jpg",
+    "localPath": "/assets/products/ripl036440/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.997Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_24.jpg",
+    "localPath": "/assets/products/ripl036440/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_25.jpg",
+    "localPath": "/assets/products/ripl036440/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_3.jpg",
+    "localPath": "/assets/products/ripl036440/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 44706,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_4.jpg",
+    "localPath": "/assets/products/ripl036440/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_5.jpg",
+    "localPath": "/assets/products/ripl036440/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_6.jpg",
+    "localPath": "/assets/products/ripl036440/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_7.jpg",
+    "localPath": "/assets/products/ripl036440/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_8.jpg",
+    "localPath": "/assets/products/ripl036440/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.998Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036440/img_9.jpg",
+    "localPath": "/assets/products/ripl036440/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.999Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036450/img_1.jpg",
+    "localPath": "/assets/products/ripl036450/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19420,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:15.999Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036450/img_2.jpg",
+    "localPath": "/assets/products/ripl036450/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 39332,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.000Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036450/img_3.jpg",
+    "localPath": "/assets/products/ripl036450/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 20893,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.000Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036747/img_1.jpg",
+    "localPath": "/assets/products/ripl036747/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12794,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.000Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036747/img_2.jpg",
+    "localPath": "/assets/products/ripl036747/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 59663,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.000Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036747/img_3.jpg",
+    "localPath": "/assets/products/ripl036747/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 30157,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.000Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036747/img_4.jpg",
+    "localPath": "/assets/products/ripl036747/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 27372,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036747/img_5.jpg",
+    "localPath": "/assets/products/ripl036747/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22572,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036748/img_1.jpg",
+    "localPath": "/assets/products/ripl036748/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15353,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036748/img_2.jpg",
+    "localPath": "/assets/products/ripl036748/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 62547,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036748/img_3.jpg",
+    "localPath": "/assets/products/ripl036748/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37901,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl036748/img_4.jpg",
+    "localPath": "/assets/products/ripl036748/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23031,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.001Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_1.jpg",
+    "localPath": "/assets/products/ripl037310/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.002Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_10.jpg",
+    "localPath": "/assets/products/ripl037310/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.002Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_11.jpg",
+    "localPath": "/assets/products/ripl037310/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.002Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_12.jpg",
+    "localPath": "/assets/products/ripl037310/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.002Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_13.jpg",
+    "localPath": "/assets/products/ripl037310/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.002Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_14.jpg",
+    "localPath": "/assets/products/ripl037310/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.003Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_15.jpg",
+    "localPath": "/assets/products/ripl037310/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.003Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_16.jpg",
+    "localPath": "/assets/products/ripl037310/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.003Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_17.jpg",
+    "localPath": "/assets/products/ripl037310/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.003Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_18.jpg",
+    "localPath": "/assets/products/ripl037310/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.003Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_19.jpg",
+    "localPath": "/assets/products/ripl037310/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.004Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_2.jpg",
+    "localPath": "/assets/products/ripl037310/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14894,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.004Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_20.jpg",
+    "localPath": "/assets/products/ripl037310/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.004Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_21.jpg",
+    "localPath": "/assets/products/ripl037310/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_22.jpg",
+    "localPath": "/assets/products/ripl037310/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_23.jpg",
+    "localPath": "/assets/products/ripl037310/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_24.jpg",
+    "localPath": "/assets/products/ripl037310/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_25.jpg",
+    "localPath": "/assets/products/ripl037310/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_26.jpg",
+    "localPath": "/assets/products/ripl037310/img_26.jpg",
+    "originalFilename": "img_26.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_3.jpg",
+    "localPath": "/assets/products/ripl037310/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 27566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_4.jpg",
+    "localPath": "/assets/products/ripl037310/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 36005,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.005Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_5.jpg",
+    "localPath": "/assets/products/ripl037310/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_6.jpg",
+    "localPath": "/assets/products/ripl037310/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_7.jpg",
+    "localPath": "/assets/products/ripl037310/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_8.jpg",
+    "localPath": "/assets/products/ripl037310/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037310/img_9.jpg",
+    "localPath": "/assets/products/ripl037310/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037653/img_1.jpg",
+    "localPath": "/assets/products/ripl037653/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23537,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.006Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037653/img_2.jpg",
+    "localPath": "/assets/products/ripl037653/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 68934,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.007Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037653/img_3.jpg",
+    "localPath": "/assets/products/ripl037653/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 63890,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.007Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037653/img_4.jpg",
+    "localPath": "/assets/products/ripl037653/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 62234,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.007Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037653/img_5.jpg",
+    "localPath": "/assets/products/ripl037653/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22315,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.008Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_1.jpg",
+    "localPath": "/assets/products/ripl037692/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.008Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_10.jpg",
+    "localPath": "/assets/products/ripl037692/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.008Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_11.jpg",
+    "localPath": "/assets/products/ripl037692/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_12.jpg",
+    "localPath": "/assets/products/ripl037692/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_13.jpg",
+    "localPath": "/assets/products/ripl037692/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_14.jpg",
+    "localPath": "/assets/products/ripl037692/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_15.jpg",
+    "localPath": "/assets/products/ripl037692/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_16.jpg",
+    "localPath": "/assets/products/ripl037692/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_17.jpg",
+    "localPath": "/assets/products/ripl037692/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_18.jpg",
+    "localPath": "/assets/products/ripl037692/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.009Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_19.jpg",
+    "localPath": "/assets/products/ripl037692/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.010Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_2.jpg",
+    "localPath": "/assets/products/ripl037692/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 26118,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.010Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_20.jpg",
+    "localPath": "/assets/products/ripl037692/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.010Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_21.jpg",
+    "localPath": "/assets/products/ripl037692/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.010Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_22.jpg",
+    "localPath": "/assets/products/ripl037692/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.010Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_23.jpg",
+    "localPath": "/assets/products/ripl037692/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_24.jpg",
+    "localPath": "/assets/products/ripl037692/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_3.jpg",
+    "localPath": "/assets/products/ripl037692/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_4.jpg",
+    "localPath": "/assets/products/ripl037692/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_5.jpg",
+    "localPath": "/assets/products/ripl037692/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_6.jpg",
+    "localPath": "/assets/products/ripl037692/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_7.jpg",
+    "localPath": "/assets/products/ripl037692/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_8.jpg",
+    "localPath": "/assets/products/ripl037692/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.011Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037692/img_9.jpg",
+    "localPath": "/assets/products/ripl037692/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.012Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_1.jpg",
+    "localPath": "/assets/products/ripl037804/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.016Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_10.jpg",
+    "localPath": "/assets/products/ripl037804/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_11.jpg",
+    "localPath": "/assets/products/ripl037804/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_12.jpg",
+    "localPath": "/assets/products/ripl037804/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_13.jpg",
+    "localPath": "/assets/products/ripl037804/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_14.jpg",
+    "localPath": "/assets/products/ripl037804/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_15.jpg",
+    "localPath": "/assets/products/ripl037804/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_16.jpg",
+    "localPath": "/assets/products/ripl037804/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.017Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_17.jpg",
+    "localPath": "/assets/products/ripl037804/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_18.jpg",
+    "localPath": "/assets/products/ripl037804/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_19.jpg",
+    "localPath": "/assets/products/ripl037804/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_2.jpg",
+    "localPath": "/assets/products/ripl037804/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 52057,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_20.jpg",
+    "localPath": "/assets/products/ripl037804/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_21.jpg",
+    "localPath": "/assets/products/ripl037804/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_22.jpg",
+    "localPath": "/assets/products/ripl037804/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_23.jpg",
+    "localPath": "/assets/products/ripl037804/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.018Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_24.jpg",
+    "localPath": "/assets/products/ripl037804/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_25.jpg",
+    "localPath": "/assets/products/ripl037804/img_25.jpg",
+    "originalFilename": "img_25.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_3.jpg",
+    "localPath": "/assets/products/ripl037804/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 37474,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_4.jpg",
+    "localPath": "/assets/products/ripl037804/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_5.jpg",
+    "localPath": "/assets/products/ripl037804/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_6.jpg",
+    "localPath": "/assets/products/ripl037804/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_7.jpg",
+    "localPath": "/assets/products/ripl037804/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_8.jpg",
+    "localPath": "/assets/products/ripl037804/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.019Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl037804/img_9.jpg",
+    "localPath": "/assets/products/ripl037804/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.020Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_1.jpg",
+    "localPath": "/assets/products/ripl038174/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.020Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_10.jpg",
+    "localPath": "/assets/products/ripl038174/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.020Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_11.jpg",
+    "localPath": "/assets/products/ripl038174/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.020Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_12.jpg",
+    "localPath": "/assets/products/ripl038174/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.020Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_13.jpg",
+    "localPath": "/assets/products/ripl038174/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.021Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_14.jpg",
+    "localPath": "/assets/products/ripl038174/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.021Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_15.jpg",
+    "localPath": "/assets/products/ripl038174/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.021Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_16.jpg",
+    "localPath": "/assets/products/ripl038174/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.022Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_17.jpg",
+    "localPath": "/assets/products/ripl038174/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.023Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_18.jpg",
+    "localPath": "/assets/products/ripl038174/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.023Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_19.jpg",
+    "localPath": "/assets/products/ripl038174/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.024Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_2.jpg",
+    "localPath": "/assets/products/ripl038174/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 31085,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.025Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_20.jpg",
+    "localPath": "/assets/products/ripl038174/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.025Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_21.jpg",
+    "localPath": "/assets/products/ripl038174/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_22.jpg",
+    "localPath": "/assets/products/ripl038174/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_23.jpg",
+    "localPath": "/assets/products/ripl038174/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_24.jpg",
+    "localPath": "/assets/products/ripl038174/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_3.jpg",
+    "localPath": "/assets/products/ripl038174/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_4.jpg",
+    "localPath": "/assets/products/ripl038174/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_5.jpg",
+    "localPath": "/assets/products/ripl038174/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_6.jpg",
+    "localPath": "/assets/products/ripl038174/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_7.jpg",
+    "localPath": "/assets/products/ripl038174/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.026Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_8.jpg",
+    "localPath": "/assets/products/ripl038174/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038174/img_9.jpg",
+    "localPath": "/assets/products/ripl038174/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_1.jpg",
+    "localPath": "/assets/products/ripl038175/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14445,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_10.jpg",
+    "localPath": "/assets/products/ripl038175/img_10.jpg",
+    "originalFilename": "img_10.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17862,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_11.jpg",
+    "localPath": "/assets/products/ripl038175/img_11.jpg",
+    "originalFilename": "img_11.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 14459,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_12.jpg",
+    "localPath": "/assets/products/ripl038175/img_12.jpg",
+    "originalFilename": "img_12.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32009,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.027Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_13.jpg",
+    "localPath": "/assets/products/ripl038175/img_13.jpg",
+    "originalFilename": "img_13.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13716,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.028Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_14.jpg",
+    "localPath": "/assets/products/ripl038175/img_14.jpg",
+    "originalFilename": "img_14.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21566,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.028Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_15.jpg",
+    "localPath": "/assets/products/ripl038175/img_15.jpg",
+    "originalFilename": "img_15.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 19720,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.032Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_16.jpg",
+    "localPath": "/assets/products/ripl038175/img_16.jpg",
+    "originalFilename": "img_16.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13645,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.032Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_17.jpg",
+    "localPath": "/assets/products/ripl038175/img_17.jpg",
+    "originalFilename": "img_17.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21991,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.032Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_18.jpg",
+    "localPath": "/assets/products/ripl038175/img_18.jpg",
+    "originalFilename": "img_18.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 12164,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.032Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_19.jpg",
+    "localPath": "/assets/products/ripl038175/img_19.jpg",
+    "originalFilename": "img_19.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13516,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.032Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_2.jpg",
+    "localPath": "/assets/products/ripl038175/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33897,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_20.jpg",
+    "localPath": "/assets/products/ripl038175/img_20.jpg",
+    "originalFilename": "img_20.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 15256,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_21.jpg",
+    "localPath": "/assets/products/ripl038175/img_21.jpg",
+    "originalFilename": "img_21.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 10416,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_22.jpg",
+    "localPath": "/assets/products/ripl038175/img_22.jpg",
+    "originalFilename": "img_22.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16508,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_23.jpg",
+    "localPath": "/assets/products/ripl038175/img_23.jpg",
+    "originalFilename": "img_23.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 13150,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_24.jpg",
+    "localPath": "/assets/products/ripl038175/img_24.jpg",
+    "originalFilename": "img_24.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16126,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_3.jpg",
+    "localPath": "/assets/products/ripl038175/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18424,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_4.jpg",
+    "localPath": "/assets/products/ripl038175/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_5.jpg",
+    "localPath": "/assets/products/ripl038175/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17715,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.033Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_6.jpg",
+    "localPath": "/assets/products/ripl038175/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 16995,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.034Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_7.jpg",
+    "localPath": "/assets/products/ripl038175/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 17265,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.034Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_8.jpg",
+    "localPath": "/assets/products/ripl038175/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 32509,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.034Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038175/img_9.jpg",
+    "localPath": "/assets/products/ripl038175/img_9.jpg",
+    "originalFilename": "img_9.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 18226,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.034Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038524/img_1.jpg",
+    "localPath": "/assets/products/ripl038524/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 44118,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.034Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038524/img_2.jpg",
+    "localPath": "/assets/products/ripl038524/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 70937,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.038Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038524/img_3.jpg",
+    "localPath": "/assets/products/ripl038524/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 84379,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.039Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038941/img_1.jpg",
+    "localPath": "/assets/products/ripl038941/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 62234,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.045Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038941/img_2.jpg",
+    "localPath": "/assets/products/ripl038941/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22135,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.060Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038941/img_3.jpg",
+    "localPath": "/assets/products/ripl038941/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 123563,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.060Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038941/img_4.jpg",
+    "localPath": "/assets/products/ripl038941/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23537,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.060Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl038941/img_5.jpg",
+    "localPath": "/assets/products/ripl038941/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22315,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.060Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039016/img_1.jpg",
+    "localPath": "/assets/products/ripl039016/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 51467,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.076Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039016/img_2.jpg",
+    "localPath": "/assets/products/ripl039016/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33979,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.076Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039016/img_3.jpg",
+    "localPath": "/assets/products/ripl039016/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 118573,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.076Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039016/img_4.jpg",
+    "localPath": "/assets/products/ripl039016/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 52954,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.082Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039017/img_1.jpg",
+    "localPath": "/assets/products/ripl039017/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 52954,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.086Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039017/img_2.jpg",
+    "localPath": "/assets/products/ripl039017/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 34285,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.088Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039017/img_3.jpg",
+    "localPath": "/assets/products/ripl039017/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 119658,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.089Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039017/img_4.jpg",
+    "localPath": "/assets/products/ripl039017/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 51467,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.096Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039061/img_1.jpg",
+    "localPath": "/assets/products/ripl039061/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33614,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.097Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039061/img_2.jpg",
+    "localPath": "/assets/products/ripl039061/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33749,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.097Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039061/img_3.jpg",
+    "localPath": "/assets/products/ripl039061/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 34502,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.097Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039061/img_4.jpg",
+    "localPath": "/assets/products/ripl039061/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 56743,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.097Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039061/img_5.jpg",
+    "localPath": "/assets/products/ripl039061/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 69105,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.097Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_1.jpg",
+    "localPath": "/assets/products/ripl039064/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22315,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.103Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_2.jpg",
+    "localPath": "/assets/products/ripl039064/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 30141,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.103Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_3.jpg",
+    "localPath": "/assets/products/ripl039064/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 64985,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.103Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_4.jpg",
+    "localPath": "/assets/products/ripl039064/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 56193,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.103Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_5.jpg",
+    "localPath": "/assets/products/ripl039064/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 62234,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.104Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039064/img_6.jpg",
+    "localPath": "/assets/products/ripl039064/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23537,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.104Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039065/img_1.jpg",
+    "localPath": "/assets/products/ripl039065/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 34781,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.108Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039065/img_2.jpg",
+    "localPath": "/assets/products/ripl039065/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 72882,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.109Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039065/img_3.jpg",
+    "localPath": "/assets/products/ripl039065/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 23971,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.109Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039065/img_4.jpg",
+    "localPath": "/assets/products/ripl039065/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 22985,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.109Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039065/img_5.jpg",
+    "localPath": "/assets/products/ripl039065/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 21595,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.109Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_1.jpg",
+    "localPath": "/assets/products/ripl039066/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 26851,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.109Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_2.jpg",
+    "localPath": "/assets/products/ripl039066/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 61129,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.110Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_3.jpg",
+    "localPath": "/assets/products/ripl039066/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28683,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.110Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_4.jpg",
+    "localPath": "/assets/products/ripl039066/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33519,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.110Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_5.jpg",
+    "localPath": "/assets/products/ripl039066/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 26843,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.110Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_6.jpg",
+    "localPath": "/assets/products/ripl039066/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 27241,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.112Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_7.jpg",
+    "localPath": "/assets/products/ripl039066/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28050,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.112Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039066/img_8.jpg",
+    "localPath": "/assets/products/ripl039066/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28735,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.112Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_1.jpg",
+    "localPath": "/assets/products/ripl039067/img_1.jpg",
+    "originalFilename": "img_1.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28735,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_2.jpg",
+    "localPath": "/assets/products/ripl039067/img_2.jpg",
+    "originalFilename": "img_2.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 62129,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_3.jpg",
+    "localPath": "/assets/products/ripl039067/img_3.jpg",
+    "originalFilename": "img_3.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28683,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_4.jpg",
+    "localPath": "/assets/products/ripl039067/img_4.jpg",
+    "originalFilename": "img_4.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 33519,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_5.jpg",
+    "localPath": "/assets/products/ripl039067/img_5.jpg",
+    "originalFilename": "img_5.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 26843,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_6.jpg",
+    "localPath": "/assets/products/ripl039067/img_6.jpg",
+    "originalFilename": "img_6.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 27241,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_7.jpg",
+    "localPath": "/assets/products/ripl039067/img_7.jpg",
+    "originalFilename": "img_7.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 28050,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  },
+  {
+    "sourceUrl": "https://agrimart.in/assets/products/ripl039067/img_8.jpg",
+    "localPath": "/assets/products/ripl039067/img_8.jpg",
+    "originalFilename": "img_8.jpg",
+    "type": "product-image",
+    "page": "product_details",
+    "sizeBytes": 26851,
+    "downloadStatus": "SUCCESS",
+    "downloadedAt": "2026-10-28T07:24:16.113Z"
+  }
+]

@@ -1,0 +1,245 @@
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Clock, FileText, Download } from 'lucide-react';
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#242424] text-gray-300 text-sm mt-0 border-t-4 border-[#2d7d32]">
+      {/* Top Footer Section */}
+      <div className="agri-container py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Column 1: Company Profile & About */}
+          <div>
+            <div className="mb-4">
+              <Image
+                src="/assets/branding/logo_footer.png"
+                alt="Agrimart"
+                width={180}
+                height={50}
+                className="h-10 w-auto object-contain brightness-110"
+              />
+            </div>
+            <p className="text-xs text-gray-400 leading-relaxed mb-4">
+              AGRIMART is an initiative of <strong>Ratnagiri Impex Pvt. Ltd.</strong>, part of the Annapurna Group. Founded in 2000, we specialize in high-efficiency agricultural machinery, mechanization solutions, pest control sprayers, garden care equipment, and reliable customer service across India.
+            </p>
+            <div className="space-y-2">
+              <a
+                href="/assets/brochures/corporate_brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs bg-[#2d7d32] hover:bg-green-700 text-white px-3 py-1.5 rounded transition-colors"
+              >
+                <Download className="w-3.5 h-3.5" /> Download Corporate Brochure
+              </a>
+              <br />
+              <a
+                href="/assets/brochures/agrimart_brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs bg-yellow-600 hover:bg-yellow-700 text-white px-3 py-1.5 rounded transition-colors"
+              >
+                <FileText className="w-3.5 h-3.5" /> Download Agrimate Brochure
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Quick Links & Business */}
+          <div>
+            <h3 className="text-white font-bold text-base mb-4 border-b border-gray-700 pb-2">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-xs text-gray-400">
+              <li>
+                <Link href="/" className="hover:text-green-400 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/products" 
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
+                    }
+                  }}
+                  className="hover:text-green-400 transition-colors"
+                >
+                  All Products Catalogue
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-green-400 transition-colors">
+                  About Us & Vision
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-green-400 transition-colors">
+                  Services & 750+ Dealer Network
+                </Link>
+              </li>
+              <li>
+                <Link href="/become-a-partner" className="hover:text-green-400 transition-colors">
+                  Become a Partner
+                </Link>
+              </li>
+              <li>
+                <Link href="/cms/buy-earn-rent" className="hover:text-green-400 transition-colors">
+                  Buy, Earn & Rent Program
+                </Link>
+              </li>
+              <li>
+                <Link href="/cms/knowledge-bank" className="hover:text-green-400 transition-colors">
+                  Knowledge Bank
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Customer Care & Legal */}
+          <div>
+            <h3 className="text-white font-bold text-base mb-4 border-b border-gray-700 pb-2">
+              Customer Support & Legal
+            </h3>
+            <ul className="space-y-2 text-xs text-gray-400">
+              <li>
+                <Link href="/faq" className="hover:text-green-400 transition-colors">
+                  Frequently Asked Questions (FAQ)
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-green-400 transition-colors">
+                  Contact Us & Enquiries
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-green-400 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-green-400 transition-colors">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal-notice" className="hover:text-green-400 transition-colors">
+                  Legal Notice
+                </Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="hover:text-green-400 transition-colors">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/warranty" className="hover:text-green-400 transition-colors">
+                  Warranty & Service Guarantee
+                </Link>
+              </li>
+            </ul>
+
+            {/* Mobile App Download badges */}
+            <div className="mt-5">
+              <p className="text-xs font-semibold text-white mb-2">Download Our Mobile App</p>
+              <div className="flex items-center space-x-2">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-90 transition-opacity inline-block"
+                >
+                  <Image
+                    src="/assets/branding/google_play.png"
+                    alt="Download on Google Play"
+                    width={110}
+                    height={34}
+                    className="h-8 w-auto cursor-pointer"
+                  />
+                </a>
+                <a
+                  href="https://apps.apple.com/in/app/agrimart/id1599062786"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-90 transition-opacity inline-block"
+                >
+                  <Image
+                    src="/assets/branding/app_store.png"
+                    alt="Download on App Store"
+                    width={110}
+                    height={34}
+                    className="h-8 w-auto cursor-pointer"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: Contact Information & Network */}
+          <div>
+            <h3 className="text-white font-bold text-base mb-4 border-b border-gray-700 pb-2">
+              Contact Information
+            </h3>
+            <div className="space-y-3 text-xs text-gray-400">
+              <div className="flex items-start space-x-2.5">
+                <MapPin className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                <span>
+                  <strong>Annapurna House</strong>, #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.
+                </span>
+              </div>
+              <div className="flex items-center space-x-2.5">
+                <Phone className="w-4 h-4 text-green-500 shrink-0" />
+                <span>
+                  Toll Free: <a href="tel:7393938938" className="text-white hover:text-green-400 font-bold">7393 938 938</a>
+                </span>
+              </div>
+              <div className="flex items-center space-x-2.5">
+                <Mail className="w-4 h-4 text-green-500 shrink-0" />
+                <span>
+                  Email: <a href="mailto:ask@agrimart.in" className="hover:text-green-400">ask@agrimart.in</a>
+                </span>
+              </div>
+              <div className="flex items-start space-x-2.5">
+                <Clock className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                <span>
+                  Mon – Sat: 9:30 AM – 6:00 PM<br />
+                  Sunday: Closed
+                </span>
+              </div>
+            </div>
+
+            {/* Network Illustration: Pan India Network */}
+            <div className="mt-4 pt-3 border-t border-gray-800">
+              <div className="rounded-lg overflow-hidden border border-gray-700 bg-white/5 p-1.5 shadow-md group">
+                <Image
+                  src="/assets/branding/pan_india_network.jpg"
+                  alt="Our Pan India Network - Serving Farmers Across India"
+                  width={500}
+                  height={550}
+                  className="w-full h-auto object-contain rounded group-hover:scale-[1.02] transition-transform duration-300"
+                />
+              </div>
+              <p className="text-[11px] text-gray-400 mt-2 text-center">
+                <strong>750+ Showrooms, Dealers & Service Centres</strong> Nationwide
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Copyright Bar */}
+      <div className="bg-[#1a1a1a] py-4 border-t border-gray-800 text-center text-xs text-gray-500">
+        <div className="agri-container flex flex-col sm:flex-row justify-between items-center gap-2">
+          <p>© {new Date().getFullYear()} Agrimart — Ratnagiri Impex Pvt. Ltd. All rights reserved.</p>
+          <div className="flex space-x-4">
+            <Link href="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-gray-300">Terms of Use</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-gray-300">Enquiries</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

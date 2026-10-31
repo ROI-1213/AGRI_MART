@@ -1,0 +1,140 @@
+{
+  "categories": [
+    {
+      "name": "BLOWER - MISTBLOWER",
+      "code": "MQ==",
+      "decoded": "1"
+    },
+    {
+      "name": "BRUSH CUTTER - WEED CUTTER",
+      "code": "OQ==",
+      "decoded": "9"
+    },
+    {
+      "name": "CHAFF CUTTER / SHREDDER",
+      "code": "MjM=",
+      "decoded": "23"
+    },
+    {
+      "name": "CHAIN SAW",
+      "code": "MTE=",
+      "decoded": "11"
+    },
+    {
+      "name": "EARTH AUGER",
+      "code": "MTk=",
+      "decoded": "19"
+    },
+    {
+      "name": "ENGINE",
+      "code": "MTY2",
+      "decoded": "166"
+    },
+    {
+      "name": "FOGGER ULV & THERMAL",
+      "code": "MTU=",
+      "decoded": "15"
+    },
+    {
+      "name": "GARDEN TOOLS & SPRAYERS",
+      "code": "Mjc=",
+      "decoded": "27"
+    },
+    {
+      "name": "HARVESTER",
+      "code": "Mzc=",
+      "decoded": "37"
+    },
+    {
+      "name": "HEDGETRIMMER",
+      "code": "MjE=",
+      "decoded": "21"
+    },
+    {
+      "name": "INTERCULTIVATOR/POWER WEEDER",
+      "code": "NDI=",
+      "decoded": "42"
+    },
+    {
+      "name": "IRRIGATION",
+      "code": "MTkz",
+      "decoded": "193"
+    },
+    {
+      "name": "LAWN MOWER",
+      "code": "Mjk=",
+      "decoded": "29"
+    },
+    {
+      "name": "LUBRICANTS",
+      "code": "MjM1",
+      "decoded": "235"
+    },
+    {
+      "name": "MANUAL SEEDER",
+      "code": "MjAx",
+      "decoded": "201"
+    },
+    {
+      "name": "MILKING  MACHINE",
+      "code": "MjAy",
+      "decoded": "202"
+    },
+    {
+      "name": "POWER CUTTER",
+      "code": "MTU0",
+      "decoded": "154"
+    },
+    {
+      "name": "PRUNER",
+      "code": "NA==",
+      "decoded": "4"
+    },
+    {
+      "name": "PRESSURE WASHER",
+      "code": "NDg=",
+      "decoded": "48"
+    },
+    {
+      "name": "PUMPSET",
+      "code": "MTU5",
+      "decoded": "159"
+    },
+    {
+      "name": "REAPER / HARVESTER",
+      "code": "NTE=",
+      "decoded": "51"
+    },
+    {
+      "name": "ROTAVATOR",
+      "code": "MTg5",
+      "decoded": "189"
+    },
+    {
+      "name": "SPRAYER",
+      "code": "Ng==",
+      "decoded": "6"
+    },
+    {
+      "name": "STUBBLE MOWER",
+      "code": "MjIx",
+      "decoded": "221"
+    },
+    {
+      "name": "THRESHER",
+      "code": "MjE3",
+      "decoded": "217"
+    },
+    {
+      "name": "TRANSPORTER",
+      "code": "MTU2",
+      "decoded": "156"
+    },
+    {
+      "name": "WOOD CHIPPER",
+      "code": "MjIz",
+      "decoded": "223"
+    }
+  ],
+  "subcategories": []
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="300">
+        <title>Login | izo leap</title>
+
+        <!--STYLESHEET-->
+        <!--Roboto Font [ OPTIONAL ]-->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300,500" rel="stylesheet" type="text/css">
+        <!--Bootstrap Stylesheet [ REQUIRED ]-->
+        <link href="https://agrimart.in/template/back/css/bootstrap.min.css" rel="stylesheet">
+        <!--Activeit Stylesheet [ REQUIRED ]-->
+        <link href="https://agrimart.in/template/back/css/activeit.min.css" rel="stylesheet">
+        <!--Font Awesome [ OPTIONAL ]-->
+        <link href="https://agrimart.in/template/back/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!--Demo [ DEMONSTRATION ]-->
+        <link href="https://agrimart.in/template/back/css/demo/activeit-demo.min.css" rel="stylesheet">
+
+        <link href="https://agrimart.in/template/back/css/custom.css" rel="stylesheet">
+        <!--SCRIPT-->
+        <!--Page Load Progress Bar [ OPTIONAL ]-->
+        <link href="https://agrimart.in/template/back/plugins/pace/pace.min.css" rel="stylesheet">
+        <script src="https://agrimart.in/template/back/plugins/pace/pace.min.js"></script>
+                <!--- Noty Css ---->
+        <link rel="stylesheet" href="https://agrimart.in/assests/css/animate.css">
+        <link rel="shortcut icon" href="https://agrimart.in/uploads/others/favicon.png">
+    </head>
+
+    <body>
+        <div id="container" class="cls-container cls-bgstyle">
+            <!-- BACKGROUND IMAGE -->
+            <div id="bg-overlay"></div>
+            <!-- LOGIN FORM -->
+            <div class="cls-content">
+                <div class="cls-content-sm panel panel-colorful panel-login" style="margin-top: 50px !important;">
+                    <div class="panel-body">
+                        <div class="loginTop">
+                            							<a class="box-inline" href="javascript:void(0);">
+                            	<img class="log_icon" style="width:138px;" src="https://agrimart.in/uploads/vendor_logo_image/logo_1.png" alt="Logo">
+								</a>
+								                        </div>
+                        <!-- <hr class="hr-log"> -->
+                        <div class="loginBottom">
+                            <p class="pad-btm">Sign In To Your Account</p>
+                            <form action="https://agrimart.in/index.php/vendor/internal_login/" method="post" id="login" accept-charset="utf-8">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user" style="color:#FFF !important"></i></div>
+                                    <input type="text" name="email" class="form-control input_text" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-key" style="color:#FFF !important"></i></div>
+                                    <input type="password" name="password" class="form-control" placeholder="password">
+                                </div>
+                            </div>
+                      <div class="row">
+
+                                <div class="col-xs-12">
+
+                                    <div class="col-md-6" style="padding: 0px;">
+                                        <div class="pad-ver left">
+                                            <a href="#" onclick="ajax_modal('forget_form_users', 'Forget Password ?', 'Email Sent With New Password!', 'user_forget', '')" class="btn-link mar-rgt" style="color:#fff !important; margin-left: 16px;">Forgot Password ?</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6" style="padding: 0px;">
+                                        <div class="form-group text-right main_login">
+                                            <span class="btn btn-login btn-labeled fa fa-unlock-alt snbtn" onclick="form_submit('login')">
+Sign In                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--jQuery [ REQUIRED ]-->
+        <script src="https://agrimart.in/template/back/js/jquery-2.1.1.min.js"></script>
+
+        <!--BootstrapJS [ RECOMMENDED ]-->
+        <script src="https://agrimart.in/template/back/js/bootstrap.min.js"></script>
+
+        <!--Activeit Admin [ RECOMMENDED ]-->
+        <script src="https://agrimart.in/template/back/js/activeit.min.js"></script>
+
+        <!--Background Image [ DEMONSTRATION ]-->
+        <script src="https://agrimart.in/template/back/js/demo/bg-images.js"></script>
+
+        <!--Bootbox Modals [ OPTIONAL ]-->
+        <script src="https://agrimart.in/template/back/plugins/bootbox/bootbox.min.js"></script>
+
+        <!--Demo script [ DEMONSTRATION ]-->
+        <script src="https://agrimart.in/template/back/js/ajax_login.js"></script>
+        <!--- notify ---->    
+        <script src="https://agrimart.in/assests/js/jquery.noty.packaged.js"></script>
+
+        <script>
+                                            var base_url = "https://agrimart.in/";
+                                            var cancdd = "Cancelled";
+                                            var req = "This Field Is Required";
+                                            var sing = "Signing In...";
+                                            var nps = "New Password Sent To Your Email";
+                                            var lfil = "Login Failed!";
+                                            var wrem = "Wrong E-mail Address! Try Again";
+                                            var lss = "Login Successful!";
+                                            var sucss = "SUCCESS!";
+                                            var rpss = "Reset Password";
+                                            var user_type = "vendor";
+                                            var module = "login";
+                                            var unapproved = "Account Not Approved. Wait For Approval.";
+
+                                            window.addEventListener("keydown", checkKeyPressed, false);
+                                            function checkKeyPressed(e) {
+                                                if (e.keyCode == "13") {
+                                                    $('body').find(':focus').closest('form').find('.snbtn').click();
+                                                    if ($('body').find('.modal-content').find(':focus').closest('form').closest('.modal-content').length > 0) {
+                                                        $('body').find('.modal-content').find(':focus').closest('form').closest('.modal-content').find('.snbtn_modal').click();
+                                                    }
+                                                }
+                                            }
+        </script>
+    </body>
+</html>

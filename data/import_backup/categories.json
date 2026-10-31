@@ -1,0 +1,345 @@
+[
+  {
+    "id": "cat_1",
+    "name": "BLOWER - MISTBLOWER",
+    "slug": "blower-mistblower",
+    "icon": "Wind",
+    "subcategories": [
+      "Petrol Mistblower",
+      "Battery Mistblower",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_2",
+    "name": "BRUSH CUTTER - WEED CUTTER",
+    "slug": "brush-cutter-weed-cutter",
+    "icon": "Scissors",
+    "subcategories": [
+      "Petrol weed cutter (Two-stroke)",
+      "Petrol weed cutter (Four-stroke)",
+      "Electric weed cutter",
+      "Accessories",
+      "Spares"
+    ]
+  },
+  {
+    "id": "cat_3",
+    "name": "CHAFF CUTTER / SHREDDER",
+    "slug": "chaff-cutter-shredder",
+    "icon": "Layers",
+    "subcategories": [
+      "Petrol Chaff Cutter",
+      "Electric Chaff Cutter",
+      "Manual Chaff Cutter"
+    ]
+  },
+  {
+    "id": "cat_4",
+    "name": "CHAIN SAW",
+    "slug": "chain-saw",
+    "icon": "Zap",
+    "subcategories": [
+      "Electric Chain Saw",
+      "Petrol Chain Saw",
+      "Pole Pruner",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_5",
+    "name": "EARTH AUGER",
+    "slug": "earth-auger",
+    "icon": "Drill",
+    "subcategories": [
+      "One Man Earth Auger",
+      "Two Men Earth Auger",
+      "Auger Drill Bits",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_6",
+    "name": "ENGINE",
+    "slug": "engine",
+    "icon": "Cpu",
+    "subcategories": [
+      "Petrol Engine",
+      "Diesel Engine",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_7",
+    "name": "FOGGER ULV & THERMAL",
+    "slug": "fogger-ulv-thermal",
+    "icon": "Cloud",
+    "subcategories": [
+      "Thermal Fogger",
+      "Mini Fogger",
+      "ULV Fogger",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_8",
+    "name": "GARDEN TOOLS & SPRAYERS",
+    "slug": "garden-tools-sprayers",
+    "icon": "Shovel",
+    "subcategories": [
+      "Garden Hand Tools",
+      "Garden Sprayers",
+      "Hedge Shears",
+      "Pruning Shears"
+    ]
+  },
+  {
+    "id": "cat_9",
+    "name": "HARVESTER",
+    "slug": "harvester",
+    "icon": "Crop",
+    "subcategories": [
+      "Tea Harvester Petrol",
+      "Coffee Harvester",
+      "Arecanut Harvester",
+      "Tea Harvester Electric",
+      "Battery Tea Harvester"
+    ]
+  },
+  {
+    "id": "cat_10",
+    "name": "HEDGETRIMMER",
+    "slug": "hedgetrimmer",
+    "icon": "Sparkles",
+    "subcategories": [
+      "Petrol Hedgetrimmer",
+      "Electric Hedgetrimmer",
+      "Single Sided",
+      "Double Sided"
+    ]
+  },
+  {
+    "id": "cat_11",
+    "name": "INTERCULTIVATOR/POWER WEEDER",
+    "slug": "intercultivator-power-weeder",
+    "icon": "Tractor",
+    "subcategories": [
+      "Petrol Weeder",
+      "Diesel Weeder",
+      "Electric Weeder",
+      "Back Rotary Petrol",
+      "Back Rotary Diesel",
+      "Four-Wheel Drive",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_12",
+    "name": "IRRIGATION",
+    "slug": "irrigation",
+    "icon": "Droplets",
+    "subcategories": [
+      "Deep Drip Stakes",
+      "Drip Accessories",
+      "Micro Sprinklers",
+      "Fittings"
+    ]
+  },
+  {
+    "id": "cat_13",
+    "name": "LAWN MOWER",
+    "slug": "lawn-mower",
+    "icon": "Compass",
+    "subcategories": [
+      "Petrol Lawn Mower",
+      "Electric Lawn Mower",
+      "Blades",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_14",
+    "name": "LUBRICANTS",
+    "slug": "lubricants",
+    "icon": "Droplet",
+    "subcategories": [
+      "Two-stroke oil (2T)",
+      "Gear oil",
+      "Synthetic oil",
+      "Grease"
+    ]
+  },
+  {
+    "id": "cat_15",
+    "name": "MANUAL SEEDER",
+    "slug": "manual-seeder",
+    "icon": "Target",
+    "subcategories": [
+      "Manual Vertical Seeder",
+      "Manual cum Fertilizer Drill"
+    ]
+  },
+  {
+    "id": "cat_16",
+    "name": "MILKING  MACHINE",
+    "slug": "milking-machine",
+    "icon": "Activity",
+    "subcategories": [
+      "Single Bucket",
+      "Double Bucket",
+      "Piston Type",
+      "Vacuum Type"
+    ]
+  },
+  {
+    "id": "cat_17",
+    "name": "POWER CUTTER",
+    "slug": "power-cutter",
+    "icon": "Disc",
+    "subcategories": [
+      "Petrol Power Cutter",
+      "Diamond Blades",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_18",
+    "name": "PRUNER",
+    "slug": "pruner",
+    "icon": "Award",
+    "subcategories": [
+      "Tea Pruner",
+      "Mango Picker",
+      "Pole Pruner",
+      "Carbon Fibre Pole",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_19",
+    "name": "PRESSURE WASHER",
+    "slug": "pressure-washer",
+    "icon": "Shield",
+    "subcategories": [
+      "High Pressure Washer Electric",
+      "Petrol Pressure Washer",
+      "Hose & Guns"
+    ]
+  },
+  {
+    "id": "cat_20",
+    "name": "PUMPSET",
+    "slug": "pumpset",
+    "icon": "ArrowDownCircle",
+    "subcategories": [
+      "Petrol Pumpset",
+      "Diesel Pumpset",
+      "Electric Pumpset",
+      "Submersible Pumps"
+    ]
+  },
+  {
+    "id": "cat_21",
+    "name": "REAPER / HARVESTER",
+    "slug": "reaper-harvester",
+    "icon": "Sun",
+    "subcategories": [
+      "Paddy Reaper",
+      "Multi-crop Reaper",
+      "Attachments"
+    ]
+  },
+  {
+    "id": "cat_22",
+    "name": "ROTAVATOR",
+    "slug": "rotavator",
+    "icon": "RotateCw",
+    "subcategories": [
+      "Mini Series",
+      "Champion Series",
+      "Heavy Duty Series",
+      "Regular Series",
+      "Orchard Series",
+      "HD+ Series",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_23",
+    "name": "SPRAYER",
+    "slug": "sprayer",
+    "icon": "CloudRain",
+    "subcategories": [
+      "Battery Sprayer",
+      "Single-Pump Sprayer",
+      "Double-Pump Sprayer",
+      "Two-in-One Sprayer",
+      "Portable Sprayer",
+      "Manual Sprayer",
+      "Knapsack Sprayer",
+      "Mobile Sprayer",
+      "HTP Sprayer",
+      "HTP with Engine",
+      "HTP with Electric Motor",
+      "Diaphragm Pump",
+      "Portable Electric",
+      "Air Blast Sprayer",
+      "Accessories"
+    ]
+  },
+  {
+    "id": "cat_24",
+    "name": "STUBBLE MOWER",
+    "slug": "stubble-mower",
+    "icon": "Grid",
+    "subcategories": [
+      "Heavy Duty Stubble Mower",
+      "Tractor Mounted",
+      "Blades"
+    ]
+  },
+  {
+    "id": "cat_25",
+    "name": "THRESHER",
+    "slug": "thresher",
+    "icon": "Box",
+    "subcategories": [
+      "Petrol Thresher",
+      "Electric Thresher",
+      "Diesel Thresher",
+      "Multi-crop Thresher"
+    ]
+  },
+  {
+    "id": "cat_26",
+    "name": "TRANSPORTER",
+    "slug": "transporter",
+    "icon": "Truck",
+    "subcategories": [
+      "Crawler Mini Transporter",
+      "Hydraulic Dumper",
+      "Payload Carriers"
+    ]
+  },
+  {
+    "id": "cat_27",
+    "name": "WOOD CHIPPER",
+    "slug": "wood-chipper",
+    "icon": "Cpu",
+    "subcategories": [
+      "Drum Wood Chipper",
+      "Disc Wood Chipper",
+      "Mobile Chipper"
+    ]
+  },
+  {
+    "id": "cat_28",
+    "name": "MB PLOUGH",
+    "slug": "mb-plough",
+    "icon": "Anchor",
+    "subcategories": [
+      "Mechanical MB Plough",
+      "Hydraulic Reversible MB Plough"
+    ]
+  }
+]

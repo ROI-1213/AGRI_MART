@@ -1,0 +1,135 @@
+[
+  {
+    "name": "home",
+    "url": "https://agrimart.in/",
+    "status": "FETCHED",
+    "sizeBytes": 418504,
+    "discoveredAt": "2026-10-28T07:20:29.007Z"
+  },
+  {
+    "name": "list_products",
+    "url": "https://agrimart.in/index.php/home/list_products",
+    "status": "FETCHED",
+    "sizeBytes": 360818,
+    "discoveredAt": "2026-10-28T07:20:29.574Z"
+  },
+  {
+    "name": "about_us",
+    "url": "https://agrimart.in/index.php/home/about_us",
+    "status": "FETCHED",
+    "sizeBytes": 219568,
+    "discoveredAt": "2026-10-28T07:20:29.654Z"
+  },
+  {
+    "name": "services",
+    "url": "https://agrimart.in/index.php/home/services",
+    "status": "FETCHED",
+    "sizeBytes": 215055,
+    "discoveredAt": "2026-10-28T07:20:29.732Z"
+  },
+  {
+    "name": "blogs",
+    "url": "https://agrimart.in/index.php/home/blogs",
+    "status": "FETCHED",
+    "sizeBytes": 218082,
+    "discoveredAt": "2026-10-28T07:20:29.817Z"
+  },
+  {
+    "name": "contact_us",
+    "url": "https://agrimart.in/index.php/home/contact_us",
+    "status": "FETCHED",
+    "sizeBytes": 230423,
+    "discoveredAt": "2026-10-28T07:20:29.898Z"
+  },
+  {
+    "name": "faq",
+    "url": "https://agrimart.in/index.php/home/faq",
+    "status": "FETCHED",
+    "sizeBytes": 216614,
+    "discoveredAt": "2026-10-28T07:20:29.978Z"
+  },
+  {
+    "name": "privacy_policy",
+    "url": "https://agrimart.in/index.php/home/cms/privacy_policy",
+    "status": "FETCHED",
+    "sizeBytes": 233350,
+    "discoveredAt": "2026-10-28T07:20:30.075Z"
+  },
+  {
+    "name": "terms_and_conditions",
+    "url": "https://agrimart.in/index.php/home/terms_and_conditions",
+    "status": "FETCHED",
+    "sizeBytes": 251302,
+    "discoveredAt": "2026-10-28T07:20:30.154Z"
+  },
+  {
+    "name": "legal_notice",
+    "url": "https://agrimart.in/index.php/home/cms/legal_notice",
+    "status": "FETCHED",
+    "sizeBytes": 215368,
+    "discoveredAt": "2026-10-28T07:20:30.266Z"
+  },
+  {
+    "name": "disclaimer",
+    "url": "https://agrimart.in/index.php/home/cms/disclaimer",
+    "status": "FETCHED",
+    "sizeBytes": 213710,
+    "discoveredAt": "2026-10-28T07:20:30.345Z"
+  },
+  {
+    "name": "warranty",
+    "url": "https://agrimart.in/index.php/home/cms/warranty",
+    "status": "FETCHED",
+    "sizeBytes": 215591,
+    "discoveredAt": "2026-10-28T07:20:30.420Z"
+  },
+  {
+    "name": "become_a_partner",
+    "url": "https://agrimart.in/index.php/home/cms/become_a_partner",
+    "status": "FETCHED",
+    "sizeBytes": 213008,
+    "discoveredAt": "2026-10-28T07:20:30.504Z"
+  },
+  {
+    "name": "buy_earn_rent",
+    "url": "https://agrimart.in/index.php/home/cms/buy_earn_rent",
+    "status": "FETCHED",
+    "sizeBytes": 212987,
+    "discoveredAt": "2026-10-28T07:20:30.576Z"
+  },
+  {
+    "name": "knowledge_bank",
+    "url": "https://agrimart.in/index.php/home/cms/knowledge_bank",
+    "status": "FETCHED",
+    "sizeBytes": 212680,
+    "discoveredAt": "2026-10-28T07:20:30.649Z"
+  },
+  {
+    "name": "dealer_register",
+    "url": "https://agrimart.in/index.php/home/dealer_register",
+    "status": "FETCHED",
+    "sizeBytes": 275373,
+    "discoveredAt": "2026-10-28T07:20:30.730Z"
+  },
+  {
+    "name": "user_login",
+    "url": "https://agrimart.in/index.php/login/user_login",
+    "status": "FETCHED",
+    "sizeBytes": 224299,
+    "discoveredAt": "2026-10-28T07:20:30.809Z"
+  },
+  {
+    "name": "vendor_login",
+    "url": "https://agrimart.in/index.php/vendor/user_login",
+    "status": "FETCHED",
+    "sizeBytes": 7613,
+    "discoveredAt": "2026-10-28T07:20:30.847Z"
+  },
+  {
+    "name": "view_cart",
+    "url": "https://agrimart.in/index.php/home/view_cart",
+    "status": "FETCHED",
+    "sizeBytes": 217851,
+    "discoveredAt": "2026-10-28T07:20:30.936Z"
+  }
+]

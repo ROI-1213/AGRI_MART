@@ -1,0 +1,2440 @@
+{
+  "discoveredAt": "2026-10-29T04:24:56.700Z",
+  "totalUniqueProducts": 227,
+  "categorySummary": {
+    "BLOWER - MISTBLOWER": {
+      "id": "1",
+      "code": "MQ==",
+      "products": [
+        "MTkxOQ==/OTk0",
+        "Mg==/MQ==",
+        "MzQyNA==/MTY5Nw==",
+        "MTYwNg==/ODA5"
+      ]
+    },
+    "BRUSH CUTTER - WEED CUTTER": {
+      "id": "9",
+      "code": "OQ==",
+      "products": [
+        "MzUyNg==/MTc2Mg==",
+        "MzUyOA==/MTc2Mw==",
+        "MzExMQ==/MTUxOQ==",
+        "MjYwMA==/MTMyNA==",
+        "MzQ2OA==/MTczMA==",
+        "MTY1Mw==/ODU0",
+        "MzA5MA==/MTUwOA==",
+        "Mzgy/MTg0",
+        "MzQ1MA==/MTcxNw==",
+        "MzQyMA==/MTY5NQ==",
+        "MzExMw==/MTUyMA==",
+        "MjAyMg==/MTA0OA==",
+        "MjAyMg==/MTA0OA==",
+        "MzAzMA==/MTQ3Mw==",
+        "MzE4NA==/MTU1Nw==",
+        "NDIz/MjAz",
+        "NDA2/MTk2",
+        "MzI4Mw==/MTYxNw==",
+        "MjQ2Mg==/MTMwOQ==",
+        "MzMwMQ==/MTYyNg==",
+        "MjQ3/MTIw",
+        "Mzgw/MTgz",
+        "MjQ5/MTIx",
+        "NDE5/MjAx",
+        "MjAzOA==/MTA1NA==",
+        "NDIx/MjAy"
+      ]
+    },
+    "CHAFF CUTTER / SHREDDER": {
+      "id": "23",
+      "code": "MjM=",
+      "products": [
+        "MzU1NA==/MTc4MA==",
+        "MzAyNA==/MTQ3MA==",
+        "MzM2OA==/MTY2NQ=="
+      ]
+    },
+    "CHAIN SAW": {
+      "id": "11",
+      "code": "MTE=",
+      "products": [
+        "MzUyNA==/MTc2MQ==",
+        "MzUyMg==/MTc2MA==",
+        "MjU5MA==/MTMxNg==",
+        "MzU2Ng==/MTc4NQ==",
+        "MjU5Ng==/MTMyMQ==",
+        "MTM4/Njg=",
+        "MjA1Mw==/MTA2Ng==",
+        "MjA1MQ==/MTA2NQ==",
+        "MzMwOQ==/MTYzMA==",
+        "MjY5Mg==/MTMzNA==",
+        "OTY=/NDk=",
+        "MTA4/NTU=",
+        "OTA=/NDY="
+      ]
+    },
+    "EARTH AUGER": {
+      "id": "19",
+      "code": "MTk=",
+      "products": [
+        "MzE1Mw==/MTU0Mg==",
+        "NjY=/MzQ=",
+        "MjgyMg==/MTM2MA==",
+        "MjgyNA==/MTM2MQ==",
+        "NzA=/MzY=",
+        "MzM1NA==/MTY1Nw==",
+        "Nzg=/NDA="
+      ]
+    },
+    "ENGINE": {
+      "id": "166",
+      "code": "MTY2",
+      "products": [
+        "MzU5OA==/MTgwMQ==",
+        "MzQ4MA==/MTczNw==",
+        "MzQ4OA==/MTc0MQ==",
+        "MzQ4Ng==/MTc0MA=="
+      ]
+    },
+    "FOGGER ULV & THERMAL": {
+      "id": "15",
+      "code": "MTU=",
+      "products": [
+        "MTc1MA==/OTEx",
+        "MTcyMA==/ODk2",
+        "MjAwNQ==/MTAzOA==",
+        "MTc0OA==/OTEw",
+        "MTcxOA==/ODk1",
+        "MTYx/Nzg=",
+        "MTYwNA==/ODA4",
+        "NTg=/MzA=",
+        "MTUz/NzU="
+      ]
+    },
+    "GARDEN TOOLS & SPRAYERS": {
+      "id": "27",
+      "code": "Mjc=",
+      "products": [
+        "MzMzNw==/MTY0NQ=="
+      ]
+    },
+    "HARVESTER": {
+      "id": "37",
+      "code": "Mzc=",
+      "products": [
+        "MzUwOA==/MTc1Mw==",
+        "MjYwMw==/MTMyNg==",
+        "MzI2MQ==/MTYwNg==",
+        "NTE0/MjQ1",
+        "MjAwMQ==/MTAzNg==",
+        "MzIxOA==/MTU3NA==",
+        "MzU2Mg==/MTc4Mw==",
+        "NTEw/MjQz"
+      ]
+    },
+    "HEDGETRIMMER": {
+      "id": "21",
+      "code": "MjE=",
+      "products": [
+        "MzM2Ng==/MTY2Mw==",
+        "MTgx/ODg="
+      ]
+    },
+    "INTERCULTIVATOR/POWER WEEDER": {
+      "id": "42",
+      "code": "NDI=",
+      "products": [
+        "MzM3MA==/MTY2Ng==",
+        "MzM3Mg==/MTY2Nw==",
+        "NjQ0/MzA3",
+        "MzQzMg==/MTcwNw==",
+        "MzU0Mg==/MTc3Mw==",
+        "MzU0Ng==/MTc3NQ==",
+        "NTgx/Mjc2",
+        "MzU0OA==/MTc3Ng==",
+        "MzI1Nw==/MTYwNA==",
+        "MjkxOA==/MTQxMQ==",
+        "NTk2/Mjgz",
+        "MzMxOQ==/MTYzNg==",
+        "NjA0/Mjg3",
+        "MzUzOA==/MTc3MA==",
+        "MzQ5Ng==/MTc0Ng==",
+        "MzMyMQ==/MTYzNw==",
+        "MzAyOA==/MTQ3Mg==",
+        "MzEzNw==/MTUzMw==",
+        "MzQ1OA==/MTcyMQ==",
+        "MzM0NQ==/MTY1Mg==",
+        "MTk2Ng==/MTAxOA==",
+        "MzU0MA==/MTc3Mg==",
+        "NTg1/Mjc4",
+        "MzMxNw==/MTYzNQ==",
+        "MzMzNQ==/MTYzOA==",
+        "MzA0OA==/MTQ4NQ==",
+        "MzMyMw==/MTYzOQ==",
+        "MzM5Ng==/MTY4Mg==",
+        "MzEwOQ==/MTUxOA==",
+        "MzQxMg==/MTY5MA==",
+        "MTY2Mw==/ODYx",
+        "MzQ4Mg==/MTczOA==",
+        "MzYwMg==/MTgwNA==",
+        "MzU5MA==/MTc5Nw=="
+      ]
+    },
+    "IRRIGATION": {
+      "id": "193",
+      "code": "MTkz",
+      "products": [
+        "MzAxOA==/MTQ2Nw==",
+        "MzAxNA==/MTQ2NA==",
+        "MjQ2MA==/MTMwNw=="
+      ]
+    },
+    "LAWN MOWER": {
+      "id": "29",
+      "code": "Mjk=",
+      "products": [
+        "MzI4OQ==/MTYyMA==",
+        "MzI5MQ==/MTYyMQ==",
+        "MzE4Ng==/MTU1OA==",
+        "MjYzMw==/MTMzMQ==",
+        "MTcwNg==/ODg2",
+        "MTcxMg==/ODkx"
+      ]
+    },
+    "LUBRICANTS": {
+      "id": "235",
+      "code": "MjM1",
+      "products": [
+        "MzQzNg==/MTcxMA==",
+        "MzU4Ng==/MTc5NQ==",
+        "MzU4Mg==/MTc5Mw==",
+        "MzU3Ng==/MTc5MA==",
+        "MzU4OA==/MTc5Ng==",
+        "MzYwMA==/MTgwMg==",
+        "MzU4NA==/MTc5NA=="
+      ]
+    },
+    "MANUAL SEEDER": {
+      "id": "201",
+      "code": "MjAx",
+      "products": [
+        "MzI2Nw==/MTYwOQ==",
+        "MzI2OQ==/MTYxMA==",
+        "MzI2Mw==/MTYwNw==",
+        "MzUwMA==/MTc0OA==",
+        "MzUwMg==/MTc0OQ==",
+        "MzI2NQ==/MTYwOA=="
+      ]
+    },
+    "MILKING  MACHINE": {
+      "id": "202",
+      "code": "MjAy",
+      "products": []
+    },
+    "POWER CUTTER": {
+      "id": "154",
+      "code": "MTU0",
+      "products": [
+        "MTgzNw==/OTUw"
+      ]
+    },
+    "PRUNER": {
+      "id": "4",
+      "code": "NA==",
+      "products": [
+        "MzM1OA==/MTY1OQ==",
+        "MTgzOQ==/OTUz",
+        "MzM3OA==/MTY3MA==",
+        "MzA5NA==/MTUxMA==",
+        "MzAzNA==/MTQ3Ng==",
+        "MzAzNg==/MTQ3Nw==",
+        "MTY1Nw==/ODU2",
+        "MzAzOA==/MTQ3OA=="
+      ]
+    },
+    "PRESSURE WASHER": {
+      "id": "48",
+      "code": "NDg=",
+      "products": [
+        "OTk2/NDY5",
+        "MTAyNw==/NDgz",
+        "Mjk4OQ==/MTQ0OQ=="
+      ]
+    },
+    "PUMPSET": {
+      "id": "159",
+      "code": "MTU5",
+      "products": [
+        "MzQ3Ng==/MTczNQ==",
+        "MzU5NA==/MTc5OQ==",
+        "MzQ3NA==/MTczNA==",
+        "MzE0OQ==/MTU0MA==",
+        "MzU5Mg==/MTc5OA==",
+        "MzM4MA==/MTY3MQ==",
+        "MzM5Mg==/MTY3OA==",
+        "MzM4NA==/MTY3Mw==",
+        "MzU3Mg==/MTc4OA==",
+        "MzU3NA==/MTc4OQ=="
+      ]
+    },
+    "REAPER / HARVESTER": {
+      "id": "51",
+      "code": "NTE=",
+      "products": [
+        "MzQwOA==/MTY4Nw==",
+        "Mjg0Mg==/MTM3Mg==",
+        "MTk3OA==/MTAyNQ==",
+        "MzU1Mg==/MTc3OA=="
+      ]
+    },
+    "ROTAVATOR": {
+      "id": "189",
+      "code": "MTg5",
+      "products": [
+        "Mjg5NA==/MTM5OQ==",
+        "Mjg5OA==/MTQwMQ==",
+        "MjkwOA==/MTQwNg=="
+      ]
+    },
+    "SPRAYER": {
+      "id": "6",
+      "code": "Ng==",
+      "products": [
+        "MTY0Ng==/ODQ3",
+        "MTE1Nw==/NDYw",
+        "MTg5MQ==/OTgw",
+        "MzI5NQ==/MTYyMw==",
+        "MzQ0Ng==/MTcxNQ==",
+        "MzM0MQ==/MTY0OQ==",
+        "MjExMg==/MTEyMg==",
+        "MzM0Mw==/MTY1MA==",
+        "Mjk2MQ==/MTQxNQ==",
+        "MzI5OQ==/MTYyNQ==",
+        "MzQ5Mg==/MTc0NA==",
+        "MzQ1Ng==/MTcyMA==",
+        "MTY0NQ==/ODQ2",
+        "MzU3MA==/MTc4Nw==",
+        "MzUwNg==/MTc1Mg==",
+        "MzUxMA==/MTc1NA==",
+        "MzUxMg==/MTc1NQ==",
+        "MzM0Nw==/MTY1Mw==",
+        "MTkwMQ==/OTg1",
+        "MjAzMQ==/ODMz",
+        "MTYzNg==/ODM3",
+        "MzQ0MA==/MTcxMg==",
+        "MTA5OA==/NTE3",
+        "MzUxNg==/MTc1Nw==",
+        "MzEzMQ==/MTUzMA==",
+        "MzI5Nw==/MTYyNA==",
+        "MzM2MA==/MTY2MA==",
+        "MTEwNg==/NTIx",
+        "MTY0NA==/ODQ1",
+        "MzAwOQ==/MTQ2MQ==",
+        "MTkyMw==/OTk2",
+        "MzU2NA==/MTc4NA==",
+        "MTc1Nw==/OTE1",
+        "MTYzNw==/ODM4",
+        "MzAwNw==/MTQ2MA==",
+        "MTYyNQ==/ODI2",
+        "MzU4MA==/MTc5Mg==",
+        "MzEyNQ==/MTUyNw==",
+        "MzU3OA==/MTc5MQ==",
+        "MzMzMw==/MTY0NA==",
+        "MzIxNA==/MTU3Mg==",
+        "MTc2Mw==/OTE4",
+        "MzIxNg==/MTU3Mw==",
+        "MzA4NA==/MTUwNQ==",
+        "Mjk5OQ==/MTQ1NQ==",
+        "MTkxNw==/OTkz",
+        "MzMyNw==/MTY0MQ==",
+        "Mjg0Ng==/MTM3NA==",
+        "MTA2OQ==/NTA0",
+        "MzMxMw==/MTYzMg==",
+        "MzMyOQ==/MTY0Mg==",
+        "MzMxNQ==/MTYzMw==",
+        "MzQ3OA==/MTczNg==",
+        "Mjg1MA==/MTM3Ng==",
+        "MTg2MQ==/OTY0",
+        "MzMxMQ==/MTYzMQ==",
+        "MTg1Nw==/OTYy"
+      ]
+    },
+    "STUBBLE MOWER": {
+      "id": "221",
+      "code": "MjIx",
+      "products": [
+        "MzU1MA==/MTc3Nw=="
+      ]
+    },
+    "THRESHER": {
+      "id": "217",
+      "code": "MjE3",
+      "products": [
+        "MzQxOA==/MTY5NA==",
+        "MzM0OA==/MTUxNA==",
+        "MzQzMA==/MTcwNg==",
+        "MzU2MA==/MTc4Mg==",
+        "MzM3NA==/MTY2OA=="
+      ]
+    },
+    "TRANSPORTER": {
+      "id": "156",
+      "code": "MTU2",
+      "products": [
+        "MzExNw==/MTUyMg==",
+        "MzExNQ==/MTUyMQ=="
+      ]
+    },
+    "WOOD CHIPPER": {
+      "id": "223",
+      "code": "MjIz",
+      "products": [
+        "MzIwOA==/MTU2OQ=="
+      ]
+    }
+  },
+  "products": [
+    {
+      "urlPart": "MTkxOQ==/OTk0",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTkxOQ==/OTk0",
+      "prodId": "1919",
+      "groupId": "994",
+      "categories": [
+        "BLOWER - MISTBLOWER"
+      ]
+    },
+    {
+      "urlPart": "Mg==/MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mg==/MQ==",
+      "prodId": "2",
+      "groupId": "1",
+      "categories": [
+        "BLOWER - MISTBLOWER"
+      ]
+    },
+    {
+      "urlPart": "MzQyNA==/MTY5Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQyNA==/MTY5Nw==",
+      "prodId": "3424",
+      "groupId": "1697",
+      "categories": [
+        "BLOWER - MISTBLOWER"
+      ]
+    },
+    {
+      "urlPart": "MTYwNg==/ODA5",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYwNg==/ODA5",
+      "prodId": "1606",
+      "groupId": "809",
+      "categories": [
+        "BLOWER - MISTBLOWER"
+      ]
+    },
+    {
+      "urlPart": "MzUyNg==/MTc2Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUyNg==/MTc2Mg==",
+      "prodId": "3526",
+      "groupId": "1762",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzUyOA==/MTc2Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUyOA==/MTc2Mw==",
+      "prodId": "3528",
+      "groupId": "1763",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzExMQ==/MTUxOQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzExMQ==/MTUxOQ==",
+      "prodId": "3111",
+      "groupId": "1519",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjYwMA==/MTMyNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjYwMA==/MTMyNA==",
+      "prodId": "2600",
+      "groupId": "1324",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzQ2OA==/MTczMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ2OA==/MTczMA==",
+      "prodId": "3468",
+      "groupId": "1730",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MTY1Mw==/ODU0",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY1Mw==/ODU0",
+      "prodId": "1653",
+      "groupId": "854",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzA5MA==/MTUwOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzA5MA==/MTUwOA==",
+      "prodId": "3090",
+      "groupId": "1508",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "Mzgy/MTg0",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mzgy/MTg0",
+      "prodId": "382",
+      "groupId": "184",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzQ1MA==/MTcxNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ1MA==/MTcxNw==",
+      "prodId": "3450",
+      "groupId": "1717",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzQyMA==/MTY5NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQyMA==/MTY5NQ==",
+      "prodId": "3420",
+      "groupId": "1695",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzExMw==/MTUyMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzExMw==/MTUyMA==",
+      "prodId": "3113",
+      "groupId": "1520",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjAyMg==/MTA0OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjAyMg==/MTA0OA==",
+      "prodId": "2022",
+      "groupId": "1048",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzAzMA==/MTQ3Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzMA==/MTQ3Mw==",
+      "prodId": "3030",
+      "groupId": "1473",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzE4NA==/MTU1Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzE4NA==/MTU1Nw==",
+      "prodId": "3184",
+      "groupId": "1557",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "NDIz/MjAz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NDIz/MjAz",
+      "prodId": "423",
+      "groupId": "203",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "NDA2/MTk2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NDA2/MTk2",
+      "prodId": "406",
+      "groupId": "196",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzI4Mw==/MTYxNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI4Mw==/MTYxNw==",
+      "prodId": "3283",
+      "groupId": "1617",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjQ2Mg==/MTMwOQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjQ2Mg==/MTMwOQ==",
+      "prodId": "2462",
+      "groupId": "1309",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzMwMQ==/MTYyNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMwMQ==/MTYyNg==",
+      "prodId": "3301",
+      "groupId": "1626",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjQ3/MTIw",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjQ3/MTIw",
+      "prodId": "247",
+      "groupId": "120",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "Mzgw/MTgz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mzgw/MTgz",
+      "prodId": "380",
+      "groupId": "183",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjQ5/MTIx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjQ5/MTIx",
+      "prodId": "249",
+      "groupId": "121",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "NDE5/MjAx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NDE5/MjAx",
+      "prodId": "419",
+      "groupId": "201",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MjAzOA==/MTA1NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjAzOA==/MTA1NA==",
+      "prodId": "2038",
+      "groupId": "1054",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "NDIx/MjAy",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NDIx/MjAy",
+      "prodId": "421",
+      "groupId": "202",
+      "categories": [
+        "BRUSH CUTTER - WEED CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzU1NA==/MTc4MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1NA==/MTc4MA==",
+      "prodId": "3554",
+      "groupId": "1780",
+      "categories": [
+        "CHAFF CUTTER / SHREDDER"
+      ]
+    },
+    {
+      "urlPart": "MzAyNA==/MTQ3MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAyNA==/MTQ3MA==",
+      "prodId": "3024",
+      "groupId": "1470",
+      "categories": [
+        "CHAFF CUTTER / SHREDDER"
+      ]
+    },
+    {
+      "urlPart": "MzM2OA==/MTY2NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2OA==/MTY2NQ==",
+      "prodId": "3368",
+      "groupId": "1665",
+      "categories": [
+        "CHAFF CUTTER / SHREDDER"
+      ]
+    },
+    {
+      "urlPart": "MzUyNA==/MTc2MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUyNA==/MTc2MQ==",
+      "prodId": "3524",
+      "groupId": "1761",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MzUyMg==/MTc2MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUyMg==/MTc2MA==",
+      "prodId": "3522",
+      "groupId": "1760",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MjU5MA==/MTMxNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjU5MA==/MTMxNg==",
+      "prodId": "2590",
+      "groupId": "1316",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MzU2Ng==/MTc4NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2Ng==/MTc4NQ==",
+      "prodId": "3566",
+      "groupId": "1785",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MjU5Ng==/MTMyMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjU5Ng==/MTMyMQ==",
+      "prodId": "2596",
+      "groupId": "1321",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MTM4/Njg=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTM4/Njg=",
+      "prodId": "138",
+      "groupId": "68",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MjA1Mw==/MTA2Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjA1Mw==/MTA2Ng==",
+      "prodId": "2053",
+      "groupId": "1066",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MjA1MQ==/MTA2NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjA1MQ==/MTA2NQ==",
+      "prodId": "2051",
+      "groupId": "1065",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MzMwOQ==/MTYzMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMwOQ==/MTYzMA==",
+      "prodId": "3309",
+      "groupId": "1630",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MjY5Mg==/MTMzNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjY5Mg==/MTMzNA==",
+      "prodId": "2692",
+      "groupId": "1334",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "OTY=/NDk=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/OTY=/NDk=",
+      "prodId": "96",
+      "groupId": "49",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MTA4/NTU=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTA4/NTU=",
+      "prodId": "108",
+      "groupId": "55",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "OTA=/NDY=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/OTA=/NDY=",
+      "prodId": "90",
+      "groupId": "46",
+      "categories": [
+        "CHAIN SAW"
+      ]
+    },
+    {
+      "urlPart": "MzE1Mw==/MTU0Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzE1Mw==/MTU0Mg==",
+      "prodId": "3153",
+      "groupId": "1542",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "NjY=/MzQ=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NjY=/MzQ=",
+      "prodId": "66",
+      "groupId": "34",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "MjgyMg==/MTM2MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjgyMg==/MTM2MA==",
+      "prodId": "2822",
+      "groupId": "1360",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "MjgyNA==/MTM2MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjgyNA==/MTM2MQ==",
+      "prodId": "2824",
+      "groupId": "1361",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "NzA=/MzY=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NzA=/MzY=",
+      "prodId": "70",
+      "groupId": "36",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "MzM1NA==/MTY1Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM1NA==/MTY1Nw==",
+      "prodId": "3354",
+      "groupId": "1657",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "Nzg=/NDA=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Nzg=/NDA=",
+      "prodId": "78",
+      "groupId": "40",
+      "categories": [
+        "EARTH AUGER"
+      ]
+    },
+    {
+      "urlPart": "MzU5OA==/MTgwMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5OA==/MTgwMQ==",
+      "prodId": "3598",
+      "groupId": "1801",
+      "categories": [
+        "ENGINE"
+      ]
+    },
+    {
+      "urlPart": "MzQ4MA==/MTczNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4MA==/MTczNw==",
+      "prodId": "3480",
+      "groupId": "1737",
+      "categories": [
+        "ENGINE"
+      ]
+    },
+    {
+      "urlPart": "MzQ4OA==/MTc0MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4OA==/MTc0MQ==",
+      "prodId": "3488",
+      "groupId": "1741",
+      "categories": [
+        "ENGINE"
+      ]
+    },
+    {
+      "urlPart": "MzQ4Ng==/MTc0MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4Ng==/MTc0MA==",
+      "prodId": "3486",
+      "groupId": "1740",
+      "categories": [
+        "ENGINE"
+      ]
+    },
+    {
+      "urlPart": "MTc1MA==/OTEx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTc1MA==/OTEx",
+      "prodId": "1750",
+      "groupId": "911",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTcyMA==/ODk2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTcyMA==/ODk2",
+      "prodId": "1720",
+      "groupId": "896",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MjAwNQ==/MTAzOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjAwNQ==/MTAzOA==",
+      "prodId": "2005",
+      "groupId": "1038",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTc0OA==/OTEw",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTc0OA==/OTEw",
+      "prodId": "1748",
+      "groupId": "910",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTcxOA==/ODk1",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTcxOA==/ODk1",
+      "prodId": "1718",
+      "groupId": "895",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTYx/Nzg=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYx/Nzg=",
+      "prodId": "161",
+      "groupId": "78",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTYwNA==/ODA4",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYwNA==/ODA4",
+      "prodId": "1604",
+      "groupId": "808",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "NTg=/MzA=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTg=/MzA=",
+      "prodId": "58",
+      "groupId": "30",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MTUz/NzU=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTUz/NzU=",
+      "prodId": "153",
+      "groupId": "75",
+      "categories": [
+        "FOGGER ULV & THERMAL"
+      ]
+    },
+    {
+      "urlPart": "MzMzNw==/MTY0NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzNw==/MTY0NQ==",
+      "prodId": "3337",
+      "groupId": "1645",
+      "categories": [
+        "GARDEN TOOLS & SPRAYERS"
+      ]
+    },
+    {
+      "urlPart": "MzUwOA==/MTc1Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUwOA==/MTc1Mw==",
+      "prodId": "3508",
+      "groupId": "1753",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MjYwMw==/MTMyNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjYwMw==/MTMyNg==",
+      "prodId": "2603",
+      "groupId": "1326",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MzI2MQ==/MTYwNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI2MQ==/MTYwNg==",
+      "prodId": "3261",
+      "groupId": "1606",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "NTE0/MjQ1",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTE0/MjQ1",
+      "prodId": "514",
+      "groupId": "245",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MjAwMQ==/MTAzNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjAwMQ==/MTAzNg==",
+      "prodId": "2001",
+      "groupId": "1036",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MzIxOA==/MTU3NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzIxOA==/MTU3NA==",
+      "prodId": "3218",
+      "groupId": "1574",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MzU2Mg==/MTc4Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2Mg==/MTc4Mw==",
+      "prodId": "3562",
+      "groupId": "1783",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "NTEw/MjQz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTEw/MjQz",
+      "prodId": "510",
+      "groupId": "243",
+      "categories": [
+        "HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MzM2Ng==/MTY2Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2Ng==/MTY2Mw==",
+      "prodId": "3366",
+      "groupId": "1663",
+      "categories": [
+        "HEDGETRIMMER"
+      ]
+    },
+    {
+      "urlPart": "MTgx/ODg=",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTgx/ODg=",
+      "prodId": "181",
+      "groupId": "88",
+      "categories": [
+        "HEDGETRIMMER"
+      ]
+    },
+    {
+      "urlPart": "MzM3MA==/MTY2Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3MA==/MTY2Ng==",
+      "prodId": "3370",
+      "groupId": "1666",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzM3Mg==/MTY2Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3Mg==/MTY2Nw==",
+      "prodId": "3372",
+      "groupId": "1667",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "NjQ0/MzA3",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NjQ0/MzA3",
+      "prodId": "644",
+      "groupId": "307",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzQzMg==/MTcwNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQzMg==/MTcwNw==",
+      "prodId": "3432",
+      "groupId": "1707",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzU0Mg==/MTc3Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU0Mg==/MTc3Mw==",
+      "prodId": "3542",
+      "groupId": "1773",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzU0Ng==/MTc3NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU0Ng==/MTc3NQ==",
+      "prodId": "3546",
+      "groupId": "1775",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "NTgx/Mjc2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTgx/Mjc2",
+      "prodId": "581",
+      "groupId": "276",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzU0OA==/MTc3Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU0OA==/MTc3Ng==",
+      "prodId": "3548",
+      "groupId": "1776",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzI1Nw==/MTYwNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI1Nw==/MTYwNA==",
+      "prodId": "3257",
+      "groupId": "1604",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MjkxOA==/MTQxMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjkxOA==/MTQxMQ==",
+      "prodId": "2918",
+      "groupId": "1411",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "NTk2/Mjgz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTk2/Mjgz",
+      "prodId": "596",
+      "groupId": "283",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzMxOQ==/MTYzNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxOQ==/MTYzNg==",
+      "prodId": "3319",
+      "groupId": "1636",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "NjA0/Mjg3",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NjA0/Mjg3",
+      "prodId": "604",
+      "groupId": "287",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzUzOA==/MTc3MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUzOA==/MTc3MA==",
+      "prodId": "3538",
+      "groupId": "1770",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzQ5Ng==/MTc0Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ5Ng==/MTc0Ng==",
+      "prodId": "3496",
+      "groupId": "1746",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzMyMQ==/MTYzNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyMQ==/MTYzNw==",
+      "prodId": "3321",
+      "groupId": "1637",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzAyOA==/MTQ3Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAyOA==/MTQ3Mg==",
+      "prodId": "3028",
+      "groupId": "1472",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzEzNw==/MTUzMw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzEzNw==/MTUzMw==",
+      "prodId": "3137",
+      "groupId": "1533",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzQ1OA==/MTcyMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ1OA==/MTcyMQ==",
+      "prodId": "3458",
+      "groupId": "1721",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzM0NQ==/MTY1Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM0NQ==/MTY1Mg==",
+      "prodId": "3345",
+      "groupId": "1652",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MTk2Ng==/MTAxOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTk2Ng==/MTAxOA==",
+      "prodId": "1966",
+      "groupId": "1018",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzU0MA==/MTc3Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU0MA==/MTc3Mg==",
+      "prodId": "3540",
+      "groupId": "1772",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "NTg1/Mjc4",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/NTg1/Mjc4",
+      "prodId": "585",
+      "groupId": "278",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzMxNw==/MTYzNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxNw==/MTYzNQ==",
+      "prodId": "3317",
+      "groupId": "1635",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzMzNQ==/MTYzOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzNQ==/MTYzOA==",
+      "prodId": "3335",
+      "groupId": "1638",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzA0OA==/MTQ4NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzA0OA==/MTQ4NQ==",
+      "prodId": "3048",
+      "groupId": "1485",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzMyMw==/MTYzOQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyMw==/MTYzOQ==",
+      "prodId": "3323",
+      "groupId": "1639",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzM5Ng==/MTY4Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM5Ng==/MTY4Mg==",
+      "prodId": "3396",
+      "groupId": "1682",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzEwOQ==/MTUxOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzEwOQ==/MTUxOA==",
+      "prodId": "3109",
+      "groupId": "1518",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzQxMg==/MTY5MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQxMg==/MTY5MA==",
+      "prodId": "3412",
+      "groupId": "1690",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MTY2Mw==/ODYx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY2Mw==/ODYx",
+      "prodId": "1663",
+      "groupId": "861",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzQ4Mg==/MTczOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4Mg==/MTczOA==",
+      "prodId": "3482",
+      "groupId": "1738",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzYwMg==/MTgwNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzYwMg==/MTgwNA==",
+      "prodId": "3602",
+      "groupId": "1804",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzU5MA==/MTc5Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5MA==/MTc5Nw==",
+      "prodId": "3590",
+      "groupId": "1797",
+      "categories": [
+        "INTERCULTIVATOR/POWER WEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzAxOA==/MTQ2Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAxOA==/MTQ2Nw==",
+      "prodId": "3018",
+      "groupId": "1467",
+      "categories": [
+        "IRRIGATION"
+      ]
+    },
+    {
+      "urlPart": "MzAxNA==/MTQ2NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAxNA==/MTQ2NA==",
+      "prodId": "3014",
+      "groupId": "1464",
+      "categories": [
+        "IRRIGATION"
+      ]
+    },
+    {
+      "urlPart": "MjQ2MA==/MTMwNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjQ2MA==/MTMwNw==",
+      "prodId": "2460",
+      "groupId": "1307",
+      "categories": [
+        "IRRIGATION"
+      ]
+    },
+    {
+      "urlPart": "MzI4OQ==/MTYyMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI4OQ==/MTYyMA==",
+      "prodId": "3289",
+      "groupId": "1620",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MzI5MQ==/MTYyMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5MQ==/MTYyMQ==",
+      "prodId": "3291",
+      "groupId": "1621",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MzE4Ng==/MTU1OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzE4Ng==/MTU1OA==",
+      "prodId": "3186",
+      "groupId": "1558",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MjYzMw==/MTMzMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjYzMw==/MTMzMQ==",
+      "prodId": "2633",
+      "groupId": "1331",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MTcwNg==/ODg2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTcwNg==/ODg2",
+      "prodId": "1706",
+      "groupId": "886",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MTcxMg==/ODkx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTcxMg==/ODkx",
+      "prodId": "1712",
+      "groupId": "891",
+      "categories": [
+        "LAWN MOWER"
+      ]
+    },
+    {
+      "urlPart": "MzQzNg==/MTcxMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQzNg==/MTcxMA==",
+      "prodId": "3436",
+      "groupId": "1710",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzU4Ng==/MTc5NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU4Ng==/MTc5NQ==",
+      "prodId": "3586",
+      "groupId": "1795",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzU4Mg==/MTc5Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU4Mg==/MTc5Mw==",
+      "prodId": "3582",
+      "groupId": "1793",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzU3Ng==/MTc5MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU3Ng==/MTc5MA==",
+      "prodId": "3576",
+      "groupId": "1790",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzU4OA==/MTc5Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU4OA==/MTc5Ng==",
+      "prodId": "3588",
+      "groupId": "1796",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzYwMA==/MTgwMg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzYwMA==/MTgwMg==",
+      "prodId": "3600",
+      "groupId": "1802",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzU4NA==/MTc5NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU4NA==/MTc5NA==",
+      "prodId": "3584",
+      "groupId": "1794",
+      "categories": [
+        "LUBRICANTS"
+      ]
+    },
+    {
+      "urlPart": "MzI2Nw==/MTYwOQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI2Nw==/MTYwOQ==",
+      "prodId": "3267",
+      "groupId": "1609",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzI2OQ==/MTYxMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI2OQ==/MTYxMA==",
+      "prodId": "3269",
+      "groupId": "1610",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzI2Mw==/MTYwNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI2Mw==/MTYwNw==",
+      "prodId": "3263",
+      "groupId": "1607",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzUwMA==/MTc0OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUwMA==/MTc0OA==",
+      "prodId": "3500",
+      "groupId": "1748",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzUwMg==/MTc0OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUwMg==/MTc0OQ==",
+      "prodId": "3502",
+      "groupId": "1749",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MzI2NQ==/MTYwOA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI2NQ==/MTYwOA==",
+      "prodId": "3265",
+      "groupId": "1608",
+      "categories": [
+        "MANUAL SEEDER"
+      ]
+    },
+    {
+      "urlPart": "MTgzNw==/OTUw",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTgzNw==/OTUw",
+      "prodId": "1837",
+      "groupId": "950",
+      "categories": [
+        "POWER CUTTER"
+      ]
+    },
+    {
+      "urlPart": "MzM1OA==/MTY1OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM1OA==/MTY1OQ==",
+      "prodId": "3358",
+      "groupId": "1659",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MTgzOQ==/OTUz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTgzOQ==/OTUz",
+      "prodId": "1839",
+      "groupId": "953",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MzM3OA==/MTY3MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3OA==/MTY3MA==",
+      "prodId": "3378",
+      "groupId": "1670",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MzA5NA==/MTUxMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzA5NA==/MTUxMA==",
+      "prodId": "3094",
+      "groupId": "1510",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MzAzNA==/MTQ3Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzNA==/MTQ3Ng==",
+      "prodId": "3034",
+      "groupId": "1476",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MzAzNg==/MTQ3Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzNg==/MTQ3Nw==",
+      "prodId": "3036",
+      "groupId": "1477",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MTY1Nw==/ODU2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY1Nw==/ODU2",
+      "prodId": "1657",
+      "groupId": "856",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "MzAzOA==/MTQ3OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzOA==/MTQ3OA==",
+      "prodId": "3038",
+      "groupId": "1478",
+      "categories": [
+        "PRUNER"
+      ]
+    },
+    {
+      "urlPart": "OTk2/NDY5",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/OTk2/NDY5",
+      "prodId": "996",
+      "groupId": "469",
+      "categories": [
+        "PRESSURE WASHER"
+      ]
+    },
+    {
+      "urlPart": "MTAyNw==/NDgz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTAyNw==/NDgz",
+      "prodId": "1027",
+      "groupId": "483",
+      "categories": [
+        "PRESSURE WASHER"
+      ]
+    },
+    {
+      "urlPart": "Mjk4OQ==/MTQ0OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjk4OQ==/MTQ0OQ==",
+      "prodId": "2989",
+      "groupId": "1449",
+      "categories": [
+        "PRESSURE WASHER"
+      ]
+    },
+    {
+      "urlPart": "MzQ3Ng==/MTczNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ3Ng==/MTczNQ==",
+      "prodId": "3476",
+      "groupId": "1735",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzU5NA==/MTc5OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5NA==/MTc5OQ==",
+      "prodId": "3594",
+      "groupId": "1799",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzQ3NA==/MTczNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ3NA==/MTczNA==",
+      "prodId": "3474",
+      "groupId": "1734",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzE0OQ==/MTU0MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzE0OQ==/MTU0MA==",
+      "prodId": "3149",
+      "groupId": "1540",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzU5Mg==/MTc5OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5Mg==/MTc5OA==",
+      "prodId": "3592",
+      "groupId": "1798",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzM4MA==/MTY3MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM4MA==/MTY3MQ==",
+      "prodId": "3380",
+      "groupId": "1671",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzM5Mg==/MTY3OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM5Mg==/MTY3OA==",
+      "prodId": "3392",
+      "groupId": "1678",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzM4NA==/MTY3Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM4NA==/MTY3Mw==",
+      "prodId": "3384",
+      "groupId": "1673",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzU3Mg==/MTc4OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU3Mg==/MTc4OA==",
+      "prodId": "3572",
+      "groupId": "1788",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzU3NA==/MTc4OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU3NA==/MTc4OQ==",
+      "prodId": "3574",
+      "groupId": "1789",
+      "categories": [
+        "PUMPSET"
+      ]
+    },
+    {
+      "urlPart": "MzQwOA==/MTY4Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQwOA==/MTY4Nw==",
+      "prodId": "3408",
+      "groupId": "1687",
+      "categories": [
+        "REAPER / HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "Mjg0Mg==/MTM3Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg0Mg==/MTM3Mg==",
+      "prodId": "2842",
+      "groupId": "1372",
+      "categories": [
+        "REAPER / HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MTk3OA==/MTAyNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTk3OA==/MTAyNQ==",
+      "prodId": "1978",
+      "groupId": "1025",
+      "categories": [
+        "REAPER / HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "MzU1Mg==/MTc3OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1Mg==/MTc3OA==",
+      "prodId": "3552",
+      "groupId": "1778",
+      "categories": [
+        "REAPER / HARVESTER"
+      ]
+    },
+    {
+      "urlPart": "Mjg5NA==/MTM5OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5NA==/MTM5OQ==",
+      "prodId": "2894",
+      "groupId": "1399",
+      "categories": [
+        "ROTAVATOR"
+      ]
+    },
+    {
+      "urlPart": "Mjg5OA==/MTQwMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5OA==/MTQwMQ==",
+      "prodId": "2898",
+      "groupId": "1401",
+      "categories": [
+        "ROTAVATOR"
+      ]
+    },
+    {
+      "urlPart": "MjkwOA==/MTQwNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjkwOA==/MTQwNg==",
+      "prodId": "2908",
+      "groupId": "1406",
+      "categories": [
+        "ROTAVATOR"
+      ]
+    },
+    {
+      "urlPart": "MTY0Ng==/ODQ3",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY0Ng==/ODQ3",
+      "prodId": "1646",
+      "groupId": "847",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTE1Nw==/NDYw",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTE1Nw==/NDYw",
+      "prodId": "1157",
+      "groupId": "460",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTg5MQ==/OTgw",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTg5MQ==/OTgw",
+      "prodId": "1891",
+      "groupId": "980",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzI5NQ==/MTYyMw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5NQ==/MTYyMw==",
+      "prodId": "3295",
+      "groupId": "1623",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzQ0Ng==/MTcxNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ0Ng==/MTcxNQ==",
+      "prodId": "3446",
+      "groupId": "1715",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzM0MQ==/MTY0OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM0MQ==/MTY0OQ==",
+      "prodId": "3341",
+      "groupId": "1649",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MjExMg==/MTEyMg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjExMg==/MTEyMg==",
+      "prodId": "2112",
+      "groupId": "1122",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzM0Mw==/MTY1MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM0Mw==/MTY1MA==",
+      "prodId": "3343",
+      "groupId": "1650",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "Mjk2MQ==/MTQxNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjk2MQ==/MTQxNQ==",
+      "prodId": "2961",
+      "groupId": "1415",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzI5OQ==/MTYyNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5OQ==/MTYyNQ==",
+      "prodId": "3299",
+      "groupId": "1625",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzQ5Mg==/MTc0NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ5Mg==/MTc0NA==",
+      "prodId": "3492",
+      "groupId": "1744",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzQ1Ng==/MTcyMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ1Ng==/MTcyMA==",
+      "prodId": "3456",
+      "groupId": "1720",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTY0NQ==/ODQ2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY0NQ==/ODQ2",
+      "prodId": "1645",
+      "groupId": "846",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzU3MA==/MTc4Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU3MA==/MTc4Nw==",
+      "prodId": "3570",
+      "groupId": "1787",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzUwNg==/MTc1Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUwNg==/MTc1Mg==",
+      "prodId": "3506",
+      "groupId": "1752",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzUxMA==/MTc1NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUxMA==/MTc1NA==",
+      "prodId": "3510",
+      "groupId": "1754",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzUxMg==/MTc1NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUxMg==/MTc1NQ==",
+      "prodId": "3512",
+      "groupId": "1755",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzM0Nw==/MTY1Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM0Nw==/MTY1Mw==",
+      "prodId": "3347",
+      "groupId": "1653",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTkwMQ==/OTg1",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTkwMQ==/OTg1",
+      "prodId": "1901",
+      "groupId": "985",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MjAzMQ==/ODMz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MjAzMQ==/ODMz",
+      "prodId": "2031",
+      "groupId": "833",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTYzNg==/ODM3",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYzNg==/ODM3",
+      "prodId": "1636",
+      "groupId": "837",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzQ0MA==/MTcxMg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ0MA==/MTcxMg==",
+      "prodId": "3440",
+      "groupId": "1712",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTA5OA==/NTE3",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTA5OA==/NTE3",
+      "prodId": "1098",
+      "groupId": "517",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzUxNg==/MTc1Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzUxNg==/MTc1Nw==",
+      "prodId": "3516",
+      "groupId": "1757",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzEzMQ==/MTUzMA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzEzMQ==/MTUzMA==",
+      "prodId": "3131",
+      "groupId": "1530",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzI5Nw==/MTYyNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5Nw==/MTYyNA==",
+      "prodId": "3297",
+      "groupId": "1624",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzM2MA==/MTY2MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2MA==/MTY2MA==",
+      "prodId": "3360",
+      "groupId": "1660",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTEwNg==/NTIx",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTEwNg==/NTIx",
+      "prodId": "1106",
+      "groupId": "521",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTY0NA==/ODQ1",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTY0NA==/ODQ1",
+      "prodId": "1644",
+      "groupId": "845",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzAwOQ==/MTQ2MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAwOQ==/MTQ2MQ==",
+      "prodId": "3009",
+      "groupId": "1461",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTkyMw==/OTk2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTkyMw==/OTk2",
+      "prodId": "1923",
+      "groupId": "996",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzU2NA==/MTc4NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2NA==/MTc4NA==",
+      "prodId": "3564",
+      "groupId": "1784",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTc1Nw==/OTE1",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTc1Nw==/OTE1",
+      "prodId": "1757",
+      "groupId": "915",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTYzNw==/ODM4",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYzNw==/ODM4",
+      "prodId": "1637",
+      "groupId": "838",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzAwNw==/MTQ2MA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzAwNw==/MTQ2MA==",
+      "prodId": "3007",
+      "groupId": "1460",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTYyNQ==/ODI2",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTYyNQ==/ODI2",
+      "prodId": "1625",
+      "groupId": "826",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzU4MA==/MTc5Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU4MA==/MTc5Mg==",
+      "prodId": "3580",
+      "groupId": "1792",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzEyNQ==/MTUyNw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzEyNQ==/MTUyNw==",
+      "prodId": "3125",
+      "groupId": "1527",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzU3OA==/MTc5MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU3OA==/MTc5MQ==",
+      "prodId": "3578",
+      "groupId": "1791",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMzMw==/MTY0NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzMw==/MTY0NA==",
+      "prodId": "3333",
+      "groupId": "1644",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzIxNA==/MTU3Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzIxNA==/MTU3Mg==",
+      "prodId": "3214",
+      "groupId": "1572",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTc2Mw==/OTE4",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTc2Mw==/OTE4",
+      "prodId": "1763",
+      "groupId": "918",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzIxNg==/MTU3Mw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzIxNg==/MTU3Mw==",
+      "prodId": "3216",
+      "groupId": "1573",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzA4NA==/MTUwNQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzA4NA==/MTUwNQ==",
+      "prodId": "3084",
+      "groupId": "1505",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "Mjk5OQ==/MTQ1NQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjk5OQ==/MTQ1NQ==",
+      "prodId": "2999",
+      "groupId": "1455",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTkxNw==/OTkz",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTkxNw==/OTkz",
+      "prodId": "1917",
+      "groupId": "993",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMyNw==/MTY0MQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyNw==/MTY0MQ==",
+      "prodId": "3327",
+      "groupId": "1641",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "Mjg0Ng==/MTM3NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg0Ng==/MTM3NA==",
+      "prodId": "2846",
+      "groupId": "1374",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTA2OQ==/NTA0",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTA2OQ==/NTA0",
+      "prodId": "1069",
+      "groupId": "504",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMxMw==/MTYzMg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMw==/MTYzMg==",
+      "prodId": "3313",
+      "groupId": "1632",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMyOQ==/MTY0Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyOQ==/MTY0Mg==",
+      "prodId": "3329",
+      "groupId": "1642",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMxNQ==/MTYzMw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxNQ==/MTYzMw==",
+      "prodId": "3315",
+      "groupId": "1633",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzQ3OA==/MTczNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ3OA==/MTczNg==",
+      "prodId": "3478",
+      "groupId": "1736",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "Mjg1MA==/MTM3Ng==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg1MA==/MTM3Ng==",
+      "prodId": "2850",
+      "groupId": "1376",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTg2MQ==/OTY0",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTg2MQ==/OTY0",
+      "prodId": "1861",
+      "groupId": "964",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzMxMQ==/MTYzMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMQ==/MTYzMQ==",
+      "prodId": "3311",
+      "groupId": "1631",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MTg1Nw==/OTYy",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MTg1Nw==/OTYy",
+      "prodId": "1857",
+      "groupId": "962",
+      "categories": [
+        "SPRAYER"
+      ]
+    },
+    {
+      "urlPart": "MzU1MA==/MTc3Nw==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1MA==/MTc3Nw==",
+      "prodId": "3550",
+      "groupId": "1777",
+      "categories": [
+        "STUBBLE MOWER"
+      ]
+    },
+    {
+      "urlPart": "MzQxOA==/MTY5NA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQxOA==/MTY5NA==",
+      "prodId": "3418",
+      "groupId": "1694",
+      "categories": [
+        "THRESHER"
+      ]
+    },
+    {
+      "urlPart": "MzM0OA==/MTUxNA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM0OA==/MTUxNA==",
+      "prodId": "3348",
+      "groupId": "1514",
+      "categories": [
+        "THRESHER"
+      ]
+    },
+    {
+      "urlPart": "MzQzMA==/MTcwNg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzQzMA==/MTcwNg==",
+      "prodId": "3430",
+      "groupId": "1706",
+      "categories": [
+        "THRESHER"
+      ]
+    },
+    {
+      "urlPart": "MzU2MA==/MTc4Mg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2MA==/MTc4Mg==",
+      "prodId": "3560",
+      "groupId": "1782",
+      "categories": [
+        "THRESHER"
+      ]
+    },
+    {
+      "urlPart": "MzM3NA==/MTY2OA==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3NA==/MTY2OA==",
+      "prodId": "3374",
+      "groupId": "1668",
+      "categories": [
+        "THRESHER"
+      ]
+    },
+    {
+      "urlPart": "MzExNw==/MTUyMg==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzExNw==/MTUyMg==",
+      "prodId": "3117",
+      "groupId": "1522",
+      "categories": [
+        "TRANSPORTER"
+      ]
+    },
+    {
+      "urlPart": "MzExNQ==/MTUyMQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzExNQ==/MTUyMQ==",
+      "prodId": "3115",
+      "groupId": "1521",
+      "categories": [
+        "TRANSPORTER"
+      ]
+    },
+    {
+      "urlPart": "MzIwOA==/MTU2OQ==",
+      "fullUrl": "https://agrimart.in/index.php/home/prduct_details/MzIwOA==/MTU2OQ==",
+      "prodId": "3208",
+      "groupId": "1569",
+      "categories": [
+        "WOOD CHIPPER"
+      ]
+    }
+  ]
+}

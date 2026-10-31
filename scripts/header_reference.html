@@ -1,0 +1,205 @@
+<header id="masthead" class="header ttm-header-style-01" style="border-top: 5px solid #406b03;">
+            <!-- top_bar -->
+            <div class="hidden" style="display:none">
+                <form method="GET" name="filter_form" id="filter_form" action="">
+                                                            <input type="text" id="cat_filter" name="cat_filter" value="" >
+                                        <input type="text" id="brand_filter" name="brand_filter" value="" >  
+                    <input type="hidden" id="price_range_changed"  value="">
+                    <input type="hidden" name="srchkeword" id="srchkeword_hidden" value="">
+                    <input type="hidden" name="product_sort" id="product_sort_hidden" value="">
+                    <input type="hidden" id="get_data_string_while_loading" value="">
+
+                </form>
+            </div>
+            <!-- header_main -->
+            <div class="header_main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-3 col-8 order-1">
+                            <!-- site-branding -->
+                            <div class="site-branding">
+                            <a href="https://agrimart.in/index.php/home/" class="home-link"><img id="logo-img" class="img-center"
+                                    src="https://agrimart.in//uploads/vendor_logo_image/logo_1.png"
+                                    alt="Agrimart"/>
+                                    <p class="logo-slogan"> Farm Equipment | Green Care | Services</p>
+                            </a>        
+                            </div><!-- site-branding end -->
+                        </div>
+                        <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                            <div class="header_search"><!-- header_search -->
+                                <div class="header_search_content">
+                                    <div id="search_block_top" class="search_block_top">
+                                        <div class="flipkart-navbar-search smallsearch ">
+                                            <div class="clearfix">
+                                                <input class="search_query" id="srchkeword"
+														   type="text" placeholder="Search for Products, Category"
+														   name="srchkeword"
+														   value="">
+													<button class="btn btn-default button-search" id="search">
+                                                            <i class="fa fa-search"></i>
+													</button>
+                                            </div>  
+                                        </div>                                   
+                                    </div>
+                                </div>
+                            </div>    
+                            <!-- header_search end -->
+                        </div>
+                        <div class="col-lg-3 col-12 order-lg-3 order-2 text-lg-left text-right">
+                                                    <!-- header_extra -->
+                            <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                                 <!--  Before Login-->
+                                                                 
+                                <div class="account dropdown">
+                                <div class="account_extra dropdown_link" data-toggle="dropdown">
+                                        <div class="d-flex flex-row align-items-center justify-content-start">
+                                            <div class="account_icon">
+                                                <i class="fa fa-user"></i>
+                                            </div>
+                                            <div class="account_content">
+                                                <div class="account_text" style="color:#fff;">Sign In </div>
+                                            </div>
+                                        </div>
+                                    Account
+                                    </div>
+                                    <aside class="widget_account dropdown_content" style="width:200px;">
+                                        <div class="widget_account_content">
+                                            <ul class="mb-0">
+                                                <li><p><i class="fa fa-sign-in mr-2 pr-1"></i><a href="javascript:void(0)" id="user_login_modal">Login Via OTP</a></p></li>
+                                                <li><p><i class="fa fa-user-plus mr-2"></i><a href="https://agrimart.in/index.php/home/dealer_register">Register</a></p></li>
+                                                <li><p><i class="fa fa-sign-in mr-2 pr-1"></i><a href="https://agrimart.in/index.php/login/user_login">B2B Login</a></p></li>
+                                                <li><p><i class="fa fa-sign-in mr-2 pr-1"></i><a href="https://agrimart.in/index.php/vendor/user_login">Admin User Login</a></p></li>
+                                            </ul>
+                                        </div>
+                                    </aside>
+                                </div>
+                                                                                                <div class="cart dropdown">
+                                    <div class="dropdown_link d-flex flex-row align-items-center justify-content-end" data-toggle="dropdown">
+                                        <div class="cart_icon">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <div class="cart_count" id="cart_item_count">0</div>
+                                        </div>
+                                        <div class="cart_content">
+                                            <div class="cart_text" style="color:#fff;">My Cart</div>
+                                            <div class="cart_price" id="cart_total">₹ 0.00</div>
+                                        </div>
+                                    </div>
+                                    <aside class="widget_shopping_cart dropdown_content">
+                                        <ul class="cart-list cart_list_items">
+                                         
+                                        </ul>
+                                        <div class="clearfix">
+                                        <div class="cart_totals">
+                                            <!-- <div class="c_totals_right floatright">
+                                                <p>total : <span class="cart_price" id="cart_total">0</span></p>
+                                            </div> -->
+                                            </div>
+
+                                            <div class="cart_view_bottom">
+                                            <a href="https://agrimart.in/index.php/home/view_cart">
+                                                <div class="c_totals_left floatleft">
+                                                    View
+                                                        Cart
+                                                </div>
+                                            </a>
+                                            <a href="" id="proceed_to_chkout_btn">
+                                                    <div class="c_totals_right floatleft">Check
+                                                     Out</div>
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </aside>
+                                </div>
+                                                            </div><!-- header_extra end -->
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </div><!-- haeder-main end -->
+            <!-- site-header-menu -->
+            <div id="site-header-menu" class="site-header-menu ttm-bgcolor-white clearfix">
+                <div class="site-header-menu-inner stickable-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main_nav_content d-flex flex-row">
+                                    <div class="cat_menu_container">
+                                        <a href="#" class="cat_menu d-flex flex-row align-items-center">
+                                            <div class="cat_icon"><i class="fa fa-bars"></i></div>
+                                            <div class="cat_text"><span>Shop by</span><h4>Categories</h4></div>
+                                        </a>
+                                        <ul class="cat_menu_list menu-vertical" style="height:450px;overflow-y:scroll;">
+                                                                                                                                <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MQ==" class="prd_link"> BLOWER - MISTBLOWER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=OQ==" class="prd_link"> BRUSH CUTTER - WEED CUTTER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjM=" class="prd_link"> CHAFF CUTTER / SHREDDER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTE=" class="prd_link"> CHAIN SAW                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTk=" class="prd_link"> EARTH AUGER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTY2" class="prd_link"> ENGINE                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTU=" class="prd_link"> FOGGER ULV & THERMAL                                                          </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=Mjc=" class="prd_link"> GARDEN TOOLS & SPRAYERS                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=Mzc=" class="prd_link"> HARVESTER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjE=" class="prd_link"> HEDGETRIMMER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=NDI=" class="prd_link"> INTERCULTIVATOR/POWER WEEDER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTkz" class="prd_link"> IRRIGATION                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=Mjk=" class="prd_link"> LAWN MOWER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjM1" class="prd_link"> LUBRICANTS                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjAx" class="prd_link"> MANUAL SEEDER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjAy" class="prd_link"> MILKING  MACHINE                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTU0" class="prd_link"> POWER CUTTER                                                         </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=NA==" class="prd_link"> PRUNER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=NDg=" class="prd_link"> PRESSURE WASHER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTU5" class="prd_link"> PUMPSET                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=NTE=" class="prd_link"> REAPER / HARVESTER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTg5" class="prd_link"> ROTAVATOR                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=Ng==" class="prd_link"> SPRAYER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjIx" class="prd_link"> STUBBLE MOWER                                                         </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjE3" class="prd_link"> THRESHER                                                         </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MTU2" class="prd_link"> TRANSPORTER                                                        </a></li>
+                                                                                        <li><a href="https://agrimart.in/index.php/home/list_product_inner/?cat_filter=MjIz" class="prd_link"> WOOD CHIPPER                                                        </a></li>
+                                                                                                                                 
+                                        </ul>
+                                    </div>
+                                    <!--site-navigation -->
+                                    <div id="site-navigation" class="site-navigation">
+                                        <div class="btn-show-menu-mobile menubar menubar--squeeze">
+                                            <span class="menubar-box">
+                                                <span class="menubar-inner"></span>
+                                            </span>
+                                        </div>
+                                        <!-- menu -->
+                                        <nav class="menu menu-mobile" id="menu">
+                                            <ul class="nav">
+                                                <li>
+                                                    <a href="https://agrimart.in/index.php/home" class="">Home</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="https://agrimart.in/index.php/home/list_products">Products</a>                                                    
+                                                </li>
+                                                <li class="">
+                                                    <a href="https://agrimart.in/index.php/home/about_us" >About Us</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://agrimart.in/index.php/home/services">Services</a>                                                    
+                                                </li>  
+                                                <li>
+                                                    <a href="https://agrimart.in/index.php/home/blogs">Blogs</a>                                                    
+                                                </li>                                                
+                                                <li><a href="https://agrimart.in/index.php/home/contact_us">Contact Us</a></li>
+                                            </ul>
+                                        </nav>  
+                                    </div><!-- site-navigation end-->
+                                    <div class="user_zone_block d-flex flex-row align-items-center justify-content-end ml-auto">
+                                        <div class="icon"><img src="https://agrimart.in//assests/theme_1/images/icon_new.png") /></div>
+                                        <h6 class="text">
+											<span style="font-size:10px;display: block;margin: 0px;">Missed Call Number</span>
+											7393 938 938
+										</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- site-header-menu end -->
+        </header>

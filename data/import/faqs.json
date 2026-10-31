@@ -1,0 +1,37 @@
+[
+  {
+    "category": "General & E-kart",
+    "question": "What is Agrimart E-kart?",
+    "answer": "Agrimart E-kart is an online agricultural equipment and farm inputs shopping portal by Ratnagiri Impex Pvt. Ltd. It provides farmers, plantation owners, gardeners, and institutions direct access to quality mechanization tools, pest control equipment, garden machinery, accessories, and spare parts."
+  },
+  {
+    "category": "My Account",
+    "question": "How do I register for an account?",
+    "answer": "You can register by clicking the \"Register\" button in the header. Enter your full name, mobile number, email address, and verify using the One Time Password (OTP) sent to your registered mobile number."
+  },
+  {
+    "category": "My Account",
+    "question": "What are the login credentials needed?",
+    "answer": "You can login quickly using your registered Mobile Number and OTP or your email/username and password. We also provide separate B2B dealer and admin portals for authorized business partners."
+  },
+  {
+    "category": "Ordering & Buying",
+    "question": "How do I buy products on Agrimart?",
+    "answer": "Browse our catalog or select from categories such as Sprayers, Brush Cutters, Chainsaws, or Chaff Cutters. Select your desired product, choose quantity, and click \"Buy Now\" or \"Add to Cart\". Proceed to checkout to review your shipping address and complete your order."
+  },
+  {
+    "category": "Payment Methods",
+    "question": "What payment methods are supported?",
+    "answer": "We support all major payment modes processed securely via Razorpay, including Credit Cards, Debit Cards, Net Banking, and UPI (Google Pay, PhonePe, Paytm, BHIM)."
+  },
+  {
+    "category": "Warranty & Support",
+    "question": "What warranty is provided on machines?",
+    "answer": "All branded machines from KASEI, OLEO-MAC, AGRIMATE, and GREEN PANTHER come with standard manufacturer warranty against manufacturing defects. Service and spare parts are backed across our 750+ dealer and service network across India."
+  },
+  {
+    "category": "Shipping & Delivery",
+    "question": "How are the products delivered and how long does it take?",
+    "answer": "Orders are securely packaged and dispatched via reliable logistics partners. Delivery typically takes 4–7 business days depending on your delivery location and pin code."
+  }
+]

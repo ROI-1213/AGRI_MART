@@ -1,0 +1,137 @@
+[
+  {
+    "catCode": "MQ==",
+    "decoded": "1",
+    "label": "BLOWER - MISTBLOWER"
+  },
+  {
+    "catCode": "OQ==",
+    "decoded": "9",
+    "label": "BRUSH CUTTER - WEED CUTTER"
+  },
+  {
+    "catCode": "MjM=",
+    "decoded": "23",
+    "label": "CHAFF CUTTER / SHREDDER"
+  },
+  {
+    "catCode": "MTE=",
+    "decoded": "11",
+    "label": "CHAIN SAW"
+  },
+  {
+    "catCode": "MTk=",
+    "decoded": "19",
+    "label": "EARTH AUGER"
+  },
+  {
+    "catCode": "MTY2",
+    "decoded": "166",
+    "label": "ENGINE"
+  },
+  {
+    "catCode": "MTU=",
+    "decoded": "15",
+    "label": "FOGGER ULV & THERMAL"
+  },
+  {
+    "catCode": "Mjc=",
+    "decoded": "27",
+    "label": "GARDEN TOOLS & SPRAYERS"
+  },
+  {
+    "catCode": "Mzc=",
+    "decoded": "37",
+    "label": "HARVESTER"
+  },
+  {
+    "catCode": "MjE=",
+    "decoded": "21",
+    "label": "HEDGETRIMMER"
+  },
+  {
+    "catCode": "NDI=",
+    "decoded": "42",
+    "label": "INTERCULTIVATOR/POWER WEEDER"
+  },
+  {
+    "catCode": "MTkz",
+    "decoded": "193",
+    "label": "IRRIGATION"
+  },
+  {
+    "catCode": "Mjk=",
+    "decoded": "29",
+    "label": "LAWN MOWER"
+  },
+  {
+    "catCode": "MjM1",
+    "decoded": "235",
+    "label": "LUBRICANTS"
+  },
+  {
+    "catCode": "MjAx",
+    "decoded": "201",
+    "label": "MANUAL SEEDER"
+  },
+  {
+    "catCode": "MjAy",
+    "decoded": "202",
+    "label": "MILKING  MACHINE"
+  },
+  {
+    "catCode": "MTU0",
+    "decoded": "154",
+    "label": "POWER CUTTER"
+  },
+  {
+    "catCode": "NA==",
+    "decoded": "4",
+    "label": "PRUNER"
+  },
+  {
+    "catCode": "NDg=",
+    "decoded": "48",
+    "label": "PRESSURE WASHER"
+  },
+  {
+    "catCode": "MTU5",
+    "decoded": "159",
+    "label": "PUMPSET"
+  },
+  {
+    "catCode": "NTE=",
+    "decoded": "51",
+    "label": "REAPER / HARVESTER"
+  },
+  {
+    "catCode": "MTg5",
+    "decoded": "189",
+    "label": "ROTAVATOR"
+  },
+  {
+    "catCode": "Ng==",
+    "decoded": "6",
+    "label": "SPRAYER"
+  },
+  {
+    "catCode": "MjIx",
+    "decoded": "221",
+    "label": "STUBBLE MOWER"
+  },
+  {
+    "catCode": "MjE3",
+    "decoded": "217",
+    "label": "THRESHER"
+  },
+  {
+    "catCode": "MTU2",
+    "decoded": "156",
+    "label": "TRANSPORTER"
+  },
+  {
+    "catCode": "MjIz",
+    "decoded": "223",
+    "label": "WOOD CHIPPER"
+  }
+]

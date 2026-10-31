@@ -1,0 +1,207 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  CUSTOMER
+  DEALER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  DISPATCHED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum EnquiryType {
+  PRODUCT_ENQUIRY
+  SERVICE_ENQUIRY
+  FEEDBACK
+  DEALERSHIP_FRANCHISE
+  SUBSIDY_APPLICATION
+  OUT_OF_STOCK_NOTIFY
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String?   @unique
+  mobile        String    @unique
+  passwordHash  String?
+  role          Role      @default(CUSTOMER)
+  companyName   String?
+  gstNumber     String?
+  address       String?
+  city          String?
+  state         String?
+  pincode       String?
+  orders        Order[]
+  enquiries     Enquiry[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Category {
+  id            String        @id @default(uuid())
+  name          String        @unique
+  slug          String        @unique
+  code          String?
+  icon          String?
+  subcategories Subcategory[]
+  products      Product[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Subcategory {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([name, categoryId])
+}
+
+model Brand {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  slug        String    @unique
+  logoUrl     String
+  description String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id                 String       @id @default(uuid())
+  name               String
+  slug               String       @unique
+  riplCode           String       @unique
+  description        String
+  shortDescription   String?
+  mrp                Decimal      @db.Decimal(10, 2)
+  sellingPrice       Decimal      @db.Decimal(10, 2)
+  discountPercentage Int          @default(0)
+  taxInclusive       Boolean      @default(true)
+  stockQuantity      Int          @default(0)
+  availability       String       @default("In Stock")
+  brandId            String?
+  brand              Brand?       @relation(fields: [brandId], references: [id])
+  categoryId         String?
+  category           Category?    @relation(fields: [categoryId], references: [id])
+  subcategoryId      String?
+  subcategory        Subcategory? @relation(fields: [subcategoryId], references: [id])
+  images             String[]
+  thumbnailImage     String
+  specifications     Json?
+  brochures          Json?
+  videos             Json?
+  accessories        Json?
+  spareParts         Json?
+  sourceUrl          String?
+  orderItems         OrderItem[]
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+}
+
+model Order {
+  id             String        @id @default(uuid())
+  orderNumber    String        @unique
+  userId         String?
+  user           User?         @relation(fields: [userId], references: [id])
+  customerName   String
+  customerMobile String
+  customerEmail  String
+  shippingAddress String
+  city           String
+  state          String
+  pincode        String
+  totalAmount    Decimal       @db.Decimal(10, 2)
+  paymentMethod  String        @default("RAZORPAY")
+  paymentStatus  PaymentStatus @default(PENDING)
+  orderStatus    OrderStatus   @default(PENDING)
+  razorpayPaymentId String?
+  razorpayOrderId   String?
+  items          OrderItem[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Decimal  @db.Decimal(10, 2)
+  total     Decimal  @db.Decimal(10, 2)
+}
+
+model Enquiry {
+  id          String      @id @default(uuid())
+  userId      String?
+  user        User?       @relation(fields: [userId], references: [id])
+  name        String
+  mobile      String
+  email       String?
+  whatsappNo  String?
+  type        EnquiryType
+  subject     String?
+  message     String?
+  productId   String?
+  landSize    String?
+  cropDetails String?
+  city        String?
+  state       String?
+  pincode     String?
+  status      String      @default("NEW")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model BlogPost {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  excerpt     String
+  content     String
+  imageUrl    String
+  author      String    @default("Agrimart Team")
+  category    String    @default("Agricultural Mechanization")
+  published   Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Banner {
+  id          String    @id @default(uuid())
+  title       String
+  subtitle    String?
+  imageUrl    String
+  linkUrl     String?
+  order       Int       @default(0)
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+}

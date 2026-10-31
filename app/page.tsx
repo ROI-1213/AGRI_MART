@@ -186,19 +186,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Premium Shop by Category Showcase */}
-      <ShopByCategory />
-
-      {/* 3. Our Trusted International & In-House Brands Showcase */}
-      <TrustedBrandsShowcase />
-
-      {/* 4. Agrimart's Top Picks Showcase (Matching Reference Design) */}
-      <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
-
-      {/* 5. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
-      <OurProductsSection onOpenQuote={handleOpenQuote} />
-
-      {/* 5. Dynamic Promotional Showcase Banner: Agrimart Growth & Opportunities */}
+      {/* 2. Dynamic Promotional Showcase Banner: Agrimart Growth & Opportunities (Prominently Visible Immediately Below Main Header Banner) */}
       <section className="py-6 bg-gradient-to-b from-[#f8fafc] to-white border-t border-b border-gray-200">
         <div className="agri-container">
           {/* Section Category Header & Tab Controls */}
@@ -308,7 +296,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Awards & Recognition Showcase (Clean Background with Continuous Smooth Sliding) */}
+      {/* 3. Premium Shop by Category Showcase */}
+      <ShopByCategory />
+
+      {/* 4. Our Trusted International & In-House Brands Showcase */}
+      <TrustedBrandsShowcase />
+
+      {/* 5. Agrimart's Top Picks Showcase (Matching Reference Design) */}
+      <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
+
+      {/* 6. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
+      <OurProductsSection onOpenQuote={handleOpenQuote} />
+
+      {/* 7. Awards & Recognition Showcase (Clean Background with Continuous Smooth Sliding) */}
       <AwardsShowcase />
 
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}

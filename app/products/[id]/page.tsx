@@ -115,22 +115,12 @@ export default function ProductDetailPage() {
   const keySpecs = allSpecs.filter(s => !['Brand', 'Model / RIPL Code', 'Category', 'Government Subsidy', 'Warranty'].includes(s.label));
 
   const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || '/assets/branding/logo.png');
-  const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure'>('desc');
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  
-  // Notification form state
-  const [notifyEmail, setNotifyEmail] = useState('');
-  const [notifySuccess, setNotifySuccess] = useState(false);
 
   const handleRequestQuote = () => {
     setQuoteModalOpen(true);
-  };
-
-  const handleNotifySubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setNotifySuccess(true);
   };
 
   return (
@@ -237,14 +227,6 @@ export default function ProductDetailPage() {
                   </p>
                 </div>
 
-                {/* Stock Status */}
-                <div className="flex items-center space-x-2 text-xs font-semibold mb-4">
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                  <span className="text-green-800">
-                    Status: {product.availability} ({product.stockQuantity} Units In Stock)
-                  </span>
-                </div>
-
                 {/* Key Technical Specifications (e.g. Tank: 36 L, Power: 1.3 HP, Displacement: 25.4 cm³) */}
                 {keySpecs.length > 0 && (
                   <div className="mb-5 bg-emerald-50/50 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5 shadow-2xs">
@@ -272,36 +254,15 @@ export default function ProductDetailPage() {
                   </div>
                 )}
 
-                {/* Quantity Selector & Action Buttons */}
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center space-x-4">
-                    <label className="text-xs font-bold text-gray-700">Quantity:</label>
-                    <div className="flex items-center border border-gray-300 rounded">
-                      <button
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm"
-                      >
-                        -
-                      </button>
-                      <span className="px-4 py-1 text-sm font-semibold">{quantity}</span>
-                      <button
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      onClick={handleRequestQuote}
-                      className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-bold py-3.5 px-6 rounded-md flex items-center justify-center gap-2 transition-colors shadow-md text-sm cursor-pointer"
-                    >
-                      <FileText className="w-4 h-4 text-yellow-300" />
-                      <span>Request a Quote</span>
-                    </button>
-                  </div>
+                {/* Primary Call-to-Action: Request a Quote */}
+                <div className="pt-2 mb-6">
+                  <button
+                    onClick={handleRequestQuote}
+                    className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.99]"
+                  >
+                    <FileText className="w-5 h-5 text-yellow-300" />
+                    <span>Request a Quote</span>
+                  </button>
                 </div>
               </div>
 
@@ -501,15 +462,15 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        {/* Out of Stock / Product Information Enquiry Banner */}
+        {/* Bulk Enquiry & Technical Assistance Banner */}
         <div className="bg-white rounded-lg border border-gray-200 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="font-bold text-sm text-gray-900 flex items-center gap-2">
               <Bell className="w-4 h-4 text-yellow-600" />
-              Need Bulk Quantities or Custom Spare Part Assistance?
+              Need Institutional Quantities or Custom Spare Part Assistance?
             </h3>
             <p className="text-xs text-gray-500 mt-1">
-              Contact our product specialists directly for enterprise quotes, distributor pricing, or stock alerts.
+              Contact our product specialists directly for enterprise quotes, distributor pricing, or technical assistance.
             </p>
           </div>
           <Link

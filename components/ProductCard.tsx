@@ -69,59 +69,6 @@ function getProductBadge(product: Product): { text: string; icon: React.ReactNod
   };
 }
 
-// 2. High-Precision Specification Extractor
-interface CleanSpec {
-  icon: 'tank' | 'power' | 'gear' | 'check' | 'tool';
-  label: string;
-  value: string;
-}
-
-function extractCleanSpecs(product: Product): CleanSpec[] {
-  const desc = product.description || '';
-  const name = product.name || '';
-  const specs: CleanSpec[] = [];
-
-  // A. Tank Capacity
-  const capMatch = desc.match(/(?:tank capacity|capacity|tank)\s*[:\-]?\s*([0-9.]+\s*(?:ltrs?|l|kg|litres?))/i) || 
-                   name.match(/([0-9.]+\s*(?:ltrs?|l|litres?))/i);
-  if (capMatch) {
-    specs.push({ icon: 'tank', label: 'Tank', value: capMatch[1].trim() });
-  }
-
-  // B. Power / Battery / Motor / Fuel
-  const batMatch = desc.match(/battery\s*[:\-]?\s*([0-9]+V(?:\s*\/\s*[0-9]+AH)?)/i) || 
-                   name.match(/([0-9]+V\s*\/?\s*[0-9]+AH)/i);
-  if (batMatch) {
-    specs.push({ icon: 'power', label: 'Power', value: batMatch[1].trim() });
-  } else if (/manual/i.test(name) || /manual/i.test(desc)) {
-    specs.push({ icon: 'power', label: 'Power', value: 'Manual' });
-  } else {
-    const powerMatch = desc.match(/power\s*[:\-]?\s*([0-9.]+\s*(?:hp|kw))/i);
-    if (powerMatch) {
-      specs.push({ icon: 'power', label: 'Power', value: powerMatch[1].trim() });
-    }
-  }
-
-  // C. Engine / Displacement
-  const dispMatch = desc.match(/displacement\s*[:\-]?\s*([0-9.]+\s*(?:cc|cm³))/i) ||
-                    name.match(/([0-9.]+\s*cc)/i);
-  if (dispMatch) {
-    specs.push({ icon: 'gear', label: 'Displacement', value: dispMatch[1].trim() });
-  }
-
-  // Fallbacks if empty
-  if (specs.length === 0) {
-    if (product.brand) {
-      specs.push({ icon: 'check', label: 'Brand', value: product.brand });
-    }
-    if (product.category) {
-      specs.push({ icon: 'tool', label: 'Category', value: product.category });
-    }
-  }
-
-  return specs.slice(0, 2);
-}
-
 export default function ProductCard({ 
   product, 
   onOpenSubsidy, 
@@ -187,7 +134,6 @@ export default function ProductCard({
   };
 
   const badge = getProductBadge(product);
-  const specs = extractCleanSpecs(product);
 
   return (
     <>
@@ -251,11 +197,9 @@ export default function ProductCard({
                 by <strong className="text-gray-700">{product.brand || 'Ratnagiri Impex'}</strong> <span className="text-gray-300">•</span> <span className="font-mono text-[10px] text-gray-400">RIPL: {product.riplCode}</span>
               </p>
 
-              {/* Specifications / Category (exactly like 'Studio Studio Apartment Begur, Bengaluru') */}
-              <p className="text-[10px] sm:text-[11px] text-gray-600 line-clamp-2 mt-1 leading-tight">
-                {specs.length > 0 
-                  ? specs.map(s => `${s.label}: ${s.value}`).join(' • ')
-                  : (product.category || 'Agricultural Machinery')}
+              {/* Category */}
+              <p className="text-[10px] sm:text-[11px] text-gray-500 truncate mt-1 leading-tight">
+                {product.category || 'Agricultural Machinery'}
               </p>
             </div>
 
@@ -342,22 +286,10 @@ export default function ProductCard({
 
               {/* Product Title */}
               <Link href={`/products/${product.id}`} className="block group-hover:text-[#2d7d32] transition-colors">
-                <h3 className="font-extrabold text-[12px] sm:text-[13px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-1.5 min-h-[32px]">
+                <h3 className="font-extrabold text-[12px] sm:text-[13px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[32px]">
                   {product.name}
                 </h3>
               </Link>
-
-              {/* Clean Compact Specifications */}
-              {specs.length > 0 && (
-                <div className="space-y-1 mb-2 bg-gray-50/80 rounded-md p-1.5 border border-gray-100/80 text-[10px] sm:text-[11px] text-gray-600">
-                  {specs.map((spec, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 truncate">
-                      <span className="text-gray-400 shrink-0 font-medium">{spec.label}:</span>
-                      <strong className="text-gray-800 font-semibold truncate">{spec.value}</strong>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Bottom: Request a Quote & Subsidy Action */}

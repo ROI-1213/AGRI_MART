@@ -17,6 +17,91 @@ import QuoteModal from '@/components/QuoteModal';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
 
+interface SpecItem {
+  label: string;
+  value: string;
+}
+
+function extractProductSpecs(product: Product): SpecItem[] {
+  const specs: SpecItem[] = [];
+  const desc = product.description || '';
+  const name = product.name || '';
+
+  // 1. Existing specs in product.specifications if any
+  if (product.specifications && typeof product.specifications === 'object') {
+    Object.entries(product.specifications).forEach(([k, v]) => {
+      if (v && String(v).trim()) specs.push({ label: k.trim(), value: String(v).trim() });
+    });
+  }
+
+  // 2. Tank / Liquid / Chemical / Fuel Capacity
+  const tankMatch = desc.match(/(?:collection bag capacity|liquid tank capacity|tank capacity|fuel tank capacity|chemical tank capacity|tank|capacity)\s*[:\-]?\s*([0-9.]+\s*(?:ltrs?|l|litres?|kg))/i) ||
+                    name.match(/([0-9.]+\s*(?:ltrs?|l|litres?))/i);
+  if (tankMatch && !specs.some(s => /tank|bag|capacity/i.test(s.label))) {
+    specs.push({ label: 'Tank / Bag Capacity', value: tankMatch[1].trim() });
+  }
+
+  // 3. Power (HP / kW / W / V)
+  const powerMatch = desc.match(/(?:engine power|rated power|max output|power)\s*[:\-]?\s*([0-9.]+\s*(?:hp|kw|w)(?:[-/][0-9.]+\s*(?:hp|kw|w))?)/i) ||
+                     desc.match(/([0-9.]+\s*(?:hp|kw))/i);
+  if (powerMatch && !specs.some(s => /power|output/i.test(s.label))) {
+    specs.push({ label: 'Power / Output', value: powerMatch[1].trim() });
+  }
+
+  // 4. Battery / Voltage
+  const batMatch = desc.match(/(?:battery)\s*[:\-]?\s*([0-9]+V(?:\s*\/\s*[0-9]+AH)?)/i) ||
+                   name.match(/([0-9]+V\s*\/?\s*[0-9]+AH)/i);
+  if (batMatch && !specs.some(s => /battery/i.test(s.label))) {
+    specs.push({ label: 'Battery Specification', value: batMatch[1].trim() });
+  }
+
+  // 5. Displacement (cc / cm³)
+  const dispMatch = desc.match(/(?:displacement|engine displacement)\s*[:\-]?\s*([0-9.]+\s*(?:cc|cm³|cm3))/i) ||
+                    name.match(/([0-9.]+\s*cc)/i);
+  if (dispMatch && !specs.some(s => /displacement/i.test(s.label))) {
+    specs.push({ label: 'Engine Displacement', value: dispMatch[1].trim() });
+  }
+
+  // 6. Engine Type / Stroke
+  const engineMatch = desc.match(/(?:engine)\s*[:\-]?\s*([^.,\n<]+(?:stroke|cylinder|diesel|petrol|electric|brushless)[^.,\n<]*)/i);
+  if (engineMatch && !specs.some(s => /engine/i.test(s.label))) {
+    specs.push({ label: 'Engine Type', value: engineMatch[1].trim() });
+  }
+
+  // 7. Air Volume / Flow Rate
+  const airVolMatch = desc.match(/(?:max\.?\s*air\s*volume|air\s*flow\s*rate|air\s*volume)\s*[:\-]?\s*([0-9.]+\s*(?:m3\/hr|m³\/hr|m³\/min|m3\/min))/i);
+  if (airVolMatch && !specs.some(s => /air volume|flow/i.test(s.label))) {
+    specs.push({ label: 'Air Flow / Volume', value: airVolMatch[1].trim() });
+  }
+
+  // 8. Air Speed
+  const airSpeedMatch = desc.match(/(?:max\.?\s*air\s*speed|air\s*speed)\s*[:\-]?\s*([0-9.]+\s*(?:m\/s|km\/h|km\/hr))/i);
+  if (airSpeedMatch && !specs.some(s => /speed/i.test(s.label))) {
+    specs.push({ label: 'Max Air Speed', value: airSpeedMatch[1].trim() });
+  }
+
+  // 9. Weight
+  const weightMatch = desc.match(/(?:dry weight|weight|net weight)\s*[:\-]?\s*([0-9.]+\s*(?:kg|kgs?|grams?))/i);
+  if (weightMatch && !specs.some(s => /weight/i.test(s.label))) {
+    specs.push({ label: 'Weight', value: weightMatch[1].trim() });
+  }
+
+  // 10. Working Width / Tilling Width
+  const widthMatch = desc.match(/(?:tilling width|working width|width)\s*[:\-]?\s*([0-9.]+\s*(?:mm|cm|meters?|m|inches?))/i);
+  if (widthMatch && !specs.some(s => /width/i.test(s.label))) {
+    specs.push({ label: 'Working Width', value: widthMatch[1].trim() });
+  }
+
+  // 11. Core Standard Identity Specs
+  specs.push({ label: 'Brand', value: product.brand || 'Ratnagiri Impex' });
+  specs.push({ label: 'Model / RIPL Code', value: product.riplCode || product.id });
+  specs.push({ label: 'Category', value: product.category });
+  specs.push({ label: 'Government Subsidy', value: 'Eligible under State/Central Farm Mechanization (SMAM)' });
+  specs.push({ label: 'Warranty', value: '1 Year Manufacturer / RIPL Authorized Warranty' });
+
+  return specs;
+}
+
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -25,6 +110,9 @@ export default function ProductDetailPage() {
   const product = (productsData as unknown as Product[]).find(
     p => p.id === productId || p.slug === productId || p.riplCode.toLowerCase() === productId?.toLowerCase()
   ) || (productsData as unknown as Product[])[0];
+
+  const allSpecs = extractProductSpecs(product);
+  const keySpecs = allSpecs.filter(s => !['Brand', 'Model / RIPL Code', 'Category', 'Government Subsidy', 'Warranty'].includes(s.label));
 
   const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || '/assets/branding/logo.png');
   const [quantity, setQuantity] = useState(1);
@@ -150,12 +238,39 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Stock Status */}
-                <div className="flex items-center space-x-2 text-xs font-semibold mb-6">
+                <div className="flex items-center space-x-2 text-xs font-semibold mb-4">
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
                   <span className="text-green-800">
                     Status: {product.availability} ({product.stockQuantity} Units In Stock)
                   </span>
                 </div>
+
+                {/* Key Technical Specifications (e.g. Tank: 36 L, Power: 1.3 HP, Displacement: 25.4 cm³) */}
+                {keySpecs.length > 0 && (
+                  <div className="mb-5 bg-emerald-50/50 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#1b5e20] flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+                        Key Equipment Specifications
+                      </span>
+                      <span className="text-[10px] text-gray-400 font-semibold">
+                        {keySpecs.length} Parameter{keySpecs.length > 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {keySpecs.map((spec, idx) => (
+                        <div key={idx} className="bg-white rounded-lg p-2.5 border border-emerald-100/90 shadow-2xs flex flex-col justify-between">
+                          <span className="text-[10px] text-gray-500 font-medium truncate block">
+                            {spec.label}
+                          </span>
+                          <strong className="text-xs sm:text-[13px] font-black text-gray-900 truncate block mt-0.5">
+                            {spec.value}
+                          </strong>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Quantity Selector & Action Buttons */}
                 <div className="space-y-3 mb-6">
@@ -271,17 +386,24 @@ export default function ProductDetailPage() {
                 />
 
                 {/* Technical Specifications Table */}
-                <div className="mt-6">
-                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">
-                    Technical Specifications
-                  </h3>
-                  <div className="border border-gray-200 rounded-lg overflow-hidden text-xs">
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-2 h-2 rounded-full bg-[#2d7d32]"></span>
+                    <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+                      Technical Specifications
+                    </h3>
+                  </div>
+                  <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
                     <table className="w-full text-left divide-y divide-gray-200">
                       <tbody className="divide-y divide-gray-100">
-                        {Object.entries(product.specifications || {}).map(([key, val], idx) => (
-                          <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                            <td className="px-4 py-2.5 font-semibold text-gray-700 w-1/3">{key}</td>
-                            <td className="px-4 py-2.5 text-gray-900">{val}</td>
+                        {allSpecs.map((spec, idx) => (
+                          <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
+                            <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
+                              {spec.label}
+                            </td>
+                            <td className="px-4 py-2.5 text-gray-900 font-medium">
+                              {spec.value}
+                            </td>
                           </tr>
                         ))}
                       </tbody>

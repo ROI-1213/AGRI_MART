@@ -85,7 +85,7 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
     id: 'brand_greenpanther',
     brand: 'GREEN PANTHER',
     tagline: 'Naturally Powerful',
-    brandLogo: '/assets/brands/partner_strip/green_panther_wide.png',
+    brandLogo: '/assets/brands/partner_strip/green_panther.png',
     brandSubtitle: 'Ratnagiri Impex Certified Line',
     category: 'THERMAL FOGGER & SPRAYERS',
     leadTitle: 'GP 252 Thermal Foggers & Diaphragm Sprayers',
@@ -262,7 +262,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
             </div>
 
             {/* Right Column: FULL LANDSCAPE BRAND BANNER IN EXACT MARKED HEIGHT ON DESKTOP, PERFECT ASPECT RATIO ON MOBILE */}
-            <div className="w-full md:flex-1 relative aspect-[1024/426] md:aspect-auto md:h-full overflow-hidden group bg-white flex items-center justify-center">
+            <div className="w-full md:flex-1 relative aspect-[1024/426] md:aspect-auto md:h-full overflow-hidden group bg-white flex items-center justify-center p-1 sm:p-1.5">
               
               {/* Top-Right Circular Pause/Play Button on Photo */}
               <div className="absolute top-2.5 right-2.5 z-30">
@@ -280,7 +280,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
               {/* Preloaded Landscape Banners with Instant Smooth Cross-Fade */}
               <Link 
                 href={currentBrand.route} 
-                className="relative block w-full h-full cursor-pointer"
+                className="relative block w-full h-full cursor-pointer rounded-2xl overflow-hidden shadow-2xs"
               >
                 {BRAND_PICKS.map((brand, bIdx) => (
                   <div
@@ -296,7 +296,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                       priority
                       quality={100}
                       sizes="(max-width: 768px) 100vw, 850px"
-                      className="object-cover w-full h-full select-none"
+                      className="object-contain w-full h-full select-none"
                     />
                   </div>
                 ))}
@@ -308,17 +308,17 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
           {/* Right Peeking Next Brand Card (Matching md:h-[260px] Height) */}
           <div 
             onClick={handleNextBrand}
-            className="hidden md:flex w-[160px] lg:w-[185px] shrink-0 rounded-3xl bg-gradient-to-br from-[#f5fbf6] via-[#fbfdfb] to-[#edf7ee] border border-gray-200 p-3 sm:p-3.5 flex-col justify-between opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer shadow-sm hover:shadow select-none group md:h-[260px]"
+            className="hidden md:flex w-[130px] lg:w-[150px] shrink-0 rounded-3xl bg-gradient-to-br from-[#f5fbf6] via-[#fbfdfb] to-[#edf7ee] border border-gray-200 p-2.5 sm:p-3 flex-col justify-between opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer shadow-sm hover:shadow select-none group md:h-[260px]"
             title={`Next: ${nextBrand.brand}`}
           >
             <div>
               {/* Brand Logo & Name */}
-              <div className="flex items-center gap-1.5 mb-2">
-                <div className="relative h-7 min-w-[42px] px-1 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className="relative h-7 min-w-[38px] px-1 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
                   <Image
                     src={nextBrand.brandLogo}
                     alt={`${nextBrand.brand} Logo`}
-                    width={40}
+                    width={38}
                     height={22}
                     className="max-h-5 w-auto object-contain"
                   />
@@ -334,37 +334,37 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
               </div>
 
               {/* Title */}
-              <h4 className="text-xs font-bold text-gray-900 group-hover:text-[#2d7d32] transition-colors line-clamp-2 leading-snug">
+              <h4 className="text-[11px] font-bold text-gray-900 group-hover:text-[#2d7d32] transition-colors line-clamp-2 leading-snug">
                 {nextBrand.leadTitle}
               </h4>
 
               {/* Mini Banner Preview (Exact Aspect Ratio 1024/426) */}
-              <div className="relative w-full aspect-[1024/426] my-2 rounded-lg overflow-hidden border border-gray-200/80 bg-white shadow-2xs">
+              <div className="relative w-full aspect-[1024/426] my-1.5 rounded-lg overflow-hidden border border-gray-200/80 bg-white shadow-2xs">
                 <Image
                   src={nextBrand.bannerImage}
                   alt={nextBrand.brand}
                   fill
-                  sizes="185px"
+                  sizes="150px"
                   className="object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
 
               {/* Specs */}
-              <div className="pt-1.5 border-t border-gray-200/60">
-                <span className="text-[11px] font-black text-[#1b5e20] block">
+              <div className="pt-1 border-t border-gray-200/60">
+                <span className="text-[10px] font-black text-[#1b5e20] block">
                   {nextBrand.priceRange}
                 </span>
-                <span className="text-[9px] text-gray-500 block truncate mt-0.5">
+                <span className="text-[8px] text-gray-500 block truncate mt-0.5">
                   {nextBrand.specs}
                 </span>
               </div>
             </div>
 
             {/* Peeking Next Card Button */}
-            <div className="pt-2 border-t border-gray-200/60">
-              <div className="w-full bg-[#2d7d32] group-hover:bg-[#1b5e20] text-white font-extrabold text-[11px] py-2 px-2 rounded-xl text-center shadow-xs transition-colors flex items-center justify-center gap-1">
+            <div className="pt-1.5 border-t border-gray-200/60">
+              <div className="w-full bg-[#2d7d32] group-hover:bg-[#1b5e20] text-white font-extrabold text-[10px] py-1.5 px-1.5 rounded-xl text-center shadow-xs transition-colors flex items-center justify-center gap-1">
                 <span className="truncate">View {nextBrand.brand}</span>
-                <ArrowRight className="w-3 h-3 shrink-0" />
+                <ArrowRight className="w-2.5 h-2.5 shrink-0" />
               </div>
             </div>
           </div>
@@ -373,11 +373,11 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
           <button
             type="button"
             onClick={handleNextBrand}
-            className="hidden md:flex absolute right-[145px] lg:right-[170px] top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white shadow-xl border border-gray-200 items-center justify-center text-gray-800 hover:text-[#2d7d32] hover:scale-110 active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute right-[115px] lg:right-[135px] top-1/2 -translate-y-1/2 z-40 w-9 h-9 rounded-full bg-white shadow-xl border border-gray-200 items-center justify-center text-gray-800 hover:text-[#2d7d32] hover:scale-110 active:scale-95 transition-all cursor-pointer"
             title="Next Brand"
             aria-label="Next Brand"
           >
-            <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+            <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
           </button>
 
         </div>

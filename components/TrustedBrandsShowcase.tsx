@@ -19,8 +19,8 @@ const BRANDS: BrandItem[] = [
     tagline: 'Reliable, Powerful Farm Machinery',
     href: '/products?brand=AGRIMATE',
     logo: '/assets/brands/partner_strip/agrimate.png',
-    width: 319,
-    height: 90,
+    width: 366,
+    height: 111,
   },
   {
     name: 'KASEI',
@@ -42,9 +42,9 @@ const BRANDS: BrandItem[] = [
     name: 'GREEN PANTHER',
     tagline: 'Premium GreenCare & Plant Protection Solutions',
     href: '/products?brand=GREEN+PANTHER',
-    logo: '/assets/brands/partner_strip/green_panther_wide.png',
-    width: 427,
-    height: 90,
+    logo: '/assets/brands/partner_strip/green_panther.png',
+    width: 200,
+    height: 180,
   },
 ];
 

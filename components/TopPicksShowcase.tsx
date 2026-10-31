@@ -184,13 +184,13 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
               <div>
                 {/* Brand Logo & Name Box */}
                 <div className="flex items-center gap-2 mb-1.5">
-                  <div className="relative h-8 min-w-[54px] px-1.5 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
+                  <div className="relative h-9 min-w-[58px] px-1.5 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
                     <Image
                       src={currentBrand.brandLogo}
                       alt={`${currentBrand.brand} Logo`}
-                      width={52}
-                      height={26}
-                      className="max-h-6 w-auto object-contain"
+                      width={56}
+                      height={30}
+                      className="max-h-7 w-auto object-contain"
                     />
                   </div>
                   <div>
@@ -314,13 +314,13 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
             <div>
               {/* Brand Logo & Name */}
               <div className="flex items-center gap-1.5 mb-1.5">
-                <div className="relative h-7 min-w-[38px] px-1 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
+                <div className="relative h-8 min-w-[42px] px-1 rounded-lg bg-white shadow-2xs border border-gray-100 flex items-center justify-center shrink-0">
                   <Image
                     src={nextBrand.brandLogo}
                     alt={`${nextBrand.brand} Logo`}
-                    width={38}
-                    height={22}
-                    className="max-h-5 w-auto object-contain"
+                    width={42}
+                    height={26}
+                    className="max-h-6 w-auto object-contain"
                   />
                 </div>
                 <div className="min-w-0">

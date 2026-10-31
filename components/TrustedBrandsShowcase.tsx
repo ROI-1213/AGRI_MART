@@ -11,6 +11,7 @@ interface BrandItem {
   logo: string;
   width: number;
   height: number;
+  customImgClass?: string;
 }
 
 const BRANDS: BrandItem[] = [
@@ -21,6 +22,7 @@ const BRANDS: BrandItem[] = [
     logo: '/assets/brands/partner_strip/agrimate.png',
     width: 366,
     height: 111,
+    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
   },
   {
     name: 'KASEI',
@@ -29,6 +31,7 @@ const BRANDS: BrandItem[] = [
     logo: '/assets/brands/partner_strip/kasei.png',
     width: 291,
     height: 90,
+    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
   },
   {
     name: 'OLEO-MAC',
@@ -37,6 +40,7 @@ const BRANDS: BrandItem[] = [
     logo: '/assets/brands/partner_strip/oleo_mac.png',
     width: 239,
     height: 90,
+    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
   },
   {
     name: 'GREEN PANTHER',
@@ -45,6 +49,7 @@ const BRANDS: BrandItem[] = [
     logo: '/assets/brands/partner_strip/green_panther.png',
     width: 200,
     height: 180,
+    customImgClass: 'max-h-16 sm:max-h-20 md:max-h-24 scale-110 sm:scale-120 md:scale-130',
   },
 ];
 
@@ -79,13 +84,13 @@ export default function TrustedBrandsShowcase() {
               title={`${brand.name} — ${brand.tagline}`}
               aria-label={`Explore ${brand.name} equipment and products`}
             >
-              <div className="relative h-10 sm:h-12 md:h-13 w-full flex items-center justify-center">
+              <div className="relative h-16 sm:h-20 md:h-24 w-full flex items-center justify-center">
                 <Image
                   src={brand.logo}
                   alt={`${brand.name} Logo`}
                   width={brand.width}
                   height={brand.height}
-                  className="max-h-10 sm:max-h-12 md:max-h-13 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                  className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${brand.customImgClass || 'max-h-12 sm:max-h-14 md:max-h-16'}`}
                   quality={100}
                 />
               </div>

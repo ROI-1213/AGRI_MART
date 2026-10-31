@@ -33,12 +33,12 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
   {
     id: 'brand_agrimate',
     brand: 'AGRIMATE',
-    tagline: 'Apnalo Munafa Badalo',
+    tagline: 'Reliable Farm Equipment for a better tomorrow',
     brandLogo: '/assets/brands/partner_strip/agrimate.png',
     brandSubtitle: 'Ratnagiri Impex • Flagship Brand',
-    category: 'POWER WEEDER & TILLERS',
-    leadTitle: 'AM-MPTC-1100-12D 4-Wheel Electric Tiller',
-    leadSubtitle: '4-Wheel Drive heavy-duty diesel power weeders & multi-crop rotavators engineered for tough Indian farms.',
+    category: 'POWER WEEDER & FARM EQUIPMENT',
+    leadTitle: 'AM-MPTC-1100-12D 4-Wheel Tiller & Heavy Machinery',
+    leadSubtitle: 'Reliable farm equipment, power tillers, reapers & sprayers for a better tomorrow.',
     priceRange: 'Price on Request',
     specs: '12 HP Commercial Diesel • 4-Wheel Traction • SMAM Subsidy',
     bannerImage: '/assets/toppicks_banners/brand_agrimate.png',
@@ -50,12 +50,12 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
   {
     id: 'brand_kasei',
     brand: 'KASEI',
-    tagline: 'Advanced Technology',
+    tagline: 'Advanced Technology Powerful Performance',
     brandLogo: '/assets/brands/partner_strip/kasei_hd.png',
     brandSubtitle: 'Global Technology Partner',
-    category: 'MIST DUSTER & EARTH AUGERS',
-    leadTitle: 'KASEI Orchard Mist Blowers & Heavy Earth Augers',
-    leadSubtitle: 'Precision high-velocity agricultural mist blowers, post-hole earth augers & high-durability power cutters.',
+    category: 'MIST BLOWERS & EARTH AUGERS',
+    leadTitle: 'KASEI Earth Augers, High-Velocity Blowers & Saws',
+    leadSubtitle: 'Advanced technology, powerful performance & precision high-durability power cutters.',
     priceRange: 'Price on Request',
     specs: 'High Air-Velocity Mist Blowers • Heavy-Duty Post Hole Drills',
     bannerImage: '/assets/toppicks_banners/brand_kasei.png',
@@ -67,14 +67,14 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
   {
     id: 'brand_oleomac',
     brand: 'OLEO-MAC',
-    tagline: 'Our Power, Your Passion',
+    tagline: 'Italian Design & Engineering to meet Indian Fields',
     brandLogo: '/assets/brands/partner_strip/oleo_mac_hd.png',
     brandSubtitle: 'Italy • Germany • USA Engineered',
-    category: 'BRUSH CUTTER & LUBRICANTS',
-    leadTitle: 'Oleo-Mac Commercial Cutters & Prosint Lubricants',
-    leadSubtitle: 'Italian ergonomic commercial brush cutters, Oregon bar forestry saws & Prosint 2T synthetic engine oils.',
+    category: 'COMMERCIAL CUTTERS & TILLERS',
+    leadTitle: 'Oleo-Mac Commercial Tractors, Tillers & Cutters',
+    leadSubtitle: 'Italian design & engineering to meet Indian fields with rugged commercial durability.',
     priceRange: 'Price on Request',
-    specs: 'Low-Vibration Ergonomic Harness • Prosint 2T Special Lubricant',
+    specs: 'Low-Vibration Ergonomic Cutters • Rotary Tillers • Ride-on Mowers',
     bannerImage: '/assets/toppicks_banners/brand_oleomac.png',
     badge: 'EUROPEAN PRECISION SERIES',
     route: '/products?brand=OLEO-MAC',
@@ -244,8 +244,8 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
 
             </div>
 
-            {/* Right Column: FULL LANDSCAPE BRAND BANNER IN EXACT MARKED HEIGHT ON DESKTOP, PERFECT ASPECT RATIO ON MOBILE */}
-            <div className="w-full md:flex-1 relative aspect-[1024/426] md:aspect-auto md:h-full overflow-hidden group bg-white flex items-center justify-center p-1 sm:p-1.5">
+            {/* Right Column: FULL LANDSCAPE BRAND BANNER IN 3:1 HD RATIO */}
+            <div className="w-full md:flex-1 relative aspect-[3/1] md:aspect-auto md:h-full overflow-hidden group bg-white flex items-center justify-center p-0.5 sm:p-1">
               
               {/* Top-Right Circular Pause/Play Button on Photo */}
               <div className="absolute top-2.5 right-2.5 z-30">
@@ -277,6 +277,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                       alt={`${brand.brand} - ${brand.tagline}`}
                       fill
                       priority
+                      unoptimized
                       quality={100}
                       sizes="(max-width: 768px) 100vw, 850px"
                       className="object-contain w-full h-full select-none"
@@ -321,12 +322,14 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                 {nextBrand.leadTitle}
               </h4>
 
-              {/* Mini Banner Preview (Exact Aspect Ratio 1024/426) */}
-              <div className="relative w-full aspect-[1024/426] my-1.5 rounded-lg overflow-hidden border border-gray-200/80 bg-white shadow-2xs">
+              {/* Mini Banner Preview (3:1 HD Ratio) */}
+              <div className="relative w-full aspect-[3/1] my-1.5 rounded-lg overflow-hidden border border-gray-200/80 bg-white shadow-2xs">
                 <Image
                   src={nextBrand.bannerImage}
                   alt={nextBrand.brand}
                   fill
+                  unoptimized
+                  quality={100}
                   sizes="150px"
                   className="object-cover group-hover:scale-105 transition-transform"
                 />

@@ -92,7 +92,7 @@ export default function ProductCard({
     <>
       {layout === 'horizontal' ? (
         /* ================= HORIZONTAL CARD STYLE (MATCHING REFERENCE IMAGE 2) ================= */
-        <div className="group relative bg-white rounded-lg sm:rounded-xl border border-gray-200/90 hover:border-[#2d7d32] shadow-2xs hover:shadow-md transition-all duration-200 flex flex-row items-stretch overflow-hidden h-[135px] sm:h-[148px]">
+        <div className="group relative bg-white rounded-lg sm:rounded-xl border-0 shadow-2xs hover:shadow-md transition-all duration-200 flex flex-row items-stretch overflow-hidden h-[135px] sm:h-[148px]">
           {/* Left: Product Visual Thumbnail */}
           <div className="relative w-[38%] sm:w-[40%] shrink-0 bg-white border-r border-gray-100 flex items-center justify-center p-2 overflow-hidden">
             {/* Top-Right Heart Wishlist Button */}
@@ -165,7 +165,7 @@ export default function ProductCard({
         </div>
       ) : (
         /* ================= COMPACT 4x4 / 3x3 VERTICAL CARD STYLE ================= */
-        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/90 hover:border-[#2d7d32] shadow-2xs hover:shadow-md transition-all duration-200 p-2.5 sm:p-3 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white rounded-xl sm:rounded-2xl border-0 shadow-2xs hover:shadow-md transition-all duration-200 p-2.5 sm:p-3 flex flex-col justify-between overflow-hidden">
           
           {/* Top: Product Visual with Image Zoom & 3D Flip / Secondary Image Reveal */}
           <div className="relative w-full h-44 sm:h-48 rounded-lg sm:rounded-xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 border border-gray-100 flex items-center justify-center p-2 overflow-hidden [perspective:1000px]">

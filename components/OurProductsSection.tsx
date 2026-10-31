@@ -186,23 +186,13 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
             return (
               <div
                 key={product.id}
-                className={`group relative bg-white rounded-2xl border transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between overflow-hidden p-3.5 sm:p-4 cursor-pointer ${
-                  product.isFlagship
-                    ? 'border-amber-400/80 shadow-md hover:shadow-2xl ring-2 ring-amber-300/40 bg-gradient-to-b from-amber-50/20 via-white to-white'
-                    : 'border-gray-200/90 hover:border-[#2d7d32] shadow-xs hover:shadow-xl'
-                }`}
+                className="group relative bg-white rounded-2xl border-0 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between overflow-hidden p-3.5 sm:p-4 cursor-pointer"
               >
                 {/* Visual Glow Spotlight on Hover */}
                 <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
-                {/* Top Row: Flagship Badge & Wishlist Heart */}
-                <div className="relative z-10 flex items-center justify-between mb-2 min-h-[28px]">
-                  {product.isFlagship ? (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-800 bg-amber-100/90 border border-amber-300 px-2.5 py-0.5 rounded-md shadow-2xs">
-                      <span>★</span> Flagship 4WD Tractor
-                    </span>
-                  ) : <span />}
-
+                {/* Top Row: Wishlist Heart */}
+                <div className="relative z-10 flex items-center justify-end mb-2">
                   <button
                     type="button"
                     onClick={(e) => toggleWishlist(e, product.id)}
@@ -220,7 +210,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 {/* Center Image Container: Enlarged Showroom Display with Zoom & Dual-Angle Reveal */}
                 <Link
                   href={`/products/${product.id}`}
-                  className="relative w-full h-52 sm:h-56 rounded-2xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 border border-gray-100 flex items-center justify-center p-2 overflow-hidden my-1 shadow-inner/5 group/img"
+                  className="relative w-full h-52 sm:h-56 rounded-2xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 flex items-center justify-center p-2 overflow-hidden my-1 shadow-inner/5 group/img"
                 >
                   {/* Subtle radial spotlight glow behind machine */}
                   <div className="absolute inset-0 bg-radial from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
@@ -252,13 +242,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                         className="object-contain p-1 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-xl"
                       />
                     )}
-
-                    {/* Uniform Interactive View Badge */}
-                    <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/65 backdrop-blur-md text-white text-[9.5px] font-bold px-2.5 py-0.5 rounded-full border border-white/10 shadow-xs transition-all pointer-events-none">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:bg-amber-400 animate-pulse" />
-                      <span className="group-hover:hidden tracking-wider uppercase text-[8.5px]">Front View</span>
-                      <span className="hidden group-hover:inline tracking-wider uppercase text-[8.5px] text-amber-300">Angle 2 • Zoomed</span>
-                    </div>
                   </div>
 
                   {/* Brand Watermark Pill on Bottom-Right of Photo */}

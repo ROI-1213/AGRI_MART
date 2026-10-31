@@ -79,23 +79,6 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
     badge: 'EUROPEAN PRECISION SERIES',
     route: '/products?brand=OLEO-MAC',
   },
-
-  // 4. GREEN PANTHER
-  {
-    id: 'brand_greenpanther',
-    brand: 'GREEN PANTHER',
-    tagline: 'Naturally Powerful',
-    brandLogo: '/assets/brands/partner_strip/green_panther.png',
-    brandSubtitle: 'Ratnagiri Impex Certified Line',
-    category: 'THERMAL FOGGER & SPRAYERS',
-    leadTitle: 'GP 252 Thermal Foggers & Diaphragm Sprayers',
-    leadSubtitle: 'Electric pulse jet thermal mist foggers & engine diaphragm pump sprayers for deep orchard canopy pest protection.',
-    priceRange: 'Price on Request',
-    specs: 'Micro-Droplet Fog Mist • High-Pressure Orchard Diaphragm',
-    bannerImage: '/assets/toppicks_banners/brand_greenpanther.png',
-    badge: 'ORCHARD PLANT PROTECTION',
-    route: '/products?brand=GREEN+PANTHER',
-  },
 ];
 
 interface TopPicksShowcaseProps {

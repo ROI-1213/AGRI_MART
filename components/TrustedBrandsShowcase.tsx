@@ -42,15 +42,6 @@ const BRANDS: BrandItem[] = [
     height: 90,
     customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
   },
-  {
-    name: 'GREEN PANTHER',
-    tagline: 'Premium GreenCare & Plant Protection Solutions',
-    href: '/products?brand=GREEN+PANTHER',
-    logo: '/assets/brands/partner_strip/green_panther.png',
-    width: 200,
-    height: 180,
-    customImgClass: 'max-h-16 sm:max-h-20 md:max-h-24 scale-110 sm:scale-120 md:scale-130',
-  },
 ];
 
 export default function TrustedBrandsShowcase() {
@@ -74,8 +65,8 @@ export default function TrustedBrandsShowcase() {
           </p>
         </div>
 
-        {/* Brand Logos Strip: All 4 Website Brands in One Clean Row on Desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 items-center justify-items-center max-w-5xl mx-auto">
+        {/* Brand Logos Strip: 3 Authorized Premier Brands in One Clean Balanced Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 items-center justify-items-center max-w-4xl mx-auto">
           {BRANDS.map((brand) => (
             <Link
               key={brand.name}

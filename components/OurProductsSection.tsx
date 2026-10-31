@@ -61,16 +61,16 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     image: '/assets/products/ripl010104/img_1.jpg',
     badge: 'Italian Precision',
   },
-  // 4. Green Panther Thermal Fog Sprayer
+  // 4. Agrimate Heavy HTP Power Sprayer with Engine
   {
-    id: 'green-panther-fog-sprayer-gp-252-est',
-    name: 'GP 252 EST Electric-Start Thermal Fog Sprayer',
-    code: 'RIPL023199',
-    brand: 'GREEN PANTHER',
+    id: 'am-22k-ms-htp-power-sprayer-with-engine',
+    name: 'AM-22K-MS+ Heavy HTP Power Sprayer with Engine',
+    code: 'RIPL036359',
+    brand: 'AGRIMATE',
     category: 'SPRAYER',
-    keyFeature: 'Pulse-Jet Thermal Fog • Micro-Droplet Deep Canopy Penetration',
-    image: '/assets/products/ripl023199/img_1.jpg',
-    badge: 'Orchard Protection',
+    keyFeature: 'Heavy-Duty 4-Stroke Engine • High-Pressure Triple Piston Pump',
+    image: '/assets/products/ripl036359/img_1.jpg',
+    badge: 'Heavy Plant Protection',
   },
   // 5. Kasei Commercial Earth Auger
   {

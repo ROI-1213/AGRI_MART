@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Trophy, Award, Pause, Play, Sparkles } from 'lucide-react';
+import { Trophy, Award } from 'lucide-react';
 
 export interface AwardItem {
   id: number;
@@ -148,21 +148,6 @@ export default function AwardsShowcase() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Interactive Helper Indicator / Pause Control */}
-      <div className="mt-4 sm:mt-6 flex items-center justify-center gap-3 text-xs text-gray-600 font-medium">
-        <button
-          type="button"
-          onClick={() => setIsPaused(prev => !prev)}
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold transition-colors cursor-pointer text-[11px]"
-          aria-label={isPaused ? "Resume continuous sliding" : "Pause sliding"}
-        >
-          {isPaused ? <Play className="w-3 h-3 fill-current" /> : <Pause className="w-3 h-3 fill-current" />}
-          <span>{isPaused ? 'Resume Sliding' : 'Pause on Hover or Click'}</span>
-        </button>
-        <span className="hidden sm:inline-block text-gray-500">•</span>
-        <span className="hidden sm:inline-block text-[11px] text-gray-600 font-medium">Hover over any award to examine details</span>
       </div>
     </section>
   );

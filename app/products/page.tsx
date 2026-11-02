@@ -254,8 +254,8 @@ function ProductsContent() {
         {/* ================= MAIN 2-COLUMN LAYOUT: Filter Sidebar + Products Grid ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           
-          {/* ================= DESKTOP SIDEBAR: Filter Products ================= */}
-          <aside className="hidden lg:block bg-white rounded-2xl border border-gray-200/90 p-4 sm:p-5 shadow-xs sticky top-24">
+          {/* ================= DESKTOP SIDEBAR: Filter Products (Sticky on scroll) ================= */}
+          <aside className="hidden lg:block bg-white rounded-2xl border border-gray-200/90 p-4 sm:p-5 shadow-xs sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto">
             
             {/* Sidebar Header: Filter Products + Reset All Button */}
             <div className="flex justify-between items-center pb-3 mb-3 border-b border-gray-100">

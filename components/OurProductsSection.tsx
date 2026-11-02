@@ -153,15 +153,13 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         
         {/* ================= SECTION HEADER ================= */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-gray-200/80 pb-6">
-          <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
-              Our Products
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-2xl leading-relaxed">
-              Explore our top-tier agricultural machinery, heavy-duty 4WD tillers, commercial sprayers, and precision farm solutions built for maximum field productivity.
-            </p>
-          </div>
+        <div className="text-center mb-8 sm:mb-10 border-b border-gray-200/80 pb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
+            Our Products
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-2xl mx-auto leading-relaxed">
+            Explore our top-tier agricultural machinery, heavy-duty 4WD tillers, commercial sprayers, and precision farm solutions built for maximum field productivity.
+          </p>
         </div>
 
         {/* ================= 8 FEATURED PRODUCTS GRID: FULL PAGE DISPLAY ================= */}

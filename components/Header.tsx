@@ -36,7 +36,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
+    // { name: 'Services', href: '/services' }, // Hidden as of now
     { name: 'Contact Us', href: '/contact' },
   ];
 

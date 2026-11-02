@@ -83,42 +83,70 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Section 3: Why Choose Us */}
-        <div className="bg-[#097b3a] text-white rounded-lg p-8 sm:p-12 mb-16">
+        {/* Section 3: Why Choose Us (Formal, Clean & Corporate) */}
+        <div className="bg-[#f8fafc] border border-gray-200/90 rounded-2xl p-8 sm:p-12 mb-16 shadow-xs">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs uppercase font-bold tracking-widest text-yellow-300">
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#0d9749] inline-block px-3 py-1 bg-emerald-50 rounded-full border border-emerald-200/60 mb-2">
               Reliability & Value
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold mt-1">Why Choose Agrimart?</h2>
-            <div className="w-16 h-1 bg-yellow-400 mx-auto mt-3"></div>
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              Why Choose Agrimart?
+            </h2>
+            <div className="w-16 h-1 bg-[#0d9749] mx-auto mt-3 rounded-full"></div>
+            <p className="text-xs sm:text-sm text-gray-600 mt-3 font-normal">
+              Empowering Indian agriculture with authentic global brands, certified quality, nationwide parts, and dedicated customer care.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs sm:text-sm">
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
-              <ShieldCheck className="w-8 h-8 text-yellow-300 mb-3" />
-              <h3 className="font-bold text-base mb-2">Original Brands</h3>
-              <p className="text-green-100 leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: Original Brands */}
+            <div className="bg-white p-6 rounded-xl border border-gray-200/80 shadow-xs hover:shadow-md hover:border-[#0d9749]/50 transition-all duration-300 flex flex-col group">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0d9749] flex items-center justify-center mb-4 group-hover:bg-[#0d9749] group-hover:text-white transition-all duration-300 shadow-2xs">
+                <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="font-extrabold text-base text-gray-900 mb-2 group-hover:text-[#0d9749] transition-colors">
+                Original Brands
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                 Direct authorized distributor for globally renowned brands including Kasei, Oleo-Mac, Agrimate, and Green Panther.
               </p>
             </div>
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
-              <Award className="w-8 h-8 text-yellow-300 mb-3" />
-              <h3 className="font-bold text-base mb-2">Recognized Quality</h3>
-              <p className="text-green-100 leading-relaxed">
+
+            {/* Card 2: Recognized Quality */}
+            <div className="bg-white p-6 rounded-xl border border-gray-200/80 shadow-xs hover:shadow-md hover:border-[#0d9749]/50 transition-all duration-300 flex flex-col group">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0d9749] flex items-center justify-center mb-4 group-hover:bg-[#0d9749] group-hover:text-white transition-all duration-300 shadow-2xs">
+                <Award className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="font-extrabold text-base text-gray-900 mb-2 group-hover:text-[#0d9749] transition-colors">
+                Recognized Quality
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                 Tested and certified by leading agricultural universities (ANGRAU, TNAU, UAS) and Central FM&TTI testing institutes.
               </p>
             </div>
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
-              <CheckCircle2 className="w-8 h-8 text-yellow-300 mb-3" />
-              <h3 className="font-bold text-base mb-2">Readily Available Spares</h3>
-              <p className="text-green-100 leading-relaxed">
+
+            {/* Card 3: Readily Available Spares */}
+            <div className="bg-white p-6 rounded-xl border border-gray-200/80 shadow-xs hover:shadow-md hover:border-[#0d9749]/50 transition-all duration-300 flex flex-col group">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0d9749] flex items-center justify-center mb-4 group-hover:bg-[#0d9749] group-hover:text-white transition-all duration-300 shadow-2xs">
+                <CheckCircle2 className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="font-extrabold text-base text-gray-900 mb-2 group-hover:text-[#0d9749] transition-colors">
+                Readily Available Spares
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                 We maintain complete stocks of genuine replacement parts, carburetors, blades, and maintenance kits with unique RIPL codes.
               </p>
             </div>
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
-              <Phone className="w-8 h-8 text-yellow-300 mb-3" />
-              <h3 className="font-bold text-base mb-2">Dedicated Assistance</h3>
-              <p className="text-green-100 leading-relaxed">
+
+            {/* Card 4: Dedicated Assistance */}
+            <div className="bg-white p-6 rounded-xl border border-gray-200/80 shadow-xs hover:shadow-md hover:border-[#0d9749]/50 transition-all duration-300 flex flex-col group">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0d9749] flex items-center justify-center mb-4 group-hover:bg-[#0d9749] group-hover:text-white transition-all duration-300 shadow-2xs">
+                <Phone className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="font-extrabold text-base text-gray-900 mb-2 group-hover:text-[#0d9749] transition-colors">
+                Dedicated Assistance
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                 Customer support, technician assistance, and telephone helpline (7393 938 938) operating 6 days a week.
               </p>
             </div>

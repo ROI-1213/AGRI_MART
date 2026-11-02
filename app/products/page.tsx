@@ -189,7 +189,7 @@ function ProductsContent() {
     return filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
   }, [filteredProducts, currentPage, itemsPerPage]);
 
-  const activeFiltersCount = (selectedCategory ? 1 : 0) + (selectedSubcategory ? 1 : 0) + selectedBrands.length + selectedCapacities.length + selectedPowerSources.length + (searchTerm ? 1 : 0);
+  const activeFiltersCount = (selectedCategory ? 1 : 0) + (selectedSubcategory ? 1 : 0) + selectedBrands.length + (searchTerm ? 1 : 0);
 
   const clearAllFilters = () => {
     setSelectedCategory('');
@@ -358,7 +358,7 @@ function ProductsContent() {
             </div>
 
             {/* Accordion 2: Brand */}
-            <div className="py-2.5 border-b border-gray-100">
+            <div className="py-2.5 mb-4">
               <button
                 type="button"
                 onClick={() => toggleSection('brand')}
@@ -398,104 +398,6 @@ function ProductsContent() {
                           className="sr-only"
                           checked={isChecked}
                           onChange={() => toggleBrand(brand)}
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Accordion 3: Tank Capacity */}
-            <div className="py-2.5 border-b border-gray-100">
-              <button
-                type="button"
-                onClick={() => toggleSection('capacity')}
-                className="w-full flex items-center justify-between font-bold text-xs sm:text-sm text-gray-900 tracking-tight cursor-pointer py-1"
-              >
-                <span>Tank Capacity</span>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSections.capacity ? 'rotate-180' : ''}`} />
-              </button>
-
-              {openSections.capacity && (
-                <div className="mt-2.5 space-y-1.5">
-                  {capacityOptions.map((cap) => {
-                    const isChecked = selectedCapacities.includes(cap);
-                    const count = getCapacityCount(cap);
-                    return (
-                      <label
-                        key={cap}
-                        className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer select-none group"
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#2d7d32] border-[#2d7d32] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
-                          <span className={`truncate ${isChecked ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}`}>
-                            {cap}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-gray-400 font-semibold shrink-0 ml-1">
-                          ({count})
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={isChecked}
-                          onChange={() => toggleCapacity(cap)}
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Accordion 4: Power Source */}
-            <div className="py-2.5 mb-4">
-              <button
-                type="button"
-                onClick={() => toggleSection('power')}
-                className="w-full flex items-center justify-between font-bold text-xs sm:text-sm text-gray-900 tracking-tight cursor-pointer py-1"
-              >
-                <span>Power Source</span>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSections.power ? 'rotate-180' : ''}`} />
-              </button>
-
-              {openSections.power && (
-                <div className="mt-2.5 space-y-1.5">
-                  {powerSourceOptions.map((power) => {
-                    const isChecked = selectedPowerSources.includes(power);
-                    const count = getPowerSourceCount(power);
-                    return (
-                      <label
-                        key={power}
-                        className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer select-none group"
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#2d7d32] border-[#2d7d32] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
-                          <span className={`truncate ${isChecked ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}`}>
-                            {power}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-gray-400 font-semibold shrink-0 ml-1">
-                          ({count})
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={isChecked}
-                          onChange={() => togglePowerSource(power)}
                         />
                       </label>
                     );
@@ -588,27 +490,6 @@ function ProductsContent() {
                             className="sr-only"
                             checked={selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand))}
                             onChange={() => toggleBrand(brand)}
-                          />
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Power Source */}
-                  <div className="border-t border-gray-100 pt-3">
-                    <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-2">Power Source</h4>
-                    <div className="space-y-1.5">
-                      {powerSourceOptions.map((power) => (
-                        <label key={power} className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer">
-                          <span className={selectedPowerSources.includes(power) ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}>
-                            {power}
-                          </span>
-                          <span className="text-[10px] text-gray-400">({getPowerSourceCount(power)})</span>
-                          <input
-                            type="checkbox"
-                            className="sr-only"
-                            checked={selectedPowerSources.includes(power)}
-                            onChange={() => togglePowerSource(power)}
                           />
                         </label>
                       ))}
@@ -755,18 +636,6 @@ function ProductsContent() {
                   <span key={b} className="inline-flex items-center gap-1 text-xs bg-blue-50 text-blue-800 border border-blue-200 px-2.5 py-0.5 rounded-full font-semibold">
                     Brand: {b}
                     <button onClick={() => toggleBrand(b)} className="hover:text-red-600"><X className="w-3 h-3" /></button>
-                  </span>
-                ))}
-                {selectedCapacities.map((c) => (
-                  <span key={c} className="inline-flex items-center gap-1 text-xs bg-purple-50 text-purple-800 border border-purple-200 px-2.5 py-0.5 rounded-full font-semibold">
-                    Capacity: {c}
-                    <button onClick={() => toggleCapacity(c)} className="hover:text-red-600"><X className="w-3 h-3" /></button>
-                  </span>
-                ))}
-                {selectedPowerSources.map((p) => (
-                  <span key={p} className="inline-flex items-center gap-1 text-xs bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-0.5 rounded-full font-semibold">
-                    Power: {p}
-                    <button onClick={() => togglePowerSource(p)} className="hover:text-red-600"><X className="w-3 h-3" /></button>
                   </span>
                 ))}
                 {searchTerm && (

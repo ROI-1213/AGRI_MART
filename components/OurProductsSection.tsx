@@ -240,13 +240,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                         {product.name}
                       </h3>
                     </Link>
-
-                    {/* Key Feature Highlight Pill */}
-                    <div className="bg-gray-50/90 rounded-xl p-2.5 border border-gray-100 mb-3.5">
-                      <p className="text-[11px] text-gray-600 font-medium line-clamp-2 leading-relaxed">
-                        {product.keyFeature}
-                      </p>
-                    </div>
                   </div>
 
                   {/* Action Buttons Row */}

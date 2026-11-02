@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Handshake, TrendingUp, BookOpen, Download, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Handshake, TrendingUp, BookOpen } from 'lucide-react';
 
 export default function CMSPage() {
   const params = useParams();
@@ -98,19 +98,10 @@ export default function CMSPage() {
             dangerouslySetInnerHTML={{ __html: current.body }}
           />
 
-          <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Link href="/contact" className="agri-btn-primary text-xs py-2.5 px-6">
+          <div className="mt-10 pt-6 border-t border-gray-200">
+            <Link href="/contact" className="agri-btn-primary text-xs py-2.5 px-6 inline-block">
               Connect with Our Team →
             </Link>
-            <a
-              href="/assets/brochures/corporate_brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[#0d9749] font-bold flex items-center gap-1.5 hover:underline"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Corporate Deck</span>
-            </a>
           </div>
         </div>
       </div>

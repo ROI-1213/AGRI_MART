@@ -212,20 +212,18 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                       )}
                     </div>
 
-                    {/* Brand Watermark Pill on Bottom-Right of Photo */}
-                    <span className="absolute bottom-3 right-3 text-[10px] font-black uppercase tracking-wider text-gray-500 bg-white/95 px-2.5 py-0.5 rounded-md border border-gray-200 shadow-2xs backdrop-blur-xs z-10 pointer-events-none">
-                      {product.brand}
-                    </span>
                   </Link>
                 </div>
 
                 {/* Lower Meta Information & Actions Container */}
                 <div className="relative z-10 p-4 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
                   <div>
-                    {/* Product Code */}
-                    <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 uppercase tracking-wider mb-1.5">
-                      <span>Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
-                      <span className="text-[10px] text-[#0d9749] font-bold lowercase tracking-normal">verified</span>
+                    {/* Product Code & Brand */}
+                    <div className="flex items-center justify-between text-[11px] uppercase tracking-wider mb-1.5">
+                      <span className="font-mono text-gray-400">Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
+                      <span className="text-[10px] font-black text-gray-600 bg-gray-100 px-2 py-0.5 rounded border border-gray-200 shadow-2xs">
+                        {product.brand}
+                      </span>
                     </div>
 
                     {/* Product Title */}

@@ -341,22 +341,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
-            {/* Quick Brochure Card */}
-            <div className="bg-[#097b3a] text-white rounded-lg p-6 shadow-sm">
-              <h3 className="font-bold text-sm mb-2">Corporate Profile PDF</h3>
-              <p className="text-xs text-green-100 mb-4 leading-relaxed">
-                Download the verified Agrimart deck covering company history, dealer network, and machine families.
-              </p>
-              <a
-                href="/assets/brochures/corporate_brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="agri-btn-secondary text-xs w-full text-center py-2"
-              >
-                Download Corporate Deck (PDF)
-              </a>
-            </div>
           </div>
         </div>
       </div>

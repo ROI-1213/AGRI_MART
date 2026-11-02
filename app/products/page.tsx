@@ -59,7 +59,7 @@ function ProductsContent() {
   };
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState<number | 'all'>('all');
+  const [itemsPerPage, setItemsPerPage] = useState<number | 'all'>(30);
 
   const [selectedSubsidyProduct, setSelectedSubsidyProduct] = useState<Product | null>(null);
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
@@ -593,21 +593,21 @@ function ProductsContent() {
                   <span className="text-gray-400 px-1.5 hidden sm:inline text-[11px]">Show:</span>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(18); setCurrentPage(1); }}
-                    className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 18 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
+                    onClick={() => { setItemsPerPage(30); setCurrentPage(1); }}
+                    className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
+                      itemsPerPage === 30 ? 'bg-[#0d9749] text-white shadow-2xs' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    18
+                    30
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(36); setCurrentPage(1); }}
-                    className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 36 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
+                    onClick={() => { setItemsPerPage(60); setCurrentPage(1); }}
+                    className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
+                      itemsPerPage === 60 ? 'bg-[#0d9749] text-white shadow-2xs' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    36
+                    60
                   </button>
                   <button
                     type="button"
@@ -684,41 +684,55 @@ function ProductsContent() {
 
                 {/* Pagination Controls */}
                 {totalPages > 1 && (
-                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-gray-200/90 shadow-xs">
-                    <div className="text-xs text-gray-500 font-medium">
-                      Page <span className="font-bold text-gray-900">{currentPage}</span> of <span className="font-bold text-gray-900">{totalPages}</span>
+                  <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-gray-200 shadow-sm">
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">
+                      Showing{' '}
+                      <span className="font-bold text-gray-900">
+                        {typeof itemsPerPage === 'number' ? (currentPage - 1) * itemsPerPage + 1 : 1}
+                      </span>
+                      {'–'}
+                      <span className="font-bold text-gray-900">
+                        {typeof itemsPerPage === 'number'
+                          ? Math.min(currentPage * itemsPerPage, filteredProducts.length)
+                          : filteredProducts.length}
+                      </span>{' '}
+                      of <span className="font-bold text-gray-900">{filteredProducts.length}</span> Products • Page{' '}
+                      <span className="font-bold text-[#0d9749]">{currentPage}</span> of{' '}
+                      <span className="font-bold text-gray-900">{totalPages}</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <button
                         onClick={() => {
-                          setCurrentPage(p => Math.max(1, p - 1));
+                          setCurrentPage((p) => Math.max(1, p - 1));
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                         disabled={currentPage === 1}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                        className="px-3.5 py-2 text-xs font-bold rounded-xl border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer transition-all flex items-center gap-1 shadow-2xs"
+                        aria-label="Previous Page"
                       >
                         ← Prev
                       </button>
 
                       {Array.from({ length: totalPages }, (_, i) => i + 1)
-                        .filter(p => p === 1 || p === totalPages || Math.abs(p - currentPage) <= 2)
+                        .filter((p) => p === 1 || p === totalPages || Math.abs(p - currentPage) <= 2)
                         .map((p, idx, arr) => {
                           const prev = arr[idx - 1];
                           const showEllipsis = prev && p - prev > 1;
                           return (
                             <React.Fragment key={p}>
-                              {showEllipsis && <span className="px-1 text-gray-400 text-xs">...</span>}
+                              {showEllipsis && <span className="px-1 text-gray-400 font-bold text-xs select-none">...</span>}
                               <button
                                 onClick={() => {
                                   setCurrentPage(p);
                                   window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
-                                className={`w-8 h-8 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
+                                className={`w-9 h-9 rounded-xl text-xs font-black transition-all cursor-pointer ${
                                   currentPage === p
-                                    ? 'bg-[#0d9749] text-white shadow-xs'
-                                    : 'border border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
+                                    ? 'bg-[#0d9749] text-white shadow-sm shadow-green-600/30 scale-105'
+                                    : 'border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300'
                                 }`}
+                                aria-label={`Go to page ${p}`}
                               >
                                 {p}
                               </button>
@@ -728,13 +742,15 @@ function ProductsContent() {
 
                       <button
                         onClick={() => {
-                          setCurrentPage(p => Math.min(totalPages, p + 1));
+                          setCurrentPage((p) => Math.min(totalPages, p + 1));
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                         disabled={currentPage === totalPages}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                        className="px-4 py-2 text-xs font-bold rounded-xl bg-[#0d9749] text-white hover:bg-[#097b3a] disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer transition-all flex items-center gap-1.5 shadow-xs"
+                        aria-label="Next Page"
                       >
-                        Next →
+                        <span>Next Page</span>
+                        <span>→</span>
                       </button>
                     </div>
                   </div>

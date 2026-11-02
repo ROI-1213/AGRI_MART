@@ -76,7 +76,7 @@ export default function HomePage() {
       description: 'Be a pioneer in the booming Indian rural retail marketing.',
       buttonText: 'Explore Opportunities',
       link: '/cms/buy-earn-rent',
-      photo: '/assets/branding/promo_photo_rent.png',
+      photo: '/assets/branding/buy_earn_rent_hd.png',
       bgGradient: 'from-[#fefcf3] via-[#ffffff] to-[#fefcf3]',
     },
     {
@@ -277,17 +277,22 @@ export default function HomePage() {
 
                   {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing */}
                   <div 
-                    className="relative w-[38%] sm:w-[42%] md:w-[46%] h-full shrink-0 overflow-hidden [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none"
+                    className={`relative h-full shrink-0 overflow-hidden [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)] select-none ${
+                      promo.id === 2 
+                        ? 'w-[48%] sm:w-[54%] md:w-[58%]' 
+                        : 'w-[38%] sm:w-[42%] md:w-[46%]'
+                    }`}
                   >
                     <Image
                       src={promo.photo}
                       alt={promo.title}
                       fill
-                      sizes="(max-width: 1200px) 50vw, 600px"
+                      quality={95}
+                      sizes="(max-width: 1200px) 60vw, 800px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                      priority={idx === 0}
+                      priority={idx === 0 || promo.id === 2}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0d9749]/20 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </Link>
               );

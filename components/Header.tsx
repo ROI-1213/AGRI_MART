@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { 
   Phone, 
+  PhoneIncoming,
   Menu, 
   X, 
   ChevronDown, 
@@ -266,6 +267,27 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               })}
             </div>
           </div>
+
+          {/* Right End: Missed Call Number Widget (Matching Reference Design) */}
+          <div className="hidden lg:flex items-center py-1.5 ml-auto">
+            <a 
+              href="tel:7393938938"
+              className="inline-flex items-center rounded overflow-hidden shadow-xs hover:shadow-md transition-all group bg-white border border-[#70b308]/40"
+              title="Missed Call Number: 7393 938 938"
+            >
+              <div className="w-10 h-10 bg-[#70b308] group-hover:bg-[#629d06] flex items-center justify-center text-white transition-colors shrink-0">
+                <PhoneIncoming className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="px-3 py-1 bg-[#f4f7fb] group-hover:bg-white transition-colors text-left">
+                <span className="block text-[9.5px] sm:text-[10px] font-semibold text-gray-500 tracking-tight leading-tight">
+                  Missed Call Number
+                </span>
+                <span className="block text-sm font-black text-[#0f2e5a] tracking-tight leading-tight mt-0.5">
+                  7393 938 938
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -343,10 +365,19 @@ export default function Header({ onOpenAuth }: HeaderProps) {
           <div className="border-t border-[#07642f]/60 pt-3">
             <a
               href="tel:7393938938"
-              className="w-full py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 border border-white/20"
+              className="w-full inline-flex items-center rounded-lg overflow-hidden shadow-sm bg-white border border-[#70b308]/40"
             >
-              <Phone className="w-4 h-4 text-[#4ade80]" />
-              <span>Call Toll Free: 7393 938 938</span>
+              <div className="w-11 h-11 bg-[#70b308] flex items-center justify-center text-white shrink-0">
+                <PhoneIncoming className="w-5 h-5 text-white" />
+              </div>
+              <div className="px-3 py-1.5 bg-[#f4f7fb] flex-1 text-left">
+                <span className="block text-[10px] font-semibold text-gray-500 tracking-tight leading-tight">
+                  Missed Call Number
+                </span>
+                <span className="block text-sm font-black text-[#0f2e5a] tracking-wide leading-tight mt-0.5">
+                  7393 938 938
+                </span>
+              </div>
             </a>
           </div>
         </div>

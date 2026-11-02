@@ -138,22 +138,20 @@ export default function TestingInstitutesShowcase() {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-3 sm:gap-4">
-          <div>
-            <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
-              <span>Institutional Validation</span>
-            </div>
-            <h2 className="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-              Tested &amp; Approved by Premier Agricultural Universities &amp; FM&amp;TTI Institutes
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl leading-relaxed">
-              Every Agrimart machine undergoes rigorous institutional testing to guarantee maximum durability, fuel efficiency, and farmer safety.
-            </p>
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-green-200/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
+            <span>Institutional Validation</span>
           </div>
+          <h2 className="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            Tested &amp; Approved by Premier Agricultural Universities &amp; FM&amp;TTI Institutes
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-2xl mx-auto leading-relaxed">
+            Every Agrimart machine undergoes rigorous institutional testing to guarantee maximum durability, fuel efficiency, and farmer safety.
+          </p>
 
           {/* Indicator dots for the 7 institutes */}
-          <div className="flex items-center gap-1.5 self-start sm:self-center">
+          <div className="flex items-center justify-center gap-1.5 mt-4">
             {TESTING_INSTITUTES.map((_, idx) => (
               <button
                 key={idx}

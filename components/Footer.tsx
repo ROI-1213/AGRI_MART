@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock, FileText, Download } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#142317] text-gray-200 text-sm mt-0 border-t-4 border-[#2d7d32] overflow-hidden">
+    <footer className="relative bg-[#142317] text-gray-200 text-sm mt-0 border-t-4 border-[#0d9749] overflow-hidden">
       {/* Agricultural Landscape Background Image */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <Image
@@ -43,7 +43,7 @@ export default function Footer() {
                 href="/assets/brochures/corporate_brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs bg-[#2d7d32] hover:bg-green-700 text-white px-3 py-1.5 rounded shadow-sm hover:shadow transition-all"
+                className="inline-flex items-center gap-2 text-xs bg-[#0d9749] hover:bg-[#097b3a] text-white px-3 py-1.5 rounded shadow-sm hover:shadow transition-all"
               >
                 <Download className="w-3.5 h-3.5" /> Download Corporate Brochure
               </a>

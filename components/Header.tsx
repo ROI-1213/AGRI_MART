@@ -106,7 +106,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
           <div className="hidden md:flex flex-1 max-w-xl mx-4 lg:mx-8 justify-end">
             <form 
               onSubmit={handleSearchSubmit}
-              className="w-full max-w-md flex items-center border-2 border-[#2d7d32] rounded-lg overflow-hidden shadow-2xs focus-within:ring-2 focus-within:ring-[#2d7d32]/20"
+              className="w-full max-w-md flex items-center border-2 border-[#0d9749] rounded-lg overflow-hidden shadow-2xs focus-within:ring-2 focus-within:ring-[#0d9749]/20"
             >
               <input
                 type="text"
@@ -117,7 +117,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               />
               <button
                 type="submit"
-                className="bg-[#2d7d32] text-white px-4 py-2.5 hover:bg-[#1b5e20] transition-colors cursor-pointer flex items-center justify-center shrink-0"
+                className="bg-[#0d9749] text-white px-4 py-2.5 hover:bg-[#097b3a] transition-colors cursor-pointer flex items-center justify-center shrink-0"
                 aria-label="Search products"
               >
                 <Search className="w-4 h-4" />
@@ -130,7 +130,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-[#2d7d32] hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
+              className="md:hidden p-2 text-gray-700 hover:text-[#0d9749] hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -144,7 +144,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
         <div className="mt-2.5 md:hidden">
           <form 
             onSubmit={handleSearchSubmit}
-            className="w-full flex items-center border border-gray-300 rounded-lg overflow-hidden bg-gray-50 focus-within:bg-white focus-within:border-[#2d7d32] focus-within:ring-2 focus-within:ring-[#2d7d32]/20 transition-all"
+            className="w-full flex items-center border border-gray-300 rounded-lg overflow-hidden bg-gray-50 focus-within:bg-white focus-within:border-[#0d9749] focus-within:ring-2 focus-within:ring-[#0d9749]/20 transition-all"
           >
             <input
               type="text"
@@ -155,7 +155,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             />
             <button
               type="submit"
-              className="bg-[#2d7d32] text-white px-3.5 py-2 hover:bg-[#1b5e20] transition-colors cursor-pointer shrink-0"
+              className="bg-[#0d9749] text-white px-3.5 py-2 hover:bg-[#097b3a] transition-colors cursor-pointer shrink-0"
               aria-label="Search"
             >
               <Search className="w-3.5 h-3.5" />
@@ -165,7 +165,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
       </div>
 
       {/* 3. Desktop Navigation Bar (Hidden on Mobile) */}
-      <nav className="hidden md:block bg-[#2d7d32] text-white relative">
+      <nav className="hidden md:block bg-[#0d9749] text-white relative">
         <div className="agri-container flex justify-between items-center">
           <div className="flex items-center">
             {/* Mega Dropdown Button */}
@@ -178,7 +178,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               }}
             >
               <button 
-                className="bg-[#1b5e20] hover:bg-[#144718] px-5 py-3.5 flex items-center gap-2.5 font-bold text-sm tracking-wide transition-colors cursor-pointer"
+                className="bg-[#097b3a] hover:bg-[#07642f] px-5 py-3.5 flex items-center gap-2.5 font-bold text-sm tracking-wide transition-colors cursor-pointer"
                 aria-haspopup="true"
                 aria-expanded={categoryMenuOpen}
               >
@@ -197,13 +197,13 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                         href="/products"
                         prefetch={false}
                         onClick={() => setCategoryMenuOpen(false)}
-                        className="flex items-center justify-between px-4 py-2.5 text-xs font-bold text-[#1b5e20] hover:bg-emerald-100/70 transition-colors"
+                        className="flex items-center justify-between px-4 py-2.5 text-xs font-bold text-[#097b3a] hover:bg-emerald-100/70 transition-colors"
                       >
                         <span className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-[#2d7d32]"></span>
+                          <span className="w-2 h-2 rounded-full bg-[#0d9749]"></span>
                           <span>All Products</span>
                         </span>
-                        <span className="text-[10px] bg-[#2d7d32] text-white px-2 py-0.5 rounded-full font-bold">
+                        <span className="text-[10px] bg-[#0d9749] text-white px-2 py-0.5 rounded-full font-bold">
                           227
                         </span>
                       </Link>
@@ -218,7 +218,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                           href={`/products?category=${encodeURIComponent(cat.name)}`}
                           prefetch={false}
                           onClick={() => setCategoryMenuOpen(false)}
-                          className="flex items-center justify-between px-4 py-2.5 text-xs font-semibold hover:bg-green-50 hover:text-[#2d7d32] transition-colors"
+                          className="flex items-center justify-between px-4 py-2.5 text-xs font-semibold hover:bg-green-50 hover:text-[#0d9749] transition-colors"
                         >
                           <span>{cat.name}</span>
                           {cat.subcategories && cat.subcategories.length > 0 && (
@@ -229,7 +229,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                         {/* Nested Subcategories Flyout */}
                         {activeCategoryHover === cat.id && cat.subcategories && cat.subcategories.length > 0 && (
                           <div className="absolute left-full top-0 w-72 bg-white text-gray-800 shadow-xl border border-gray-200 z-50 p-3">
-                            <h4 className="font-bold text-xs text-[#2d7d32] mb-2 uppercase border-b pb-1">
+                            <h4 className="font-bold text-xs text-[#0d9749] mb-2 uppercase border-b pb-1">
                               {cat.name} Subcategories
                             </h4>
                             <ul className="space-y-1">
@@ -270,7 +270,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                     }}
                     className={`px-4 py-3.5 text-sm font-semibold transition-colors ${
                       isActive 
-                        ? 'bg-[#1b5e20] text-yellow-300' 
+                        ? 'bg-[#097b3a] text-yellow-300' 
                         : 'hover:bg-[#256c2a] text-white'
                     }`}
                   >
@@ -298,7 +298,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
 
       {/* 4. Complete Mobile Navigation Drawer (Smooth, Rich, Touch-Friendly) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#1b5e20] text-white border-t border-green-700/80 px-4 py-3 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-[#097b3a] text-white border-t border-[#07642f]/60 px-4 py-3 shadow-2xl max-h-[80vh] overflow-y-auto">
           {/* Main Page Links */}
           <div className="space-y-1 mb-3">
             {navLinks.map((link) => {
@@ -327,7 +327,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
           </div>
 
           {/* Mobile Accordion for "Shop by Categories" */}
-          <div className="border-t border-green-700/80 pt-2 mb-3">
+          <div className="border-t border-[#07642f]/60 pt-2 mb-3">
             <button
               type="button"
               onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
@@ -367,7 +367,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
           </div>
 
           {/* Action CTAs in Mobile Menu */}
-          <div className="border-t border-green-700/80 pt-3 space-y-2">
+          <div className="border-t border-[#07642f]/60 pt-3 space-y-2">
             <a
               href="/assets/brochures/corporate_brochure.pdf"
               target="_blank"

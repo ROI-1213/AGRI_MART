@@ -83,7 +83,7 @@ export default function CMSPage() {
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-6 sm:p-10 shadow-sm">
-          <div className="flex items-center gap-2 text-[#2d7d32] text-xs font-bold uppercase mb-2">
+          <div className="flex items-center gap-2 text-[#0d9749] text-xs font-bold uppercase mb-2">
             <Icon className="w-4 h-4" />
             <span>Agrimart Initiative</span>
           </div>
@@ -91,7 +91,7 @@ export default function CMSPage() {
             {current.title}
           </h1>
           <p className="text-xs text-gray-500 mb-4">{current.subtitle}</p>
-          <div className="w-16 h-1 bg-[#2d7d32] mb-6"></div>
+          <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
 
           <div
             className="prose max-w-none text-xs sm:text-sm text-gray-700 leading-relaxed space-y-4"
@@ -106,7 +106,7 @@ export default function CMSPage() {
               href="/assets/brochures/corporate_brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-[#2d7d32] font-bold flex items-center gap-1.5 hover:underline"
+              className="text-xs text-[#0d9749] font-bold flex items-center gap-1.5 hover:underline"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Corporate Deck</span>

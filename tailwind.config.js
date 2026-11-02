@@ -10,8 +10,8 @@ module.exports = {
     extend: {
       colors: {
         agrimart: {
-          green: '#2d7d32',
-          darkgreen: '#1b5e20',
+          green: '#0d9749',
+          darkgreen: '#097b3a',
           lightgreen: '#e8f5e9',
           yellow: '#f59e0b',
           red: '#dc2626',

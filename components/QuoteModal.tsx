@@ -98,7 +98,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div className="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden border border-gray-100">
         {/* Modal Header */}
-        <div className="bg-[#2d7d32] text-white p-4 flex justify-between items-center">
+        <div className="bg-[#0d9749] text-white p-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-yellow-300" />
             <div>
@@ -125,7 +125,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
             />
           </div>
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#2d7d32] bg-green-50 border border-green-200 px-1.5 py-0.5 rounded">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0d9749] bg-green-50 border border-green-200 px-1.5 py-0.5 rounded">
               {product.brand}
             </span>
             <h4 className="font-bold text-xs sm:text-sm text-gray-900 truncate mt-1">
@@ -140,7 +140,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
         {/* Success Confirmation View */}
         {status === 'success' ? (
           <div className="p-8 text-center space-y-4">
-            <div className="w-16 h-16 bg-green-100 text-[#2d7d32] rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-green-100 text-[#0d9749] rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <div>
@@ -175,14 +175,14 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
                   onClick={() => setFormData({ ...formData, userType: 'customer', gstNumber: '' })}
                   className={`flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 text-xs font-semibold cursor-pointer transition-all ${
                     formData.userType === 'customer'
-                      ? 'border-[#2d7d32] bg-green-50/80 text-[#1b5e20] shadow-xs'
+                      ? 'border-[#0d9749] bg-green-50/80 text-[#097b3a] shadow-xs'
                       : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
                   }`}
                 >
                   <span className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center ${
-                    formData.userType === 'customer' ? 'border-[#2d7d32]' : 'border-gray-400'
+                    formData.userType === 'customer' ? 'border-[#0d9749]' : 'border-gray-400'
                   }`}>
-                    {formData.userType === 'customer' && <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]" />}
+                    {formData.userType === 'customer' && <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]" />}
                   </span>
                   <span>Customer</span>
                 </button>
@@ -192,14 +192,14 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
                   onClick={() => setFormData({ ...formData, userType: 'dealer' })}
                   className={`flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 text-xs font-semibold cursor-pointer transition-all ${
                     formData.userType === 'dealer'
-                      ? 'border-[#2d7d32] bg-green-50/80 text-[#1b5e20] shadow-xs'
+                      ? 'border-[#0d9749] bg-green-50/80 text-[#097b3a] shadow-xs'
                       : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
                   }`}
                 >
                   <span className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center ${
-                    formData.userType === 'dealer' ? 'border-[#2d7d32]' : 'border-gray-400'
+                    formData.userType === 'dealer' ? 'border-[#0d9749]' : 'border-gray-400'
                   }`}>
-                    {formData.userType === 'dealer' && <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]" />}
+                    {formData.userType === 'dealer' && <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]" />}
                   </span>
                   <span>Dealer</span>
                 </button>
@@ -333,7 +333,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-bold py-2.5 px-4 rounded text-xs flex items-center justify-center gap-2 transition-colors shadow"
+                className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white font-bold py-2.5 px-4 rounded text-xs flex items-center justify-center gap-2 transition-colors shadow"
               >
                 <Send className="w-3.5 h-3.5 text-yellow-300" />
                 <span>{status === 'submitting' ? 'Submitting Quotation Request...' : 'Submit Quotation Request'}</span>

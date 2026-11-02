@@ -155,8 +155,8 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
         {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-gray-200/80 pb-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#1b5e20] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-emerald-200/80 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#2d7d32] animate-pulse"></span>
+            <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#097b3a] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-emerald-200/80 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#0d9749] animate-pulse"></span>
               <span>Flagship Machinery &amp; Equipment</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
@@ -231,11 +231,11 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                     {/* Product Code */}
                     <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 uppercase tracking-wider mb-1.5">
                       <span>Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
-                      <span className="text-[10px] text-[#2d7d32] font-bold lowercase tracking-normal">verified</span>
+                      <span className="text-[10px] text-[#0d9749] font-bold lowercase tracking-normal">verified</span>
                     </div>
 
                     {/* Product Title */}
-                    <Link href={`/products/${product.id}`} className="block group-hover:text-[#2d7d32] transition-colors">
+                    <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                       <h3 className="font-extrabold text-sm sm:text-[15px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[40px]" title={product.name}>
                         {product.name}
                       </h3>
@@ -247,7 +247,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                     <button
                       type="button"
                       onClick={(e) => handleRequestQuote(e, product)}
-                      className="flex-1 bg-[#2d7d32] hover:bg-[#1b5e20] active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
+                      className="flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
                     >
                       <FileText className="w-4 h-4 text-yellow-300" />
                       <span>Request Quote</span>
@@ -255,7 +255,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
 
                     <Link
                       href={`/products/${product.id}`}
-                      className="p-2.5 rounded-xl border border-gray-200 hover:border-[#2d7d32] text-gray-600 hover:text-[#2d7d32] bg-white transition-colors shrink-0 shadow-2xs"
+                      className="p-2.5 rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs"
                       title="View Full Specifications"
                       aria-label="View Full Specifications"
                     >
@@ -273,7 +273,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
         <div className="mt-10 sm:mt-12 flex justify-center">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center gap-2.5 bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 group cursor-pointer"
+            className="inline-flex items-center justify-center gap-2.5 bg-[#0d9749] hover:bg-[#097b3a] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>View All Products</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />

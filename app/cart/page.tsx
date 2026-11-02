@@ -81,7 +81,7 @@ export default function CartPage() {
                       <p className="text-[11px] font-mono text-gray-500 mt-0.5">
                         Code: <strong>{item.product.riplCode}</strong>
                       </p>
-                      <p className="text-xs font-bold text-[#1b5e20] mt-1 sm:hidden">
+                      <p className="text-xs font-bold text-[#097b3a] mt-1 sm:hidden">
                         ₹ {item.product.sellingPrice.toLocaleString('en-IN')}
                       </p>
                     </div>
@@ -129,7 +129,7 @@ export default function CartPage() {
             <div className="p-4 bg-gray-50 border-t border-gray-200 flex justify-between items-center">
               <Link
                 href="/products"
-                className="text-xs font-bold text-[#2d7d32] hover:text-green-800 flex items-center gap-1.5"
+                className="text-xs font-bold text-[#0d9749] hover:text-green-800 flex items-center gap-1.5"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Continue Shopping</span>
@@ -160,7 +160,7 @@ export default function CartPage() {
               </div>
               <div className="border-t pt-3 flex justify-between text-sm font-bold text-gray-900">
                 <span>Total Amount:</span>
-                <span className="text-lg text-[#1b5e20]">
+                <span className="text-lg text-[#097b3a]">
                   ₹ {totalPrice.toLocaleString('en-IN')}
                 </span>
               </div>
@@ -168,7 +168,7 @@ export default function CartPage() {
 
             <Link
               href="/checkout"
-              className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs font-bold py-3 px-4 rounded-md flex items-center justify-center gap-2 transition-colors shadow-md text-center"
+              className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold py-3 px-4 rounded-md flex items-center justify-center gap-2 transition-colors shadow-md text-center"
             >
               <span>Proceed to Checkout</span>
               <ArrowRight className="w-4 h-4" />

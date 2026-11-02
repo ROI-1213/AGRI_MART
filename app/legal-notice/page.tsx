@@ -13,14 +13,14 @@ export default function LegalNoticePage() {
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-6 sm:p-10 shadow-sm">
-          <div className="flex items-center gap-2 text-[#2d7d32] text-xs font-bold uppercase mb-2">
+          <div className="flex items-center gap-2 text-[#0d9749] text-xs font-bold uppercase mb-2">
             <Scale className="w-4 h-4" />
             <span>Statutory Declaration</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4">
             Legal Notice
           </h1>
-          <div className="w-16 h-1 bg-[#2d7d32] mb-6"></div>
+          <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
 
           <div className="prose max-w-none text-xs sm:text-sm text-gray-700 leading-relaxed space-y-4">
             <p>

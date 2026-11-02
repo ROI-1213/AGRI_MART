@@ -175,7 +175,7 @@ export default function ProductDetailPage() {
                       key={idx}
                       onClick={() => setSelectedImage(img)}
                       className={`relative w-16 h-16 rounded border-2 overflow-hidden bg-gray-50 shrink-0 ${
-                        selectedImage === img ? 'border-[#2d7d32]' : 'border-gray-200 hover:border-gray-300'
+                        selectedImage === img ? 'border-[#0d9749]' : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       <Image
@@ -196,7 +196,7 @@ export default function ProductDetailPage() {
               <div>
                 {/* Brand & Category badges */}
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-green-50 text-[#2d7d32] border border-green-200 uppercase tracking-wide">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-green-50 text-[#0d9749] border border-green-200 uppercase tracking-wide">
                     {product.brand}
                   </span>
                   <span className="text-xs font-medium text-gray-500">
@@ -219,8 +219,8 @@ export default function ProductDetailPage() {
                 {/* Price on Request Notice */}
                 <div className="border-t border-b border-gray-100 py-3.5 mb-4 bg-gray-50/75 p-3 rounded">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#2d7d32] inline-block animate-pulse"></span>
-                    <span className="text-xl sm:text-2xl font-bold text-[#1b5e20]">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#0d9749] inline-block animate-pulse"></span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#097b3a]">
                       Price on Request
                     </span>
                   </div>
@@ -233,8 +233,8 @@ export default function ProductDetailPage() {
                 {keySpecs.length > 0 && (
                   <div className="mb-5 bg-emerald-50/50 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5 shadow-2xs">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#1b5e20] flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#097b3a] flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
                         Key Equipment Specifications
                       </span>
                       <span className="text-[10px] text-gray-400 font-semibold">
@@ -260,7 +260,7 @@ export default function ProductDetailPage() {
                 <div className="pt-2 mb-6">
                   <button
                     onClick={handleRequestQuote}
-                    className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.99]"
+                    className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.99]"
                   >
                     <FileText className="w-5 h-5 text-yellow-300" />
                     <span>Request a Quote</span>
@@ -291,7 +291,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab('desc')}
               className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
                 activeTab === 'desc'
-                  ? 'border-[#2d7d32] text-[#2d7d32] bg-white'
+                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -301,7 +301,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab('accessories')}
               className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
                 activeTab === 'accessories'
-                  ? 'border-[#2d7d32] text-[#2d7d32] bg-white'
+                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -311,7 +311,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab('brochure')}
               className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
                 activeTab === 'brochure'
-                  ? 'border-[#2d7d32] text-[#2d7d32] bg-white'
+                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -332,7 +332,7 @@ export default function ProductDetailPage() {
                 {/* Technical Specifications Table */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-[#2d7d32]"></span>
+                    <span className="w-2 h-2 rounded-full bg-[#0d9749]"></span>
                     <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
                       Technical Specifications
                     </h3>
@@ -365,7 +365,7 @@ export default function ProductDetailPage() {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-bold text-xs text-[#2d7d32] uppercase mb-3">
+                    <h4 className="font-bold text-xs text-[#0d9749] uppercase mb-3">
                       Included Accessories
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-700">
@@ -430,7 +430,7 @@ export default function ProductDetailPage() {
                             href={b.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center text-xs bg-[#2d7d32] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer"
+                            className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer"
                           >
                             <span>{b.language || 'Download'}</span>
                           </a>
@@ -452,7 +452,7 @@ export default function ProductDetailPage() {
                         href="/assets/brochures/corporate_brochure.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-xs bg-[#2d7d32] hover:bg-green-800 text-white font-bold px-4 py-2 rounded cursor-pointer"
+                        className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded cursor-pointer"
                       >
                         <span>Download PDF</span>
                       </a>

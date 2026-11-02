@@ -73,7 +73,7 @@ export default function ContactPage() {
 
         {/* Clean Page Header */}
         <div className="mb-8">
-          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
             <Phone className="w-3.5 h-3.5" />
             <span>Pan-India Sales &amp; Service Support</span>
           </div>
@@ -297,7 +297,7 @@ export default function ContactPage() {
 
               <div className="space-y-4 text-xs text-gray-700">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#2d7d32] shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#0d9749] shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-gray-900">Head Office</h3>
                     <p className="mt-1 leading-relaxed text-gray-600">
@@ -308,21 +308,21 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-[#2d7d32] shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-[#0d9749] shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-gray-900">Telephone / Helpline</h3>
                     <p className="mt-1 text-gray-600">
-                      Toll Free: <a href="tel:7393938938" className="font-bold text-[#2d7d32] hover:underline">7393 938 938</a>
+                      Toll Free: <a href="tel:7393938938" className="font-bold text-[#0d9749] hover:underline">7393 938 938</a>
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#2d7d32] shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-[#0d9749] shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-gray-900">Email Address</h3>
                     <p className="mt-1 text-gray-600">
-                      <a href="mailto:ask@agrimart.in" className="hover:underline text-[#2d7d32]">
+                      <a href="mailto:ask@agrimart.in" className="hover:underline text-[#0d9749]">
                         ask@agrimart.in
                       </a>
                     </p>
@@ -330,7 +330,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#2d7d32] shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-[#0d9749] shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-gray-900">Working Hours</h3>
                     <p className="mt-1 text-gray-600">
@@ -343,7 +343,7 @@ export default function ContactPage() {
             </div>
 
             {/* Quick Brochure Card */}
-            <div className="bg-[#1b5e20] text-white rounded-lg p-6 shadow-sm">
+            <div className="bg-[#097b3a] text-white rounded-lg p-6 shadow-sm">
               <h3 className="font-bold text-sm mb-2">Corporate Profile PDF</h3>
               <p className="text-xs text-green-100 mb-4 leading-relaxed">
                 Download the verified Agrimart deck covering company history, dealer network, and machine families.

@@ -115,8 +115,8 @@ export default function ShopByCategory() {
         
         {/* Compact Formal Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
-          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
             <span>Equipment Catalog</span>
           </div>
 

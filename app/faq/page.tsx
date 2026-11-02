@@ -28,14 +28,14 @@ export default function FAQPage() {
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 text-[#2d7d32] text-xs font-bold uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-[#0d9749] text-xs font-bold uppercase tracking-wider mb-1">
             <HelpCircle className="w-4 h-4" />
             <span>Support & Documentation</span>
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900">
             Frequently Asked Questions (FAQ)
           </h1>
-          <div className="w-16 h-1 bg-[#2d7d32] mx-auto mt-2 mb-3"></div>
+          <div className="w-16 h-1 bg-[#0d9749] mx-auto mt-2 mb-3"></div>
           <p className="text-xs text-gray-600 max-w-lg mx-auto">
             Find immediate answers regarding Agrimart E-kart orders, mobile OTP authentication, payment modes, warranty, and nationwide delivery.
           </p>
@@ -67,7 +67,7 @@ export default function FAQPage() {
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-gray-900 hover:text-[#2d7d32] transition-colors"
+                  className="w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-gray-900 hover:text-[#0d9749] transition-colors"
                 >
                   <span className="flex items-center gap-2">
                     <span className="text-gray-400 font-mono text-xs">0{idx + 1}.</span>

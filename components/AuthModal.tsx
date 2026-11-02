@@ -67,7 +67,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-md overflow-hidden relative animate-in fade-in zoom-in-95 duration-200">
         {/* Top Header */}
-        <div className="bg-[#242424] text-white px-6 py-4 flex justify-between items-center border-b-2 border-[#2d7d32]">
+        <div className="bg-[#242424] text-white px-6 py-4 flex justify-between items-center border-b-2 border-[#0d9749]">
           <div className="flex items-center gap-2">
             {mode === 'admin' ? (
               <Lock className="w-5 h-5 text-red-500" />
@@ -127,7 +127,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
                   type="button"
                   onClick={() => { setMode('signin'); setOtpSent(false); }}
                   className={`pb-2 px-2 border-b-2 whitespace-nowrap ${
-                    mode === 'signin' ? 'border-[#2d7d32] text-[#2d7d32]' : 'border-transparent text-gray-500'
+                    mode === 'signin' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-500'
                   }`}
                 >
                   Sign In
@@ -136,7 +136,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
                   type="button"
                   onClick={() => { setMode('otp'); setOtpSent(false); }}
                   className={`pb-2 px-2 border-b-2 whitespace-nowrap ${
-                    mode === 'otp' ? 'border-[#2d7d32] text-[#2d7d32]' : 'border-transparent text-gray-500'
+                    mode === 'otp' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-500'
                   }`}
                 >
                   Login Via OTP
@@ -145,7 +145,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
                   type="button"
                   onClick={() => { setMode('register'); setOtpSent(false); }}
                   className={`pb-2 px-2 border-b-2 whitespace-nowrap ${
-                    mode === 'register' ? 'border-[#2d7d32] text-[#2d7d32]' : 'border-transparent text-gray-500'
+                    mode === 'register' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-500'
                   }`}
                 >
                   Register
@@ -154,7 +154,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
                   type="button"
                   onClick={() => { setMode('b2b'); setOtpSent(false); }}
                   className={`pb-2 px-2 border-b-2 whitespace-nowrap ${
-                    mode === 'b2b' ? 'border-[#2d7d32] text-[#2d7d32]' : 'border-transparent text-gray-500'
+                    mode === 'b2b' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-500'
                   }`}
                 >
                   B2B Login
@@ -291,7 +291,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
                   <button
                     type="submit"
                     className={`w-full text-xs font-bold py-2.5 rounded text-white ${
-                      mode === 'admin' ? 'bg-red-600 hover:bg-red-700' : 'bg-[#2d7d32] hover:bg-[#1b5e20]'
+                      mode === 'admin' ? 'bg-red-600 hover:bg-red-700' : 'bg-[#0d9749] hover:bg-[#097b3a]'
                     } transition-colors`}
                   >
                     {mode === 'admin' ? 'Access Admin Console' : mode === 'b2b' ? 'B2B Dealer Sign In' : 'Sign In'}

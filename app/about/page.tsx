@@ -17,13 +17,13 @@ export default function AboutPage() {
         {/* Section 1: Welcome to Ratnagiri Impex */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <span className="text-xs font-bold text-[#2d7d32] uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#0d9749] uppercase tracking-wider">
               About Ratnagiri Impex Pvt. Ltd.
             </span>
             <h1 className="text-3xl font-extrabold text-gray-900 mt-1 mb-4">
               Welcome to RATNAGIRI IMPEX
             </h1>
-            <div className="w-16 h-1 bg-[#2d7d32] mb-6"></div>
+            <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
 
             <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
               <p>
@@ -81,7 +81,7 @@ export default function AboutPage() {
           {/* Vision */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 relative overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-green-100 rounded-lg text-[#2d7d32]">
+              <div className="p-3 bg-green-100 rounded-lg text-[#0d9749]">
                 <Compass className="w-6 h-6" />
               </div>
               <h2 className="text-xl font-bold text-gray-900">Our Vision</h2>
@@ -106,7 +106,7 @@ export default function AboutPage() {
         </div>
 
         {/* Section 3: Why Choose Us */}
-        <div className="bg-[#1b5e20] text-white rounded-lg p-8 sm:p-12 mb-16">
+        <div className="bg-[#097b3a] text-white rounded-lg p-8 sm:p-12 mb-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs uppercase font-bold tracking-widest text-yellow-300">
               Reliability & Value
@@ -150,7 +150,7 @@ export default function AboutPage() {
         {/* Section 4: Registered Office */}
         <div className="border border-gray-200 rounded-lg p-6 flex flex-col sm:flex-row items-center justify-between gap-6 bg-gray-50">
           <div className="flex items-start gap-4">
-            <MapPin className="w-8 h-8 text-[#2d7d32] shrink-0 mt-1" />
+            <MapPin className="w-8 h-8 text-[#0d9749] shrink-0 mt-1" />
             <div>
               <h3 className="font-bold text-base text-gray-900">Headquarters & Corporate Office</h3>
               <p className="text-xs text-gray-600 mt-1 leading-relaxed">

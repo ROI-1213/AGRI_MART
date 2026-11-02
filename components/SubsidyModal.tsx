@@ -63,7 +63,7 @@ export default function SubsidyModal({ product, isOpen, onClose }: SubsidyModalP
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="bg-[#2d7d32] text-white px-6 py-4 rounded-t-lg flex justify-between items-center sticky top-0 z-10">
+        <div className="bg-[#0d9749] text-white px-6 py-4 rounded-t-lg flex justify-between items-center sticky top-0 z-10">
           <div>
             <h3 className="font-bold text-lg">Government Subsidy Application Form</h3>
             {product && (

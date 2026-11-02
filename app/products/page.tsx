@@ -260,13 +260,13 @@ function ProductsContent() {
             {/* Sidebar Header: Filter Products + Reset All Button */}
             <div className="flex justify-between items-center pb-3 mb-3 border-b border-gray-100">
               <div className="flex items-center gap-2 text-gray-900 font-extrabold text-sm sm:text-base">
-                <Filter className="w-4 h-4 text-[#2d7d32]" />
+                <Filter className="w-4 h-4 text-[#0d9749]" />
                 <span>Filter Products</span>
               </div>
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="inline-flex items-center gap-1 text-xs text-[#2d7d32] hover:text-[#1b5e20] font-bold hover:underline cursor-pointer transition-colors"
+                className="inline-flex items-center gap-1 text-xs text-[#0d9749] hover:text-[#097b3a] font-bold hover:underline cursor-pointer transition-colors"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset All</span>
@@ -293,12 +293,12 @@ function ProductsContent() {
                     <div className="flex items-center gap-2 min-w-0">
                       <div 
                         className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                          !selectedCategory ? 'bg-[#2d7d32] border-[#2d7d32] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
+                          !selectedCategory ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
                         }`}
                       >
                         {!selectedCategory && <Check className="w-3 h-3 stroke-[3]" />}
                       </div>
-                      <span className={`truncate ${!selectedCategory ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}`}>
+                      <span className={`truncate ${!selectedCategory ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
                         All Products
                       </span>
                     </div>
@@ -328,12 +328,12 @@ function ProductsContent() {
                         <div className="flex items-center gap-2 min-w-0">
                           <div 
                             className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#2d7d32] border-[#2d7d32] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
+                              isChecked ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
                             }`}
                           >
                             {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                           </div>
-                          <span className={`truncate ${isChecked ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}`}>
+                          <span className={`truncate ${isChecked ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
                             {cat.name}
                           </span>
                         </div>
@@ -381,12 +381,12 @@ function ProductsContent() {
                         <div className="flex items-center gap-2 min-w-0">
                           <div 
                             className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#2d7d32] border-[#2d7d32] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
+                              isChecked ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
                             }`}
                           >
                             {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                           </div>
-                          <span className={`truncate ${isChecked ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}`}>
+                          <span className={`truncate ${isChecked ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
                             {brand}
                           </span>
                         </div>
@@ -413,7 +413,7 @@ function ProductsContent() {
                 setCurrentPage(1);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs sm:text-sm font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all duration-200 cursor-pointer"
+              className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs sm:text-sm font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all duration-200 cursor-pointer"
             >
               <Filter className="w-4 h-4 text-white" />
               <span>Apply Filters ({filteredProducts.length})</span>
@@ -427,7 +427,7 @@ function ProductsContent() {
                 {/* Header */}
                 <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-emerald-50">
                   <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-[#2d7d32]" />
+                    <Filter className="w-4 h-4 text-[#0d9749]" />
                     <h3 className="font-extrabold text-sm text-gray-900">Filter Machinery</h3>
                   </div>
                   <button
@@ -447,7 +447,7 @@ function ProductsContent() {
                     <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-2">Category</h4>
                     <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
                       <label className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-emerald-50 cursor-pointer">
-                        <span className={!selectedCategory ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}>All Categories</span>
+                        <span className={!selectedCategory ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>All Categories</span>
                         <input
                           type="checkbox"
                           className="sr-only"
@@ -457,7 +457,7 @@ function ProductsContent() {
                       </label>
                       {categoriesData.map((cat) => (
                         <label key={cat.id} className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer">
-                          <span className={selectedCategory.toLowerCase() === cat.name.toLowerCase() ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}>
+                          <span className={selectedCategory.toLowerCase() === cat.name.toLowerCase() ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>
                             {cat.name}
                           </span>
                           <span className="text-[10px] text-gray-400">({getCategoryCount(cat.name)})</span>
@@ -481,7 +481,7 @@ function ProductsContent() {
                     <div className="space-y-1.5">
                       {allBrands.map((brand) => (
                         <label key={brand} className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer">
-                          <span className={selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand)) ? 'text-[#2d7d32] font-bold' : 'text-gray-700'}>
+                          <span className={selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand)) ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>
                             {brand}
                           </span>
                           <span className="text-[10px] text-gray-400">({getBrandCount(brand)})</span>
@@ -513,7 +513,7 @@ function ProductsContent() {
                       setCurrentPage(1);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex-1 py-2.5 px-4 bg-[#2d7d32] hover:bg-[#1b5e20] text-white rounded-xl text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
+                    className="flex-1 py-2.5 px-4 bg-[#0d9749] hover:bg-[#097b3a] text-white rounded-xl text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
                   >
                     Apply ({filteredProducts.length})
                   </button>
@@ -530,13 +530,13 @@ function ProductsContent() {
               {/* Products Found Count & Mobile Filter Button */}
               <div className="flex items-center gap-2.5">
                 <h2 className="text-base sm:text-xl font-black text-gray-900 tracking-tight">
-                  <span className="text-[#2d7d32]">{filteredProducts.length}</span> Products found
+                  <span className="text-[#0d9749]">{filteredProducts.length}</span> Products found
                 </h2>
 
                 <button
                   type="button"
                   onClick={() => setMobileFilterOpen(true)}
-                  className="lg:hidden inline-flex items-center gap-1.5 bg-emerald-50 text-[#2d7d32] border border-emerald-200 px-2.5 py-1.5 rounded-lg text-xs font-bold shadow-2xs hover:bg-emerald-100 transition-colors cursor-pointer"
+                  className="lg:hidden inline-flex items-center gap-1.5 bg-emerald-50 text-[#0d9749] border border-emerald-200 px-2.5 py-1.5 rounded-lg text-xs font-bold shadow-2xs hover:bg-emerald-100 transition-colors cursor-pointer"
                 >
                   <Filter className="w-3.5 h-3.5" />
                   <span>Filters {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ''}</span>
@@ -567,7 +567,7 @@ function ProductsContent() {
                     onClick={() => setViewMode('grid')}
                     className={`p-1.5 rounded transition-all cursor-pointer ${
                       viewMode === 'grid' 
-                        ? 'bg-[#2d7d32] text-white shadow-xs' 
+                        ? 'bg-[#0d9749] text-white shadow-xs' 
                         : 'text-gray-500 hover:text-gray-900'
                     }`}
                     aria-label="Grid View"
@@ -579,7 +579,7 @@ function ProductsContent() {
                     onClick={() => setViewMode('list')}
                     className={`p-1.5 rounded transition-all cursor-pointer ${
                       viewMode === 'list' 
-                        ? 'bg-[#2d7d32] text-white shadow-xs' 
+                        ? 'bg-[#0d9749] text-white shadow-xs' 
                         : 'text-gray-500 hover:text-gray-900'
                     }`}
                     aria-label="List View"
@@ -595,7 +595,7 @@ function ProductsContent() {
                     type="button"
                     onClick={() => { setItemsPerPage(16); setCurrentPage(1); }}
                     className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 16 ? 'bg-[#2d7d32] text-white' : 'text-gray-600 hover:text-gray-900'
+                      itemsPerPage === 16 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     16
@@ -604,7 +604,7 @@ function ProductsContent() {
                     type="button"
                     onClick={() => { setItemsPerPage(32); setCurrentPage(1); }}
                     className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 32 ? 'bg-[#2d7d32] text-white' : 'text-gray-600 hover:text-gray-900'
+                      itemsPerPage === 32 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     32
@@ -613,7 +613,7 @@ function ProductsContent() {
                     type="button"
                     onClick={() => { setItemsPerPage('all'); setCurrentPage(1); }}
                     className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 'all' ? 'bg-[#2d7d32] text-white' : 'text-gray-600 hover:text-gray-900'
+                      itemsPerPage === 'all' ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     All ({filteredProducts.length})
@@ -656,7 +656,7 @@ function ProductsContent() {
                 <button
                   type="button"
                   onClick={clearAllFilters}
-                  className="bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xs transition-colors cursor-pointer"
+                  className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xs transition-colors cursor-pointer"
                 >
                   Reset All Filters
                 </button>
@@ -716,7 +716,7 @@ function ProductsContent() {
                                 }}
                                 className={`w-8 h-8 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
                                   currentPage === p
-                                    ? 'bg-[#2d7d32] text-white shadow-xs'
+                                    ? 'bg-[#0d9749] text-white shadow-xs'
                                     : 'border border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
                                 }`}
                               >

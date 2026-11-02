@@ -107,7 +107,7 @@ export default function CheckoutPage() {
               {/* Shipping Address */}
               <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b flex items-center gap-2">
-                  <Truck className="w-4 h-4 text-[#2d7d32]" />
+                  <Truck className="w-4 h-4 text-[#0d9749]" />
                   <span>1. Delivery Address</span>
                 </h2>
 
@@ -226,7 +226,7 @@ export default function CheckoutPage() {
               {/* Payment Methods (Razorpay Integration) */}
               <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-[#2d7d32]" />
+                  <CreditCard className="w-4 h-4 text-[#0d9749]" />
                   <span>2. Payment Method (Razorpay Gateway)</span>
                 </h2>
 
@@ -316,14 +316,14 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between text-base font-bold text-gray-900 border-t pt-2">
                   <span>Payable Amount:</span>
-                  <span className="text-[#1b5e20]">₹ {totalPrice.toLocaleString('en-IN')}</span>
+                  <span className="text-[#097b3a]">₹ {totalPrice.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs font-bold py-3.5 px-4 rounded-md flex items-center justify-center gap-2 transition-colors shadow-md disabled:bg-gray-400"
+                className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold py-3.5 px-4 rounded-md flex items-center justify-center gap-2 transition-colors shadow-md disabled:bg-gray-400"
               >
                 <Lock className="w-4 h-4" />
                 <span>{isProcessing ? 'Processing Secure Payment...' : `Pay ₹ ${totalPrice.toLocaleString('en-IN')} & Place Order`}</span>

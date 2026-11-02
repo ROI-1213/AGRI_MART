@@ -133,8 +133,8 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
         
         {/* ================= SECTION HEADER ================= */}
         <div className="mb-5 sm:mb-6">
-          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
             <span>Authorized Brand Portfolio</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -156,7 +156,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
             <div className="absolute top-0 inset-x-0 h-1 bg-gray-100 z-30">
               <div 
                 key={activeBrandIndex}
-                className="h-full bg-gradient-to-r from-[#2d7d32] via-[#4ade80] to-[#f59e0b] transition-all duration-[2000ms] ease-linear"
+                className="h-full bg-gradient-to-r from-[#0d9749] via-[#4ade80] to-[#f59e0b] transition-all duration-[2000ms] ease-linear"
                 style={{ width: isPlaying ? '100%' : '50%' }}
               />
             </div>
@@ -182,7 +182,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                     </p>
                     <Link
                       href={currentBrand.route}
-                      className="text-[10px] font-bold text-[#2d7d32] hover:underline flex items-center gap-0.5"
+                      className="text-[10px] font-bold text-[#0d9749] hover:underline flex items-center gap-0.5"
                     >
                       <span>View Products</span>
                       <ChevronRight className="w-2.5 h-2.5" />
@@ -191,7 +191,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                 </div>
 
                 {/* Badge */}
-                <span className="inline-block text-[8px] font-black uppercase tracking-wider text-[#2d7d32] bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60 mb-1">
+                <span className="inline-block text-[8px] font-black uppercase tracking-wider text-[#0d9749] bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60 mb-1">
                   {currentBrand.badge}
                 </span>
 
@@ -208,7 +208,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                 {/* Price & Specs */}
                 <div className="mt-1.5 pt-1.5 border-t border-gray-200/60">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm sm:text-base font-black text-[#1b5e20]">
+                    <span className="text-sm sm:text-base font-black text-[#097b3a]">
                       {currentBrand.priceRange}
                     </span>
                     <span className="text-[9px] text-amber-800 bg-amber-50 border border-amber-200 font-bold px-1.5 py-0.2 rounded-full">
@@ -226,7 +226,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                 <button
                   type="button"
                   onClick={(e) => handleOpenQuoteModal(e, currentBrand)}
-                  className="flex-1 bg-[#2d7d32] hover:bg-[#1b5e20] active:scale-[0.98] text-white font-extrabold text-xs py-2 px-3 rounded-xl shadow-xs transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white font-extrabold text-xs py-2 px-3 rounded-xl shadow-xs transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Request Quote</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -234,7 +234,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
 
                 <Link
                   href={currentBrand.route}
-                  className="p-2 rounded-xl border border-gray-200 hover:border-[#2d7d32] text-gray-600 hover:text-[#2d7d32] bg-white transition-colors shrink-0 shadow-2xs"
+                  className="p-2 rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs"
                   title={`View ${currentBrand.brand} Products`}
                   aria-label={`View ${currentBrand.brand} Products`}
                 >
@@ -318,7 +318,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
               </div>
 
               {/* Title */}
-              <h4 className="text-[11px] font-bold text-gray-900 group-hover:text-[#2d7d32] transition-colors line-clamp-2 leading-snug">
+              <h4 className="text-[11px] font-bold text-gray-900 group-hover:text-[#0d9749] transition-colors line-clamp-2 leading-snug">
                 {nextBrand.leadTitle}
               </h4>
 
@@ -337,7 +337,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
 
               {/* Specs */}
               <div className="pt-1 border-t border-gray-200/60">
-                <span className="text-[10px] font-black text-[#1b5e20] block">
+                <span className="text-[10px] font-black text-[#097b3a] block">
                   {nextBrand.priceRange}
                 </span>
                 <span className="text-[8px] text-gray-500 block truncate mt-0.5">
@@ -348,7 +348,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
 
             {/* Peeking Next Card Button */}
             <div className="pt-1.5 border-t border-gray-200/60">
-              <div className="w-full bg-[#2d7d32] group-hover:bg-[#1b5e20] text-white font-extrabold text-[10px] py-1.5 px-1.5 rounded-xl text-center shadow-xs transition-colors flex items-center justify-center gap-1">
+              <div className="w-full bg-[#0d9749] group-hover:bg-[#097b3a] text-white font-extrabold text-[10px] py-1.5 px-1.5 rounded-xl text-center shadow-xs transition-colors flex items-center justify-center gap-1">
                 <span className="truncate">View {nextBrand.brand}</span>
                 <ArrowRight className="w-2.5 h-2.5 shrink-0" />
               </div>
@@ -359,7 +359,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
           <button
             type="button"
             onClick={handleNextBrand}
-            className="hidden md:flex absolute right-[115px] lg:right-[135px] top-1/2 -translate-y-1/2 z-40 w-9 h-9 rounded-full bg-white shadow-xl border border-gray-200 items-center justify-center text-gray-800 hover:text-[#2d7d32] hover:scale-110 active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute right-[115px] lg:right-[135px] top-1/2 -translate-y-1/2 z-40 w-9 h-9 rounded-full bg-white shadow-xl border border-gray-200 items-center justify-center text-gray-800 hover:text-[#0d9749] hover:scale-110 active:scale-95 transition-all cursor-pointer"
             title="Next Brand"
             aria-label="Next Brand"
           >

@@ -53,8 +53,8 @@ export default function TrustedBrandsShowcase() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header Matching Website Formal Typography */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
             <span>Authorized Global &amp; In-House Brands</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -71,7 +71,7 @@ export default function TrustedBrandsShowcase() {
             <Link
               key={brand.name}
               href={brand.href}
-              className="group relative flex items-center justify-center w-full px-3 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:opacity-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2d7d32]/30"
+              className="group relative flex items-center justify-center w-full px-3 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:opacity-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0d9749]/30"
               title={`${brand.name} — ${brand.tagline}`}
               aria-label={`Explore ${brand.name} equipment and products`}
             >

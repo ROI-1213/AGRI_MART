@@ -140,8 +140,8 @@ export default function TestingInstitutesShowcase() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-3 sm:gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#2d7d32] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+            <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
               <span>Institutional Validation</span>
             </div>
             <h2 className="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -164,7 +164,7 @@ export default function TestingInstitutesShowcase() {
                 }}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   idx === activeDot 
-                    ? 'w-7 bg-[#2d7d32]' 
+                    ? 'w-7 bg-[#0d9749]' 
                     : 'w-2 bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to institute ${idx + 1}`}

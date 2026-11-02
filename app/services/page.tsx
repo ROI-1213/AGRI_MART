@@ -16,13 +16,13 @@ export default function ServicesPage() {
 
         {/* Section 1: Services Header & Description */}
         <div className="mb-12">
-          <span className="text-xs font-bold text-[#2d7d32] uppercase tracking-wider">
+          <span className="text-xs font-bold text-[#0d9749] uppercase tracking-wider">
             Agricultural Mechanization Support & Dealer Infrastructure
           </span>
           <h1 className="text-3xl font-extrabold text-gray-900 mt-1 mb-3">
             Our Services
           </h1>
-          <div className="w-16 h-1 bg-[#2d7d32] mb-6"></div>
+          <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
@@ -60,7 +60,7 @@ export default function ServicesPage() {
                   className="object-contain"
                 />
               </div>
-              <div className="bg-[#1b5e20] text-white p-4 rounded-lg flex items-center justify-around">
+              <div className="bg-[#097b3a] text-white p-4 rounded-lg flex items-center justify-around">
                 <div>
                   <p className="text-3xl font-black text-yellow-300">750+</p>
                   <p className="text-xs uppercase font-semibold tracking-wider text-green-100">
@@ -87,7 +87,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-              <div className="p-3 bg-green-100 text-[#2d7d32] rounded-lg w-fit mb-4">
+              <div className="p-3 bg-green-100 text-[#0d9749] rounded-lg w-fit mb-4">
                 <Wrench className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-base text-gray-900 mb-2">On-Site & Workshop Servicing</h3>

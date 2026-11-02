@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary: #2d7d32;
-  --primary-dark: #1b5e20;
+  --primary: #0d9749;
+  --primary-dark: #097b3a;
   --secondary: #f59e0b;
   --text-dark: #1f2937;
   --text-muted: #64748b;
@@ -58,7 +58,7 @@ p, span, div, a, button, input, textarea, select, label {
 }
 
 .agri-btn-primary {
-  background-color: #2d7d32;
+  background-color: #0d9749;
   color: #ffffff;
   font-weight: 600;
   padding: 0.5rem 1.25rem;
@@ -70,7 +70,7 @@ p, span, div, a, button, input, textarea, select, label {
   gap: 0.5rem;
 }
 .agri-btn-primary:hover {
-  background-color: #1b5e20;
+  background-color: #097b3a;
 }
 
 .agri-btn-secondary {

@@ -177,7 +177,7 @@ export default function HomePage() {
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
                 className={`h-1.5 sm:h-2 rounded-full transition-all cursor-pointer ${
-                  idx === currentSlide ? 'w-6 sm:w-8 bg-[#0a692d]' : 'w-2 bg-gray-400/80 hover:bg-gray-600'
+                  idx === currentSlide ? 'w-6 sm:w-8 bg-[#097b3a]' : 'w-2 bg-gray-400/80 hover:bg-gray-600'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -192,7 +192,7 @@ export default function HomePage() {
           {/* Section Category Header & Tab Controls */}
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#2d7d32] animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-[#0d9749] animate-pulse"></span>
               <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">
                 Agrimart Growth & Opportunities
               </span>
@@ -206,7 +206,7 @@ export default function HomePage() {
                   onClick={() => setCurrentPromo(idx)}
                   className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5 ${
                     idx === currentPromo
-                      ? 'bg-[#2d7d32] text-white shadow-sm'
+                      ? 'bg-[#0d9749] text-white shadow-sm'
                       : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                   }`}
                   aria-label={`Show ${p.title}`}
@@ -259,7 +259,7 @@ export default function HomePage() {
                       <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block"></span>
                     </div>
 
-                    <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black text-[#0a692d] leading-none mb-1 tracking-tight truncate">
+                    <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-none mb-1 tracking-tight truncate">
                       {promo.title}
                     </h3>
 
@@ -268,7 +268,7 @@ export default function HomePage() {
                     </p>
 
                     <div>
-                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#0a692d] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[8.5px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
+                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[8.5px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
                         <span>{promo.buttonText}</span>
                         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
                       </span>
@@ -287,7 +287,7 @@ export default function HomePage() {
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       priority={idx === 0}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#2d7d32]/20 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0d9749]/20 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </Link>
               );

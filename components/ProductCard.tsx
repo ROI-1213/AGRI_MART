@@ -98,7 +98,7 @@ export default function ProductCard({
           <div className="flex-1 p-2.5 sm:p-3 flex flex-col justify-between min-w-0 bg-white">
             <div>
               {/* Product Name (Bold, Prominent) */}
-              <Link href={`/products/${product.id}`} className="block group-hover:text-[#2d7d32] transition-colors">
+              <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                 <h3 className="font-extrabold text-[12px] sm:text-[13px] md:text-sm text-gray-900 leading-snug truncate uppercase tracking-tight" title={product.name}>
                   {product.name}
                 </h3>
@@ -120,7 +120,7 @@ export default function ProductCard({
               <button
                 type="button"
                 onClick={handleRequestQuote}
-                className="bg-green-50 hover:bg-[#2d7d32] text-[#2d7d32] hover:text-white border border-green-200/90 text-[10px] sm:text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors duration-150 flex items-center gap-1 cursor-pointer"
+                className="bg-green-50 hover:bg-[#0d9749] text-[#0d9749] hover:text-white border border-green-200/90 text-[10px] sm:text-[11px] font-bold py-1.5 px-3 rounded-lg transition-colors duration-150 flex items-center gap-1 cursor-pointer"
                 title="Request a Quote"
               >
                 <FileText className="w-3 h-3" />
@@ -207,7 +207,7 @@ export default function ProductCard({
               </span>
 
               {/* Product Title */}
-              <Link href={`/products/${product.id}`} className="block group-hover:text-[#2d7d32] transition-colors">
+              <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                 <h3 className="font-extrabold text-[12px] sm:text-[13px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[32px]">
                   {product.name}
                 </h3>
@@ -219,7 +219,7 @@ export default function ProductCard({
               <button
                 type="button"
                 onClick={handleRequestQuote}
-                className="w-full bg-[#2d7d32] hover:bg-[#1e6b23] active:scale-[0.98] text-white text-[11px] sm:text-xs font-bold py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer group/btn"
+                className="w-full bg-[#0d9749] hover:bg-[#1e6b23] active:scale-[0.98] text-white text-[11px] sm:text-xs font-bold py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer group/btn"
               >
                 <FileText className="w-3 h-3 text-yellow-300" />
                 <span>Request a Quote</span>

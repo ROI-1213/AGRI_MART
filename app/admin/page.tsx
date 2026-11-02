@@ -180,7 +180,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('dashboard')}
             className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'dashboard' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'dashboard' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <LayoutDashboard className="w-4 h-4" />
@@ -190,7 +190,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('products')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'products' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'products' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -205,7 +205,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('categories')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'categories' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'categories' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -220,7 +220,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('dealers')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'dealers' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'dealers' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -235,7 +235,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('subsidy')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'subsidy' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'subsidy' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -250,7 +250,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('enquiries')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'enquiries' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'enquiries' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -265,7 +265,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('blogs')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'blogs' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'blogs' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -279,7 +279,7 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('migration')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'migration' ? 'bg-[#2d7d32] text-white' : 'hover:bg-gray-100'
+              activeTab === 'migration' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -393,7 +393,7 @@ export default function AdminPage() {
                     <a
                       href="/master_catalog_export.csv"
                       download="master_catalog_export.csv"
-                      className="bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs font-bold px-3 py-2 rounded flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                      className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3 py-2 rounded flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
                     >
                       <FileText className="w-3.5 h-3.5 text-yellow-300" />
                       <span>Download Master Catalog (CSV)</span>
@@ -457,7 +457,7 @@ export default function AdminPage() {
                             <Link
                               href={`/products/${p.id}`}
                               target="_blank"
-                              className="text-xs text-[#2d7d32] hover:underline font-bold"
+                              className="text-xs text-[#0d9749] hover:underline font-bold"
                             >
                               View Page →
                             </Link>
@@ -507,7 +507,7 @@ export default function AdminPage() {
                 <a
                   href="/master_catalog_export.csv"
                   download="master_catalog_export.csv"
-                  className="bg-[#2d7d32] hover:bg-[#1b5e20] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm"
+                  className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm"
                 >
                   <FileText className="w-4 h-4 text-yellow-300" />
                   <span>Download Master CSV</span>
@@ -518,7 +518,7 @@ export default function AdminPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
                   <p className="text-xs text-gray-500 font-semibold">Total Migrated Products</p>
-                  <p className="text-2xl font-black text-[#2d7d32] mt-1">{products.length}</p>
+                  <p className="text-2xl font-black text-[#0d9749] mt-1">{products.length}</p>
                   <p className="text-[10px] text-green-700 font-bold mt-0.5">100% genuine source records</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -545,7 +545,7 @@ export default function AdminPage() {
                   {categories.map((c) => (
                     <div key={c.id} className="flex justify-between items-center p-2.5 bg-gray-50 rounded border border-gray-100">
                       <span className="font-semibold text-gray-800 truncate mr-2">{c.name}</span>
-                      <span className="font-bold bg-white px-2 py-0.5 rounded border text-[#2d7d32]">
+                      <span className="font-bold bg-white px-2 py-0.5 rounded border text-[#0d9749]">
                         {c.count} items
                       </span>
                     </div>

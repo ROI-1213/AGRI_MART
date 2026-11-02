@@ -93,8 +93,8 @@ export default function InstitutesShowcase() {
     <div className="w-full bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden p-5 sm:p-8">
       {/* Header */}
       <div className="text-center mb-6 sm:mb-8">
-        <div className="inline-flex items-center gap-2 bg-green-50 text-[#2d7d32] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
-          <ShieldCheck className="w-4 h-4 text-[#2d7d32]" />
+        <div className="inline-flex items-center gap-2 bg-green-50 text-[#0d9749] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+          <ShieldCheck className="w-4 h-4 text-[#0d9749]" />
           <span>Government & Academic Accreditation</span>
         </div>
         <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -131,7 +131,7 @@ export default function InstitutesShowcase() {
                   </div>
                 </div>
                 {/* Approved Badge */}
-                <div className="absolute -bottom-1.5 bg-[#2d7d32] text-white text-[9.5px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                <div className="absolute -bottom-1.5 bg-[#0d9749] text-white text-[9.5px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
                   <CheckCircle2 className="w-2.5 h-2.5 text-yellow-300" />
                   <span>Approved</span>
                 </div>
@@ -140,7 +140,7 @@ export default function InstitutesShowcase() {
               {/* Institution Information */}
               <div className="flex-1 text-center sm:text-left min-w-0">
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
-                  <span className="text-xs font-black text-[#2d7d32] bg-green-100/80 px-2 py-0.5 rounded tracking-wide">
+                  <span className="text-xs font-black text-[#0d9749] bg-green-100/80 px-2 py-0.5 rounded tracking-wide">
                     {inst.code}
                   </span>
                   <span className="text-[11px] font-semibold text-gray-500 flex items-center gap-1">
@@ -174,7 +174,7 @@ export default function InstitutesShowcase() {
             key={inst.id}
             className="text-[11px] font-bold px-3 py-1 rounded-full bg-gray-50 hover:bg-green-50 hover:text-green-800 text-gray-700 border border-gray-200/80 transition-colors flex items-center gap-1.5 shadow-2xs"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
             <span>{inst.code}</span>
           </div>
         ))}

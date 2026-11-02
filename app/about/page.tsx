@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, Target, Compass, Award, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
+import { Target, Compass, Award, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -38,28 +38,6 @@ export default function AboutPage() {
               <p>
                 AGRIMART is based in Bangalore and marketed by Ratnagiri Impex Pvt. Ltd., an initiative of the <strong>Annapurna Group</strong>, who bring decades of deep experience in agricultural equipment, plantations, operations, distribution, and service.
               </p>
-            </div>
-
-            {/* Brochure Buttons */}
-            <div className="flex flex-wrap gap-4 mt-8">
-              <a
-                href="/assets/brochures/corporate_brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="agri-btn-primary text-xs py-3 px-5 shadow-sm"
-              >
-                <Download className="w-4 h-4" />
-                <span>DOWNLOAD CORPORATE BROCHURE</span>
-              </a>
-              <a
-                href="/assets/brochures/agrimart_brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="agri-btn-secondary text-xs py-3 px-5 shadow-sm"
-              >
-                <Download className="w-4 h-4" />
-                <span>DOWNLOAD AGRIMATE BROCHURE</span>
-              </a>
             </div>
           </div>
 

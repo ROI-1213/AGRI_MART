@@ -20,9 +20,8 @@ const BRANDS: BrandItem[] = [
     tagline: 'Reliable, Powerful Farm Machinery',
     href: '/products?brand=AGRIMATE',
     logo: '/assets/brands/partner_strip/agrimate.png',
-    width: 732,
-    height: 222,
-    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
+    width: 800,
+    height: 240,
   },
   {
     name: 'KASEI',
@@ -30,17 +29,15 @@ const BRANDS: BrandItem[] = [
     href: '/products?brand=KASEI',
     logo: '/assets/brands/partner_strip/kasei_hd.png',
     width: 800,
-    height: 225,
-    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
+    height: 240,
   },
   {
     name: 'OLEO-MAC',
     tagline: 'Italian Technology & Global Reliability',
     href: '/products?brand=OLEO-MAC',
     logo: '/assets/brands/partner_strip/oleo_mac_hd.png',
-    width: 1061,
-    height: 400,
-    customImgClass: 'max-h-12 sm:max-h-14 md:max-h-16',
+    width: 800,
+    height: 240,
   },
 ];
 
@@ -81,7 +78,7 @@ export default function TrustedBrandsShowcase() {
                   alt={`${brand.name} Logo`}
                   width={brand.width}
                   height={brand.height}
-                  className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${brand.customImgClass || 'max-h-12 sm:max-h-14 md:max-h-16'}`}
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105"
                   quality={100}
                 />
               </div>

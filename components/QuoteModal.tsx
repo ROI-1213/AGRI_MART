@@ -13,6 +13,8 @@ interface QuoteModalProps {
 
 export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps) {
   const [formData, setFormData] = useState({
+    userType: 'customer' as 'customer' | 'dealer',
+    gstNumber: '',
     name: '',
     phone: '',
     email: '',
@@ -28,6 +30,13 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Extra validation: GST number required if dealer
+    if (formData.userType === 'dealer' && !formData.gstNumber.trim()) {
+      alert('GST Number is mandatory for Dealers.');
+      return;
+    }
+
     setStatus('submitting');
 
     try {
@@ -35,13 +44,15 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          userType: formData.userType === 'dealer' ? 'DEALER' : 'CUSTOMER',
+          gstNumber: formData.userType === 'dealer' ? formData.gstNumber : undefined,
           name: formData.name,
           mobile: formData.phone,
           email: formData.email,
           state: formData.state,
           city: formData.city,
           quantity: formData.quantity,
-          message: formData.message || `Quotation request for ${product.name} (RIPL: ${product.riplCode})`,
+          message: formData.message || `Quotation request for ${product.name} (RIPL: ${product.riplCode})${formData.userType === 'dealer' ? ` | Dealer GST: ${formData.gstNumber}` : ''}`,
           enquiryType: 'QUOTE_REQUEST',
           productId: product.id,
           productName: product.name,
@@ -63,6 +74,8 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
   const handleReset = () => {
     setStatus('idle');
     setFormData({
+      userType: 'customer',
+      gstNumber: '',
       name: '',
       phone: '',
       email: '',
@@ -133,7 +146,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
             <div>
               <h4 className="text-lg font-bold text-gray-900">Quotation Request Submitted!</h4>
               <p className="text-xs text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
-                Thank you, <strong>{formData.name || 'Valued Customer'}</strong>. Your quotation enquiry for{' '}
+                Thank you, <strong>{formData.name || 'Valued Customer'}</strong> ({formData.userType === 'dealer' ? `Authorized Dealer — GSTIN: ${formData.gstNumber}` : 'Customer'}). Your quotation enquiry for{' '}
                 <strong>{product.name}</strong> (RIPL: {product.riplCode}) has been dispatched to our sales team.
               </p>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900 mt-4 flex items-center justify-center gap-2">
@@ -151,6 +164,72 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
         ) : (
           /* Quote Request Form */
           <form onSubmit={handleSubmit} className="p-5 space-y-3.5 text-xs">
+            {/* User Type: Customer or Dealer */}
+            <div>
+              <label className="block font-bold text-gray-700 mb-1.5">
+                I am a <span className="text-red-500">*</span>
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, userType: 'customer', gstNumber: '' })}
+                  className={`flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 text-xs font-semibold cursor-pointer transition-all ${
+                    formData.userType === 'customer'
+                      ? 'border-[#2d7d32] bg-green-50/80 text-[#1b5e20] shadow-xs'
+                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                  }`}
+                >
+                  <span className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center ${
+                    formData.userType === 'customer' ? 'border-[#2d7d32]' : 'border-gray-400'
+                  }`}>
+                    {formData.userType === 'customer' && <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]" />}
+                  </span>
+                  <span>Customer</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, userType: 'dealer' })}
+                  className={`flex items-center justify-center gap-2 p-2.5 rounded-lg border-2 text-xs font-semibold cursor-pointer transition-all ${
+                    formData.userType === 'dealer'
+                      ? 'border-[#2d7d32] bg-green-50/80 text-[#1b5e20] shadow-xs'
+                      : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                  }`}
+                >
+                  <span className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center ${
+                    formData.userType === 'dealer' ? 'border-[#2d7d32]' : 'border-gray-400'
+                  }`}>
+                    {formData.userType === 'dealer' && <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32]" />}
+                  </span>
+                  <span>Dealer</span>
+                </button>
+              </div>
+            </div>
+
+            {/* If Dealer: Mandatory GST Number */}
+            {formData.userType === 'dealer' && (
+              <div className="bg-amber-50/70 border border-amber-300/80 p-3 rounded-lg space-y-1 animate-in fade-in slide-in-from-top-1 duration-200">
+                <label className="block font-bold text-gray-900">
+                  GST Number <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.gstNumber}
+                  onChange={(e) => setFormData({ ...formData, gstNumber: e.target.value.toUpperCase().replace(/\s+/g, '') })}
+                  placeholder="e.g. 29ABCDE1234F1Z5"
+                  maxLength={15}
+                  minLength={15}
+                  pattern="^[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[1-9A-Za-z]{1}Z[0-9A-Za-z]{1}$|^[A-Za-z0-9]{15}$"
+                  title="Please enter your 15-character valid GST number"
+                  className="w-full px-3 py-2 border border-gray-300 rounded text-xs uppercase font-mono tracking-wider focus:outline-none focus:ring-1 focus:ring-green-600 bg-white"
+                />
+                <p className="text-[10px] text-amber-900 font-semibold">
+                  ★ Mandatory for Dealers — Enter 15-digit GSTIN (Goods and Services Tax Number)
+                </p>
+              </div>
+            )}
+
             <div>
               <label className="block font-bold text-gray-700 mb-1">
                 Full Name <span className="text-red-500">*</span>

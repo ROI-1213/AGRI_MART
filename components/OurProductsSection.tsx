@@ -155,10 +155,6 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
         {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-gray-200/80 pb-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#097b3a] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-emerald-200/80 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#0d9749] animate-pulse"></span>
-              <span>Flagship Machinery &amp; Equipment</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
               Our Products
             </h2>

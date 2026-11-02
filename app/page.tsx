@@ -314,15 +314,11 @@ export default function HomePage() {
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}
       <TestingInstitutesShowcase />
 
-      {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Direct Mobile Store Link) */}
+      {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Direct Google Play & App Store Buttons) */}
       <section className="py-8 sm:py-12 bg-gradient-to-b from-white to-[#fbfdfa] border-t border-gray-200/70">
         <div className="agri-container">
-          <a
-            href="https://play.google.com/store/search?q=agrimart&c=apps"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Download Agrimart Mobile App"
-            className="block relative w-full aspect-[1024/340] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-sm hover:shadow-md transition-all duration-300 select-none group cursor-pointer"
+          <div
+            className="relative w-full aspect-[1024/340] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-sm hover:shadow-md transition-all duration-300 select-none group"
           >
             {/* 3K Ultra-HD Banner Artwork (unoptimized for 100% loss-free HD clarity) */}
             <Image
@@ -333,9 +329,58 @@ export default function HomePage() {
               unoptimized
               quality={100}
               sizes="(max-width: 1240px) 100vw, 1240px"
-              className="object-cover object-center pointer-events-none select-none transition-transform duration-500 group-hover:scale-[1.01]"
+              className="object-cover object-center pointer-events-none select-none"
             />
-          </a>
+
+            {/* The 2 Hyperlinked Buttons: Google Play & App Store */}
+            <div 
+              className="absolute z-20 flex items-center gap-2 sm:gap-3"
+              style={{
+                left: '7.5%',
+                bottom: '12%',
+              }}
+            >
+              {/* Google Play Store Button */}
+              <a
+                href="https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download Agrimart App on Google Play"
+                aria-label="Download on Google Play"
+                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-md overflow-hidden cursor-pointer"
+              >
+                <Image
+                  src="/assets/branding/google_play_hd.png"
+                  alt="Get it on Google Play"
+                  width={140}
+                  height={44}
+                  unoptimized
+                  quality={100}
+                  className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
+                />
+              </a>
+
+              {/* Apple App Store Button */}
+              <a
+                href="https://apps.apple.com/in/app/agrimart/id1599062786"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download Agrimart App on App Store"
+                aria-label="Download on App Store"
+                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-md overflow-hidden cursor-pointer"
+              >
+                <Image
+                  src="/assets/branding/app_store_hd.png"
+                  alt="Download on the App Store"
+                  width={140}
+                  height={44}
+                  unoptimized
+                  quality={100}
+                  className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

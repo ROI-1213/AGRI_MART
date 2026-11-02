@@ -86,7 +86,7 @@ export default function HomePage() {
       description: 'Access expert guides, product information and farming insights.',
       buttonText: 'Explore Resources',
       link: '/cms/knowledge-bank',
-      photo: '/assets/branding/promo_photo_knowledge.png',
+      photo: '/assets/branding/knowledge_bank_hd.png',
       bgGradient: 'from-[#f0f7f3] via-[#ffffff] to-[#f2f8f4]',
     },
   ];
@@ -278,7 +278,7 @@ export default function HomePage() {
                   {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing */}
                   <div 
                     className={`relative h-full shrink-0 overflow-hidden [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)] select-none ${
-                      promo.id === 2 
+                      promo.id === 2 || promo.id === 3
                         ? 'w-[48%] sm:w-[54%] md:w-[58%]' 
                         : 'w-[38%] sm:w-[42%] md:w-[46%]'
                     }`}
@@ -287,10 +287,10 @@ export default function HomePage() {
                       src={promo.photo}
                       alt={promo.title}
                       fill
-                      quality={95}
-                      sizes="(max-width: 1200px) 60vw, 800px"
+                      unoptimized
+                      priority
+                      sizes="(max-width: 1200px) 70vw, 1000px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                      priority={idx === 0 || promo.id === 2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent pointer-events-none" />
                   </div>

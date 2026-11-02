@@ -265,7 +265,7 @@ export default function Footer() {
 
                 {/* Twitter / X */}
                 <a
-                  href="https://twitter.com/Agrimart3"
+                  href="https://x.com/Agrimart3"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (Twitter)"
@@ -293,7 +293,7 @@ export default function Footer() {
 
                 {/* YouTube */}
                 <a
-                  href="https://www.youtube.com/channel/UCPChKPEwHssr4WmuOxrJY9g?view_as=subscriber"
+                  href="https://www.youtube.com/channel/UCPChKPEwHssr4WmuOxrJY9g?reload=9&view_as=subscriber"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"

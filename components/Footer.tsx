@@ -225,22 +225,6 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-
-            {/* Network Illustration: Pan India Network */}
-            <div className="mt-4 pt-3 border-t border-gray-300/80">
-              <div className="rounded-lg overflow-hidden border border-gray-300/90 bg-white/90 backdrop-blur-xs p-1.5 shadow-sm group">
-                <Image
-                  src="/assets/branding/pan_india_network.jpg"
-                  alt="Our Pan India Network - Serving Farmers Across India"
-                  width={500}
-                  height={550}
-                  className="w-full h-auto object-contain rounded group-hover:scale-[1.02] transition-transform duration-300"
-                />
-              </div>
-              <p className="text-[11px] text-gray-800 font-semibold mt-2 text-center">
-                <strong className="text-gray-950">750+ Showrooms, Dealers & Service Centres</strong> Nationwide
-              </p>
-            </div>
           </div>
         </div>
       </div>

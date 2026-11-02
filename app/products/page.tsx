@@ -47,6 +47,8 @@ function ProductsContent() {
   const [searchTerm, setSearchTerm] = useState<string>(initialSearch);
 
   // Accordion toggle states
+  const [expandedCategory, setExpandedCategory] = useState<string>('');
+
   const [openSections, setOpenSections] = useState({
     category: true,
     brand: true,
@@ -74,6 +76,7 @@ function ProductsContent() {
     const search = searchParams.get('search') || '';
     const sub = searchParams.get('sub') || '';
     setSelectedCategory(cat);
+    if (cat) setExpandedCategory(cat);
     setSelectedSubcategory(sub);
     setSelectedBrands(brand ? [brand] : []);
     setSelectedCapacities([]);
@@ -86,6 +89,7 @@ function ProductsContent() {
     const handleReset = () => {
       setSelectedCategory('');
       setSelectedSubcategory('');
+      setExpandedCategory('');
       setSelectedBrands([]);
       setSelectedCapacities([]);
       setSelectedPowerSources([]);
@@ -96,7 +100,7 @@ function ProductsContent() {
     return () => window.removeEventListener('agrimart-reset-products', handleReset);
   }, []);
 
-  const allBrands = ['AGRIMATE', 'KASEI', 'OLEO MAC', 'GREEN PANTHER'];
+  const allBrands = ['KASEI', 'OLEO MAC', 'AGRIMATE', 'GREEN PANTHER'];
   const capacityOptions = ['8 Ltr', '16 Ltr', '20 Ltr'];
   const powerSourceOptions = ['Manual', 'Battery', 'Petrol / Engine'];
 
@@ -254,186 +258,158 @@ function ProductsContent() {
         {/* ================= MAIN 2-COLUMN LAYOUT: Filter Sidebar + Products Grid ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           
-          {/* ================= DESKTOP SIDEBAR: Filter Products (Sticky on scroll) ================= */}
-          <aside className="hidden lg:block bg-white rounded-2xl border border-gray-200/90 p-4 sm:p-5 shadow-xs sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto">
+          {/* ================= DESKTOP SIDEBAR: Authentic MyCategories & Brands ================= */}
+          <aside className="hidden lg:block sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto pr-1 select-none">
             
-            {/* Sidebar Header: Filter Products + Reset All Button */}
-            <div className="flex justify-between items-center pb-3 mb-3 border-b border-gray-100">
-              <div className="flex items-center gap-2 text-gray-900 font-extrabold text-sm sm:text-base">
-                <Filter className="w-4 h-4 text-[#0d9749]" />
-                <span>Filter Products</span>
-              </div>
-              <button
-                type="button"
-                onClick={clearAllFilters}
-                className="inline-flex items-center gap-1 text-xs text-[#0d9749] hover:text-[#097b3a] font-bold hover:underline cursor-pointer transition-colors"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>Reset All</span>
-              </button>
-            </div>
-
-            {/* Accordion 1: Product Category */}
-            <div className="py-2.5 border-b border-gray-100">
-              <button
-                type="button"
-                onClick={() => toggleSection('category')}
-                className="w-full flex items-center justify-between font-bold text-xs sm:text-sm text-gray-900 tracking-tight cursor-pointer py-1"
-              >
-                <span>Product Category</span>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSections.category ? 'rotate-180' : ''}`} />
-              </button>
-
-              {openSections.category && (
-                <div className="mt-2.5 space-y-1.5 max-h-52 overflow-y-auto pr-1 no-scrollbar">
-                  {/* All Products Option */}
-                  <label
-                    className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-emerald-50/60 cursor-pointer select-none group border-b border-gray-100 pb-1.5 mb-1"
+            {/* Box 1: MyCategories */}
+            <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
+              {/* Header: MyCategories */}
+              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+                <span>MyCategories</span>
+                {(selectedCategory || selectedSubcategory) && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory('');
+                      setSelectedSubcategory('');
+                      setExpandedCategory('');
+                      setCurrentPage(1);
+                    }}
+                    className="text-[11px] font-normal underline text-white/90 hover:text-white cursor-pointer"
                   >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <div 
-                        className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                          !selectedCategory ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
+                    Reset
+                  </button>
+                )}
+              </div>
+
+              {/* Categories List */}
+              <div className="divide-y divide-[#579304]">
+                {categoriesData.map((cat) => {
+                  const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
+                  const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
+
+                  return (
+                    <div key={cat.id} className="relative">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (isSelected && !selectedSubcategory) {
+                            setSelectedCategory('');
+                            setSelectedSubcategory('');
+                            setExpandedCategory('');
+                          } else {
+                            setSelectedCategory(cat.name);
+                            setSelectedSubcategory('');
+                            setExpandedCategory(cat.name);
+                          }
+                          setCurrentPage(1);
+                        }}
+                        className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
+                          isSelected
+                            ? 'bg-[#317e00]'
+                            : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                         }`}
                       >
-                        {!selectedCategory && <Check className="w-3 h-3 stroke-[3]" />}
-                      </div>
-                      <span className={`truncate ${!selectedCategory ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
-                        All Products
-                      </span>
+                        <span className="truncate pr-1">{cat.name}</span>
+                        <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
+                          {isSelected && (
+                            <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>
+                          )}
+                        </span>
+                      </button>
+
+                      {/* Nested Subcategories Accordion */}
+                      {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
+                        <div className="bg-[#337e04] border-b border-[#255f02]">
+                          {cat.subcategories.map((sub: string) => {
+                            const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
+                            return (
+                              <button
+                                key={sub}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedSubcategory(isSubActive ? '' : sub);
+                                  setCurrentPage(1);
+                                }}
+                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#255f02]/70 flex items-center justify-between transition-colors hover:bg-[#3c9006] hover:border-l-4 hover:border-white cursor-pointer ${
+                                  isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                }`}
+                              >
+                                <span className="truncate">{sub}</span>
+                                {isSubActive && <Check className="w-3 h-3 text-yellow-300 shrink-0" />}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
-                    <span className="text-[11px] text-gray-400 font-semibold shrink-0 ml-1">
-                      (227)
-                    </span>
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      checked={!selectedCategory}
-                      onChange={() => {
-                        setSelectedCategory('');
-                        setSelectedSubcategory('');
-                        setCurrentPage(1);
-                      }}
-                    />
-                  </label>
-
-                  {categoriesData.map((cat) => {
-                    const isChecked = selectedCategory.toLowerCase() === cat.name.toLowerCase();
-                    const count = getCategoryCount(cat.name);
-                    return (
-                      <label
-                        key={cat.id}
-                        className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer select-none group"
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
-                          <span className={`truncate ${isChecked ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
-                            {cat.name}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-gray-400 font-semibold shrink-0 ml-1">
-                          ({count})
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={isChecked}
-                          onChange={() => {
-                            setSelectedCategory(isChecked ? '' : cat.name);
-                            setSelectedSubcategory('');
-                            setCurrentPage(1);
-                          }}
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Accordion 2: Brand */}
-            <div className="py-2.5 mb-4">
-              <button
-                type="button"
-                onClick={() => toggleSection('brand')}
-                className="w-full flex items-center justify-between font-bold text-xs sm:text-sm text-gray-900 tracking-tight cursor-pointer py-1"
-              >
-                <span>Brand</span>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSections.brand ? 'rotate-180' : ''}`} />
-              </button>
+            {/* Box 2: Brands */}
+            <div className="mt-3 border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
+              {/* Header: Brands */}
+              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+                <span>Brands</span>
+                {selectedBrands.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedBrands([]);
+                      setCurrentPage(1);
+                    }}
+                    className="text-[11px] font-normal underline text-white/90 hover:text-white cursor-pointer"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
 
-              {openSections.brand && (
-                <div className="mt-2.5 space-y-1.5">
-                  {allBrands.map((brand) => {
-                    const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
-                    const count = getBrandCount(brand);
-                    return (
-                      <label
-                        key={brand}
-                        className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer select-none group"
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div 
-                            className={`w-4 h-4 rounded flex items-center justify-center border transition-all ${
-                              isChecked ? 'bg-[#0d9749] border-[#0d9749] text-white' : 'border-gray-300 bg-white group-hover:border-gray-400'
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
-                          <span className={`truncate ${isChecked ? 'text-[#0d9749] font-bold' : 'text-gray-700'}`}>
-                            {brand}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-gray-400 font-semibold shrink-0 ml-1">
-                          ({count})
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={isChecked}
-                          onChange={() => toggleBrand(brand)}
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
+              {/* Brands List */}
+              <div className="divide-y divide-[#579304]">
+                {allBrands.map((brand) => {
+                  const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
+                  return (
+                    <button
+                      key={brand}
+                      type="button"
+                      onClick={() => toggleBrand(brand)}
+                      className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
+                        isChecked
+                          ? 'bg-[#317e00]'
+                          : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
+                      }`}
+                    >
+                      <span>{brand}</span>
+                      <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
+                        {isChecked && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Bottom Primary Button: Apply Filters (Matching Mockup) */}
-            <button
-              type="button"
-              onClick={() => {
-                setCurrentPage(1);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs sm:text-sm font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all duration-200 cursor-pointer"
-            >
-              <Filter className="w-4 h-4 text-white" />
-              <span>Apply Filters ({filteredProducts.length})</span>
-            </button>
           </aside>
 
           {/* ================= MOBILE FILTER SLIDE-OVER DRAWER ================= */}
           {mobileFilterOpen && (
             <div className="fixed inset-0 z-50 lg:hidden flex justify-end bg-black/60 backdrop-blur-xs">
-              <div className="w-full max-w-sm h-full bg-white shadow-2xl flex flex-col justify-between overflow-hidden">
+              <div className="w-full max-w-sm h-full bg-[#f8fafc] shadow-2xl flex flex-col justify-between overflow-hidden">
                 {/* Header */}
-                <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-emerald-50">
+                <div className="p-4 border-b border-[#4d8504] flex items-center justify-between bg-[#63b16b] text-white">
                   <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-[#0d9749]" />
-                    <h3 className="font-extrabold text-sm text-gray-900">Filter Machinery</h3>
+                    <Filter className="w-4 h-4 text-white" />
+                    <h3 className="font-extrabold text-sm text-white">Filter Products</h3>
                   </div>
                   <button
                     type="button"
                     onClick={() => setMobileFilterOpen(false)}
-                    className="p-1.5 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 cursor-pointer"
+                    className="p-1 rounded text-white/80 hover:text-white hover:bg-black/10 cursor-pointer"
                     aria-label="Close filters"
                   >
                     <X className="w-5 h-5" />
@@ -441,70 +417,126 @@ function ProductsContent() {
                 </div>
 
                 {/* Filter Items Scroll Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                  {/* Category */}
-                  <div>
-                    <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-2">Category</h4>
-                    <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
-                      <label className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-emerald-50 cursor-pointer">
-                        <span className={!selectedCategory ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>All Categories</span>
-                        <input
-                          type="checkbox"
-                          className="sr-only"
-                          checked={!selectedCategory}
-                          onChange={() => { setSelectedCategory(''); setSelectedSubcategory(''); }}
-                        />
-                      </label>
-                      {categoriesData.map((cat) => (
-                        <label key={cat.id} className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer">
-                          <span className={selectedCategory.toLowerCase() === cat.name.toLowerCase() ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>
-                            {cat.name}
-                          </span>
-                          <span className="text-[10px] text-gray-400">({getCategoryCount(cat.name)})</span>
-                          <input
-                            type="checkbox"
-                            className="sr-only"
-                            checked={selectedCategory.toLowerCase() === cat.name.toLowerCase()}
-                            onChange={() => {
-                              setSelectedCategory(selectedCategory.toLowerCase() === cat.name.toLowerCase() ? '' : cat.name);
-                              setSelectedSubcategory('');
-                            }}
-                          />
-                        </label>
-                      ))}
+                <div className="flex-1 overflow-y-auto p-3 space-y-4">
+                  {/* Category Box */}
+                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
+                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                      <span>MyCategories</span>
+                      {selectedCategory && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedCategory('');
+                            setSelectedSubcategory('');
+                            setExpandedCategory('');
+                          }}
+                          className="text-[10px] underline font-normal text-white/90"
+                        >
+                          Reset
+                        </button>
+                      )}
+                    </div>
+                    <div className="divide-y divide-[#579304]">
+                      {categoriesData.map((cat) => {
+                        const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
+                        const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
+
+                        return (
+                          <div key={cat.id}>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isSelected && !selectedSubcategory) {
+                                  setSelectedCategory('');
+                                  setSelectedSubcategory('');
+                                  setExpandedCategory('');
+                                } else {
+                                  setSelectedCategory(cat.name);
+                                  setSelectedSubcategory('');
+                                  setExpandedCategory(cat.name);
+                                }
+                              }}
+                              className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
+                                isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
+                              }`}
+                            >
+                              <span className="truncate pr-1">{cat.name}</span>
+                              <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
+                                {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>}
+                              </span>
+                            </button>
+
+                            {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
+                              <div className="bg-[#337e04]">
+                                {cat.subcategories.map((sub: string) => {
+                                  const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
+                                  return (
+                                    <button
+                                      key={sub}
+                                      type="button"
+                                      onClick={() => setSelectedSubcategory(isSubActive ? '' : sub)}
+                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#255f02]/70 flex items-center justify-between ${
+                                        isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                      }`}
+                                    >
+                                      <span className="truncate">{sub}</span>
+                                      {isSubActive && <Check className="w-3 h-3 text-yellow-300" />}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  {/* Brand */}
-                  <div className="border-t border-gray-100 pt-3">
-                    <h4 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-2">Brand</h4>
-                    <div className="space-y-1.5">
-                      {allBrands.map((brand) => (
-                        <label key={brand} className="flex items-center justify-between text-xs py-1 px-1 rounded hover:bg-gray-50 cursor-pointer">
-                          <span className={selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand)) ? 'text-[#0d9749] font-bold' : 'text-gray-700'}>
-                            {brand}
-                          </span>
-                          <span className="text-[10px] text-gray-400">({getBrandCount(brand)})</span>
-                          <input
-                            type="checkbox"
-                            className="sr-only"
-                            checked={selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand))}
-                            onChange={() => toggleBrand(brand)}
-                          />
-                        </label>
-                      ))}
+                  {/* Brand Box */}
+                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
+                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                      <span>Brands</span>
+                      {selectedBrands.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedBrands([])}
+                          className="text-[10px] underline font-normal text-white/90"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                    <div className="divide-y divide-[#579304]">
+                      {allBrands.map((brand) => {
+                        const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
+                        return (
+                          <button
+                            key={brand}
+                            type="button"
+                            onClick={() => toggleBrand(brand)}
+                            className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
+                              isChecked ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
+                            }`}
+                          >
+                            <span>{brand}</span>
+                            <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
+                              {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>}
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
 
                 {/* Footer Buttons */}
-                <div className="p-4 border-t border-gray-100 bg-gray-50 flex items-center gap-2">
+                <div className="p-3 border-t border-gray-200 bg-white flex items-center gap-2">
                   <button
                     type="button"
                     onClick={clearAllFilters}
-                    className="w-1/3 py-2.5 px-3 border border-gray-300 rounded-xl text-xs font-bold text-gray-700 hover:bg-gray-100 transition-colors text-center cursor-pointer"
+                    className="w-1/3 py-2 px-3 border border-gray-300 rounded text-xs font-bold text-gray-700 hover:bg-gray-100 transition-colors text-center cursor-pointer"
                   >
-                    Reset
+                    Reset All
                   </button>
                   <button
                     type="button"
@@ -513,9 +545,9 @@ function ProductsContent() {
                       setCurrentPage(1);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex-1 py-2.5 px-4 bg-[#0d9749] hover:bg-[#097b3a] text-white rounded-xl text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
+                    className="flex-1 py-2 px-4 bg-[#63b16b] hover:bg-[#52a05a] text-white rounded text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
                   >
-                    Apply ({filteredProducts.length})
+                    Show ({filteredProducts.length})
                   </button>
                 </div>
               </div>

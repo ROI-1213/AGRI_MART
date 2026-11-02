@@ -147,7 +147,7 @@ export default function HomePage() {
                     unoptimized
                     quality={100}
                     sizes="(max-width: 1440px) 100vw, 1440px"
-                    className="object-contain object-center pointer-events-none select-none"
+                    className="object-cover object-center pointer-events-none select-none"
                   />
                 </Link>
               </div>

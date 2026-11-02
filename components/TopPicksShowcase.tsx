@@ -37,10 +37,10 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
     brandLogo: '/assets/brands/partner_strip/agrimate.png',
     brandSubtitle: 'Ratnagiri Impex • Flagship Brand',
     category: 'POWER WEEDER & TILLERS',
-    leadTitle: 'AM-MPTC-1100-12D 4-Wheel Electric Tiller',
-    leadSubtitle: '4-Wheel Drive heavy-duty diesel power weeders & multi-crop rotavators engineered for tough Indian farms.',
+    leadTitle: 'Agrimate Heavy-Duty Power Weeder & Tiller',
+    leadSubtitle: 'Powerful diesel engines & multi-crop rotavators engineered for tough Indian farms.',
     priceRange: 'Price on Request',
-    specs: '12 HP Commercial Diesel • 4-Wheel Traction • SMAM Subsidy',
+    specs: 'Commercial Diesel Engine • Multi-Crop Rotavator Tillers • SMAM Subsidy',
     bannerImage: '/assets/toppicks_banners/brand_agrimate.png',
     badge: 'FLAGSHIP FARM MECHANIZATION',
     route: '/products?brand=AGRIMATE',
@@ -53,11 +53,11 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
     tagline: 'Advanced Technology',
     brandLogo: '/assets/brands/partner_strip/kasei_hd.png',
     brandSubtitle: 'Global Technology Partner',
-    category: 'MIST DUSTER & EARTH AUGERS',
-    leadTitle: 'KASEI Orchard Mist Blowers & Heavy Earth Augers',
-    leadSubtitle: 'Precision high-velocity agricultural mist blowers, post-hole earth augers & high-durability power cutters.',
+    category: 'TEA HARVESTERS & POWER EQUIPMENT',
+    leadTitle: 'KASEI Professional Tea Harvester & Cutters',
+    leadSubtitle: 'Precision high-velocity agricultural machinery & commercial tea harvesters built for peak field efficiency.',
     priceRange: 'Price on Request',
-    specs: 'High Air-Velocity Mist Blowers • Heavy-Duty Post Hole Drills',
+    specs: 'High Air-Flow Engine • Precision Cutting Blades • Plantation Grade',
     bannerImage: '/assets/toppicks_banners/brand_kasei.png',
     badge: 'ADVANCED JAPANESE TECHNOLOGY',
     route: '/products?brand=KASEI',
@@ -70,11 +70,11 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
     tagline: 'Our Power, Your Passion',
     brandLogo: '/assets/brands/partner_strip/oleo_mac_hd.png',
     brandSubtitle: 'Italy • Germany • USA Engineered',
-    category: 'BRUSH CUTTER & LUBRICANTS',
-    leadTitle: 'Oleo-Mac Commercial Cutters & Prosint Lubricants',
-    leadSubtitle: 'Italian ergonomic commercial brush cutters, Oregon bar forestry saws & Prosint 2T synthetic engine oils.',
+    category: 'PROSINT LUBRICANTS & SPECIAL OILS',
+    leadTitle: 'Oleo-Mac Prosint 2 EVO Synthetic Lubricants',
+    leadSubtitle: 'Special 50:1 2% synthetic lubricant oil for high-performance 2-stroke agricultural engines.',
     priceRange: 'Price on Request',
-    specs: 'Low-Vibration Ergonomic Harness • Prosint 2T Special Lubricant',
+    specs: '100% Synthetic Formula • Anti-Wear Protection • Italian Quality',
     bannerImage: '/assets/toppicks_banners/brand_oleomac.png',
     badge: 'EUROPEAN PRECISION SERIES',
     route: '/products?brand=OLEO-MAC',
@@ -277,6 +277,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                       alt={`${brand.brand} - ${brand.tagline}`}
                       fill
                       priority
+                      unoptimized
                       quality={100}
                       sizes="(max-width: 768px) 100vw, 850px"
                       className="object-contain w-full h-full select-none"
@@ -327,6 +328,8 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                   src={nextBrand.bannerImage}
                   alt={nextBrand.brand}
                   fill
+                  unoptimized
+                  quality={100}
                   sizes="150px"
                   className="object-cover group-hover:scale-105 transition-transform"
                 />

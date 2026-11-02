@@ -67,19 +67,6 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               </a>
             </div>
           </div>
-
-          {/* Quick Right Links */}
-          <div className="flex items-center gap-3 text-[11px]">
-            <a 
-              href="/assets/brochures/corporate_brochure.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white flex items-center gap-1 transition-colors"
-            >
-              <Download className="w-3 h-3 text-yellow-400" />
-              <span className="hidden sm:inline">Corporate</span> Brochure
-            </a>
-          </div>
         </div>
       </div>
 
@@ -375,7 +362,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               className="w-full py-2.5 px-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-extrabold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
               <Download className="w-4 h-4" />
-              <span>Download Corporate Brochure (PDF)</span>
+              <span>Download Brochure (PDF)</span>
             </a>
 
             <a

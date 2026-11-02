@@ -11,7 +11,6 @@ import {
   ChevronDown, 
   ChevronRight, 
   Search,
-  Download,
   Layers
 } from 'lucide-react';
 import categoriesData from '@/data/import/categories.json';
@@ -267,19 +266,6 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               })}
             </div>
           </div>
-
-          {/* Quick CTA or Download Brochure */}
-          <div className="hidden lg:flex items-center pr-2">
-            <a
-              href="/assets/brochures/corporate_brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 py-1.5 rounded transition-colors shadow-sm flex items-center gap-1.5"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Brochure</span>
-            </a>
-          </div>
         </div>
       </nav>
 
@@ -354,17 +340,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
           </div>
 
           {/* Action CTAs in Mobile Menu */}
-          <div className="border-t border-[#07642f]/60 pt-3 space-y-2">
-            <a
-              href="/assets/brochures/corporate_brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 px-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-extrabold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Brochure (PDF)</span>
-            </a>
-
+          <div className="border-t border-[#07642f]/60 pt-3">
             <a
               href="tel:7393938938"
               className="w-full py-2.5 px-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2 border border-white/20"

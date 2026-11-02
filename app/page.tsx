@@ -314,57 +314,28 @@ export default function HomePage() {
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}
       <TestingInstitutesShowcase />
 
-      {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Working App Store & Google Play Links) */}
+      {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Direct Mobile Store Link) */}
       <section className="py-8 sm:py-12 bg-gradient-to-b from-white to-[#fbfdfa] border-t border-gray-200/70">
         <div className="agri-container">
-          <div className="relative w-full aspect-[3072/1024] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-sm hover:shadow-md transition-all duration-300 select-none">
-            {/* 3K Ultra-HD Banner Artwork */}
+          <a
+            href="https://play.google.com/store/search?q=agrimart&c=apps"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Download Agrimart Mobile App"
+            className="block relative w-full aspect-[1024/340] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-sm hover:shadow-md transition-all duration-300 select-none group cursor-pointer"
+          >
+            {/* 3K Ultra-HD Banner Artwork (unoptimized for 100% loss-free HD clarity) */}
             <Image
               src="/assets/banners/app_download_banner_hd.png"
               alt="Download Agrimart Mobile App — Get every farming solution in one place"
               fill
               priority
+              unoptimized
               quality={100}
               sizes="(max-width: 1240px) 100vw, 1240px"
-              className="object-cover object-center pointer-events-none select-none"
+              className="object-cover object-center pointer-events-none select-none transition-transform duration-500 group-hover:scale-[1.01]"
             />
-
-            {/* Clickable Working Google Play Download Button */}
-            <a
-              href="https://play.google.com/store/search?q=agrimart&c=apps"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Get it on Google Play"
-              title="Download Agrimart App on Google Play"
-              className="absolute z-20 rounded-[4px] sm:rounded-lg overflow-hidden group focus:outline-none focus:ring-2 focus:ring-[#0a692d] transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-              style={{
-                left: '7.13%',
-                top: '72.73%',
-                width: '11.33%',
-                height: '9.97%',
-              }}
-            >
-              <span className="absolute inset-0 bg-white/0 group-hover:bg-white/15 group-active:bg-black/15 transition-colors duration-200 rounded-[4px] sm:rounded-lg" />
-            </a>
-
-            {/* Clickable Working Apple App Store Download Button */}
-            <a
-              href="https://apps.apple.com/search?term=agrimart"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download on the App Store"
-              title="Download Agrimart App on the App Store"
-              className="absolute z-20 rounded-[4px] sm:rounded-lg overflow-hidden group focus:outline-none focus:ring-2 focus:ring-[#0a692d] transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-              style={{
-                left: '19.14%',
-                top: '72.73%',
-                width: '11.52%',
-                height: '9.97%',
-              }}
-            >
-              <span className="absolute inset-0 bg-white/0 group-hover:bg-white/15 group-active:bg-black/15 transition-colors duration-200 rounded-[4px] sm:rounded-lg" />
-            </a>
-          </div>
+          </a>
         </div>
       </section>
 

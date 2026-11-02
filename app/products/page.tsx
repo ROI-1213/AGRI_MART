@@ -593,21 +593,21 @@ function ProductsContent() {
                   <span className="text-gray-400 px-1.5 hidden sm:inline text-[11px]">Show:</span>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(16); setCurrentPage(1); }}
+                    onClick={() => { setItemsPerPage(18); setCurrentPage(1); }}
                     className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 16 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
+                      itemsPerPage === 18 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    16
+                    18
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(32); setCurrentPage(1); }}
+                    onClick={() => { setItemsPerPage(36); setCurrentPage(1); }}
                     className={`px-2 py-1 rounded transition-colors cursor-pointer text-xs ${
-                      itemsPerPage === 32 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
+                      itemsPerPage === 36 ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    32
+                    36
                   </button>
                   <button
                     type="button"
@@ -663,8 +663,8 @@ function ProductsContent() {
               </div>
             ) : (
               <>
-                {/* 4-Column Compact Product Cards Grid */}
-                <div className={viewMode === 'grid' ? "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4" : "space-y-4"}>
+                {/* 3-Column Large Product Cards Grid */}
+                <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" : "space-y-4"}>
                   {paginatedProducts.map((product) => (
                     <ProductCard
                       key={product.id}

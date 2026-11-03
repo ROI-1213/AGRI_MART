@@ -52,7 +52,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
   return (
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       {/* 1. Top Utility Bar */}
-      <div className="bg-[#1f2937] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4">
+      <div className="bg-[#1f2937] text-white text-[11px] sm:text-xs py-1.5">
         <div className="agri-container flex items-center justify-between">
           {/* Slogan */}
           <span className="text-gray-300 font-medium tracking-wide">
@@ -62,7 +62,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
       </div>
 
       {/* 2. Main Header Bar (Logo, Desktop Search, Cart & Mobile Toggle) */}
-      <div className="py-2.5 sm:py-3 px-3 sm:px-4 bg-white border-b border-gray-100">
+      <div className="py-2.5 sm:py-3 bg-white border-b border-gray-100">
         <div className="agri-container flex justify-between items-center gap-3 sm:gap-4">
           
           {/* Logo with Smooth Gentle Scale on Hover (Zero 3D Mirroring) */}

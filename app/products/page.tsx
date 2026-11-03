@@ -240,7 +240,7 @@ function ProductsContent() {
 
   return (
     <div className="bg-[#f8fafc] min-h-screen py-6 sm:py-8">
-      <div className="agri-container px-3 sm:px-6">
+      <div className="agri-container">
         
         {/* Breadcrumb Navigation */}
         <div className="text-xs text-gray-500 mb-4 flex items-center space-x-1.5 select-none">
@@ -256,7 +256,7 @@ function ProductsContent() {
         </div>
 
         {/* ================= MAIN 2-COLUMN LAYOUT: Filter Sidebar + Products Grid ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] xl:grid-cols-[270px_1fr] gap-6 items-start">
           
           {/* ================= DESKTOP SIDEBAR: Authentic MyCategories & Brands ================= */}
           <aside className="hidden lg:block sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto pr-1 select-none">
@@ -555,7 +555,7 @@ function ProductsContent() {
           )}
 
           {/* ================= RIGHT MAIN AREA: Header + Product Grid ================= */}
-          <main className="lg:col-span-3">
+          <main className="w-full min-w-0">
             
             {/* Top Bar: "X Products found" on Left + Sort & View Controls on Right */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
@@ -695,8 +695,8 @@ function ProductsContent() {
               </div>
             ) : (
               <>
-                {/* 3-Column Large Product Cards Grid */}
-                <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" : "space-y-4"}>
+                {/* Dynamic Product Cards Grid */}
+                <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5" : "space-y-4"}>
                   {paginatedProducts.map((product) => (
                     <ProductCard
                       key={product.id}

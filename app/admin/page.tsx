@@ -10,7 +10,6 @@ import {
   ShoppingBag, 
   MessageSquare, 
   FileText, 
-  FileCheck2, 
   Plus, 
   Edit, 
   Trash2, 
@@ -26,11 +25,10 @@ import {
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
-import blogsData from '@/data/import/blogs.json';
 import { Product } from '@/types';
 
 export default function AdminPage() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'subsidy' | 'blogs' | 'migration'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries'>('dashboard');
   const [productSearch, setProductSearch] = useState('');
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
@@ -133,19 +131,12 @@ export default function AdminPage() {
 
   const products = productsData as unknown as Product[];
   const categories = categoriesData;
-  const blogs = blogsData;
 
-  // Mock enquiries and subsidy requests
+  // Mock enquiries
   const mockEnquiries = [
     { id: 'enq_1', name: 'Ramesh Patel', mobile: '9845012345', email: 'ramesh.p@gmail.com', type: 'Product Enquiry', subject: 'Kasei Brush Cutter KZ-5200', date: '28 Oct 2026', status: 'NEW' },
     { id: 'enq_2', name: 'Suresh Gowda', mobile: '9448123456', email: 'sgowda@farms.in', type: 'Dealer/Franchise', subject: 'Dealership Enquiry for Shimoga', date: '27 Oct 2026', status: 'CONTACTED' },
     { id: 'enq_3', name: 'Anand Kumar', mobile: '9731234567', email: 'anand@outlook.com', type: 'Service Enquiry', subject: 'Oleo-Mac 2T Oil Bulk Pack', date: '26 Oct 2026', status: 'RESOLVED' },
-  ];
-
-  const mockSubsidyRequests = [
-    { id: 'sub_1', name: 'Manjunatha B.K.', mobile: '9844055667', crop: 'Arecanut & Coffee', land: '8.5 Acres', state: 'Karnataka', district: 'Chikkamagaluru', product: 'AM - Deep Drip Irrigation Stakes', ripl: 'RIPL028696', status: 'UNDER_VERIFICATION' },
-    { id: 'sub_2', name: 'Venkatesh Rao', mobile: '9449887711', crop: 'Paddy', land: '12 Acres', state: 'Karnataka', district: 'Mandya', product: 'Agrimate Manual Vertical Seeder', ripl: 'RIPL036747', status: 'DOCS_COLLECTED' },
-    { id: 'sub_3', name: 'Devendrappa', mobile: '9900112233', crop: 'Cotton & Maize', land: '15 Acres', state: 'Karnataka', district: 'Davangere', product: 'Green Panther Fog Sprayer GP 252 EST', ripl: 'RIPL023199', status: 'APPROVED' },
   ];
 
   return (
@@ -233,21 +224,6 @@ export default function AdminPage() {
           </button>
 
           <button
-            onClick={() => setActiveTab('subsidy')}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'subsidy' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center gap-2.5">
-              <FileCheck2 className="w-4 h-4" />
-              <span>Subsidy Applications</span>
-            </div>
-            <span className="bg-amber-100 text-amber-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
-              {mockSubsidyRequests.length}
-            </span>
-          </button>
-
-          <button
             onClick={() => setActiveTab('enquiries')}
             className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
               activeTab === 'enquiries' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
@@ -261,35 +237,6 @@ export default function AdminPage() {
               {mockEnquiries.length}
             </span>
           </button>
-
-          <button
-            onClick={() => setActiveTab('blogs')}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'blogs' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center gap-2.5">
-              <FileText className="w-4 h-4" />
-              <span>Blog Articles</span>
-            </div>
-            <span className="bg-gray-200 text-gray-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
-              {blogs.length}
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveTab('migration')}
-            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
-              activeTab === 'migration' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-              <span>Migration Audit</span>
-            </div>
-            <span className="bg-green-100 text-green-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
-              Verified
-            </span>
-          </button>
         </aside>
 
         {/* Content Area */}
@@ -300,7 +247,7 @@ export default function AdminPage() {
               <h1 className="text-xl font-bold text-gray-900">Executive Summary</h1>
 
               {/* Metrics */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                   <p className="text-xs text-gray-500 font-semibold uppercase">Total Products</p>
                   <p className="text-2xl font-black text-gray-900 mt-1">{products.length}</p>
@@ -318,11 +265,6 @@ export default function AdminPage() {
                   <p className="text-xs text-emerald-800 font-semibold uppercase">Dealer Applications</p>
                   <p className="text-2xl font-black text-[#075C36] mt-1">{dealerApplications.length}</p>
                   <span className="text-[11px] text-emerald-700 font-medium">B2B Dealership Leads</span>
-                </div>
-                <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
-                  <p className="text-xs text-gray-500 font-semibold uppercase">Subsidy Forms</p>
-                  <p className="text-2xl font-black text-amber-600 mt-1">{mockSubsidyRequests.length}</p>
-                  <span className="text-[11px] text-amber-700 font-medium">SMAM Scheme Forms</span>
                 </div>
                 <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                   <p className="text-xs text-gray-500 font-semibold uppercase">Customer Inquiries</p>
@@ -350,17 +292,6 @@ export default function AdminPage() {
                       </div>
                       <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">
                         {d.status || 'NEW'}
-                      </span>
-                    </div>
-                  ))}
-                  {mockSubsidyRequests.map((sub) => (
-                    <div key={sub.id} className="py-2.5 flex justify-between items-center">
-                      <div>
-                        <p className="font-bold text-gray-900">{sub.name} — <span className="font-normal text-gray-600">{sub.product}</span></p>
-                        <p className="text-gray-500 text-[11px]">{sub.district}, {sub.state} • {sub.crop} ({sub.land})</p>
-                      </div>
-                      <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">
-                        {sub.status}
                       </span>
                     </div>
                   ))}
@@ -483,65 +414,6 @@ export default function AdminPage() {
               </div>
             );
           })()}
-
-          {/* TAB: MIGRATION AUDIT */}
-          {activeTab === 'migration' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900">Migration Audit & Reconciliation</h1>
-                  <p className="text-xs text-gray-500">Full crawl, extraction, and asset validation from https://agrimart.in</p>
-                </div>
-                <a
-                  href="/master_catalog_export.csv"
-                  download="master_catalog_export.csv"
-                  className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm"
-                >
-                  <FileText className="w-4 h-4 text-yellow-300" />
-                  <span>Download Master CSV</span>
-                </a>
-              </div>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="bg-white p-4 rounded-lg border border-gray-200">
-                  <p className="text-xs text-gray-500 font-semibold">Total Migrated Products</p>
-                  <p className="text-2xl font-black text-[#0d9749] mt-1">{products.length}</p>
-                  <p className="text-[10px] text-green-700 font-bold mt-0.5">100% genuine source records</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border border-gray-200">
-                  <p className="text-xs text-gray-500 font-semibold">Original Photos Downloaded</p>
-                  <p className="text-2xl font-black text-blue-600 mt-1">500</p>
-                  <p className="text-[10px] text-blue-700 font-bold mt-0.5">Stored in /assets/products/</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border border-gray-200">
-                  <p className="text-xs text-gray-500 font-semibold">Original PDF Brochures</p>
-                  <p className="text-2xl font-black text-amber-600 mt-1">361</p>
-                  <p className="text-[10px] text-amber-700 font-bold mt-0.5">Leaflets & User Manuals</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border border-gray-200">
-                  <p className="text-xs text-gray-500 font-semibold">Compatible Accessories</p>
-                  <p className="text-2xl font-black text-purple-600 mt-1">768</p>
-                  <p className="text-[10px] text-purple-700 font-bold mt-0.5">Blades, Harnesses & Kits</p>
-                </div>
-              </div>
-
-              {/* Category Breakdown Table */}
-              <div className="bg-white rounded-lg border border-gray-200 p-5">
-                <h3 className="text-sm font-bold text-gray-900 mb-3">Category-Wise Reconciliation</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
-                  {categories.map((c) => (
-                    <div key={c.id} className="flex justify-between items-center p-2.5 bg-gray-50 rounded border border-gray-100">
-                      <span className="font-semibold text-gray-800 truncate mr-2">{c.name}</span>
-                      <span className="font-bold bg-white px-2 py-0.5 rounded border text-[#0d9749]">
-                        {c.count} items
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* TAB: CATEGORIES */}
           {activeTab === 'categories' && (
@@ -841,34 +713,6 @@ export default function AdminPage() {
             </div>
           )}
 
-          {/* TAB: SUBSIDY APPLICATIONS */}
-          {activeTab === 'subsidy' && (
-            <div>
-              <h1 className="text-xl font-bold text-gray-900 mb-4">Farmer Subsidy Applications ({mockSubsidyRequests.length})</h1>
-              <div className="space-y-3">
-                {mockSubsidyRequests.map((sub) => (
-                  <div key={sub.id} className="bg-white border rounded-lg p-5 shadow-sm text-xs">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h3 className="font-bold text-sm text-gray-900">{sub.name}</h3>
-                        <p className="text-gray-600">Mobile: <strong>+91 {sub.mobile}</strong></p>
-                      </div>
-                      <span className="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">
-                        {sub.status}
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-gray-50 p-2.5 rounded border text-[11px]">
-                      <div><span className="text-gray-500">Location:</span> {sub.district}, {sub.state}</div>
-                      <div><span className="text-gray-500">Land Size:</span> {sub.land}</div>
-                      <div><span className="text-gray-500">Crop Type:</span> {sub.crop}</div>
-                      <div><span className="text-gray-500">Equipment:</span> {sub.product} ({sub.ripl})</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* TAB: ENQUIRIES */}
           {activeTab === 'enquiries' && (
             <div>
@@ -888,29 +732,6 @@ export default function AdminPage() {
                     <p className="text-gray-700 bg-gray-50 p-2 rounded">
                       <strong>{enq.type}:</strong> {enq.subject}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* TAB: BLOGS */}
-          {activeTab === 'blogs' && (
-            <div>
-              <h1 className="text-xl font-bold text-gray-900 mb-4">Blog Articles ({blogs.length})</h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                {blogs.map((b) => (
-                  <div key={b.id} className="bg-white border rounded-lg p-4 shadow-sm flex gap-3">
-                    <div className="w-20 h-16 relative rounded overflow-hidden bg-gray-100 shrink-0">
-                      <Image src={b.imageUrl} alt={b.title} fill className="object-cover" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 line-clamp-1">{b.title}</h3>
-                      <p className="text-gray-500 text-[11px] mt-1">{b.date} • {b.category}</p>
-                      <span className="text-gray-400 text-[11px] font-medium mt-2 inline-block">
-                        Draft / Archived
-                      </span>
-                    </div>
                   </div>
                 ))}
               </div>

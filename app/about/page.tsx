@@ -42,13 +42,14 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 shadow-md bg-gray-50 flex items-center justify-center">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200/90 shadow-md bg-white">
               <Image
-                src="/assets/about/aboutFin.png"
-                alt="About Ratnagiri Impex & Agrimart"
+                src="/assets/about/agrimart_mega_showroom.jpg"
+                alt="Ratnagiri Impex & Agrimart Mega Showroom"
                 fill
                 priority
-                className="object-contain p-4"
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>

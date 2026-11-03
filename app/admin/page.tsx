@@ -381,12 +381,14 @@ export default function AdminPage() {
     return matchSearch && matchStatus;
   });
 
-  // Mock enquiries
-  const mockEnquiries = [
-    { id: 'enq_1', name: 'Ramesh Patel', mobile: '9845012345', email: 'ramesh.p@gmail.com', type: 'Product Enquiry', subject: 'Kasei Brush Cutter KZ-5200', date: '28 Oct 2026', status: 'NEW' },
-    { id: 'enq_2', name: 'Suresh Gowda', mobile: '9448123456', email: 'sgowda@farms.in', type: 'Dealer/Franchise', subject: 'Dealership Enquiry for Shimoga', date: '27 Oct 2026', status: 'CONTACTED' },
-    { id: 'enq_3', name: 'Anand Kumar', mobile: '9731234567', email: 'anand@outlook.com', type: 'Service Enquiry', subject: 'Oleo-Mac 2T Oil Bulk Pack', date: '26 Oct 2026', status: 'RESOLVED' },
-  ];
+  // Customer Enquiries State
+  const [enquiries, setEnquiries] = useState([
+    { id: 'enq_1', name: 'Ramesh Patel', mobile: '9845012345', email: 'ramesh.p@gmail.com', type: 'Product Enquiry', subject: 'Kasei Brush Cutter KZ-5200', date: '28 Oct 2026', status: 'NEW', notes: 'Farmer inquiring about KZ-5200 stock & blade kit.' },
+    { id: 'enq_2', name: 'Suresh Gowda', mobile: '9448123456', email: 'sgowda@farms.in', type: 'Dealer/Franchise', subject: 'Dealership Enquiry for Shimoga', date: '27 Oct 2026', status: 'CONTACTED', notes: 'Interested in becoming official retail partner.' },
+    { id: 'enq_3', name: 'Anand Kumar', mobile: '9731234567', email: 'anand@outlook.com', type: 'Service Enquiry', subject: 'Oleo-Mac 2T Oil Bulk Pack', date: '26 Oct 2026', status: 'RESOLVED', notes: 'Bulk dispatch completed.' },
+  ]);
+  const [editingEnquiry, setEditingEnquiry] = useState<any | null>(null);
+  const [isNewEnquiry, setIsNewEnquiry] = useState(false);
 
   return (
     <div className="bg-[#f1f5f9] min-h-screen">
@@ -483,7 +485,7 @@ export default function AdminPage() {
               <span>Contact Enquiries</span>
             </div>
             <span className="bg-blue-100 text-blue-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
-              {mockEnquiries.length}
+              {enquiries.length}
             </span>
           </button>
         </aside>
@@ -517,7 +519,7 @@ export default function AdminPage() {
                 </div>
                 <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                   <p className="text-xs text-gray-500 font-semibold uppercase">Customer Inquiries</p>
-                  <p className="text-2xl font-black text-blue-600 mt-1">{mockEnquiries.length}</p>
+                  <p className="text-2xl font-black text-blue-600 mt-1">{enquiries.length}</p>
                   <span className="text-[11px] text-blue-700 font-medium">Web & Mobile Leads</span>
                 </div>
               </div>
@@ -1014,25 +1016,256 @@ export default function AdminPage() {
 
           {/* TAB: ENQUIRIES */}
           {activeTab === 'enquiries' && (
-            <div>
-              <h1 className="text-xl font-bold text-gray-900 mb-4">Contact Enquiries ({mockEnquiries.length})</h1>
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                <div>
+                  <h1 className="text-xl font-bold text-gray-900">Contact Enquiries & Leads ({enquiries.length})</h1>
+                  <p className="text-xs text-gray-500">Review, update status, record notes, and follow up with farmer and dealer leads</p>
+                </div>
+                <button
+                  onClick={() => {
+                    setEditingEnquiry({
+                      id: `enq_${Date.now()}`,
+                      name: '',
+                      mobile: '',
+                      email: '',
+                      type: 'Product Enquiry',
+                      subject: '',
+                      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+                      status: 'NEW',
+                      notes: ''
+                    });
+                    setIsNewEnquiry(true);
+                  }}
+                  className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>+ Log New Lead / Inquiry</span>
+                </button>
+              </div>
+
               <div className="space-y-3 text-xs">
-                {mockEnquiries.map((enq) => (
-                  <div key={enq.id} className="bg-white border rounded-lg p-5 shadow-sm">
-                    <div className="flex justify-between items-start mb-2">
+                {enquiries.map((enq) => (
+                  <div key={enq.id} className="bg-white border rounded-lg p-5 shadow-sm space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-2.5">
                       <div>
-                        <h3 className="font-bold text-sm text-gray-900">{enq.name}</h3>
-                        <p className="text-gray-600">Mobile: <strong>+91 {enq.mobile}</strong> • Email: {enq.email}</p>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-bold text-sm text-gray-900">{enq.name}</h3>
+                          <span className="text-[10px] text-gray-400 font-mono">({enq.date})</span>
+                        </div>
+                        <p className="text-gray-600 mt-0.5">
+                          Mobile: <strong className="text-gray-900">+91 {enq.mobile}</strong> {enq.email ? `• Email: ${enq.email}` : ''}
+                        </p>
                       </div>
-                      <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded">
-                        {enq.status}
-                      </span>
+
+                      <div className="flex items-center gap-2">
+                        {/* Interactive Status Selector */}
+                        <div className="flex items-center gap-1">
+                          <span className="text-[11px] text-gray-500 font-semibold">Status:</span>
+                          <select
+                            value={enq.status}
+                            onChange={(e) => {
+                              const newStatus = e.target.value;
+                              setEnquiries(prev => prev.map(item => item.id === enq.id ? { ...item, status: newStatus } : item));
+                            }}
+                            className={`text-xs font-bold px-2.5 py-1 rounded border cursor-pointer focus:outline-none ${
+                              enq.status === 'NEW' ? 'bg-blue-50 text-blue-800 border-blue-300' :
+                              enq.status === 'IN_PROGRESS' ? 'bg-amber-50 text-amber-800 border-amber-300' :
+                              enq.status === 'CONTACTED' ? 'bg-purple-50 text-purple-800 border-purple-300' :
+                              enq.status === 'RESOLVED' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' :
+                              'bg-gray-100 text-gray-700 border-gray-300'
+                            }`}
+                          >
+                            <option value="NEW">NEW</option>
+                            <option value="IN_PROGRESS">IN_PROGRESS</option>
+                            <option value="CONTACTED">CONTACTED</option>
+                            <option value="RESOLVED">RESOLVED</option>
+                            <option value="CLOSED">CLOSED</option>
+                          </select>
+                        </div>
+
+                        <button
+                          onClick={() => {
+                            setEditingEnquiry({ ...enq });
+                            setIsNewEnquiry(false);
+                          }}
+                          className="p-1.5 text-emerald-700 hover:bg-emerald-50 rounded border border-emerald-200 transition-colors"
+                          title="Edit Details"
+                        >
+                          <Edit className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (window.confirm(`Delete inquiry from ${enq.name}?`)) {
+                              setEnquiries(prev => prev.filter(item => item.id !== enq.id));
+                            }
+                          }}
+                          className="p-1.5 text-red-500 hover:bg-red-50 rounded border border-red-200 transition-colors"
+                          title="Delete Lead"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
-                    <p className="text-gray-700 bg-gray-50 p-2 rounded">
-                      <strong>{enq.type}:</strong> {enq.subject}
-                    </p>
+
+                    <div className="bg-gray-50 p-2.5 rounded border border-gray-100">
+                      <p className="text-gray-800">
+                        <strong className="text-gray-900">{enq.type}:</strong> {enq.subject}
+                      </p>
+                    </div>
+
+                    {/* Internal Follow-up Notes */}
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        placeholder="Add quick follow-up note (e.g. called farmer, demo scheduled)..."
+                        value={enq.notes || ''}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setEnquiries(prev => prev.map(item => item.id === enq.id ? { ...item, notes: val } : item));
+                        }}
+                        className="flex-1 px-3 py-1.5 text-xs bg-slate-50 border border-gray-200 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                      <span className="text-[10px] text-gray-400 font-semibold shrink-0">Auto-saved</span>
+                    </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* Complete Enquiry Edit / Add Modal */}
+          {editingEnquiry && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
+              <div className="bg-white rounded-xl shadow-2xl max-w-lg w-full flex flex-col overflow-hidden border border-gray-200 animate-in fade-in zoom-in-95 duration-200">
+                <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-between shrink-0">
+                  <h2 className="text-base font-bold text-white">
+                    {isNewEnquiry ? 'Log New Inquiry' : `Edit Lead: ${editingEnquiry.name}`}
+                  </h2>
+                  <button
+                    onClick={() => setEditingEnquiry(null)}
+                    className="p-1 text-gray-400 hover:text-white rounded-lg transition-colors cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div className="p-6 space-y-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Customer / Farmer Name *</label>
+                    <input
+                      type="text"
+                      value={editingEnquiry.name}
+                      onChange={(e) => setEditingEnquiry({ ...editingEnquiry, name: e.target.value })}
+                      placeholder="e.g. Ramesh Patel"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Mobile Number *</label>
+                      <input
+                        type="text"
+                        value={editingEnquiry.mobile}
+                        onChange={(e) => setEditingEnquiry({ ...editingEnquiry, mobile: e.target.value })}
+                        placeholder="9845012345"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Email</label>
+                      <input
+                        type="email"
+                        value={editingEnquiry.email}
+                        onChange={(e) => setEditingEnquiry({ ...editingEnquiry, email: e.target.value })}
+                        placeholder="customer@gmail.com"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Inquiry Type</label>
+                      <select
+                        value={editingEnquiry.type}
+                        onChange={(e) => setEditingEnquiry({ ...editingEnquiry, type: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                      >
+                        <option value="Product Enquiry">Product Enquiry</option>
+                        <option value="Dealer/Franchise">Dealer/Franchise</option>
+                        <option value="Service Enquiry">Service Enquiry</option>
+                        <option value="Subsidy Guidance">Subsidy Guidance</option>
+                        <option value="Bulk Order">Bulk Order</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Status</label>
+                      <select
+                        value={editingEnquiry.status}
+                        onChange={(e) => setEditingEnquiry({ ...editingEnquiry, status: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs bg-white font-bold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                      >
+                        <option value="NEW">NEW</option>
+                        <option value="IN_PROGRESS">IN_PROGRESS</option>
+                        <option value="CONTACTED">CONTACTED</option>
+                        <option value="RESOLVED">RESOLVED</option>
+                        <option value="CLOSED">CLOSED</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Subject / Requirement *</label>
+                    <textarea
+                      rows={3}
+                      value={editingEnquiry.subject}
+                      onChange={(e) => setEditingEnquiry({ ...editingEnquiry, subject: e.target.value })}
+                      placeholder="Requirement description..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Follow-up Notes</label>
+                    <textarea
+                      rows={2}
+                      value={editingEnquiry.notes || ''}
+                      onChange={(e) => setEditingEnquiry({ ...editingEnquiry, notes: e.target.value })}
+                      placeholder="Internal team notes..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 border-t border-gray-200 px-6 py-3 flex items-center justify-end gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setEditingEnquiry(null)}
+                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-bold rounded-lg transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!editingEnquiry.name.trim() || !editingEnquiry.subject.trim()) {
+                        alert('Customer name and requirement are required');
+                        return;
+                      }
+                      if (isNewEnquiry) {
+                        setEnquiries(prev => [editingEnquiry, ...prev]);
+                      } else {
+                        setEnquiries(prev => prev.map(item => item.id === editingEnquiry.id ? editingEnquiry : item));
+                      }
+                      setEditingEnquiry(null);
+                    }}
+                    className="px-5 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    {isNewEnquiry ? 'Log Inquiry' : 'Save Changes'}
+                  </button>
+                </div>
               </div>
             </div>
           )}

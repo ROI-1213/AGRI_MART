@@ -25,14 +25,18 @@ import {
   ExternalLink,
   Save,
   Check,
-  AlertCircle
+  AlertCircle,
+  Home,
+  Building2,
+  Sparkles,
+  Globe
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
 import { Product } from '@/types';
 
 export default function AdminPage() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus'>('dashboard');
   const [productSearch, setProductSearch] = useState('');
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
@@ -40,6 +44,38 @@ export default function AdminPage() {
   // Products & Categories Live State
   const [products, setProducts] = useState<Product[]>(productsData as unknown as Product[]);
   const [categories, setCategories] = useState<any[]>(categoriesData);
+
+  // Home Page CMS State
+  const [homeHeroBanners, setHomeHeroBanners] = useState([
+    { id: 1, title: 'AGRIMATE — Farm Equipment for a Better Tomorrow', image: '/assets/banners/hero_agrimate_hd.png', link: '/products?brand=AGRIMATE', active: true },
+    { id: 2, title: 'KASEI — Advanced Technology Powerful Performance', image: '/assets/banners/hero_kasei_hd.png', link: '/products?brand=KASEI', active: true },
+    { id: 3, title: 'OLEO-MAC — Italian Design & Engineering to meet Indian Fields', image: '/assets/banners/hero_oleomac_hd.png', link: '/products?brand=OLEO-MAC', active: true },
+    { id: 4, title: 'Become an Authorised Dealer — Ratnagiri Impex', image: '/assets/banners/hero_dealer_partner_hd.png', link: '/become-a-partner', active: true },
+  ]);
+
+  const [homePromoBanners, setHomePromoBanners] = useState([
+    { id: 1, title: 'Become a Partner', subtitle: 'GROW TOGETHER', desc: '1,200+ partners across India are already making profit. Partner with us today!', link: '/become-a-partner', buttonText: 'Partner With Us' },
+    { id: 2, title: 'Buy, Earn and Rent', subtitle: 'MORE VALUE FOR YOU', desc: 'Be a pioneer in the booming Indian rural retail marketing.', link: '/cms/buy-earn-rent', buttonText: 'Explore Opportunities' },
+    { id: 3, title: 'Knowledge Bank', subtitle: 'KNOW MORE, GROW MORE', desc: 'Access expert guides, product information and farming insights.', link: '/cms/knowledge-bank', buttonText: 'Explore Resources' },
+  ]);
+
+  const [homeSaveSuccess, setHomeSaveSuccess] = useState(false);
+
+  // About Us CMS State
+  const [aboutData, setAboutData] = useState({
+    title: 'Welcome to RATNAGIRI IMPEX',
+    subtitle: 'About Ratnagiri Impex Pvt. Ltd.',
+    foundedYear: '2000',
+    parentGroup: 'Annapurna Group',
+    flagshipBrand: 'AGRIMATE',
+    showroomImage: '/assets/about/agrimart_mega_showroom.jpg',
+    description: 'We have an extensive presence all over India and are a reputable agricultural equipment enterprise that supplies high-quality products, ensuring durability, enhanced yield, and unmatched customer satisfaction. Ratnagiri Impex was founded in 2000, bringing over two decades of technological excellence in agricultural machinery.',
+    vision: 'To be the premier agricultural machinery provider across India, revolutionizing farming efficiency through affordable, innovative mechanization that reduces manual labor, conserves water and resources, and maximizes economic returns for every farmer.',
+    mission: 'To deliver world-class machinery, robust after-sales support, easily accessible spare parts, and comprehensive hands-on training to agricultural communities via our widespread network of over 750+ dedicated dealers and service hubs.',
+    headquarters: 'Ratnagiri Impex Pvt. Ltd. (Annapurna House), #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.',
+    helpline: '7393 938 938',
+  });
+  const [aboutSaveSuccess, setAboutSaveSuccess] = useState(false);
 
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -408,7 +444,24 @@ export default function AdminPage() {
             Admin Console
           </span>
         </div>
-        <div className="flex items-center space-x-4 text-xs">
+        <div className="flex items-center space-x-3 text-xs">
+          <Link
+            href="/"
+            target="_blank"
+            className="bg-slate-800 hover:bg-slate-700 text-gray-200 px-2.5 py-1.5 rounded flex items-center gap-1.5 transition-colors border border-slate-700 font-semibold"
+          >
+            <Home className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Store: Home</span>
+          </Link>
+          <Link
+            href="/about"
+            target="_blank"
+            className="bg-slate-800 hover:bg-slate-700 text-gray-200 px-2.5 py-1.5 rounded flex items-center gap-1.5 transition-colors border border-slate-700 font-semibold"
+          >
+            <Building2 className="w-3.5 h-3.5 text-amber-400" />
+            <span>Store: About Us</span>
+          </Link>
+          <span className="text-gray-500">|</span>
           <span className="text-gray-300">Logged in as: <strong>Admin User (Ratnagiri Impex)</strong></span>
           <Link href="/" className="text-gray-400 hover:text-white flex items-center gap-1">
             <LogOut className="w-3.5 h-3.5" /> Back to Store
@@ -419,6 +472,10 @@ export default function AdminPage() {
       <div className="flex">
         {/* Sidebar */}
         <aside className="w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-56px)] p-4 space-y-1 text-xs font-semibold text-gray-700">
+          <div className="pb-1 px-3">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Core Management</p>
+          </div>
+
           <button
             onClick={() => setActiveTab('dashboard')}
             className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded transition-colors ${
@@ -486,6 +543,41 @@ export default function AdminPage() {
             </div>
             <span className="bg-blue-100 text-blue-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
               {enquiries.length}
+            </span>
+          </button>
+
+          {/* Storefront Pages CMS */}
+          <div className="pt-4 pb-1 px-3">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Store Pages & Content</p>
+          </div>
+
+          <button
+            onClick={() => setActiveTab('homepage')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
+              activeTab === 'homepage' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Home className="w-4 h-4" />
+              <span>Home Page</span>
+            </div>
+            <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
+              Live
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('aboutus')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
+              activeTab === 'aboutus' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Building2 className="w-4 h-4" />
+              <span>About Us Page</span>
+            </div>
+            <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
+              Live
             </span>
           </button>
         </aside>
@@ -1265,6 +1357,362 @@ export default function AdminPage() {
                   >
                     {isNewEnquiry ? 'Log Inquiry' : 'Save Changes'}
                   </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: HOME PAGE CMS */}
+          {activeTab === 'homepage' && (
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+                      <Home className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h1 className="text-xl font-bold text-gray-900">Home Page Content & Sections</h1>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage main hero carousel, dynamic promotional cards, category shortcuts, and brand spotlights
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>View Live Home Page ↗</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setHomeSaveSuccess(true);
+                      setTimeout(() => setHomeSaveSuccess(false), 2000);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    {homeSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{homeSaveSuccess ? 'Saved Live!' : 'Save Home Settings'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 1. Hero Banners Carousel Manager */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b pb-3">
+                  <div>
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-emerald-600" />
+                      <span>1. Main Hero Carousel Banners ({homeHeroBanners.length} Slides)</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">High-definition slides auto-advancing every 6 seconds on the home page</p>
+                  </div>
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    6s Transition
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {homeHeroBanners.map((banner, bIdx) => (
+                    <div key={banner.id} className="border border-gray-200 rounded-lg p-3 bg-gray-50 flex flex-col justify-between">
+                      <div className="flex items-start gap-3">
+                        <div className="w-24 h-16 relative rounded bg-white border shrink-0 overflow-hidden">
+                          <Image src={banner.image} alt={banner.title} fill unoptimized className="object-cover" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
+                          <p className="font-bold text-xs text-gray-900 truncate mt-0.5" title={banner.title}>{banner.title}</p>
+                          <p className="text-[11px] text-gray-500 font-mono truncate mt-0.5">Link: {banner.link}</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 pt-2 border-t border-gray-200 flex items-center justify-between text-xs">
+                        <span className="text-[11px] text-green-700 font-bold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                          <span>Active on Store</span>
+                        </span>
+                        <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold text-[11px]">
+                          Test Link →
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 2. Promotional Showcase Banners */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b pb-3">
+                  <div>
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-emerald-600" />
+                      <span>2. Agrimart Growth & Opportunities Banners ({homePromoBanners.length} Cards)</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">Interactive cards positioned immediately below the hero slider</p>
+                  </div>
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    2.5s Auto-Cycle
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {homePromoBanners.map((promo) => (
+                    <div key={promo.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col justify-between">
+                      <div>
+                        <span className="text-[10px] font-bold tracking-wider text-amber-700 uppercase bg-amber-100 px-2 py-0.5 rounded">
+                          {promo.subtitle}
+                        </span>
+                        <h3 className="font-bold text-sm text-gray-900 mt-2">{promo.title}</h3>
+                        <p className="text-xs text-gray-600 mt-1 leading-relaxed">{promo.desc}</p>
+                      </div>
+                      <div className="mt-4 pt-2 border-t border-gray-200 flex items-center justify-between text-xs">
+                        <span className="text-gray-500 font-mono text-[10px] truncate max-w-[120px]">{promo.link}</span>
+                        <span className="text-emerald-800 font-bold bg-white px-2 py-0.5 rounded border text-[11px]">
+                          {promo.buttonText} →
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 3. Included Sections Summary Grid */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
+                  3. Active Sections Configured on Home Page
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Shop by Category</p>
+                      <p className="text-gray-500 text-[11px]">28 round categories with icons</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Trusted Brands Strip</p>
+                      <p className="text-gray-500 text-[11px]">AGRIMATE, KASEI, OLEO-MAC</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Agrimart Top Picks</p>
+                      <p className="text-gray-500 text-[11px]">Weeders, Tillers, Chainsaws</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Flagship Products</p>
+                      <p className="text-gray-500 text-[11px]">8 featured units with 4WD tractor</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Industry Awards Marquee</p>
+                      <p className="text-gray-500 text-[11px]">6 National & Asian Trophies</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
+                    <div>
+                      <p className="font-bold text-gray-900">Academic & Testing Institutes</p>
+                      <p className="text-gray-500 text-[11px]">ICAR-CIAE, SRFMTTI, UAS, TNAU</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+
+                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center sm:col-span-2 lg:col-span-3">
+                    <div>
+                      <p className="font-bold text-gray-900">Mobile App Download Banner</p>
+                      <p className="text-gray-500 text-[11px]">Google Play Store & Apple App Store direct badges</p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: ABOUT US CMS */}
+          {activeTab === 'aboutus' && (
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 bg-amber-100 text-amber-800 rounded-lg">
+                      <Building2 className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h1 className="text-xl font-bold text-gray-900">About Us Page Content & Profile</h1>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage corporate profile, founding background, showroom photography, vision, mission, and value pillars
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/about"
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
+                    <span>View Live About Page ↗</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setAboutSaveSuccess(true);
+                      setTimeout(() => setAboutSaveSuccess(false), 2000);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    {aboutSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{aboutSaveSuccess ? 'Saved Live!' : 'Save About Us Settings'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 1. Company Identity & Founding Details */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
+                  1. Company Identity & Overview
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Company Title</label>
+                    <input
+                      type="text"
+                      value={aboutData.title}
+                      onChange={(e) => setAboutData({ ...aboutData, title: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Founded Year</label>
+                    <input
+                      type="text"
+                      value={aboutData.foundedYear}
+                      onChange={(e) => setAboutData({ ...aboutData, foundedYear: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Parent Group & In-House Brand</label>
+                    <input
+                      type="text"
+                      value={`${aboutData.parentGroup} • ${aboutData.flagshipBrand}`}
+                      disabled
+                      className="w-full px-3 py-2 border rounded-lg bg-gray-100 font-bold text-emerald-800"
+                    />
+                  </div>
+                </div>
+
+                <div className="text-xs">
+                  <label className="block font-bold text-gray-700 mb-1">Company Description & Story</label>
+                  <textarea
+                    rows={4}
+                    value={aboutData.description}
+                    onChange={(e) => setAboutData({ ...aboutData, description: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                </div>
+              </div>
+
+              {/* 2. Showroom Showcase Photo */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
+                  2. Bangalore Mega Showroom Photograph
+                </h2>
+                <div className="flex flex-col sm:flex-row gap-5 items-center">
+                  <div className="w-full sm:w-64 aspect-[4/3] relative rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shrink-0 shadow-sm">
+                    <Image
+                      src={aboutData.showroomImage}
+                      alt="Bangalore Mega Showroom"
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2 text-xs">
+                    <label className="block font-bold text-gray-700">Image Asset Path</label>
+                    <input
+                      type="text"
+                      value={aboutData.showroomImage}
+                      onChange={(e) => setAboutData({ ...aboutData, showroomImage: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-mono text-gray-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                    <p className="text-[11px] text-gray-500 leading-relaxed">
+                      Rendered on the About Us page using loss-free ultra-high definition rendering.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Vision & Mission Statements */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-2 text-xs">
+                  <h3 className="font-bold text-sm text-gray-900 flex items-center gap-1.5 text-emerald-800">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Our Vision Statement</span>
+                  </h3>
+                  <textarea
+                    rows={4}
+                    value={aboutData.vision}
+                    onChange={(e) => setAboutData({ ...aboutData, vision: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                </div>
+
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-2 text-xs">
+                  <h3 className="font-bold text-sm text-gray-900 flex items-center gap-1.5 text-amber-800">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Our Mission Statement</span>
+                  </h3>
+                  <textarea
+                    rows={4}
+                    value={aboutData.mission}
+                    onChange={(e) => setAboutData({ ...aboutData, mission: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                </div>
+              </div>
+
+              {/* 4. Corporate Headquarters */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-3 text-xs">
+                <h2 className="text-sm font-bold text-gray-900 border-b pb-2">
+                  4. Corporate Headquarters & Contact
+                </h2>
+                <div>
+                  <label className="block font-bold text-gray-700 mb-1">Registered Address</label>
+                  <input
+                    type="text"
+                    value={aboutData.headquarters}
+                    onChange={(e) => setAboutData({ ...aboutData, headquarters: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-gray-700 mb-1">Toll-Free Helpline</label>
+                  <input
+                    type="text"
+                    value={aboutData.helpline}
+                    onChange={(e) => setAboutData({ ...aboutData, helpline: e.target.value })}
+                    className="w-full max-w-xs px-3 py-2 border rounded-lg font-bold text-emerald-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
                 </div>
               </div>
             </div>

@@ -426,8 +426,6 @@ export default function AdminPage() {
                         <th className="px-4 py-3">RIPL Code</th>
                         <th className="px-4 py-3">Brand</th>
                         <th className="px-4 py-3">Category</th>
-                        <th className="px-4 py-3">Price</th>
-                        <th className="px-4 py-3">Stock Status</th>
                         <th className="px-4 py-3 text-right">Action</th>
                       </tr>
                     </thead>
@@ -443,16 +441,6 @@ export default function AdminPage() {
                           <td className="px-4 py-2.5 font-mono font-bold text-gray-700">{p.riplCode}</td>
                           <td className="px-4 py-2.5 font-bold text-green-800">{p.brand}</td>
                           <td className="px-4 py-2.5 text-gray-600">{p.category}</td>
-                          <td className="px-4 py-2.5 font-bold text-gray-900">
-                            {p.sellingPrice > 0 ? `₹ ${p.sellingPrice.toLocaleString('en-IN')}` : 'Price on Request'}
-                          </td>
-                          <td className="px-4 py-2.5">
-                            <span className={`inline-flex px-2 py-0.5 rounded text-[10px] font-bold ${
-                              p.availability === 'In Stock' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                            }`}>
-                              {p.availability}
-                            </span>
-                          </td>
                           <td className="px-4 py-2.5 text-right">
                             <Link
                               href={`/products/${p.id}`}

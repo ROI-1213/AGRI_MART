@@ -5,6 +5,7 @@ export interface Product {
   riplCode: string;
   brand: string;
   category: string;
+  subcategory?: string;
   mrp: number;
   sellingPrice: number;
   discountPercentage: number;
@@ -50,11 +51,13 @@ export interface BlogPost {
   date: string;
   author: string;
   category: string;
+  subcategory?: string;
   content: string;
 }
 
 export interface FAQItem {
   category: string;
+  subcategory?: string;
   question: string;
   answer: string;
 }

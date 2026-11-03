@@ -29,6 +29,74 @@ function normalizeBrandName(b: string): string {
   return b.toUpperCase();
 }
 
+function matchSubcategory(product: Product, subcategory: string): boolean {
+  if (!subcategory) return true;
+  if (product.subcategory && product.subcategory.toLowerCase() === subcategory.toLowerCase()) {
+    return true;
+  }
+
+  const subLower = subcategory.toLowerCase().trim();
+  const text = `${product.name} ${product.description || ''} ${product.category}`.toLowerCase();
+
+  // 1. Direct substring
+  if (text.includes(subLower)) return true;
+
+  // 2. Power source keywords
+  const isPetrol = ['petrol', 'gasoline', '2-stroke', '4-stroke', '2 stroke', '4 stroke', ' 2s', ' 4s', ' 2t', 'cc ', 'displacement', 'engine'].some(w => text.includes(w));
+  const isElectricOrBattery = ['electric', 'motor', '220v', 'voltage', ' kw', 'battery', 'cordless', 'li-ion', '12v', '24v', 'rechargeable'].some(w => text.includes(w));
+  const isDiesel = text.includes('diesel');
+  const isManual = text.includes('manual');
+  const isAccessory = ['accessory', 'accessories', 'spare', 'spares', 'attachment', 'drill bit', 'blade', 'duster kit', 'pipe', 'hose', 'gun', 'kit'].some(w => text.includes(w));
+
+  // If subcategory has "Two-stroke" or "2-stroke" or "2S"
+  if (subLower.includes('two-stroke') || subLower.includes('2-stroke') || subLower.includes('2s')) {
+    return text.includes('2-stroke') || text.includes('2 stroke') || text.includes('2s') || text.includes('2t') || (isPetrol && !text.includes('4-stroke') && !text.includes('4 stroke') && !text.includes('4s'));
+  }
+  // If subcategory has "Four-stroke" or "4-stroke" or "4S"
+  if (subLower.includes('four-stroke') || subLower.includes('4-stroke') || subLower.includes('4s')) {
+    return text.includes('4-stroke') || text.includes('4 stroke') || text.includes('4s');
+  }
+
+  // If subcategory specifies Petrol
+  if (subLower.includes('petrol')) {
+    return isPetrol;
+  }
+  // If subcategory specifies Electric or Battery
+  if (subLower.includes('electric') || subLower.includes('battery')) {
+    return isElectricOrBattery;
+  }
+  // If subcategory specifies Diesel
+  if (subLower.includes('diesel')) {
+    return isDiesel;
+  }
+  // If subcategory specifies Manual
+  if (subLower.includes('manual')) {
+    return isManual;
+  }
+  // If subcategory specifies Accessories / Spares
+  if (['accessories', 'spares', 'attachments', 'blades', 'fittings'].some(w => subLower.includes(w))) {
+    return isAccessory;
+  }
+
+  // Two men / One man earth auger
+  if (subLower.includes('two men') || subLower.includes('2 men')) {
+    return text.includes('2 men') || text.includes('two men') || text.includes('2m-');
+  }
+  if (subLower.includes('one man') || subLower.includes('single man')) {
+    return !text.includes('2 men') && !text.includes('two men') && !text.includes('2m-');
+  }
+
+  // Token matching for specific names (e.g., "Tea Harvester", "Coffee", "Paddy", etc.)
+  const tokens = subLower.replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(t => t.length >= 3 && !['the', 'and', 'with', 'out', 'for', 'type', 'series'].includes(t));
+  if (tokens.length > 0) {
+    const matches = tokens.map(t => text.includes(t));
+    if (matches.every(Boolean)) return true;
+    if (matches.filter(Boolean).length >= Math.ceil(tokens.length * 0.7)) return true;
+  }
+
+  return false;
+}
+
 function ProductsContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || '';
@@ -139,7 +207,7 @@ function ProductsContent() {
         }
       }
       // Subcategory filter
-      if (selectedSubcategory && !p.name.toLowerCase().includes(selectedSubcategory.toLowerCase()) && !p.description.toLowerCase().includes(selectedSubcategory.toLowerCase())) {
+      if (selectedSubcategory && !matchSubcategory(p, selectedSubcategory)) {
         return false;
       }
       // Brand filter
@@ -262,9 +330,9 @@ function ProductsContent() {
           <aside className="hidden lg:block sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto pr-1 select-none">
             
             {/* Box 1: MyCategories */}
-            <div className="border border-[#0b803e] rounded-xl shadow-xs bg-[#0d9749] overflow-hidden">
+            <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
               {/* Header: MyCategories */}
-              <div className="bg-[#097b3a] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
                 <span>MyCategories</span>
                 {(selectedCategory || selectedSubcategory) && (
                   <button
@@ -283,7 +351,7 @@ function ProductsContent() {
               </div>
 
               {/* Categories List */}
-              <div className="divide-y divide-[#0b803e]">
+              <div className="divide-y divide-[#579304]">
                 {categoriesData.map((cat) => {
                   const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
                   const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
@@ -304,10 +372,10 @@ function ProductsContent() {
                           }
                           setCurrentPage(1);
                         }}
-                        className={`w-full text-left px-3.5 py-2.5 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#0b803e] flex items-center justify-between cursor-pointer transition-colors ${
+                        className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
                           isSelected
-                            ? 'bg-[#075e2d]'
-                            : 'bg-[#0d9749] hover:bg-[#0b8641]'
+                            ? 'bg-[#317e00]'
+                            : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                         }`}
                       >
                         <span className="truncate pr-1">{cat.name}</span>
@@ -315,7 +383,7 @@ function ProductsContent() {
 
                       {/* Nested Subcategories Accordion */}
                       {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                        <div className="bg-[#0a6f35] border-b border-[#064e25]">
+                        <div className="bg-[#337e04] border-b border-[#255f02]">
                           {cat.subcategories.map((sub: string) => {
                             const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
                             return (
@@ -326,8 +394,8 @@ function ProductsContent() {
                                   setSelectedSubcategory(isSubActive ? '' : sub);
                                   setCurrentPage(1);
                                 }}
-                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#064e25]/70 flex items-center justify-between transition-colors hover:bg-[#0b803e] hover:border-l-4 hover:border-white cursor-pointer ${
-                                  isSubActive ? 'bg-[#064e25] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#255f02]/70 flex items-center justify-between transition-colors hover:bg-[#3c9006] hover:border-l-4 hover:border-white cursor-pointer ${
+                                  isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
                                 }`}
                               >
                                 <span className="truncate">{sub}</span>
@@ -344,9 +412,9 @@ function ProductsContent() {
             </div>
 
             {/* Box 2: Brands */}
-            <div className="mt-3 border border-[#0b803e] rounded-xl shadow-xs bg-[#0d9749] overflow-hidden">
+            <div className="mt-3 border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
               {/* Header: Brands */}
-              <div className="bg-[#097b3a] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
                 <span>Brands</span>
                 {selectedBrands.length > 0 && (
                   <button
@@ -363,7 +431,7 @@ function ProductsContent() {
               </div>
 
               {/* Brands List */}
-              <div className="divide-y divide-[#0b803e]">
+              <div className="divide-y divide-[#579304]">
                 {allBrands.map((brand) => {
                   const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
                   return (
@@ -371,10 +439,10 @@ function ProductsContent() {
                       key={brand}
                       type="button"
                       onClick={() => toggleBrand(brand)}
-                      className={`w-full text-left px-3.5 py-2.5 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#0b803e] flex items-center justify-between cursor-pointer transition-colors ${
+                      className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
                         isChecked
-                          ? 'bg-[#075e2d]'
-                          : 'bg-[#0d9749] hover:bg-[#0b8641]'
+                          ? 'bg-[#317e00]'
+                          : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                       }`}
                     >
                       <span>{brand}</span>
@@ -391,7 +459,7 @@ function ProductsContent() {
             <div className="fixed inset-0 z-50 lg:hidden flex justify-end bg-black/60 backdrop-blur-xs">
               <div className="w-full max-w-sm h-full bg-[#f8fafc] shadow-2xl flex flex-col justify-between overflow-hidden">
                 {/* Header */}
-                <div className="p-4 border-b border-[#0b803e] flex items-center justify-between bg-[#0d9749] text-white">
+                <div className="p-4 border-b border-[#4d8504] flex items-center justify-between bg-[#63b16b] text-white">
                   <div className="flex items-center gap-2">
                     <Filter className="w-4 h-4 text-white" />
                     <h3 className="font-extrabold text-sm text-white">Filter Products</h3>
@@ -409,8 +477,8 @@ function ProductsContent() {
                 {/* Filter Items Scroll Area */}
                 <div className="flex-1 overflow-y-auto p-3 space-y-4">
                   {/* Category Box */}
-                  <div className="border border-[#0b803e] shadow-xs bg-[#0d9749] overflow-hidden rounded-xl">
-                    <div className="bg-[#097b3a] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
+                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
                       <span>MyCategories</span>
                       {selectedCategory && (
                         <button
@@ -426,7 +494,7 @@ function ProductsContent() {
                         </button>
                       )}
                     </div>
-                    <div className="divide-y divide-[#0b803e]">
+                    <div className="divide-y divide-[#579304]">
                       {categoriesData.map((cat) => {
                         const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
                         const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
@@ -446,15 +514,15 @@ function ProductsContent() {
                                   setExpandedCategory(cat.name);
                                 }
                               }}
-                              className={`w-full text-left px-3.5 py-2.5 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
-                                isSelected ? 'bg-[#075e2d]' : 'bg-[#0d9749]'
+                              className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
+                                isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
                               }`}
                             >
                               <span className="truncate pr-1">{cat.name}</span>
                             </button>
 
                             {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                              <div className="bg-[#0a6f35]">
+                              <div className="bg-[#337e04]">
                                 {cat.subcategories.map((sub: string) => {
                                   const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
                                   return (
@@ -462,8 +530,8 @@ function ProductsContent() {
                                       key={sub}
                                       type="button"
                                       onClick={() => setSelectedSubcategory(isSubActive ? '' : sub)}
-                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#064e25]/70 flex items-center justify-between ${
-                                        isSubActive ? 'bg-[#064e25] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#255f02]/70 flex items-center justify-between ${
+                                        isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
                                       }`}
                                     >
                                       <span className="truncate">{sub}</span>
@@ -480,8 +548,8 @@ function ProductsContent() {
                   </div>
 
                   {/* Brand Box */}
-                  <div className="border border-[#0b803e] shadow-xs bg-[#0d9749] overflow-hidden rounded-xl">
-                    <div className="bg-[#097b3a] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
+                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
                       <span>Brands</span>
                       {selectedBrands.length > 0 && (
                         <button
@@ -493,7 +561,7 @@ function ProductsContent() {
                         </button>
                       )}
                     </div>
-                    <div className="divide-y divide-[#0b803e]">
+                    <div className="divide-y divide-[#579304]">
                       {allBrands.map((brand) => {
                         const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
                         return (
@@ -501,8 +569,8 @@ function ProductsContent() {
                             key={brand}
                             type="button"
                             onClick={() => toggleBrand(brand)}
-                            className={`w-full text-left px-3.5 py-2.5 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
-                              isChecked ? 'bg-[#075e2d]' : 'bg-[#0d9749]'
+                            className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
+                              isChecked ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
                             }`}
                           >
                             <span>{brand}</span>

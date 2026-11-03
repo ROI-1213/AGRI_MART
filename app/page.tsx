@@ -66,7 +66,7 @@ export default function HomePage() {
       description: '1,200+ partners across India are already making profit. Partner with us today!',
       buttonText: 'Partner With Us',
       link: '/become-a-partner',
-      photo: '/assets/branding/promo_photo_partner.png',
+      photo: '/assets/branding/become_partner_hd.png',
       bgGradient: 'from-[#f2f8f3] via-[#ffffff] to-[#f4f9f5]',
     },
     {
@@ -277,11 +277,7 @@ export default function HomePage() {
 
                   {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing */}
                   <div 
-                    className={`relative h-full shrink-0 overflow-hidden [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)] select-none ${
-                      promo.id === 2 || promo.id === 3
-                        ? 'w-[48%] sm:w-[54%] md:w-[58%]' 
-                        : 'w-[38%] sm:w-[42%] md:w-[46%]'
-                    }`}
+                    className="relative w-[48%] sm:w-[54%] md:w-[58%] h-full shrink-0 overflow-hidden [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)] select-none"
                   >
                     <Image
                       src={promo.photo}

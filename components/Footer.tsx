@@ -226,6 +226,44 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Pan India Network Card (Matching Image 2 Reference in Crisp Ultra-HD) */}
+            <div className="mt-4 pt-3 border-t border-gray-300/80">
+              <div className="rounded-xl overflow-hidden border border-gray-300/90 bg-white shadow-xs hover:shadow-md transition-all duration-300 group">
+                {/* Upper: Ultra-HD India Network Map */}
+                <div className="p-2 sm:p-2.5 bg-white flex items-center justify-center">
+                  <Image
+                    src="/assets/branding/india_network_map_hd.png"
+                    alt="Agrimart Pan India Network Map"
+                    width={632}
+                    height={696}
+                    unoptimized
+                    priority
+                    className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Lower: Green Network Reach Stats Banner */}
+                <div className="bg-[#097b3a] py-2 px-3 grid grid-cols-2 divide-x divide-white/20 text-center select-none">
+                  <div className="px-1 flex flex-col items-center justify-center">
+                    <span className="text-sm sm:text-base font-black text-yellow-300 leading-none tracking-tight">
+                      750+
+                    </span>
+                    <span className="text-[8px] sm:text-[9px] font-bold text-white tracking-wider uppercase leading-tight mt-0.5">
+                      Network Touchpoints
+                    </span>
+                  </div>
+                  <div className="px-1 flex flex-col items-center justify-center">
+                    <span className="text-sm sm:text-base font-black text-yellow-300 leading-none tracking-tight">
+                      28
+                    </span>
+                    <span className="text-[8px] sm:text-[9px] font-bold text-white tracking-wider uppercase leading-tight mt-0.5">
+                      States Covered
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Social Media Channels (Original Brand Logos) */}
             <div className="mt-5 pt-4 border-t border-gray-300/80">
               <p className="text-xs font-bold text-gray-950 mb-2.5 tracking-wide">

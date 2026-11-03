@@ -53,20 +53,11 @@ export default function Header({ onOpenAuth }: HeaderProps) {
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       {/* 1. Top Utility Bar */}
       <div className="bg-[#1f2937] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4">
-        <div className="agri-container flex justify-between items-center gap-2">
+        <div className="agri-container flex items-center justify-between">
           {/* Slogan */}
-          <span className="text-gray-300 hidden md:inline font-medium">
+          <span className="text-gray-300 font-medium tracking-wide">
             Farm Equipment | Green Care | Services
           </span>
-
-          {/* Phone / Toll Free (Right End) */}
-          <div className="flex items-center space-x-1.5 text-white font-semibold ml-auto md:ml-0">
-            <Phone className="w-3.5 h-3.5 text-[#4ade80]" />
-            <span className="hidden xs:inline">Toll Free: </span>
-            <a href="tel:7393938938" className="hover:text-green-300 font-bold transition-colors">
-              7393 938 938
-            </a>
-          </div>
         </div>
       </div>
 

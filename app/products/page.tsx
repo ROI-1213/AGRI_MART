@@ -262,9 +262,9 @@ function ProductsContent() {
           <aside className="hidden lg:block sticky top-[155px] z-30 max-h-[calc(100vh-175px)] overflow-y-auto pr-1 select-none">
             
             {/* Box 1: MyCategories */}
-            <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
+            <div className="border border-[#0b803e] rounded-xl shadow-xs bg-[#0d9749] overflow-hidden">
               {/* Header: MyCategories */}
-              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+              <div className="bg-[#097b3a] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
                 <span>MyCategories</span>
                 {(selectedCategory || selectedSubcategory) && (
                   <button
@@ -283,7 +283,7 @@ function ProductsContent() {
               </div>
 
               {/* Categories List */}
-              <div className="divide-y divide-[#579304]">
+              <div className="divide-y divide-[#0b803e]">
                 {categoriesData.map((cat) => {
                   const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
                   const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
@@ -304,23 +304,18 @@ function ProductsContent() {
                           }
                           setCurrentPage(1);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
+                        className={`w-full text-left px-3.5 py-2.5 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#0b803e] flex items-center justify-between cursor-pointer transition-colors ${
                           isSelected
-                            ? 'bg-[#317e00]'
-                            : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
+                            ? 'bg-[#075e2d]'
+                            : 'bg-[#0d9749] hover:bg-[#0b8641]'
                         }`}
                       >
                         <span className="truncate pr-1">{cat.name}</span>
-                        <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
-                          {isSelected && (
-                            <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>
-                          )}
-                        </span>
                       </button>
 
                       {/* Nested Subcategories Accordion */}
                       {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                        <div className="bg-[#337e04] border-b border-[#255f02]">
+                        <div className="bg-[#0a6f35] border-b border-[#064e25]">
                           {cat.subcategories.map((sub: string) => {
                             const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
                             return (
@@ -331,8 +326,8 @@ function ProductsContent() {
                                   setSelectedSubcategory(isSubActive ? '' : sub);
                                   setCurrentPage(1);
                                 }}
-                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#255f02]/70 flex items-center justify-between transition-colors hover:bg-[#3c9006] hover:border-l-4 hover:border-white cursor-pointer ${
-                                  isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#064e25]/70 flex items-center justify-between transition-colors hover:bg-[#0b803e] hover:border-l-4 hover:border-white cursor-pointer ${
+                                  isSubActive ? 'bg-[#064e25] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
                                 }`}
                               >
                                 <span className="truncate">{sub}</span>
@@ -349,9 +344,9 @@ function ProductsContent() {
             </div>
 
             {/* Box 2: Brands */}
-            <div className="mt-3 border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden">
+            <div className="mt-3 border border-[#0b803e] rounded-xl shadow-xs bg-[#0d9749] overflow-hidden">
               {/* Header: Brands */}
-              <div className="bg-[#63b16b] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
+              <div className="bg-[#097b3a] text-white px-3.5 py-2.5 flex items-center justify-between font-bold text-[14px] tracking-wide select-none">
                 <span>Brands</span>
                 {selectedBrands.length > 0 && (
                   <button
@@ -368,7 +363,7 @@ function ProductsContent() {
               </div>
 
               {/* Brands List */}
-              <div className="divide-y divide-[#579304]">
+              <div className="divide-y divide-[#0b803e]">
                 {allBrands.map((brand) => {
                   const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
                   return (
@@ -376,18 +371,13 @@ function ProductsContent() {
                       key={brand}
                       type="button"
                       onClick={() => toggleBrand(brand)}
-                      className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
+                      className={`w-full text-left px-3.5 py-2.5 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#0b803e] flex items-center justify-between cursor-pointer transition-colors ${
                         isChecked
-                          ? 'bg-[#317e00]'
-                          : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
+                          ? 'bg-[#075e2d]'
+                          : 'bg-[#0d9749] hover:bg-[#0b8641]'
                       }`}
                     >
                       <span>{brand}</span>
-                      <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
-                        {isChecked && (
-                          <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>
-                        )}
-                      </span>
                     </button>
                   );
                 })}
@@ -401,7 +391,7 @@ function ProductsContent() {
             <div className="fixed inset-0 z-50 lg:hidden flex justify-end bg-black/60 backdrop-blur-xs">
               <div className="w-full max-w-sm h-full bg-[#f8fafc] shadow-2xl flex flex-col justify-between overflow-hidden">
                 {/* Header */}
-                <div className="p-4 border-b border-[#4d8504] flex items-center justify-between bg-[#63b16b] text-white">
+                <div className="p-4 border-b border-[#0b803e] flex items-center justify-between bg-[#0d9749] text-white">
                   <div className="flex items-center gap-2">
                     <Filter className="w-4 h-4 text-white" />
                     <h3 className="font-extrabold text-sm text-white">Filter Products</h3>
@@ -419,8 +409,8 @@ function ProductsContent() {
                 {/* Filter Items Scroll Area */}
                 <div className="flex-1 overflow-y-auto p-3 space-y-4">
                   {/* Category Box */}
-                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
-                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                  <div className="border border-[#0b803e] shadow-xs bg-[#0d9749] overflow-hidden rounded-xl">
+                    <div className="bg-[#097b3a] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
                       <span>MyCategories</span>
                       {selectedCategory && (
                         <button
@@ -436,7 +426,7 @@ function ProductsContent() {
                         </button>
                       )}
                     </div>
-                    <div className="divide-y divide-[#579304]">
+                    <div className="divide-y divide-[#0b803e]">
                       {categoriesData.map((cat) => {
                         const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
                         const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
@@ -456,18 +446,15 @@ function ProductsContent() {
                                   setExpandedCategory(cat.name);
                                 }
                               }}
-                              className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
-                                isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
+                              className={`w-full text-left px-3.5 py-2.5 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
+                                isSelected ? 'bg-[#075e2d]' : 'bg-[#0d9749]'
                               }`}
                             >
                               <span className="truncate pr-1">{cat.name}</span>
-                              <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
-                                {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>}
-                              </span>
                             </button>
 
                             {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                              <div className="bg-[#337e04]">
+                              <div className="bg-[#0a6f35]">
                                 {cat.subcategories.map((sub: string) => {
                                   const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
                                   return (
@@ -475,8 +462,8 @@ function ProductsContent() {
                                       key={sub}
                                       type="button"
                                       onClick={() => setSelectedSubcategory(isSubActive ? '' : sub)}
-                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#255f02]/70 flex items-center justify-between ${
-                                        isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
+                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#064e25]/70 flex items-center justify-between ${
+                                        isSubActive ? 'bg-[#064e25] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
                                       }`}
                                     >
                                       <span className="truncate">{sub}</span>
@@ -493,8 +480,8 @@ function ProductsContent() {
                   </div>
 
                   {/* Brand Box */}
-                  <div className="border border-[#4d8504] shadow-xs bg-[#558f04] overflow-hidden rounded-xs">
-                    <div className="bg-[#63b16b] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
+                  <div className="border border-[#0b803e] shadow-xs bg-[#0d9749] overflow-hidden rounded-xl">
+                    <div className="bg-[#097b3a] text-white px-3 py-2 font-bold text-xs uppercase tracking-wide flex items-center justify-between">
                       <span>Brands</span>
                       {selectedBrands.length > 0 && (
                         <button
@@ -506,7 +493,7 @@ function ProductsContent() {
                         </button>
                       )}
                     </div>
-                    <div className="divide-y divide-[#579304]">
+                    <div className="divide-y divide-[#0b803e]">
                       {allBrands.map((brand) => {
                         const isChecked = selectedBrands.some(b => normalizeBrandName(b) === normalizeBrandName(brand));
                         return (
@@ -514,14 +501,11 @@ function ProductsContent() {
                             key={brand}
                             type="button"
                             onClick={() => toggleBrand(brand)}
-                            className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
-                              isChecked ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
+                            className={`w-full text-left px-3.5 py-2.5 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
+                              isChecked ? 'bg-[#075e2d]' : 'bg-[#0d9749]'
                             }`}
                           >
                             <span>{brand}</span>
-                            <span className="w-2.5 h-3.5 border border-white/90 rounded-[1px] flex items-center justify-center shrink-0 ml-1">
-                              {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-xs"></span>}
-                            </span>
                           </button>
                         );
                       })}
@@ -545,7 +529,7 @@ function ProductsContent() {
                       setCurrentPage(1);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex-1 py-2 px-4 bg-[#63b16b] hover:bg-[#52a05a] text-white rounded text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
+                    className="flex-1 py-2 px-4 bg-[#0d9749] hover:bg-[#097b3a] text-white rounded text-xs font-extrabold shadow-sm transition-colors text-center cursor-pointer"
                   >
                     Show ({filteredProducts.length})
                   </button>

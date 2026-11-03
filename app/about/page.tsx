@@ -48,7 +48,8 @@ export default function AboutPage() {
                 alt="Ratnagiri Impex & Agrimart Mega Showroom"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 600px"
+                unoptimized
+                sizes="100vw"
                 className="object-cover object-center hover:scale-105 transition-transform duration-700"
               />
             </div>

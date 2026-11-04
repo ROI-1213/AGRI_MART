@@ -245,7 +245,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
             </div>
 
             {/* Right Column: FULL LANDSCAPE BRAND BANNER (Edge-to-edge, zero side spaces) */}
-            <div className="w-full md:flex-1 relative aspect-[2048/852] md:aspect-auto md:h-full overflow-hidden group border-t md:border-t-0 md:border-l border-gray-200/80">
+            <div className="order-first md:order-last w-full md:flex-1 relative aspect-[2048/852] md:aspect-auto md:h-full overflow-hidden group border-b md:border-b-0 md:border-l border-gray-200/80">
               
               {/* Top-Right Circular Pause/Play Button on Photo */}
               <div className="absolute top-2.5 right-2.5 z-30">
@@ -372,3 +372,4 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
     </section>
   );
 }
+

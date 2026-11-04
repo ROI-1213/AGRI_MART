@@ -190,7 +190,6 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                       <li 
                         key={cat.id} 
                         className="group relative"
-                        onMouseEnter={() => setActiveCategoryHover(cat.id)}
                       >
                         <Link
                           href={`/products?category=${encodeURIComponent(cat.name)}`}
@@ -199,33 +198,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                           className="flex items-center justify-between px-4 py-2.5 text-xs font-semibold hover:bg-green-50 hover:text-[#0d9749] transition-colors"
                         >
                           <span>{cat.name}</span>
-                          {cat.subcategories && cat.subcategories.length > 0 && (
-                            <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-green-600" />
-                          )}
                         </Link>
-
-                        {/* Nested Subcategories Flyout */}
-                        {activeCategoryHover === cat.id && cat.subcategories && cat.subcategories.length > 0 && (
-                          <div className="absolute left-full top-0 w-72 bg-white text-gray-800 shadow-xl border border-gray-200 z-50 p-3">
-                            <h4 className="font-bold text-xs text-[#0d9749] mb-2 uppercase border-b pb-1">
-                              {cat.name} Subcategories
-                            </h4>
-                            <ul className="space-y-1">
-                              {cat.subcategories.map((sub, sIdx) => (
-                                <li key={sIdx}>
-                                  <Link
-                                    href={`/products?category=${encodeURIComponent(cat.name)}&sub=${encodeURIComponent(sub)}`}
-                                    prefetch={false}
-                                    onClick={() => setCategoryMenuOpen(false)}
-                                    className="block px-2 py-1 text-xs text-gray-700 hover:text-green-700 hover:bg-gray-50 rounded"
-                                  >
-                                    {sub}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
                       </li>
                     ))}
                   </ul>

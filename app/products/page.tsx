@@ -354,22 +354,19 @@ function ProductsContent() {
               <div className="divide-y divide-[#579304]">
                 {categoriesData.map((cat) => {
                   const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
-                  const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
 
                   return (
                     <div key={cat.id} className="relative">
                       <button
                         type="button"
                         onClick={() => {
-                          if (isSelected && !selectedSubcategory) {
+                          if (isSelected) {
                             setSelectedCategory('');
-                            setSelectedSubcategory('');
-                            setExpandedCategory('');
                           } else {
                             setSelectedCategory(cat.name);
-                            setSelectedSubcategory('');
-                            setExpandedCategory(cat.name);
                           }
+                          setSelectedSubcategory('');
+                          setExpandedCategory('');
                           setCurrentPage(1);
                         }}
                         className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
@@ -379,32 +376,8 @@ function ProductsContent() {
                         }`}
                       >
                         <span className="truncate pr-1">{cat.name}</span>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-yellow-300 shrink-0" />}
                       </button>
-
-                      {/* Nested Subcategories Accordion */}
-                      {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                        <div className="bg-[#337e04] border-b border-[#255f02]">
-                          {cat.subcategories.map((sub: string) => {
-                            const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
-                            return (
-                              <button
-                                key={sub}
-                                type="button"
-                                onClick={() => {
-                                  setSelectedSubcategory(isSubActive ? '' : sub);
-                                  setCurrentPage(1);
-                                }}
-                                className={`w-full text-left py-2 px-5 text-[11px] font-medium text-white/95 border-b border-[#255f02]/70 flex items-center justify-between transition-colors hover:bg-[#3c9006] hover:border-l-4 hover:border-white cursor-pointer ${
-                                  isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
-                                }`}
-                              >
-                                <span className="truncate">{sub}</span>
-                                {isSubActive && <Check className="w-3 h-3 text-yellow-300 shrink-0" />}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
                     </div>
                   );
                 })}
@@ -497,50 +470,27 @@ function ProductsContent() {
                     <div className="divide-y divide-[#579304]">
                       {categoriesData.map((cat) => {
                         const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
-                        const isExpanded = expandedCategory.toLowerCase() === cat.name.toLowerCase();
 
                         return (
                           <div key={cat.id}>
                             <button
                               type="button"
                               onClick={() => {
-                                if (isSelected && !selectedSubcategory) {
+                                if (isSelected) {
                                   setSelectedCategory('');
-                                  setSelectedSubcategory('');
-                                  setExpandedCategory('');
                                 } else {
                                   setSelectedCategory(cat.name);
-                                  setSelectedSubcategory('');
-                                  setExpandedCategory(cat.name);
                                 }
+                                setSelectedSubcategory('');
+                                setExpandedCategory('');
                               }}
-                              className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between ${
-                                isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04]'
+                              className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
+                                isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                               }`}
                             >
                               <span className="truncate pr-1">{cat.name}</span>
+                              {isSelected && <Check className="w-3.5 h-3.5 text-yellow-300 shrink-0" />}
                             </button>
-
-                            {isExpanded && cat.subcategories && cat.subcategories.length > 0 && (
-                              <div className="bg-[#337e04]">
-                                {cat.subcategories.map((sub: string) => {
-                                  const isSubActive = selectedSubcategory.toLowerCase() === sub.toLowerCase();
-                                  return (
-                                    <button
-                                      key={sub}
-                                      type="button"
-                                      onClick={() => setSelectedSubcategory(isSubActive ? '' : sub)}
-                                      className={`w-full text-left py-2 px-5 text-[11px] text-white/95 border-b border-[#255f02]/70 flex items-center justify-between ${
-                                        isSubActive ? 'bg-[#255f02] border-l-4 border-yellow-300 font-bold text-yellow-200' : ''
-                                      }`}
-                                    >
-                                      <span className="truncate">{sub}</span>
-                                      {isSubActive && <Check className="w-3 h-3 text-yellow-300" />}
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            )}
                           </div>
                         );
                       })}

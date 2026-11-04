@@ -227,7 +227,7 @@ export default function HomePage() {
 
           {/* Animated Banner Container (Ultra-HD Vector & High-Res Collage) */}
           <div 
-            className="relative w-full min-h-[148px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
+            className="relative w-full min-h-[220px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
             onMouseEnter={() => setIsPromoPaused(true)}
             onMouseLeave={() => setIsPromoPaused(false)}
           >
@@ -237,7 +237,7 @@ export default function HomePage() {
                 <Link
                   key={promo.id}
                   href={promo.link}
-                  className={`absolute inset-0 flex items-stretch transition-all duration-700 ease-in-out bg-gradient-to-r ${promo.bgGradient} group ${
+                  className={`absolute inset-0 flex flex-col sm:flex-row items-stretch transition-all duration-700 ease-in-out bg-gradient-to-b sm:bg-gradient-to-r ${promo.bgGradient} group ${
                     isActive 
                       ? 'opacity-100 scale-100 z-10 pointer-events-auto' 
                       : 'opacity-0 scale-[0.99] z-0 pointer-events-none'
@@ -257,8 +257,25 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Center: Vector Razor-Sharp Typography & Interactive Button */}
-                  <div className="flex-1 h-full flex flex-col justify-center px-3 sm:px-6 py-2 sm:py-2 z-10 min-w-0 select-none max-w-[55%] sm:max-w-none">
+                  {/* Top on Mobile / Right on Desktop: Ultra-HD Full Banner Artwork Showcase */}
+                  <div 
+                    className="order-first sm:order-last relative w-full aspect-[2048/560] sm:aspect-auto sm:w-[50%] md:w-[56%] lg:w-[58%] sm:h-full shrink-0 overflow-hidden sm:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none bg-gradient-to-b sm:bg-none from-white via-white/80 to-transparent p-1.5 sm:p-0"
+                  >
+                    <Image
+                      src={promo.photo}
+                      alt={promo.title}
+                      fill
+                      unoptimized
+                      priority
+                      sizes="(max-width: 640px) 100vw, (max-width: 1200px) 70vw, 1000px"
+                      className="object-contain sm:object-cover sm:object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Soft gradient mask on the left edge only on tablet/desktop */}
+                    <div className="hidden sm:block absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Center/Bottom: Vector Razor-Sharp Typography & Interactive Button */}
+                  <div className="flex-1 flex flex-col justify-center px-3.5 sm:px-6 py-2 sm:py-2 z-10 min-w-0 select-none">
                     {/* Mobile Logo inline above text */}
                     <div className="sm:hidden mb-1 flex items-center">
                       <Image
@@ -271,46 +288,26 @@ export default function HomePage() {
                     </div>
 
                     <div className="flex items-center gap-1.5 mb-0.5 sm:mb-1">
-                      <span className="text-[8px] min-[360px]:text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider truncate">
+                      <span className="text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider truncate">
                         {promo.subtitle}
                       </span>
-                      <span className="w-4 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block shrink-0"></span>
+                      <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block shrink-0"></span>
                     </div>
 
-                    <h3 className="text-xs min-[360px]:text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
+                    <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
                       {promo.title}
                     </h3>
 
-                    <p className="text-[9px] min-[360px]:text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-1.5 sm:mb-2">
+                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-2 sm:mb-2">
                       {promo.description}
                     </p>
 
                     <div>
-                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[8.5px] min-[360px]:text-[9px] sm:text-[11px] md:text-xs px-2 min-[360px]:px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
+                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
                         <span>{promo.buttonText}</span>
                         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
                       </span>
                     </div>
-                  </div>
-
-                  {/* Right: Ultra-HD Photographic Showcase with Full View on Mobile & Diagonal Framing on Desktop */}
-                  <div 
-                    className="relative w-[45%] min-[390px]:w-[48%] sm:w-[50%] md:w-[56%] lg:w-[58%] h-full shrink-0 overflow-hidden sm:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none ml-auto"
-                  >
-                    <Image
-                      src={promo.photo}
-                      alt={promo.title}
-                      fill
-                      unoptimized
-                      priority
-                      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 70vw, 1000px"
-                      style={{
-                        objectPosition: promo.mobileObjectPosition || 'center',
-                      }}
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 sm:!object-center"
-                    />
-                    {/* Soft gradient mask on the left edge only on tablet/desktop */}
-                    <div className="hidden sm:block absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
                   </div>
                 </Link>
               );

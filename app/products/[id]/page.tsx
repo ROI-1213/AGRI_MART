@@ -115,6 +115,19 @@ export default function ProductDetailPage() {
   const allSpecs = extractProductSpecs(product);
   const keySpecs = allSpecs.filter(s => !['Brand', 'Model / RIPL Code', 'Category', 'Government Subsidy', 'Warranty'].includes(s.label));
 
+  // Filter only items with actual, valid content
+  const validAccessories = (product.accessories || []).filter(
+    (a) => a && a.name && !/^(no information available\.?|na|n\/a|none)$/i.test(a.name.trim())
+  );
+  const validSpareParts = (product.spareParts || []).filter(
+    (sp) => sp && sp.name && !/^(no information available\.?|na|n\/a|none)$/i.test(sp.name.trim())
+  );
+  const hasAccessoriesOrSpares = validAccessories.length > 0 || validSpareParts.length > 0;
+  const validBrochures = (product.brochures || []).filter(
+    (b) => b && b.url && b.url.trim() !== ''
+  );
+  const hasBrochures = validBrochures.length > 0;
+
   const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || '/assets/branding/logo.png');
   const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure'>('desc');
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
@@ -298,26 +311,36 @@ export default function ProductDetailPage() {
             >
               Product Description
             </button>
-            <button
-              onClick={() => setActiveTab('accessories')}
-              className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
-                activeTab === 'accessories'
-                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              Accessories & Spare Parts
-            </button>
-            <button
-              onClick={() => setActiveTab('brochure')}
-              className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
-                activeTab === 'brochure'
-                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              Brochures &amp; Leaflets ({product.brochures?.length || 1})
-            </button>
+
+            {hasAccessoriesOrSpares && (
+              <button
+                onClick={() => setActiveTab('accessories')}
+                className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
+                  activeTab === 'accessories'
+                    ? 'border-[#0d9749] text-[#0d9749] bg-white'
+                    : 'border-transparent text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                {validAccessories.length > 0 && validSpareParts.length > 0
+                  ? 'Accessories & Spare Parts'
+                  : validAccessories.length > 0
+                  ? `Included Accessories (${validAccessories.length})`
+                  : `Spare Parts (${validSpareParts.length})`}
+              </button>
+            )}
+
+            {hasBrochures && (
+              <button
+                onClick={() => setActiveTab('brochure')}
+                className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
+                  activeTab === 'brochure'
+                    ? 'border-[#0d9749] text-[#0d9749] bg-white'
+                    : 'border-transparent text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Brochures &amp; Leaflets ({validBrochures.length})
+              </button>
+            )}
           </div>
 
           {/* Tab Content Panes */}
@@ -331,134 +354,122 @@ export default function ProductDetailPage() {
                 />
 
                 {/* Technical Specifications Table */}
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-[#0d9749]"></span>
-                    <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-                      Technical Specifications
-                    </h3>
+                {allSpecs.length > 0 && (
+                  <div className="mt-8 pt-6 border-t border-gray-100">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-2 h-2 rounded-full bg-[#0d9749]"></span>
+                      <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+                        Technical Specifications
+                      </h3>
+                    </div>
+                    <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
+                      <table className="w-full text-left divide-y divide-gray-200">
+                        <tbody className="divide-y divide-gray-100">
+                          {allSpecs.map((spec, idx) => (
+                            <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
+                              <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
+                                {spec.label}
+                              </td>
+                              <td className="px-4 py-2.5 text-gray-900 font-medium">
+                                {spec.value}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
-                    <table className="w-full text-left divide-y divide-gray-200">
-                      <tbody className="divide-y divide-gray-100">
-                        {allSpecs.map((spec, idx) => (
-                          <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
-                            <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
-                              {spec.label}
-                            </td>
-                            <td className="px-4 py-2.5 text-gray-900 font-medium">
-                              {spec.value}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                )}
               </div>
             )}
 
             {/* 2. ACCESSORIES & SPARE PARTS TAB */}
-            {activeTab === 'accessories' && (
+            {activeTab === 'accessories' && hasAccessoriesOrSpares && (
               <div>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
-                  Compatible Accessories & Genuine RIPL Spare Parts
+                  {validAccessories.length > 0 && validSpareParts.length > 0
+                    ? 'Compatible Accessories & Genuine RIPL Spare Parts'
+                    : validAccessories.length > 0
+                    ? 'Included Standard Accessories'
+                    : 'Recommended Genuine RIPL Spare Parts'}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-bold text-xs text-[#0d9749] uppercase mb-3">
-                      Included Accessories
-                    </h4>
-                    <ul className="space-y-2 text-xs text-gray-700">
-                      {(product.accessories || []).map((acc, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <Check className="w-4 h-4 text-green-600" />
-                          <span>{acc.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className={`grid gap-4 ${validAccessories.length > 0 && validSpareParts.length > 0 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 max-w-xl'}`}>
+                  {validAccessories.length > 0 && (
+                    <div className="border border-gray-200 rounded-lg p-4 bg-white shadow-2xs">
+                      <h4 className="font-bold text-xs text-[#0d9749] uppercase mb-3">
+                        Included Accessories ({validAccessories.length})
+                      </h4>
+                      <ul className="space-y-2 text-xs text-gray-700">
+                        {validAccessories.map((acc, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <Check className="w-4 h-4 text-green-600 shrink-0" />
+                            <span>{acc.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-bold text-xs text-amber-700 uppercase mb-3">
-                      Recommended Spare Parts
-                    </h4>
-                    <ul className="space-y-2 text-xs text-gray-700">
-                      {(product.spareParts || []).map((sp, idx) => (
-                        <li key={idx} className="flex items-center justify-between border-b pb-1">
-                          <span>{sp.name}</span>
-                          <span className="font-mono text-gray-500 font-bold">{sp.partNo}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {validSpareParts.length > 0 && (
+                    <div className="border border-gray-200 rounded-lg p-4 bg-white shadow-2xs">
+                      <h4 className="font-bold text-xs text-amber-700 uppercase mb-3">
+                        Recommended Spare Parts ({validSpareParts.length})
+                      </h4>
+                      <ul className="space-y-2 text-xs text-gray-700">
+                        {validSpareParts.map((sp, idx) => (
+                          <li key={idx} className="flex items-center justify-between border-b border-gray-100 pb-1">
+                            <span>{sp.name}</span>
+                            <span className="font-mono text-gray-500 font-bold">{sp.partNo}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
 
             {/* 3. MULTILINGUAL BROCHURE TAB */}
-            {activeTab === 'brochure' && (
+            {activeTab === 'brochure' && hasBrochures && (
               <div>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2">
-                  Official Technical Brochure & Catalogue Downloads
+                  Official Technical Brochure &amp; Catalogue Downloads
                 </h3>
                 <p className="text-xs text-gray-500 mb-6">
                   Download authentic product brochures with detailed engineering schematics, power ratings, and maintenance guidelines.
                 </p>
 
                 <div className="space-y-3">
-                  {product.brochures && product.brochures.length > 0 ? (
-                    product.brochures.map((b, idx) => {
-                      const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Brochure`;
-                      return (
-                        <div
-                          key={idx}
-                          className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3"
-                        >
-                          <div className="flex items-center space-x-3">
-                            <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                            <div>
-                              <h4 className="font-bold text-xs text-gray-900">
-                                {cleanTitle}
-                              </h4>
-                              <p className="text-[11px] text-gray-500">
-                                Language: <strong>{b.language}</strong> • Official Ratnagiri Impex Document
-                              </p>
-                            </div>
-                          </div>
-
-                          <a
-                            href={b.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer"
-                          >
-                            <span>{b.language || 'Download'}</span>
-                          </a>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <div className="p-4 border border-gray-200 rounded-lg flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                        <div>
-                          <h4 className="font-bold text-xs text-gray-900">
-                            Agrimart Full Corporate & Equipment Catalogue
-                          </h4>
-                          <p className="text-[11px] text-gray-500">Language: English • 6 Pages</p>
-                        </div>
-                      </div>
-                      <a
-                        href="/assets/brochures/corporate_brochure.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded cursor-pointer"
+                  {validBrochures.map((b, idx) => {
+                    const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Brochure`;
+                    return (
+                      <div
+                        key={idx}
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3"
                       >
-                        <span>Download PDF</span>
-                      </a>
-                    </div>
-                  )}
+                        <div className="flex items-center space-x-3">
+                          <FileText className="w-8 h-8 text-red-600 shrink-0" />
+                          <div>
+                            <h4 className="font-bold text-xs text-gray-900">
+                              {cleanTitle}
+                            </h4>
+                            <p className="text-[11px] text-gray-500">
+                              Language: <strong>{b.language}</strong> • Official Ratnagiri Impex Document
+                            </p>
+                          </div>
+                        </div>
+
+                        <a
+                          href={b.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer"
+                        >
+                          <span>{b.language || 'Download'}</span>
+                        </a>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}

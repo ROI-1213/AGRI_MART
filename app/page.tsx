@@ -227,7 +227,7 @@ export default function HomePage() {
 
           {/* Animated Banner Container (Ultra-HD Vector & High-Res Collage) */}
           <div 
-            className="relative w-full min-h-[190px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
+            className="relative w-full min-h-[240px] min-[360px]:min-h-[255px] min-[414px]:min-h-[270px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
             onMouseEnter={() => setIsPromoPaused(true)}
             onMouseLeave={() => setIsPromoPaused(false)}
           >
@@ -259,7 +259,7 @@ export default function HomePage() {
 
                   {/* Top on Mobile / Right on Desktop: Ultra-HD Full Banner Artwork Showcase */}
                   <div 
-                    className="order-first sm:order-last relative w-full aspect-[2048/560] sm:aspect-auto sm:w-[50%] md:w-[56%] lg:w-[58%] sm:h-full shrink-0 overflow-hidden sm:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none bg-gradient-to-b sm:bg-none from-white via-white/80 to-transparent p-1.5 sm:p-0"
+                    className="order-first sm:order-last relative w-full h-36 min-[360px]:h-40 min-[414px]:h-44 sm:h-full sm:aspect-auto sm:w-[50%] md:w-[56%] lg:w-[58%] shrink-0 overflow-hidden sm:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none bg-gradient-to-b sm:bg-none from-white via-white/80 to-transparent p-0"
                   >
                     <Image
                       src={promo.photo}
@@ -268,7 +268,8 @@ export default function HomePage() {
                       unoptimized
                       priority
                       sizes="(max-width: 640px) 100vw, (max-width: 1200px) 70vw, 1000px"
-                      className="object-contain sm:object-cover sm:object-center group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 [object-position:var(--pos)] sm:[object-position:center]"
+                      style={{ '--pos': promo.mobileObjectPosition || 'center' } as React.CSSProperties}
                     />
                     {/* Soft gradient mask on the left edge only on tablet/desktop */}
                     <div className="hidden sm:block absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />

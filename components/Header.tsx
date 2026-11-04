@@ -15,6 +15,7 @@ import {
   Layers
 } from 'lucide-react';
 import categoriesData from '@/data/import/categories.json';
+import { formatCategoryName } from '@/lib/format';
 import { useCart } from '@/context/CartContext';
 
 interface HeaderProps {
@@ -197,7 +198,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                           onClick={() => setCategoryMenuOpen(false)}
                           className="flex items-center justify-between px-4 py-2.5 text-xs font-semibold hover:bg-green-50 hover:text-[#0d9749] transition-colors"
                         >
-                          <span>{cat.name}</span>
+                          <span>{formatCategoryName(cat.name)}</span>
                         </Link>
                       </li>
                     ))}
@@ -318,7 +319,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                     onClick={() => setMobileMenuOpen(false)}
                     className="block py-1.5 px-2 text-xs text-gray-200 hover:text-white hover:bg-white/10 rounded truncate"
                   >
-                    {cat.name}
+                    {formatCategoryName(cat.name)}
                   </Link>
                 ))}
               </div>

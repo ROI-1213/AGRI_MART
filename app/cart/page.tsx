@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart, Trash2, ArrowRight, ArrowLeft, ShieldCheck, Zap } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { formatProductTitle } from '@/lib/format';
 
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, totalPrice, totalItems, clearCart } = useCart();
@@ -76,7 +77,7 @@ export default function CartPage() {
                         {item.product.brand}
                       </span>
                       <h3 className="font-normal text-xs sm:text-sm text-gray-900 mt-1 line-clamp-2">
-                        {item.product.name}
+                        {formatProductTitle(item.product.name)}
                       </h3>
                       <p className="text-[11px] font-mono text-gray-500 mt-0.5">
                         Code: <strong>{item.product.riplCode}</strong>

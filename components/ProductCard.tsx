@@ -12,6 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Product } from '@/types';
+import { formatProductTitle } from '@/lib/format';
 import QuoteModal from './QuoteModal';
 import SubsidyModal from './SubsidyModal';
 
@@ -97,10 +98,10 @@ export default function ProductCard({
           {/* Right: Details, Subtitle, Specs & Price (Exact Structure as Image 2) */}
           <div className="flex-1 p-2.5 sm:p-3 flex flex-col justify-between min-w-0 bg-white">
             <div>
-              {/* Product Name (Normal weight) */}
+              {/* Product Name (Normal weight, unified Title Case) */}
               <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                 <h3 className="font-normal text-[12px] sm:text-[13px] md:text-sm text-gray-800 leading-snug truncate" title={product.name}>
-                  {product.name}
+                  {formatProductTitle(product.name)}
                 </h3>
               </Link>
 
@@ -213,10 +214,10 @@ export default function ProductCard({
                 )}
               </div>
 
-              {/* Product Title (Normal, unbolded text) */}
+              {/* Product Title (Normal, unbolded text, unified format) */}
               <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                 <h3 className="font-normal text-xs sm:text-[15px] text-gray-800 leading-snug line-clamp-2 mb-2.5 min-h-[34px] sm:min-h-[42px]" title={product.name}>
-                  {product.name}
+                  {formatProductTitle(product.name)}
                 </h3>
               </Link>
             </div>

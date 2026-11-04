@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { X, CheckCircle2, FileText, Send, PhoneCall } from 'lucide-react';
 import { Product } from '@/types';
+import { formatProductTitle } from '@/lib/format';
 
 interface QuoteModalProps {
   product?: Product | null;
@@ -129,7 +130,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
               {product.brand}
             </span>
             <h4 className="font-normal text-xs sm:text-sm text-gray-900 truncate mt-1">
-              {product.name}
+              {formatProductTitle(product.name)}
             </h4>
             <p className="text-[11px] font-mono text-gray-500">
               RIPL Code: <strong className="text-gray-800">{product.riplCode}</strong>
@@ -147,7 +148,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
               <h4 className="text-lg font-bold text-gray-900">Quotation Request Submitted!</h4>
               <p className="text-xs text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
                 Thank you, <strong>{formData.name || 'Valued Customer'}</strong> ({formData.userType === 'dealer' ? `Authorized Dealer — GSTIN: ${formData.gstNumber}` : 'Customer'}). Your quotation enquiry for{' '}
-                <span className="font-normal text-gray-900">{product.name}</span> (RIPL: {product.riplCode}) has been dispatched to our sales team.
+                <span className="font-normal text-gray-900">{formatProductTitle(product.name)}</span> (RIPL: {product.riplCode}) has been dispatched to our sales team.
               </p>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900 mt-4 flex items-center justify-center gap-2">
                 <PhoneCall className="w-4 h-4 text-amber-700 shrink-0" />

@@ -17,6 +17,7 @@ import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
+import { formatCategoryName } from '@/lib/format';
 import { Product } from '@/types';
 
 function normalizeBrandName(b: string): string {
@@ -375,7 +376,7 @@ function ProductsContent() {
                             : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                         }`}
                       >
-                        <span className="truncate pr-1">{cat.name}</span>
+                        <span className="truncate pr-1">{formatCategoryName(cat.name)}</span>
                         {isSelected && <Check className="w-3.5 h-3.5 text-yellow-300 shrink-0" />}
                       </button>
                     </div>
@@ -488,7 +489,7 @@ function ProductsContent() {
                                 isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
                               }`}
                             >
-                              <span className="truncate pr-1">{cat.name}</span>
+                              <span className="truncate pr-1">{formatCategoryName(cat.name)}</span>
                               {isSelected && <Check className="w-3.5 h-3.5 text-yellow-300 shrink-0" />}
                             </button>
                           </div>

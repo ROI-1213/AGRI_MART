@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
+import { formatProductTitle } from '@/lib/format';
 import { 
   CheckCircle2, 
   ShieldCheck, 
@@ -289,7 +290,7 @@ export default function CheckoutPage() {
                 {cart.map((item) => (
                   <div key={item.product.id} className="py-2.5 flex justify-between items-center">
                     <div className="max-w-[180px]">
-                      <p className="font-normal text-gray-900 line-clamp-1">{item.product.name}</p>
+                      <p className="font-normal text-gray-900 line-clamp-1">{formatProductTitle(item.product.name)}</p>
                       <p className="text-[10px] text-gray-500 font-mono">
                         {item.quantity} x ₹ {item.product.sellingPrice.toLocaleString('en-IN')}
                       </p>

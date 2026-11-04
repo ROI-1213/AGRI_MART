@@ -16,6 +16,7 @@ import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
+import { formatProductTitle } from '@/lib/format';
 
 interface SpecItem {
   label: string;
@@ -139,7 +140,7 @@ export default function ProductDetailPage() {
             {product.category}
           </Link>
           <span>/</span>
-          <span className="text-gray-800 font-normal truncate max-w-xs shrink-0">{product.name}</span>
+          <span className="text-gray-800 font-normal truncate max-w-xs shrink-0">{formatProductTitle(product.name)}</span>
         </div>
 
         {/* Product Details Main Card */}
@@ -204,9 +205,9 @@ export default function ProductDetailPage() {
                   </span>
                 </div>
 
-                {/* Product Name (Unbolded, clean readable display) */}
+                {/* Product Name (Unbolded, clean readable display, unified format) */}
                 <h1 className="text-xl sm:text-2xl font-normal text-gray-900 leading-snug mb-2">
-                  {product.name}
+                  {formatProductTitle(product.name)}
                 </h1>
 
                 {/* Product Code */}

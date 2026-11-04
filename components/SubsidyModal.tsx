@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Product } from '@/types';
+import { formatProductTitle } from '@/lib/format';
 
 interface SubsidyModalProps {
   product?: Product | null;
@@ -68,7 +69,7 @@ export default function SubsidyModal({ product, isOpen, onClose }: SubsidyModalP
             <h3 className="font-bold text-lg">Government Subsidy Application Form</h3>
             {product && (
               <p className="text-xs text-green-100 mt-0.5">
-                Applying for: <span className="font-normal">{product.name}</span> ({product.riplCode})
+                Applying for: <span className="font-normal">{formatProductTitle(product.name)}</span> ({product.riplCode})
               </p>
             )}
           </div>

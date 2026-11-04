@@ -9,6 +9,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Product } from '@/types';
+import { formatProductTitle } from '@/lib/format';
 
 export interface FeaturedProductItem {
   id: string;
@@ -228,10 +229,10 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                       </span>
                     </div>
 
-                    {/* Product Title (Normal, unbolded text) */}
+                    {/* Product Title (Normal, unbolded text, unified format) */}
                     <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
                       <h3 className="font-normal text-xs sm:text-[15px] text-gray-800 leading-snug line-clamp-2 mb-2 min-h-[32px] sm:min-h-[40px]" title={product.name}>
-                        {product.name}
+                        {formatProductTitle(product.name)}
                       </h3>
                     </Link>
                   </div>

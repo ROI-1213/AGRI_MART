@@ -239,15 +239,15 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                     <button
                       type="button"
                       onClick={(e) => handleRequestQuote(e, product)}
-                      className="flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-[11px] sm:text-sm font-extrabold py-2 sm:py-2.5 px-2 sm:px-3.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
+                      className="w-full sm:flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-[11px] sm:text-sm font-extrabold py-2 sm:py-2.5 px-2 sm:px-3.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
                     >
-                      <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 shrink-0" />
+                      <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-300 shrink-0" />
                       <span className="truncate">Request Quote</span>
                     </button>
 
                     <Link
                       href={`/products/${product.id}`}
-                      className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs"
+                      className="hidden sm:inline-flex p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs items-center justify-center"
                       title="View Full Specifications"
                       aria-label="View Full Specifications"
                     >

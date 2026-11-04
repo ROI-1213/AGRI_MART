@@ -227,7 +227,7 @@ export default function HomePage() {
 
           {/* Animated Banner Container (Ultra-HD Vector & High-Res Collage) */}
           <div 
-            className="relative w-full min-h-[220px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
+            className="relative w-full min-h-[190px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
             onMouseEnter={() => setIsPromoPaused(true)}
             onMouseLeave={() => setIsPromoPaused(false)}
           >
@@ -275,39 +275,45 @@ export default function HomePage() {
                   </div>
 
                   {/* Center/Bottom: Vector Razor-Sharp Typography & Interactive Button */}
-                  <div className="flex-1 flex flex-col justify-center px-3.5 sm:px-6 py-2 sm:py-2 z-10 min-w-0 select-none">
-                    {/* Mobile Logo inline above text */}
-                    <div className="sm:hidden mb-1 flex items-center">
-                      <Image
-                        src="/assets/branding/logo.png"
-                        alt="Agrimart"
-                        width={75}
-                        height={20}
-                        className="h-3.5 w-auto object-contain"
-                      />
+                  <div className="flex-1 flex flex-col justify-center px-3.5 sm:px-6 py-2 sm:py-2.5 z-10 min-w-0 select-none">
+                    {/* Top Line: Logo & Subtitle */}
+                    <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
+                      {/* Mobile Logo inline with subtitle */}
+                      <div className="sm:hidden flex items-center">
+                        <Image
+                          src="/assets/branding/logo.png"
+                          alt="Agrimart"
+                          width={75}
+                          height={20}
+                          className="h-3.5 w-auto object-contain"
+                        />
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider truncate">
+                          {promo.subtitle}
+                        </span>
+                        <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block shrink-0"></span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-0.5 sm:mb-1">
-                      <span className="text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider truncate">
-                        {promo.subtitle}
-                      </span>
-                      <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block shrink-0"></span>
+                    {/* Title & Interactive Button (Placed in the marked position to the right) */}
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight tracking-tight truncate flex-1 min-w-0">
+                        {promo.title}
+                      </h3>
+
+                      <div className="shrink-0">
+                        <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200 whitespace-nowrap">
+                          <span>{promo.buttonText}</span>
+                          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
+                        </span>
+                      </div>
                     </div>
 
-                    <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
-                      {promo.title}
-                    </h3>
-
-                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-2 sm:mb-2">
+                    {/* Description */}
+                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg">
                       {promo.description}
                     </p>
-
-                    <div>
-                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
-                        <span>{promo.buttonText}</span>
-                        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
-                      </span>
-                    </div>
                   </div>
                 </Link>
               );

@@ -62,32 +62,38 @@ export default function HomePage() {
     {
       id: 1,
       title: 'Become a Partner',
+      tabTitle: 'Become a Partner',
       subtitle: 'GROW TOGETHER',
       description: '1,200+ partners across India are already making profit. Partner with us today!',
       buttonText: 'Partner With Us',
       link: '/become-a-partner',
       photo: '/assets/branding/become_partner_hd.png',
       bgGradient: 'from-[#f2f8f3] via-[#ffffff] to-[#f4f9f5]',
+      mobileObjectPosition: '33% center',
     },
     {
       id: 2,
       title: 'Buy, Earn and Rent',
+      tabTitle: 'Buy, Earn & Rent',
       subtitle: 'MORE VALUE FOR YOU',
       description: 'Be a pioneer in the booming Indian rural retail marketing.',
       buttonText: 'Explore Opportunities',
       link: '/cms/buy-earn-rent',
       photo: '/assets/branding/buy_earn_rent_hd.png',
       bgGradient: 'from-[#fefcf3] via-[#ffffff] to-[#fefcf3]',
+      mobileObjectPosition: '48% center',
     },
     {
       id: 3,
       title: 'Knowledge Bank',
+      tabTitle: 'Knowledge Bank',
       subtitle: 'KNOW MORE, GROW MORE',
       description: 'Access expert guides, product information and farming insights.',
       buttonText: 'Explore Resources',
       link: '/cms/knowledge-bank',
       photo: '/assets/branding/knowledge_bank_hd.png',
       bgGradient: 'from-[#f0f7f3] via-[#ffffff] to-[#f2f8f4]',
+      mobileObjectPosition: '58% center',
     },
   ];
 
@@ -190,7 +196,7 @@ export default function HomePage() {
       <section className="py-6 bg-gradient-to-b from-[#f8fafc] to-white border-t border-b border-gray-200">
         <div className="agri-container">
           {/* Section Category Header & Tab Controls */}
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 mb-3">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="w-2 h-2 rounded-full bg-[#0d9749] animate-pulse"></span>
               <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">
@@ -198,21 +204,22 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Quick-Jump Category Tab Buttons */}
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full pb-0.5">
+            {/* Quick-Jump Category Tab Buttons (Full width 3-column grid on mobile so no text is ever clipped) */}
+            <div className="grid grid-cols-3 gap-1.5 sm:flex sm:items-center sm:gap-1.5 w-full sm:w-auto">
               {promoBanners.map((p, idx) => (
                 <button
                   key={p.id}
                   onClick={() => setCurrentPromo(idx)}
-                  className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+                  className={`text-[9.5px] min-[360px]:text-[10px] sm:text-xs font-bold px-1.5 min-[360px]:px-2 sm:px-3 py-1 sm:py-1 rounded-full transition-all cursor-pointer flex items-center justify-center gap-1 sm:gap-1.5 text-center ${
                     idx === currentPromo
                       ? 'bg-[#0d9749] text-white shadow-sm'
                       : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                   }`}
                   aria-label={`Show ${p.title}`}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70"></span>
-                  <span>{p.title}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70 shrink-0 hidden min-[360px]:inline-block"></span>
+                  <span className="hidden sm:inline whitespace-nowrap">{p.title}</span>
+                  <span className="sm:hidden whitespace-nowrap">{p.tabTitle || p.title}</span>
                 </button>
               ))}
             </div>
@@ -251,7 +258,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Center: Vector Razor-Sharp Typography & Interactive Button */}
-                  <div className="flex-1 h-full flex flex-col justify-center px-3.5 sm:px-6 py-2.5 sm:py-2 z-10 min-w-0 select-none max-w-[64%] sm:max-w-none">
+                  <div className="flex-1 h-full flex flex-col justify-center px-3 sm:px-6 py-2 sm:py-2 z-10 min-w-0 select-none max-w-[55%] sm:max-w-none">
                     {/* Mobile Logo inline above text */}
                     <div className="sm:hidden mb-1 flex items-center">
                       <Image
@@ -264,31 +271,31 @@ export default function HomePage() {
                     </div>
 
                     <div className="flex items-center gap-1.5 mb-0.5 sm:mb-1">
-                      <span className="text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                      <span className="text-[8px] min-[360px]:text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider truncate">
                         {promo.subtitle}
                       </span>
-                      <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block"></span>
+                      <span className="w-4 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block shrink-0"></span>
                     </div>
 
-                    <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
+                    <h3 className="text-xs min-[360px]:text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
                       {promo.title}
                     </h3>
 
-                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-2 sm:mb-2">
+                    <p className="text-[9px] min-[360px]:text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-1.5 sm:mb-2">
                       {promo.description}
                     </p>
 
                     <div>
-                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
+                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[8.5px] min-[360px]:text-[9px] sm:text-[11px] md:text-xs px-2 min-[360px]:px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
                         <span>{promo.buttonText}</span>
                         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
                       </span>
                     </div>
                   </div>
 
-                  {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing & Soft Gradient Mask */}
+                  {/* Right: Ultra-HD Photographic Showcase with Full View on Mobile & Diagonal Framing on Desktop */}
                   <div 
-                    className="relative w-[40%] sm:w-[50%] md:w-[56%] lg:w-[58%] h-full shrink-0 overflow-hidden [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none ml-auto"
+                    className="relative w-[45%] min-[390px]:w-[48%] sm:w-[50%] md:w-[56%] lg:w-[58%] h-full shrink-0 overflow-hidden sm:[clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none ml-auto"
                   >
                     <Image
                       src={promo.photo}
@@ -296,11 +303,14 @@ export default function HomePage() {
                       fill
                       unoptimized
                       priority
-                      sizes="(max-width: 1200px) 70vw, 1000px"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 70vw, 1000px"
+                      style={{
+                        objectPosition: promo.mobileObjectPosition || 'center',
+                      }}
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 sm:!object-center"
                     />
-                    {/* Soft gradient mask on the left edge so text and image never clash */}
-                    <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+                    {/* Soft gradient mask on the left edge only on tablet/desktop */}
+                    <div className="hidden sm:block absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
                   </div>
                 </Link>
               );

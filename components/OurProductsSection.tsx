@@ -168,13 +168,13 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
             return (
               <div
                 key={product.id}
-                className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100/80 shadow-2xs hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer"
+                className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 {/* Visual Glow Spotlight on Hover */}
                 <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl pointer-events-none" />
 
-                {/* Full-Bleed Top Image Container: Machine Fills the Upper Card */}
-                <div className="relative w-full h-40 sm:h-72 lg:h-80 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 overflow-hidden flex items-center justify-center select-none">
+                {/* Full-Bleed Top Image Container: Machine Fills the Upper Card Cleanly */}
+                <div className="relative w-full h-40 sm:h-72 lg:h-80 bg-white overflow-hidden flex items-center justify-center select-none">
                   {/* Clickable Image Showcase */}
                   <Link
                     href={`/products/${product.id}`}
@@ -216,7 +216,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 </div>
 
                 {/* Lower Meta Information & Actions Container */}
-                <div className="relative z-10 p-2.5 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
+                <div className="relative z-10 p-2.5 sm:p-5 flex-1 flex flex-col justify-between bg-white">
                   <div>
                     {/* Product Code & Brand */}
                     <div className="flex flex-wrap items-center justify-between text-[9px] sm:text-[11px] uppercase mb-1 sm:mb-1.5 gap-x-1.5 gap-y-0.5">
@@ -237,7 +237,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                   </div>
 
                   {/* Action Buttons Row */}
-                  <div className="pt-2 sm:pt-3 border-t border-gray-100 mt-auto flex items-center gap-1.5 sm:gap-2">
+                  <div className="pt-1 mt-auto flex items-center gap-1.5 sm:gap-2">
                     <button
                       type="button"
                       onClick={(e) => handleRequestQuote(e, product)}

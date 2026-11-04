@@ -7,8 +7,6 @@ import { useParams, useRouter } from 'next/navigation';
 import { 
   FileText, 
   Check, 
-  ShieldCheck, 
-  Truck, 
   FileCheck2, 
   Bell
 } from 'lucide-react';
@@ -113,7 +111,6 @@ export default function ProductDetailPage() {
   ) || (productsData as unknown as Product[])[0];
 
   const allSpecs = extractProductSpecs(product);
-  const keySpecs = allSpecs.filter(s => !['Brand', 'Model / RIPL Code', 'Category', 'Government Subsidy', 'Warranty'].includes(s.label));
 
   // Filter only items with actual, valid content
   const validAccessories = (product.accessories || []).filter(
@@ -224,54 +221,14 @@ export default function ProductDetailPage() {
                 </h1>
 
                 {/* Product Code */}
-                <div className="bg-gray-50 border border-gray-200 px-3 py-1.5 rounded inline-block mb-4">
+                <div className="bg-gray-50 border border-gray-200 px-3 py-1.5 rounded inline-block mb-6">
                   <span className="text-xs text-gray-500 font-mono">
                     Code: <strong className="text-gray-900 text-sm font-bold">{product.riplCode}</strong>
                   </span>
                 </div>
 
-                {/* Price on Request Notice */}
-                <div className="border-t border-b border-gray-100 py-3.5 mb-4 bg-gray-50/75 p-3 rounded">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#0d9749] inline-block animate-pulse"></span>
-                    <span className="text-xl sm:text-2xl font-bold text-[#097b3a]">
-                      Price on Request
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Official quotation inclusive of GST, localized delivery logistics, warranty coverage, and government subsidy assistance.
-                  </p>
-                </div>
-
-                {/* Key Technical Specifications (e.g. Tank: 36 L, Power: 1.3 HP, Displacement: 25.4 cm³) */}
-                {keySpecs.length > 0 && (
-                  <div className="mb-5 bg-emerald-50/50 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5 shadow-2xs">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#097b3a] flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
-                        Key Equipment Specifications
-                      </span>
-                      <span className="text-[10px] text-gray-400 font-semibold">
-                        {keySpecs.length} Parameter{keySpecs.length > 1 ? 's' : ''}
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {keySpecs.map((spec, idx) => (
-                        <div key={idx} className="bg-white rounded-lg p-2.5 border border-emerald-100/90 shadow-2xs flex flex-col justify-between">
-                          <span className="text-[10px] text-gray-500 font-medium truncate block">
-                            {spec.label}
-                          </span>
-                          <strong className="text-xs sm:text-[13px] font-black text-gray-900 truncate block mt-0.5">
-                            {spec.value}
-                          </strong>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {/* Primary Call-to-Action: Request a Quote */}
-                <div className="pt-2 mb-6">
+                <div className="pt-2 mb-4">
                   <button
                     onClick={handleRequestQuote}
                     className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.99]"
@@ -279,18 +236,6 @@ export default function ProductDetailPage() {
                     <FileText className="w-5 h-5 text-yellow-300" />
                     <span>Request a Quote</span>
                   </button>
-                </div>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="grid grid-cols-2 gap-3 text-[11px] text-gray-600 pt-6 mt-6 border-t border-gray-100">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>1 Year Genuine Warranty</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Truck className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>Safe Pan-India Logistics</span>
                 </div>
               </div>
             </div>
@@ -431,16 +376,8 @@ export default function ProductDetailPage() {
 
             {/* 3. MULTILINGUAL BROCHURE TAB */}
             {activeTab === 'brochure' && hasBrochures && (
-              <div>
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2">
-                  Official Technical Brochure &amp; Catalogue Downloads
-                </h3>
-                <p className="text-xs text-gray-500 mb-6">
-                  Download authentic product brochures with detailed engineering schematics, power ratings, and maintenance guidelines.
-                </p>
-
-                <div className="space-y-3">
-                  {validBrochures.map((b, idx) => {
+              <div className="space-y-3">
+                {validBrochures.map((b, idx) => {
                     const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Brochure`;
                     return (
                       <div
@@ -471,7 +408,6 @@ export default function ProductDetailPage() {
                     );
                   })}
                 </div>
-              </div>
             )}
           </div>
         </div>

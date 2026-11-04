@@ -297,24 +297,37 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    {/* Title & Interactive Button (Placed in the marked position to the right) */}
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight tracking-tight truncate flex-1 min-w-0">
+                    {/* On Mobile: Title & Interactive Button side-by-side */}
+                    <div className="flex sm:hidden items-center justify-between gap-2 mb-1">
+                      <h3 className="text-sm font-black text-[#097b3a] leading-tight tracking-tight truncate flex-1 min-w-0">
                         {promo.title}
                       </h3>
 
                       <div className="shrink-0">
-                        <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200 whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] px-2.5 py-1 rounded-[4px] shadow-sm whitespace-nowrap">
                           <span>{promo.buttonText}</span>
                           <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
                         </span>
                       </div>
                     </div>
 
+                    {/* On Desktop: Title on its own row, full width, no truncation (Displayed as it was earlier) */}
+                    <h3 className="hidden sm:block text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight">
+                      {promo.title}
+                    </h3>
+
                     {/* Description */}
-                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg">
+                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-0 sm:mb-2">
                       {promo.description}
                     </p>
+
+                    {/* On Desktop: Action Button displayed underneath description (Displayed as it was earlier) */}
+                    <div className="hidden sm:block">
+                      <span className="inline-flex items-center gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[11px] md:text-xs px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200 whitespace-nowrap">
+                        <span>{promo.buttonText}</span>
+                        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
+                      </span>
+                    </div>
                   </div>
                 </Link>
               );

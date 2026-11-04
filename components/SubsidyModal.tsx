@@ -68,7 +68,7 @@ export default function SubsidyModal({ product, isOpen, onClose }: SubsidyModalP
             <h3 className="font-bold text-lg">Government Subsidy Application Form</h3>
             {product && (
               <p className="text-xs text-green-100 mt-0.5">
-                Applying for: <span className="font-semibold">{product.name}</span> ({product.riplCode})
+                Applying for: <span className="font-normal">{product.name}</span> ({product.riplCode})
               </p>
             )}
           </div>

@@ -228,9 +228,9 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                       </span>
                     </div>
 
-                    {/* Product Title */}
+                    {/* Product Title (Normal, unbolded text) */}
                     <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
-                      <h3 className="font-extrabold text-xs sm:text-[15px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[32px] sm:min-h-[40px]" title={product.name}>
+                      <h3 className="font-normal text-xs sm:text-[15px] text-gray-800 leading-snug line-clamp-2 mb-2 min-h-[32px] sm:min-h-[40px]" title={product.name}>
                         {product.name}
                       </h3>
                     </Link>

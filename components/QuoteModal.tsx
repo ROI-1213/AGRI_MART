@@ -128,7 +128,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#0d9749] bg-green-50 border border-green-200 px-1.5 py-0.5 rounded">
               {product.brand}
             </span>
-            <h4 className="font-bold text-xs sm:text-sm text-gray-900 truncate mt-1">
+            <h4 className="font-normal text-xs sm:text-sm text-gray-900 truncate mt-1">
               {product.name}
             </h4>
             <p className="text-[11px] font-mono text-gray-500">
@@ -147,7 +147,7 @@ export default function QuoteModal({ product, isOpen, onClose }: QuoteModalProps
               <h4 className="text-lg font-bold text-gray-900">Quotation Request Submitted!</h4>
               <p className="text-xs text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
                 Thank you, <strong>{formData.name || 'Valued Customer'}</strong> ({formData.userType === 'dealer' ? `Authorized Dealer — GSTIN: ${formData.gstNumber}` : 'Customer'}). Your quotation enquiry for{' '}
-                <strong>{product.name}</strong> (RIPL: {product.riplCode}) has been dispatched to our sales team.
+                <span className="font-normal text-gray-900">{product.name}</span> (RIPL: {product.riplCode}) has been dispatched to our sales team.
               </p>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900 mt-4 flex items-center justify-center gap-2">
                 <PhoneCall className="w-4 h-4 text-amber-700 shrink-0" />

@@ -139,7 +139,7 @@ export default function ProductDetailPage() {
             {product.category}
           </Link>
           <span>/</span>
-          <span className="text-gray-900 font-semibold truncate max-w-xs shrink-0">{product.name}</span>
+          <span className="text-gray-800 font-normal truncate max-w-xs shrink-0">{product.name}</span>
         </div>
 
         {/* Product Details Main Card */}
@@ -204,8 +204,8 @@ export default function ProductDetailPage() {
                   </span>
                 </div>
 
-                {/* Product Name */}
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug mb-2">
+                {/* Product Name (Unbolded, clean readable display) */}
+                <h1 className="text-xl sm:text-2xl font-normal text-gray-900 leading-snug mb-2">
                   {product.name}
                 </h1>
 

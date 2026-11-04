@@ -75,7 +75,7 @@ export default function CartPage() {
                       <span className="text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-0.5 rounded">
                         {item.product.brand}
                       </span>
-                      <h3 className="font-bold text-xs sm:text-sm text-gray-900 mt-1 line-clamp-2">
+                      <h3 className="font-normal text-xs sm:text-sm text-gray-900 mt-1 line-clamp-2">
                         {item.product.name}
                       </h3>
                       <p className="text-[11px] font-mono text-gray-500 mt-0.5">

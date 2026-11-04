@@ -196,7 +196,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
                 </span>
 
                 {/* Machine Headline */}
-                <h3 className="text-sm sm:text-base font-black text-gray-900 tracking-tight leading-snug line-clamp-1">
+                <h3 className="text-sm sm:text-base font-normal text-gray-900 leading-snug line-clamp-1">
                   {currentBrand.leadTitle}
                 </h3>
 
@@ -318,7 +318,7 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
               </div>
 
               {/* Title */}
-              <h4 className="text-[11px] font-bold text-gray-900 group-hover:text-[#0d9749] transition-colors line-clamp-2 leading-snug">
+              <h4 className="text-[11px] font-normal text-gray-900 group-hover:text-[#0d9749] transition-colors line-clamp-2 leading-snug">
                 {nextBrand.leadTitle}
               </h4>
 

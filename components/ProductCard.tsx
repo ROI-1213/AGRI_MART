@@ -202,10 +202,12 @@ export default function ProductCard({
           <div className="flex-1 flex flex-col justify-between pt-2 sm:pt-3">
             <div>
               {/* Product Code & Brand */}
-              <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono text-gray-500 uppercase tracking-wider mb-1 gap-1">
-                <span className="truncate">Code: <strong className="text-gray-800 font-bold">{product.riplCode}</strong></span>
+              <div className="flex flex-wrap items-center justify-between text-[9px] min-[360px]:text-[10px] sm:text-xs font-mono text-gray-500 uppercase mb-1 gap-x-1.5 gap-y-0.5">
+                <span className="whitespace-nowrap text-[9px] min-[360px]:text-[10px] sm:text-xs">
+                  Code: <strong className="text-gray-800 font-bold tracking-tight">{product.riplCode}</strong>
+                </span>
                 {product.brand && (
-                  <span className="text-[9px] sm:text-[10px] font-black text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200 shrink-0">
+                  <span className="text-[8px] min-[360px]:text-[8.5px] sm:text-[10px] font-black text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200 shrink-0">
                     {product.brand}
                   </span>
                 )}

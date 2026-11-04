@@ -219,8 +219,10 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 <div className="relative z-10 p-2.5 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
                   <div>
                     {/* Product Code & Brand */}
-                    <div className="flex items-center justify-between text-[9px] sm:text-[11px] uppercase tracking-wider mb-1 sm:mb-1.5 gap-1">
-                      <span className="font-mono text-gray-400 truncate">Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
+                    <div className="flex flex-wrap items-center justify-between text-[9px] sm:text-[11px] uppercase mb-1 sm:mb-1.5 gap-x-1.5 gap-y-0.5">
+                      <span className="font-mono text-gray-500 whitespace-nowrap text-[9px] min-[360px]:text-[10px] sm:text-xs">
+                        Code: <strong className="text-gray-700 font-bold tracking-tight">{product.code}</strong>
+                      </span>
                       <span className="text-[8px] sm:text-[10px] font-black text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200 shadow-2xs shrink-0">
                         {product.brand}
                       </span>

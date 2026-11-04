@@ -628,14 +628,14 @@ function ProductsContent() {
               </div>
 
               {/* Controls: Sort Dropdown + View Toggle Buttons */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 w-full sm:w-auto">
                 {/* Sort Dropdown */}
-                <div className="relative inline-flex items-center bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 shadow-2xs text-xs font-semibold text-gray-700">
+                <div className="relative inline-flex items-center bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 shadow-2xs text-xs font-semibold text-gray-700 flex-1 sm:flex-initial">
                   <span className="text-gray-500 mr-1.5 hidden sm:inline">Sort by:</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as any)}
-                    className="bg-transparent focus:outline-none cursor-pointer pr-4 appearance-none font-bold text-gray-800"
+                    className="bg-transparent focus:outline-none cursor-pointer pr-5 appearance-none font-bold text-gray-800 text-xs w-full sm:w-auto"
                   >
                     <option value="relevance">Relevance</option>
                     <option value="name-asc">Product Name (A-Z)</option>
@@ -645,7 +645,7 @@ function ProductsContent() {
                 </div>
 
                 {/* View Switcher: Grid vs List */}
-                <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-1 shadow-2xs">
+                <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-1 shadow-2xs shrink-0">
                   <button
                     type="button"
                     onClick={() => setViewMode('grid')}
@@ -672,8 +672,8 @@ function ProductsContent() {
                   </button>
                 </div>
 
-                {/* Per-Page / Show All Products Switcher */}
-                <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-1 text-xs shadow-2xs font-bold select-none">
+                {/* Per-Page / Show All Products Switcher (Desktop & Tablet) */}
+                <div className="hidden sm:flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-1 text-xs shadow-2xs font-bold select-none shrink-0">
                   <span className="text-gray-400 px-1.5 hidden sm:inline text-[11px]">Show:</span>
                   <button
                     type="button"
@@ -783,6 +783,38 @@ function ProductsContent() {
                       of <span className="font-bold text-gray-900">{filteredProducts.length}</span> Products • Page{' '}
                       <span className="font-bold text-[#0d9749]">{currentPage}</span> of{' '}
                       <span className="font-bold text-gray-900">{totalPages}</span>
+                    </div>
+
+                    {/* Mobile Per-Page Switcher */}
+                    <div className="flex sm:hidden items-center justify-center gap-1.5 w-full pt-2.5 border-t border-gray-100 text-xs font-bold select-none">
+                      <span className="text-gray-400 text-[11px]">Show:</span>
+                      <button
+                        type="button"
+                        onClick={() => { setItemsPerPage(30); setCurrentPage(1); }}
+                        className={`px-3 py-1 rounded-lg transition-colors cursor-pointer text-xs ${
+                          itemsPerPage === 30 ? 'bg-[#0d9749] text-white shadow-2xs' : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        30
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { setItemsPerPage(60); setCurrentPage(1); }}
+                        className={`px-3 py-1 rounded-lg transition-colors cursor-pointer text-xs ${
+                          itemsPerPage === 60 ? 'bg-[#0d9749] text-white shadow-2xs' : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        60
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { setItemsPerPage('all'); setCurrentPage(1); }}
+                        className={`px-3 py-1 rounded-lg transition-colors cursor-pointer text-xs ${
+                          itemsPerPage === 'all' ? 'bg-[#0d9749] text-white' : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        All ({filteredProducts.length})
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-1.5 sm:gap-2">

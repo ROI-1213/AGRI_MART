@@ -747,8 +747,8 @@ function ProductsContent() {
               </div>
             ) : (
               <>
-                {/* 3-Column Product Cards Grid (Strictly 3 cards per row on all desktop & laptop screens) */}
-                <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-5 sm:gap-6" : "space-y-4"}>
+                {/* 3-Column Product Cards Grid on Desktop / 2x2 Grid on Mobile */}
+                <div className={viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-2.5 sm:gap-6" : "space-y-4"}>
                   {paginatedProducts.map((product) => (
                     <ProductCard
                       key={product.id}

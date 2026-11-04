@@ -131,10 +131,10 @@ export default function ProductCard({
         </div>
       ) : (
         /* ================= 3x3 LARGER VERTICAL CARD STYLE ================= */
-        <div className="group relative bg-white rounded-2xl border border-gray-100/80 shadow-2xs hover:shadow-lg transition-all duration-300 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100/80 shadow-2xs hover:shadow-lg transition-all duration-300 p-2.5 sm:p-4 flex flex-col justify-between overflow-hidden">
           
           {/* Top: Product Visual with Image Zoom & 3D Flip / Secondary Image Reveal */}
-          <div className="relative w-full h-60 sm:h-64 lg:h-72 rounded-xl sm:rounded-2xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 border border-gray-100 flex items-center justify-center p-3 overflow-hidden [perspective:1000px]">
+          <div className="relative w-full aspect-square sm:aspect-auto sm:h-64 lg:h-72 rounded-lg sm:rounded-2xl bg-gradient-to-b from-gray-50/80 via-white to-gray-50/50 border border-gray-100 flex items-center justify-center p-2 sm:p-3 overflow-hidden [perspective:1000px]">
             {/* Central HD Product Photo */}
             <Link 
               href={`/products/${product.id}`}
@@ -151,8 +151,8 @@ export default function ProductCard({
                     quality={100}
                     loading="lazy"
                     onError={handleImageError}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-sm"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-sm"
                   />
                   <Image
                     src={secondaryImg}
@@ -161,8 +161,8 @@ export default function ProductCard({
                     unoptimized
                     quality={100}
                     loading="lazy"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-110 drop-shadow-md"
                   />
                 </div>
               ) : (
@@ -177,8 +177,8 @@ export default function ProductCard({
                       quality={100}
                       loading="lazy"
                       onError={handleImageError}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-1.5 sm:p-2 transition-transform duration-500 ease-out group-hover:scale-105 drop-shadow-sm"
                     />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
@@ -189,8 +189,8 @@ export default function ProductCard({
                       unoptimized
                       quality={100}
                       loading="lazy"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-2 scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-110 drop-shadow-md"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-1.5 sm:p-2 scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-110 drop-shadow-md"
                     />
                   </div>
                 </div>
@@ -199,30 +199,35 @@ export default function ProductCard({
           </div>
 
           {/* Middle: Details & Specs */}
-          <div className="flex-1 flex flex-col justify-between pt-3">
+          <div className="flex-1 flex flex-col justify-between pt-2 sm:pt-3">
             <div>
-              {/* Product Code */}
-              <span className="text-[11px] sm:text-xs font-mono text-gray-500 uppercase tracking-wider block mb-1">
-                Code: <strong className="text-gray-800 font-bold">{product.riplCode}</strong>
-              </span>
+              {/* Product Code & Brand */}
+              <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono text-gray-500 uppercase tracking-wider mb-1 gap-1">
+                <span className="truncate">Code: <strong className="text-gray-800 font-bold">{product.riplCode}</strong></span>
+                {product.brand && (
+                  <span className="text-[9px] sm:text-[10px] font-black text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200 shrink-0">
+                    {product.brand}
+                  </span>
+                )}
+              </div>
 
               {/* Product Title */}
               <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
-                <h3 className="font-extrabold text-sm sm:text-base text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-3 min-h-[42px]">
+                <h3 className="font-extrabold text-xs sm:text-base text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[32px] sm:min-h-[42px]" title={product.name}>
                   {product.name}
                 </h3>
               </Link>
             </div>
 
             {/* Bottom: Request a Quote Action */}
-            <div className="pt-2.5 border-t border-gray-100 mt-auto">
+            <div className="pt-2 sm:pt-2.5 border-t border-gray-100 mt-auto">
               <button
                 type="button"
                 onClick={handleRequestQuote}
-                className="w-full bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold py-2.5 sm:py-3 px-3 rounded-xl flex items-center justify-center gap-2 shadow-xs hover:shadow-md transition-all duration-150 cursor-pointer group/btn"
+                className="w-full bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-[11px] sm:text-sm font-extrabold py-2 sm:py-3 px-2 sm:px-3 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-2 shadow-xs hover:shadow-md transition-all duration-150 cursor-pointer group/btn"
               >
-                <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-300" />
-                <span>Request a Quote</span>
+                <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 shrink-0" />
+                <span className="truncate">Request Quote</span>
               </button>
             </div>
 

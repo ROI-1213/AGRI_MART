@@ -162,19 +162,19 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
           </p>
         </div>
 
-        {/* ================= 8 FEATURED PRODUCTS GRID: FULL PAGE DISPLAY ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        {/* ================= 8 FEATURED PRODUCTS GRID: 2x2 ON MOBILE, 4-COL ON DESKTOP ================= */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-7">
           {FEATURED_PRODUCTS.map((product) => {
             return (
               <div
                 key={product.id}
-                className="group relative bg-white rounded-2xl border-0 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer"
+                className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100/80 shadow-2xs hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 {/* Visual Glow Spotlight on Hover */}
-                <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl pointer-events-none" />
 
                 {/* Full-Bleed Top Image Container: Machine Fills the Upper Card */}
-                <div className="relative w-full h-64 sm:h-72 lg:h-80 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 overflow-hidden flex items-center justify-center select-none">
+                <div className="relative w-full h-40 sm:h-72 lg:h-80 bg-gradient-to-b from-gray-50/90 via-white to-gray-50/50 overflow-hidden flex items-center justify-center select-none">
                   {/* Clickable Image Showcase */}
                   <Link
                     href={`/products/${product.id}`}
@@ -193,8 +193,8 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                         unoptimized
                         quality={100}
                         loading="lazy"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-contain p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-110"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-105 sm:scale-110"
                       />
 
                       {/* Secondary Angle Revealed on Hover with Magnified Zoom */}
@@ -206,8 +206,8 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                           unoptimized
                           quality={100}
                           loading="lazy"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-contain p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-115 drop-shadow-2xl"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-115 drop-shadow-2xl"
                         />
                       )}
                     </div>
@@ -216,42 +216,42 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                 </div>
 
                 {/* Lower Meta Information & Actions Container */}
-                <div className="relative z-10 p-4 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
+                <div className="relative z-10 p-2.5 sm:p-5 flex-1 flex flex-col justify-between bg-white border-t border-gray-100">
                   <div>
                     {/* Product Code & Brand */}
-                    <div className="flex items-center justify-between text-[11px] uppercase tracking-wider mb-1.5">
-                      <span className="font-mono text-gray-400">Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
-                      <span className="text-[10px] font-black text-gray-600 bg-gray-100 px-2 py-0.5 rounded border border-gray-200 shadow-2xs">
+                    <div className="flex items-center justify-between text-[9px] sm:text-[11px] uppercase tracking-wider mb-1 sm:mb-1.5 gap-1">
+                      <span className="font-mono text-gray-400 truncate">Code: <strong className="text-gray-700 font-bold">{product.code}</strong></span>
+                      <span className="text-[8px] sm:text-[10px] font-black text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200 shadow-2xs shrink-0">
                         {product.brand}
                       </span>
                     </div>
 
                     {/* Product Title */}
                     <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
-                      <h3 className="font-extrabold text-sm sm:text-[15px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[40px]" title={product.name}>
+                      <h3 className="font-extrabold text-xs sm:text-[15px] text-gray-900 leading-snug line-clamp-2 uppercase tracking-tight mb-2 min-h-[32px] sm:min-h-[40px]" title={product.name}>
                         {product.name}
                       </h3>
                     </Link>
                   </div>
 
                   {/* Action Buttons Row */}
-                  <div className="pt-3 border-t border-gray-100 mt-auto flex items-center gap-2">
+                  <div className="pt-2 sm:pt-3 border-t border-gray-100 mt-auto flex items-center gap-1.5 sm:gap-2">
                     <button
                       type="button"
                       onClick={(e) => handleRequestQuote(e, product)}
-                      className="flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
+                      className="flex-1 bg-[#0d9749] hover:bg-[#097b3a] active:scale-[0.98] text-white text-[11px] sm:text-sm font-extrabold py-2 sm:py-2.5 px-2 sm:px-3.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
                     >
-                      <FileText className="w-4 h-4 text-yellow-300" />
-                      <span>Request Quote</span>
+                      <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 shrink-0" />
+                      <span className="truncate">Request Quote</span>
                     </button>
 
                     <Link
                       href={`/products/${product.id}`}
-                      className="p-2.5 rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs"
+                      className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-gray-200 hover:border-[#0d9749] text-gray-600 hover:text-[#0d9749] bg-white transition-colors shrink-0 shadow-2xs"
                       title="View Full Specifications"
                       aria-label="View Full Specifications"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </Link>
                   </div>
                 </div>

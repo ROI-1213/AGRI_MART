@@ -62,23 +62,23 @@ export default function TrustedBrandsShowcase() {
           </p>
         </div>
 
-        {/* Brand Logos Strip: 3 Authorized Premier Brands in One Clean Balanced Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 items-center justify-items-center max-w-4xl mx-auto">
+        {/* Brand Logos Strip: 3 Authorized Premier Brands in One Clean Balanced Single Row */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-10 md:gap-16 items-center justify-items-center max-w-4xl mx-auto px-1 sm:px-4">
           {BRANDS.map((brand) => (
             <Link
               key={brand.name}
               href={brand.href}
-              className="group relative flex items-center justify-center w-full px-3 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:opacity-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0d9749]/30"
+              className="group relative flex items-center justify-center w-full px-1.5 sm:px-3 py-1.5 sm:py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:opacity-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0d9749]/30"
               title={`${brand.name} — ${brand.tagline}`}
               aria-label={`Explore ${brand.name} equipment and products`}
             >
-              <div className="relative h-16 sm:h-20 md:h-24 w-full flex items-center justify-center">
+              <div className="relative h-10 sm:h-18 md:h-24 w-full flex items-center justify-center">
                 <Image
                   src={brand.logo}
                   alt={`${brand.name} Logo`}
                   width={brand.width}
                   height={brand.height}
-                  className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                  className="h-7 sm:h-12 md:h-16 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-105"
                   quality={100}
                 />
               </div>

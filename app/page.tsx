@@ -199,12 +199,12 @@ export default function HomePage() {
             </div>
 
             {/* Quick-Jump Category Tab Buttons */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full pb-0.5">
               {promoBanners.map((p, idx) => (
                 <button
                   key={p.id}
                   onClick={() => setCurrentPromo(idx)}
-                  className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5 ${
+                  className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                     idx === currentPromo
                       ? 'bg-[#0d9749] text-white shadow-sm'
                       : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
@@ -220,7 +220,7 @@ export default function HomePage() {
 
           {/* Animated Banner Container (Ultra-HD Vector & High-Res Collage) */}
           <div 
-            className="relative w-full aspect-[994/115] min-h-[105px] sm:min-h-[120px] md:min-h-[135px] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
+            className="relative w-full min-h-[148px] sm:min-h-[120px] md:min-h-[135px] sm:aspect-[994/115] rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-200 transition-all duration-300 bg-white"
             onMouseEnter={() => setIsPromoPaused(true)}
             onMouseLeave={() => setIsPromoPaused(false)}
           >
@@ -237,8 +237,8 @@ export default function HomePage() {
                   }`}
                   aria-label={`${promo.title} - ${promo.description}`}
                 >
-                  {/* Left: Authentic High-Definition Agrimart Logo */}
-                  <div className="w-[18%] sm:w-[16%] md:w-[15%] h-full flex items-center justify-center pl-3 sm:pl-5 shrink-0 select-none">
+                  {/* Left: Authentic High-Definition Agrimart Logo (Desktop & Tablet) */}
+                  <div className="hidden sm:flex sm:w-[16%] md:w-[15%] h-full items-center justify-center pl-3 sm:pl-5 shrink-0 select-none">
                     <div className="relative w-full max-w-[130px] h-[65%] flex items-center justify-center">
                       <Image
                         src="/assets/branding/logo.png"
@@ -251,33 +251,44 @@ export default function HomePage() {
                   </div>
 
                   {/* Center: Vector Razor-Sharp Typography & Interactive Button */}
-                  <div className="flex-1 h-full flex flex-col justify-center px-3 sm:px-6 py-2 z-10 min-w-0 select-none">
+                  <div className="flex-1 h-full flex flex-col justify-center px-3.5 sm:px-6 py-2.5 sm:py-2 z-10 min-w-0 select-none max-w-[64%] sm:max-w-none">
+                    {/* Mobile Logo inline above text */}
+                    <div className="sm:hidden mb-1 flex items-center">
+                      <Image
+                        src="/assets/branding/logo.png"
+                        alt="Agrimart"
+                        width={75}
+                        height={20}
+                        className="h-3.5 w-auto object-contain"
+                      />
+                    </div>
+
                     <div className="flex items-center gap-1.5 mb-0.5 sm:mb-1">
-                      <span className="text-[8px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                      <span className="text-[8.5px] sm:text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider">
                         {promo.subtitle}
                       </span>
                       <span className="w-5 sm:w-8 h-0.5 bg-[#eab308] rounded-full inline-block"></span>
                     </div>
 
-                    <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-none mb-1 tracking-tight truncate">
+                    <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-black text-[#097b3a] leading-tight mb-1 tracking-tight truncate">
                       {promo.title}
                     </h3>
 
-                    <p className="text-[8px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-tight line-clamp-1 sm:line-clamp-2 max-w-lg mb-1.5 sm:mb-2">
+                    <p className="text-[9.5px] sm:text-[11px] md:text-xs text-gray-600 font-medium leading-snug line-clamp-2 max-w-lg mb-2 sm:mb-2">
                       {promo.description}
                     </p>
 
                     <div>
-                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[8.5px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
+                      <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#097b3a] group-hover:bg-[#075022] active:bg-[#053d19] text-white font-bold text-[9px] sm:text-[11px] md:text-xs px-2.5 sm:px-3.5 py-1 rounded-[4px] shadow-sm group-hover:shadow transition-all duration-200">
                         <span>{promo.buttonText}</span>
                         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-mono">→</span>
                       </span>
                     </div>
                   </div>
 
-                  {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing */}
+                  {/* Right: Ultra-HD Photographic Showcase with Curved/Diagonal Framing & Soft Gradient Mask */}
                   <div 
-                    className="relative w-[48%] sm:w-[54%] md:w-[58%] h-full shrink-0 overflow-hidden [clip-path:polygon(8%_0%,100%_0%,100%_100%,0%_100%)] select-none"
+                    className="relative w-[40%] sm:w-[50%] md:w-[56%] lg:w-[58%] h-full shrink-0 overflow-hidden [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)] select-none ml-auto"
                   >
                     <Image
                       src={promo.photo}
@@ -288,7 +299,8 @@ export default function HomePage() {
                       sizes="(max-width: 1200px) 70vw, 1000px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent pointer-events-none" />
+                    {/* Soft gradient mask on the left edge so text and image never clash */}
+                    <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
                   </div>
                 </Link>
               );

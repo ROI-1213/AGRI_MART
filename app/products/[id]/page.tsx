@@ -221,10 +221,23 @@ export default function ProductDetailPage() {
                 </h1>
 
                 {/* Product Code */}
-                <div className="bg-gray-50 border border-gray-200 px-3 py-1.5 rounded inline-block mb-6">
+                <div className="bg-gray-50 border border-gray-200 px-3 py-1.5 rounded inline-block mb-4">
                   <span className="text-xs text-gray-500 font-mono">
                     Code: <strong className="text-gray-900 text-sm font-bold">{product.riplCode}</strong>
                   </span>
+                </div>
+
+                {/* Price on Request Notice */}
+                <div className="border-t border-b border-gray-100 py-3.5 mb-4 bg-gray-50/75 p-3 rounded">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#0d9749] inline-block animate-pulse"></span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#097b3a]">
+                      Price on Request
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Official quotation inclusive of GST, localized delivery logistics, warranty coverage, and government subsidy assistance.
+                  </p>
                 </div>
 
                 {/* Primary Call-to-Action: Request a Quote */}

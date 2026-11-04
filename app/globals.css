@@ -236,3 +236,30 @@ p, span, div, a, button, input, textarea, select, label {
   animation-play-state: paused;
 }
 
+/* Smooth 3D image flip animation for product cards without a 2nd image */
+.product-image-flip {
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: visible;
+}
+
+@media (min-width: 640px) {
+  .product-image-flip {
+    transform: scale(1.1);
+  }
+}
+
+.group:hover .product-image-flip,
+.group:active .product-image-flip {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .group:hover .product-image-flip,
+  .group:active .product-image-flip {
+    transform: rotateY(180deg) scale(1.1);
+  }
+}
+

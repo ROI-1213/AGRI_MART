@@ -184,8 +184,8 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                     <div className="absolute inset-0 bg-radial from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
 
                     {/* Multi-Angle Machine Showcase (Auto-zoomed to fill card without empty space) */}
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      {/* Primary Image: Zoomed & Centered to Fill the Full Container */}
+                    <div className="relative w-full h-full flex items-center justify-center [perspective:1000px]">
+                      {/* Primary Image: Multi-angle switch if 2nd image exists, smooth 3D flip animation if single image */}
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -194,7 +194,11 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                         quality={100}
                         loading="lazy"
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-105 sm:scale-110"
+                        className={
+                          product.secondaryImage
+                            ? "object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-105 sm:scale-110"
+                            : "object-contain p-1.5 sm:p-2 drop-shadow-md product-image-flip"
+                        }
                       />
 
                       {/* Secondary Angle Revealed on Hover with Magnified Zoom */}

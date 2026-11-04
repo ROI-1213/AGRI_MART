@@ -347,11 +347,7 @@ export default function HomePage() {
 
             {/* The 2 Hyperlinked Buttons: Google Play & App Store */}
             <div 
-              className="absolute z-20 flex items-center gap-2 sm:gap-3"
-              style={{
-                left: '7.5%',
-                bottom: '12%',
-              }}
+              className="absolute z-20 flex items-center gap-1.5 sm:gap-3 left-[6%] sm:left-[7.5%] bottom-[5%] sm:bottom-[12%]"
             >
               {/* Google Play Store Button */}
               <a
@@ -360,7 +356,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 title="Download Agrimart App on Google Play"
                 aria-label="Download on Google Play"
-                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-md overflow-hidden cursor-pointer"
+                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-sm sm:rounded-md overflow-hidden cursor-pointer shrink-0"
               >
                 <Image
                   src="/assets/branding/google_play_hd.png"
@@ -369,7 +365,7 @@ export default function HomePage() {
                   height={44}
                   unoptimized
                   quality={100}
-                  className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
+                  className="h-5 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
                 />
               </a>
 
@@ -380,7 +376,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 title="Download Agrimart App on App Store"
                 aria-label="Download on App Store"
-                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-md overflow-hidden cursor-pointer"
+                className="hover:scale-105 active:scale-95 transition-transform duration-200 inline-block shadow-md hover:shadow-lg rounded-sm sm:rounded-md overflow-hidden cursor-pointer shrink-0"
               >
                 <Image
                   src="/assets/branding/app_store_hd.png"
@@ -389,7 +385,7 @@ export default function HomePage() {
                   height={44}
                   unoptimized
                   quality={100}
-                  className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
+                  className="h-5 sm:h-8 md:h-10 lg:h-11 w-auto object-contain cursor-pointer"
                 />
               </a>
             </div>

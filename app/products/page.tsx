@@ -195,7 +195,7 @@ function ProductsContent() {
     }
   }, [selectedCategory, selectedSubcategory, selectedBrands, selectedCapacities, selectedPowerSources, searchTerm, currentPage, sortBy]);
 
-  const allBrands = ['KASEI', 'OLEO MAC', 'AGRIMATE', 'GREEN PANTHER'];
+  const allBrands = ['AGRIMATE', 'KASEI', 'OLEO MAC'];
   const capacityOptions = ['8 Ltr', '16 Ltr', '20 Ltr'];
   const powerSourceOptions = ['Manual', 'Battery', 'Petrol / Engine'];
 

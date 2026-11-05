@@ -32,7 +32,7 @@ export default function LegalNoticePage() {
             </div>
             <h3 className="font-bold text-base text-gray-900 mt-6">Intellectual Property Rights</h3>
             <p>
-              All trademarks, product designs, brand logos (including KASEI, OLEO-MAC, AGRIMATE, GREEN PANTHER), brochures, schematics, and text appearing on this website are the intellectual property of Ratnagiri Impex Pvt. Ltd. or used under authorized license. Unauthorized reproduction or commercial distribution without written consent is strictly prohibited.
+              All trademarks, product designs, brand logos (including AGRIMATE, KASEI, OLEO-MAC), brochures, schematics, and text appearing on this website are the intellectual property of Ratnagiri Impex Pvt. Ltd. or used under authorized license. Unauthorized reproduction or commercial distribution without written consent is strictly prohibited.
             </p>
           </div>
         </div>

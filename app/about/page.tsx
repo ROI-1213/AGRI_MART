@@ -110,7 +110,7 @@ export default function AboutPage() {
                 Original Brands
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Direct authorized distributor for globally renowned brands including Kasei, Oleo-Mac, Agrimate, and Green Panther.
+                Direct authorized distributor for globally renowned brands including Agrimate, Kasei, and Oleo-Mac.
               </p>
             </div>
 

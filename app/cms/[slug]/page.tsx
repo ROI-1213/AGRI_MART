@@ -21,7 +21,7 @@ export default function CMSPage() {
         
         <h3>Franchise & Dealership Benefits:</h3>
         <ul>
-          <li><strong>Exclusive Brand Portfolio:</strong> Authorized distribution rights for Agrimate, Kasei, Oleo-Mac, and Green Panther equipment.</li>
+          <li><strong>Exclusive Brand Portfolio:</strong> Authorized distribution rights for Agrimate, Kasei, and Oleo-Mac equipment.</li>
           <li><strong>High Operating Margins:</strong> Attractive profit margins on both complete machine sales and recurring consumable spares.</li>
           <li><strong>Technical & Sales Training:</strong> Free orientation for your staff on machine operation, repair diagnostics, and customer demonstration.</li>
           <li><strong>Marketing & In-Store Branding:</strong> Signage, marketing collateral, localized advertising, and national digital leads passed directly to your outlet.</li>

@@ -300,39 +300,26 @@ export default function ProductDetailPage() {
 
           {/* Tab Content Panes */}
           <div className="p-6 sm:p-8">
-            {/* 1. DESCRIPTION TAB */}
+            {/* 1. DESCRIPTION / SPECIFICATIONS TAB */}
             {activeTab === 'desc' && (
-              <div className="space-y-6">
-                <div
-                  className="prose max-w-none text-xs sm:text-sm text-gray-700 leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: product.description }}
-                />
-
-                {/* Technical Specifications Table */}
+              <div>
+                {/* Clean Structured Specifications Table */}
                 {allSpecs.length > 0 && (
-                  <div className="mt-8 pt-6 border-t border-gray-100">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-2 h-2 rounded-full bg-[#0d9749]"></span>
-                      <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
-                        Technical Specifications
-                      </h3>
-                    </div>
-                    <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
-                      <table className="w-full text-left divide-y divide-gray-200">
-                        <tbody className="divide-y divide-gray-100">
-                          {allSpecs.map((spec, idx) => (
-                            <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
-                              <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
-                                {spec.label}
-                              </td>
-                              <td className="px-4 py-2.5 text-gray-900 font-medium">
-                                {spec.value}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                  <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
+                    <table className="w-full text-left divide-y divide-gray-200">
+                      <tbody className="divide-y divide-gray-100">
+                        {allSpecs.map((spec, idx) => (
+                          <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
+                            <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
+                              {spec.label}
+                            </td>
+                            <td className="px-4 py-2.5 text-gray-900 font-medium">
+                              {spec.value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 )}
               </div>

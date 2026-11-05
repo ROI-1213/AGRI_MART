@@ -20,7 +20,7 @@ import BrochureModal from '@/components/BrochureModal';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
 import { formatProductTitle, getDefaultCategoryImage } from '@/lib/format';
-import { extractProductSpecs } from '@/lib/productSpecs';
+import { extractProductSpecs, parseProductDescription } from '@/lib/productSpecs';
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -48,7 +48,8 @@ export default function ProductDetailPage() {
 
   const fallbackImg = getDefaultCategoryImage(product.category);
   const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || fallbackImg);
-  const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure'>('desc');
+  const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure' | 'video'>('desc');
+  const descriptionFields = parseProductDescription(product.description || '');
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
@@ -180,73 +181,72 @@ export default function ProductDetailPage() {
         </div>
 
         {/* 4 Detail Tabs: Product description, Accessories, Brochure, Video */}
-        <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden mb-8">
-          {/* Tab Navigation */}
-          <div className="flex border-b border-gray-200 bg-gray-50 text-xs sm:text-sm font-bold overflow-x-auto">
+        <div className="bg-white rounded-lg border border-gray-200 shadow-xs overflow-hidden mb-8">
+          {/* Authentic Tab Navigation matching exact reference design */}
+          <div className="flex items-center border-b border-gray-200 overflow-x-auto px-4 pt-4 sm:px-6 sm:pt-6 bg-white gap-2 sm:gap-3 no-scrollbar">
             <button
               onClick={() => setActiveTab('desc')}
-              className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
+              className={`py-2 px-5 rounded-t-md text-xs sm:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap ${
                 activeTab === 'desc'
-                  ? 'border-[#0d9749] text-[#0d9749] bg-white'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'bg-[#0d9749] text-white shadow-xs'
+                  : 'bg-transparent text-gray-600 hover:text-gray-900 font-semibold'
               }`}
             >
               Product Description
             </button>
 
-            {hasAccessoriesOrSpares && (
-              <button
-                onClick={() => setActiveTab('accessories')}
-                className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
-                  activeTab === 'accessories'
-                    ? 'border-[#0d9749] text-[#0d9749] bg-white'
-                    : 'border-transparent text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                {validAccessories.length > 0 && validSpareParts.length > 0
-                  ? 'Accessories & Spare Parts'
-                  : validAccessories.length > 0
-                  ? `Included Accessories (${validAccessories.length})`
-                  : `Spare Parts (${validSpareParts.length})`}
-              </button>
-            )}
-
-            {/* 3. Brochures & Leaflets Tab Header */}
             <button
-              onClick={() => setActiveTab('brochure')}
-              className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors cursor-pointer ${
-                activeTab === 'brochure'
-                  ? 'border-[#0d9749] text-[#0d9749] bg-white font-bold'
-                  : 'border-transparent text-gray-600 hover:text-gray-900 font-semibold'
+              onClick={() => setActiveTab('accessories')}
+              className={`py-2 px-5 rounded-t-md text-xs sm:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap ${
+                activeTab === 'accessories'
+                  ? 'bg-[#0d9749] text-white shadow-xs'
+                  : 'bg-transparent text-gray-600 hover:text-gray-900 font-semibold'
               }`}
             >
-              Brochures &amp; Leaflets ({validBrochures.length || 1})
+              Accessories
+            </button>
+
+            <button
+              onClick={() => setActiveTab('brochure')}
+              className={`py-2 px-5 rounded-t-md text-xs sm:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap ${
+                activeTab === 'brochure'
+                  ? 'bg-[#0d9749] text-white shadow-xs'
+                  : 'bg-transparent text-gray-600 hover:text-gray-900 font-semibold'
+              }`}
+            >
+              Brochure
+            </button>
+
+            <button
+              onClick={() => setActiveTab('video')}
+              className={`py-2 px-5 rounded-t-md text-xs sm:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap ${
+                activeTab === 'video'
+                  ? 'bg-[#0d9749] text-white shadow-xs'
+                  : 'bg-transparent text-gray-600 hover:text-gray-900 font-semibold'
+              }`}
+            >
+              Video
             </button>
           </div>
 
           {/* Tab Content Panes */}
-          <div className="p-6 sm:p-8">
-            {/* 1. DESCRIPTION / SPECIFICATIONS TAB */}
+          <div className="p-5 sm:p-7">
+            {/* 1. PRODUCT DESCRIPTION TAB (Exact inline bold label + value display) */}
             {activeTab === 'desc' && (
-              <div>
-                {/* Clean Structured Specifications Table */}
-                {allSpecs.length > 0 && (
-                  <div className="border border-gray-200 rounded-lg overflow-hidden text-xs shadow-2xs">
-                    <table className="w-full text-left divide-y divide-gray-200">
-                      <tbody className="divide-y divide-gray-100">
-                        {allSpecs.map((spec, idx) => (
-                          <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50/70 hover:bg-gray-100/60' : 'bg-white hover:bg-gray-50/50'}>
-                            <td className="px-4 py-2.5 font-bold text-gray-700 w-1/3 sm:w-1/4 border-r border-gray-100">
-                              {spec.label}
-                            </td>
-                            <td className="px-4 py-2.5 text-gray-900 font-medium">
-                              {spec.value}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+              <div className="text-xs sm:text-[13px] leading-relaxed">
+                {descriptionFields && descriptionFields.length > 0 ? (
+                  <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-5 gap-y-2">
+                    {descriptionFields.map((field, idx) => (
+                      <span key={idx} className="inline-flex items-baseline gap-1.5">
+                        {field.key && (
+                          <strong className="font-bold text-gray-900">{field.key}:</strong>
+                        )}
+                        <span className="text-gray-700 font-normal">{field.value}</span>
+                      </span>
+                    ))}
                   </div>
+                ) : (
+                  <p className="text-gray-600">No additional product description available.</p>
                 )}
               </div>
             )}
@@ -420,6 +420,34 @@ export default function ProductDetailPage() {
                     <span>Download Master Catalog</span>
                   </a>
                 </div>
+              </div>
+            )}
+
+            {/* 4. VIDEO TAB */}
+            {activeTab === 'video' && (
+              <div className="py-2">
+                {product.videos && product.videos.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {product.videos.map((vid, idx) => (
+                      <div key={idx} className="border border-gray-200 rounded-lg p-4 bg-gray-50/70">
+                        <h4 className="font-bold text-xs text-gray-900 mb-2">{vid.title}</h4>
+                        <a
+                          href={vid.videoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-green-700 hover:underline font-semibold"
+                        >
+                          Watch Demonstration Video →
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="p-4 bg-gray-50/80 rounded-lg border border-gray-200 text-xs text-gray-600">
+                    <p className="font-semibold text-gray-800 mb-1">Demonstration &amp; Operational Video</p>
+                    <p>Official video demonstrations for this model can be requested through our product support team or viewed on our official YouTube channel. For live video assistance, call our helpline at <strong>7393 938 938</strong>.</p>
+                  </div>
+                )}
               </div>
             )}
           </div>

@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const targetUrl = searchParams.get('url');
   const productId = searchParams.get('id') || searchParams.get('code') || '';
   const lang = searchParams.get('lang') || 'English';
-  const filename = searchParams.get('filename') || 'product_brochure.pdf';
+  const customFilename = searchParams.get('filename') || 'product_brochure.pdf';
 
   if (!targetUrl) {
     if (productId) {
@@ -14,9 +16,42 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));
   }
 
+  // 1. Try resolving locally from stored brochures repository
+  try {
+    const parsed = new URL(targetUrl.startsWith('http') ? targetUrl : `https://agrimart.in${targetUrl}`);
+    const basename = path.basename(parsed.pathname);
+
+    const candidatePaths = [
+      path.join(process.cwd(), 'public', 'uploads', 'product_brochure', '1', basename),
+      path.join(process.cwd(), 'brochers', basename),
+      path.join(process.cwd(), 'public', 'brochures', basename)
+    ];
+
+    for (const localPath of candidatePaths) {
+      if (fs.existsSync(localPath)) {
+        const fileBuffer = fs.readFileSync(localPath);
+        const ext = path.extname(basename).toLowerCase();
+        let mime = 'application/pdf';
+        if (ext === '.jpg' || ext === '.jpeg') mime = 'image/jpeg';
+        else if (ext === '.png') mime = 'image/png';
+
+        return new NextResponse(fileBuffer, {
+          headers: {
+            'Content-Type': mime,
+            'Content-Disposition': `inline; filename="${basename || customFilename}"`,
+            'Cache-Control': 'public, max-age=31536000, immutable'
+          }
+        });
+      }
+    }
+  } catch {
+    // Continue to remote fetch if local path parsing failed
+  }
+
+  // 2. Fetch from remote if not available locally
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
 
     const response = await fetch(targetUrl, {
       signal: controller.signal,
@@ -29,26 +64,24 @@ export async function GET(request: NextRequest) {
 
     const contentType = response.headers.get('content-type') || '';
 
-    // If target successfully returned a PDF, stream it inline
-    if (response.ok && contentType.includes('application/pdf')) {
+    if (response.ok && (contentType.includes('application/pdf') || contentType.includes('image/'))) {
       const buffer = await response.arrayBuffer();
       return new NextResponse(buffer, {
         headers: {
-          'Content-Type': 'application/pdf',
-          'Content-Disposition': `inline; filename="${filename}"`,
+          'Content-Type': contentType,
+          'Content-Disposition': `inline; filename="${customFilename}"`,
           'Cache-Control': 'public, max-age=86400, s-maxage=86400'
         }
       });
     }
   } catch {
-    // Remote fetch failed or timed out (e.g. agrimart.in under maintenance)
+    // Remote fetch failed or timed out
   }
 
-  // Graceful fallback: Redirect to dedicated printable in-app brochure view in user's language
+  // 3. Graceful fallback: Dedicated printable in-app brochure view
   if (productId) {
     return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}&print=1`, request.url));
   }
 
-  // Master catalog fallback
   return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));
 }

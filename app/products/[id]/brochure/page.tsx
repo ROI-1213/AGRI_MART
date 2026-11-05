@@ -49,7 +49,7 @@ export default function ProductBrochurePage({
     (sp) => sp && sp.name && !/^(no information available\.?|na|n\/a|none)$/i.test(sp.name.trim())
   );
 
-  const mainImage = product.thumbnailImage || product.images?.[0] || '/assets/logo/agrimart_logo.png';
+  const mainImage = product.thumbnailImage || product.images?.[0] || '/assets/branding/logo.png';
 
   useEffect(() => {
     if (shouldPrint && typeof window !== 'undefined') {
@@ -133,13 +133,15 @@ export default function ProductBrochurePage({
         {/* Document Header */}
         <div className="border-b-2 border-[#0d9749] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <div className="relative w-40 h-14">
+            <div className="relative h-12 sm:h-14 w-auto flex items-center">
               <Image
-                src="/assets/logo/agrimart_logo.png"
+                src="/assets/branding/logo.png"
                 alt="Agrimart Logo"
-                fill
-                className="object-contain object-left"
+                width={170}
+                height={50}
+                className="h-10 sm:h-12 w-auto object-contain object-left"
                 priority
+                unoptimized
               />
             </div>
             <div className="border-l border-gray-300 pl-3">

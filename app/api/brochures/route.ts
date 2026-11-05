@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
   if (!targetUrl) {
     if (productId) {
-      return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}&print=1`, request.url));
+      return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}`, request.url));
     }
     return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));
   }
@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
 
   // 3. Graceful fallback: Dedicated printable in-app brochure view
   if (productId) {
-    return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}&print=1`, request.url));
+    return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}`, request.url));
   }
 
   return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));

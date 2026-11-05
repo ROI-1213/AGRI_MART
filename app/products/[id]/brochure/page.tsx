@@ -24,7 +24,6 @@ export default function ProductBrochurePage({
 }) {
   const resolvedParams = use(params);
   const searchParams = useSearchParams();
-  const shouldPrint = searchParams.get('print') === '1';
   const paramLang = searchParams.get('lang') || 'English';
 
   const [currentLang, setCurrentLang] = useState<string>(paramLang);
@@ -50,15 +49,6 @@ export default function ProductBrochurePage({
   );
 
   const mainImage = product.thumbnailImage || product.images?.[0] || '/assets/branding/logo.png';
-
-  useEffect(() => {
-    if (shouldPrint && typeof window !== 'undefined') {
-      const timer = setTimeout(() => {
-        window.print();
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [shouldPrint]);
 
   const handlePrint = () => {
     if (typeof window !== 'undefined') {

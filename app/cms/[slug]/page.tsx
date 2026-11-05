@@ -1,76 +1,103 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { Handshake, TrendingUp, BookOpen } from 'lucide-react';
 
-export default function CMSPage() {
-  const params = useParams();
-  const rawSlug = params?.slug as string;
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+const contentMap: Record<string, { title: string; subtitle: string; icon: any; body: string }> = {
+  become_a_partner: {
+    title: 'Become an Authorized Agrimart Business Partner',
+    subtitle: 'Join India’s largest organized farm machinery retail and franchise network.',
+    icon: Handshake,
+    body: `
+      <h3>Why Partner with Agrimart?</h3>
+      <p>Agrimart is an initiative of Ratnagiri Impex Pvt. Ltd. (Annapurna Group), operating since 2000. With an established footprint across India and trusted partnerships with global manufacturers like Kasei and Oleo-Mac, Agrimart offers business entrepreneurs and rural retailers an unmatched business opportunity.</p>
+      
+      <h3>Franchise & Dealership Benefits:</h3>
+      <ul>
+        <li><strong>Exclusive Brand Portfolio:</strong> Authorized distribution rights for Agrimate, Kasei, and Oleo-Mac equipment.</li>
+        <li><strong>High Operating Margins:</strong> Attractive profit margins on both complete machine sales and recurring consumable spares.</li>
+        <li><strong>Technical & Sales Training:</strong> Free orientation for your staff on machine operation, repair diagnostics, and customer demonstration.</li>
+        <li><strong>Marketing & In-Store Branding:</strong> Signage, marketing collateral, localized advertising, and national digital leads passed directly to your outlet.</li>
+      </ul>
+
+      <h3>Eligibility Requirements:</h3>
+      <p>Prior experience in agricultural inputs, machinery, hardware, or automotive retail with a minimum commercial showroom/storage space of 400–800 sq.ft. in a high-traffic agricultural hub or taluk headquarters.</p>
+    `
+  },
+  buy_earn_rent: {
+    title: 'Buy, Earn and Rent Scheme',
+    subtitle: 'Create sustainable rural income by providing custom hiring services for farm mechanization.',
+    icon: TrendingUp,
+    body: `
+      <h3>Rural Mechanization Entrepreneurship Program</h3>
+      <p>Small and marginal farmers often struggle to invest in expensive machinery individually. Through Agrimart’s 'Buy, Earn and Rent' initiative, progressive farmers, rural youth, and agricultural self-help groups (SHGs) can acquire high-demand equipment and earn recurring rental income by offering custom hiring services to neighboring farms.</p>
+      
+      <h3>Top Equipment for Custom Hiring:</h3>
+      <ul>
+        <li><strong>Power Weeders / Intercultivators:</strong> High demand for weeding in sugarcane, maize, cotton, and vegetables.</li>
+        <li><strong>Mistblowers & Battery Sprayers:</strong> Essential for timely pest control in orchards, coffee, and arecanut.</li>
+        <li><strong>Earth Augers:</strong> In heavy demand for planting saplings, fencing poles, and horticulture.</li>
+        <li><strong>Chaff Cutters & Shredders:</strong> Vital for dairy farmers for fodder preparation.</li>
+      </ul>
+
+      <h3>Financial Payback Period:</h3>
+      <p>Most rental operators recover their initial capital investment within 3 to 6 months of peak agricultural season operation.</p>
+    `
+  },
+  knowledge_bank: {
+    title: 'Agricultural Equipment Knowledge Bank',
+    subtitle: 'Technical specifications, machine operation guides, and farm mechanization resources.',
+    icon: BookOpen,
+    body: `
+      <h3>Empowering Indian Agriculture with Practical Engineering Knowledge</h3>
+      <p>Agrimart believes that effective mechanization begins with knowledge. Our Knowledge Bank serves as an open technical library containing equipment user manuals, two-stroke oil mixing tables, sprayer nozzle calibration guides, and subsidy documentation.</p>
+      
+      <h3>Essential Operator Resources:</h3>
+      <ul>
+        <li><strong>2-Stroke Fuel Mixing Guide:</strong> The correct 50:1 or 25:1 fuel-to-Prosint 2T oil ratio to prevent engine seizure.</li>
+        <li><strong>Seasonal Storage Tips:</strong> How to drain carburetors, lubricate cylinder heads, and store machinery during off-seasons.</li>
+        <li><strong>Government Subsidy Procedures:</strong> Step-by-step application documentation for Central & State mechanization schemes.</li>
+        <li><strong>Equipment Troubleshooting:</strong> Quick diagnostic flowcharts for starting issues, spark plug maintenance, and filter cleaning.</li>
+      </ul>
+    `
+  }
+};
+
+export function generateStaticParams() {
+  return [
+    { slug: 'become-a-partner' },
+    { slug: 'become_a_partner' },
+    { slug: 'buy-earn-rent' },
+    { slug: 'buy_earn_rent' },
+    { slug: 'knowledge-bank' },
+    { slug: 'knowledge_bank' }
+  ];
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug: rawSlug } = await params;
+  const slug = rawSlug?.replace(/-/g, '_');
+  const current = contentMap[slug] || contentMap['become_a_partner'];
+  return {
+    title: `${current.title} | AGRIMART`,
+    description: current.subtitle
+  };
+}
+
+export default async function CMSPage({ params }: PageProps) {
+  const { slug: rawSlug } = await params;
   const slug = rawSlug?.replace(/-/g, '_');
 
-  const contentMap: Record<string, { title: string; subtitle: string; icon: any; body: string }> = {
-    become_a_partner: {
-      title: 'Become an Authorized Agrimart Business Partner',
-      subtitle: 'Join India’s largest organized farm machinery retail and franchise network.',
-      icon: Handshake,
-      body: `
-        <h3>Why Partner with Agrimart?</h3>
-        <p>Agrimart is an initiative of Ratnagiri Impex Pvt. Ltd. (Annapurna Group), operating since 2000. With an established footprint across India and trusted partnerships with global manufacturers like Kasei and Oleo-Mac, Agrimart offers business entrepreneurs and rural retailers an unmatched business opportunity.</p>
-        
-        <h3>Franchise & Dealership Benefits:</h3>
-        <ul>
-          <li><strong>Exclusive Brand Portfolio:</strong> Authorized distribution rights for Agrimate, Kasei, and Oleo-Mac equipment.</li>
-          <li><strong>High Operating Margins:</strong> Attractive profit margins on both complete machine sales and recurring consumable spares.</li>
-          <li><strong>Technical & Sales Training:</strong> Free orientation for your staff on machine operation, repair diagnostics, and customer demonstration.</li>
-          <li><strong>Marketing & In-Store Branding:</strong> Signage, marketing collateral, localized advertising, and national digital leads passed directly to your outlet.</li>
-        </ul>
+  const current = contentMap[slug];
+  if (!current) {
+    notFound();
+  }
 
-        <h3>Eligibility Requirements:</h3>
-        <p>Prior experience in agricultural inputs, machinery, hardware, or automotive retail with a minimum commercial showroom/storage space of 400–800 sq.ft. in a high-traffic agricultural hub or taluk headquarters.</p>
-      `
-    },
-    buy_earn_rent: {
-      title: 'Buy, Earn and Rent Scheme',
-      subtitle: 'Create sustainable rural income by providing custom hiring services for farm mechanization.',
-      icon: TrendingUp,
-      body: `
-        <h3>Rural Mechanization Entrepreneurship Program</h3>
-        <p>Small and marginal farmers often struggle to invest in expensive machinery individually. Through Agrimart’s 'Buy, Earn and Rent' initiative, progressive farmers, rural youth, and agricultural self-help groups (SHGs) can acquire high-demand equipment and earn recurring rental income by offering custom hiring services to neighboring farms.</p>
-        
-        <h3>Top Equipment for Custom Hiring:</h3>
-        <ul>
-          <li><strong>Power Weeders / Intercultivators:</strong> High demand for weeding in sugarcane, maize, cotton, and vegetables.</li>
-          <li><strong>Mistblowers & Battery Sprayers:</strong> Essential for timely pest control in orchards, coffee, and arecanut.</li>
-          <li><strong>Earth Augers:</strong> In heavy demand for planting saplings, fencing poles, and horticulture.</li>
-          <li><strong>Chaff Cutters & Shredders:</strong> Vital for dairy farmers for fodder preparation.</li>
-        </ul>
-
-        <h3>Financial Payback Period:</h3>
-        <p>Most rental operators recover their initial capital investment within 3 to 6 months of peak agricultural season operation.</p>
-      `
-    },
-    knowledge_bank: {
-      title: 'Agricultural Equipment Knowledge Bank',
-      subtitle: 'Technical specifications, machine operation guides, and farm mechanization resources.',
-      icon: BookOpen,
-      body: `
-        <h3>Empowering Indian Agriculture with Practical Engineering Knowledge</h3>
-        <p>Agrimart believes that effective mechanization begins with knowledge. Our Knowledge Bank serves as an open technical library containing equipment user manuals, two-stroke oil mixing tables, sprayer nozzle calibration guides, and subsidy documentation.</p>
-        
-        <h3>Essential Operator Resources:</h3>
-        <ul>
-          <li><strong>2-Stroke Fuel Mixing Guide:</strong> The correct 50:1 or 25:1 fuel-to-Prosint 2T oil ratio to prevent engine seizure.</li>
-          <li><strong>Seasonal Storage Tips:</strong> How to drain carburetors, lubricate cylinder heads, and store machinery during off-seasons.</li>
-          <li><strong>Government Subsidy Procedures:</strong> Step-by-step application documentation for Central & State mechanization schemes.</li>
-          <li><strong>Equipment Troubleshooting:</strong> Quick diagnostic flowcharts for starting issues, spark plug maintenance, and filter cleaning.</li>
-        </ul>
-      `
-    }
-  };
-
-  const current = contentMap[slug] || contentMap['become_a_partner'];
   const Icon = current.icon;
 
   return (

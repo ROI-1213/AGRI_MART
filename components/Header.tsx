@@ -174,7 +174,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                     <li className="bg-emerald-50/70 border-b border-emerald-100">
                       <Link
                         href="/products"
-                        prefetch={false}
+                        prefetch={true}
                         onClick={() => setCategoryMenuOpen(false)}
                         className="flex items-center justify-between px-4 py-2.5 text-xs font-bold text-[#097b3a] hover:bg-emerald-100/70 transition-colors"
                       >
@@ -194,7 +194,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                       >
                         <Link
                           href={`/products?category=${encodeURIComponent(cat.name)}`}
-                          prefetch={false}
+                          prefetch={true}
                           onClick={() => setCategoryMenuOpen(false)}
                           className="flex items-center justify-between px-4 py-2.5 text-xs font-semibold hover:bg-green-50 hover:text-[#0d9749] transition-colors"
                         >
@@ -215,6 +215,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                   <Link
                     key={link.name}
                     href={link.href}
+                    prefetch={true}
                     onClick={() => {
                       if (link.href === '/products') {
                         window.dispatchEvent(new CustomEvent('agrimart-reset-products'));

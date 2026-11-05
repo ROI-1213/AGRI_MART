@@ -5,10 +5,15 @@ const allowedHosts = process.env.ALLOWED_HOSTS
 
 const nextConfig = {
   compress: true,
+  poweredByHeader: false,
   images: {
     unoptimized: true,
   },
   experimental: {
+    staleTimes: {
+      dynamic: 30,
+      static: 300,
+    },
     serverActions: {
       allowedOrigins: allowedHosts || ['localhost:3000', '127.0.0.1:3000', '*.vercel.app'],
     },

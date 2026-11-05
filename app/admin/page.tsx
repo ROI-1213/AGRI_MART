@@ -1847,7 +1847,6 @@ export default function AdminPage() {
                             <option value="AGRIMATE">AGRIMATE</option>
                             <option value="KASEI">KASEI</option>
                             <option value="OLEO-MAC">OLEO-MAC</option>
-                            <option value="GREEN PANTHER">GREEN PANTHER</option>
                             <option value="KAWASAKI">KAWASAKI</option>
                             <option value="SUBARU">SUBARU</option>
                             <option value="HONDA">HONDA</option>

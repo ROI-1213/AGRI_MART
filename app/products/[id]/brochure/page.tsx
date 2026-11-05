@@ -1,37 +1,50 @@
-'use client';
-
-import { use, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
 
-export default function ProductBrochurePage({
+export function generateStaticParams() {
+  const prods = productsData as unknown as Product[];
+  const set = new Set<string>();
+  const params: { id: string }[] = [];
+
+  for (const p of prods) {
+    if (p.id && !set.has(p.id)) {
+      set.add(p.id);
+      params.push({ id: p.id });
+    }
+    if (p.slug && !set.has(p.slug)) {
+      set.add(p.slug);
+      params.push({ id: p.slug });
+    }
+    if (p.riplCode && !set.has(p.riplCode.toLowerCase())) {
+      set.add(p.riplCode.toLowerCase());
+      params.push({ id: p.riplCode.toLowerCase() });
+    }
+  }
+  return params;
+}
+
+export default async function ProductBrochurePage({
   params
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const resolvedParams = use(params);
-  const router = useRouter();
-  const productId = resolvedParams.id;
+  const { id } = await params;
   const product = (productsData as unknown as Product[]).find(
-    p => p.id === productId || p.slug === productId || p.riplCode.toLowerCase() === productId?.toLowerCase()
+    p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
   );
 
-  useEffect(() => {
-    if (product && product.brochures && product.brochures.length > 0) {
-      const primaryUrl = product.brochures[0].url;
-      const base = primaryUrl.split('/').pop() || '';
-      window.location.href = base ? `/uploads/product_brochure/1/${base}` : (product.slug ? `/products/${product.slug}` : `/products/${productId}`);
-    } else if (product) {
-      router.replace(product.slug ? `/products/${product.slug}` : `/products/${productId}`);
-    } else {
-      router.replace('/products');
+  if (!product) {
+    notFound();
+  }
+
+  if (product.brochures && product.brochures.length > 0) {
+    const primaryUrl = product.brochures[0].url;
+    const base = primaryUrl.split('/').pop() || '';
+    if (base) {
+      redirect(`/uploads/product_brochure/1/${base}`);
     }
-  }, [product, productId, router]);
+  }
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <p className="text-gray-500 text-sm">Opening official product brochure...</p>
-    </div>
-  );
+  redirect(product.slug ? `/products/${product.slug}` : `/products/${id}`);
 }

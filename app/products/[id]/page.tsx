@@ -7,95 +7,19 @@ import { useParams, useRouter } from 'next/navigation';
 import { 
   FileText, 
   Check, 
-  FileCheck2
+  FileCheck2,
+  Eye,
+  Download,
+  Printer,
+  BookOpen
 } from 'lucide-react';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
+import BrochureModal from '@/components/BrochureModal';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
 import { formatProductTitle, getDefaultCategoryImage } from '@/lib/format';
-
-interface SpecItem {
-  label: string;
-  value: string;
-}
-
-function extractProductSpecs(product: Product): SpecItem[] {
-  const specs: SpecItem[] = [];
-  const desc = product.description || '';
-  const name = product.name || '';
-
-  // 1. Existing specs in product.specifications if any
-  if (product.specifications && typeof product.specifications === 'object') {
-    Object.entries(product.specifications).forEach(([k, v]) => {
-      if (v && String(v).trim()) specs.push({ label: k.trim(), value: String(v).trim() });
-    });
-  }
-
-  // 2. Tank / Liquid / Chemical / Fuel Capacity
-  const tankMatch = desc.match(/(?:collection bag capacity|liquid tank capacity|tank capacity|fuel tank capacity|chemical tank capacity|tank|capacity)\s*[:\-]?\s*([0-9.]+\s*(?:ltrs?|l|litres?|kg))/i) ||
-                    name.match(/([0-9.]+\s*(?:ltrs?|l|litres?))/i);
-  if (tankMatch && !specs.some(s => /tank|bag|capacity/i.test(s.label))) {
-    specs.push({ label: 'Tank / Bag Capacity', value: tankMatch[1].trim() });
-  }
-
-  // 3. Power (HP / kW / W / V)
-  const powerMatch = desc.match(/(?:engine power|rated power|max output|power)\s*[:\-]?\s*([0-9.]+\s*(?:hp|kw|w)(?:[-/][0-9.]+\s*(?:hp|kw|w))?)/i) ||
-                     desc.match(/([0-9.]+\s*(?:hp|kw))/i);
-  if (powerMatch && !specs.some(s => /power|output/i.test(s.label))) {
-    specs.push({ label: 'Power / Output', value: powerMatch[1].trim() });
-  }
-
-  // 4. Battery / Voltage
-  const batMatch = desc.match(/(?:battery)\s*[:\-]?\s*([0-9]+V(?:\s*\/\s*[0-9]+AH)?)/i) ||
-                   name.match(/([0-9]+V\s*\/?\s*[0-9]+AH)/i);
-  if (batMatch && !specs.some(s => /battery/i.test(s.label))) {
-    specs.push({ label: 'Battery Specification', value: batMatch[1].trim() });
-  }
-
-  // 5. Displacement (cc / cm³)
-  const dispMatch = desc.match(/(?:displacement|engine displacement)\s*[:\-]?\s*([0-9.]+\s*(?:cc|cm³|cm3))/i) ||
-                    name.match(/([0-9.]+\s*cc)/i);
-  if (dispMatch && !specs.some(s => /displacement/i.test(s.label))) {
-    specs.push({ label: 'Engine Displacement', value: dispMatch[1].trim() });
-  }
-
-  // 6. Engine Type / Stroke
-  const engineMatch = desc.match(/(?:engine)\s*[:\-]?\s*([^.,\n<]+(?:stroke|cylinder|diesel|petrol|electric|brushless)[^.,\n<]*)/i);
-  if (engineMatch && !specs.some(s => /engine/i.test(s.label))) {
-    specs.push({ label: 'Engine Type', value: engineMatch[1].trim() });
-  }
-
-  // 7. Air Volume / Flow Rate
-  const airVolMatch = desc.match(/(?:max\.?\s*air\s*volume|air\s*flow\s*rate|air\s*volume)\s*[:\-]?\s*([0-9.]+\s*(?:m3\/hr|m³\/hr|m³\/min|m3\/min))/i);
-  if (airVolMatch && !specs.some(s => /air volume|flow/i.test(s.label))) {
-    specs.push({ label: 'Air Flow / Volume', value: airVolMatch[1].trim() });
-  }
-
-  // 8. Air Speed
-  const airSpeedMatch = desc.match(/(?:max\.?\s*air\s*speed|air\s*speed)\s*[:\-]?\s*([0-9.]+\s*(?:m\/s|km\/h|km\/hr))/i);
-  if (airSpeedMatch && !specs.some(s => /speed/i.test(s.label))) {
-    specs.push({ label: 'Max Air Speed', value: airSpeedMatch[1].trim() });
-  }
-
-  // 9. Weight
-  const weightMatch = desc.match(/(?:dry weight|weight|net weight)\s*[:\-]?\s*([0-9.]+\s*(?:kg|kgs?|grams?))/i);
-  if (weightMatch && !specs.some(s => /weight/i.test(s.label))) {
-    specs.push({ label: 'Weight', value: weightMatch[1].trim() });
-  }
-
-  // 10. Working Width / Tilling Width
-  const widthMatch = desc.match(/(?:tilling width|working width|width)\s*[:\-]?\s*([0-9.]+\s*(?:mm|cm|meters?|m|inches?))/i);
-  if (widthMatch && !specs.some(s => /width/i.test(s.label))) {
-    specs.push({ label: 'Working Width', value: widthMatch[1].trim() });
-  }
-
-  // 11. Core Standard Identity Specs (Brand, RIPL Code, and Warranty excluded as per design requirement)
-  specs.push({ label: 'Category', value: product.category });
-  specs.push({ label: 'Government Subsidy', value: 'Eligible under State/Central Farm Mechanization (SMAM)' });
-
-  return specs;
-}
+import { extractProductSpecs } from '@/lib/productSpecs';
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -119,13 +43,15 @@ export default function ProductDetailPage() {
   const validBrochures = (product.brochures || []).filter(
     (b) => b && b.url && b.url.trim() !== ''
   );
-  const hasBrochures = validBrochures.length > 0;
+  const hasBrochures = true;
 
   const fallbackImg = getDefaultCategoryImage(product.category);
   const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || fallbackImg);
   const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure'>('desc');
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [brochureModalOpen, setBrochureModalOpen] = useState(false);
+  const [selectedBrochureTitle, setSelectedBrochureTitle] = useState('');
 
   const handleRequestQuote = () => {
     setQuoteModalOpen(true);
@@ -284,18 +210,17 @@ export default function ProductDetailPage() {
               </button>
             )}
 
-            {hasBrochures && (
-              <button
-                onClick={() => setActiveTab('brochure')}
-                className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors ${
-                  activeTab === 'brochure'
-                    ? 'border-[#0d9749] text-[#0d9749] bg-white'
-                    : 'border-transparent text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                Brochures &amp; Leaflets ({validBrochures.length})
-              </button>
-            )}
+            {/* 3. Brochures & Leaflets Tab Header */}
+            <button
+              onClick={() => setActiveTab('brochure')}
+              className={`py-3.5 px-6 border-b-2 whitespace-nowrap transition-colors cursor-pointer ${
+                activeTab === 'brochure'
+                  ? 'border-[#0d9749] text-[#0d9749] bg-white font-bold'
+                  : 'border-transparent text-gray-600 hover:text-gray-900 font-semibold'
+              }`}
+            >
+              Brochures &amp; Leaflets ({validBrochures.length || 1})
+            </button>
           </div>
 
           {/* Tab Content Panes */}
@@ -372,45 +297,144 @@ export default function ProductDetailPage() {
             )}
 
             {/* 3. MULTILINGUAL BROCHURE TAB */}
-            {activeTab === 'brochure' && hasBrochures && (
-              <div className="space-y-3">
-                {validBrochures.map((b, idx) => {
-                    const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Brochure`;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                          <div>
-                            <h4 className="font-bold text-xs text-gray-900">
-                              {cleanTitle}
-                            </h4>
-                            <p className="text-[11px] text-gray-500">
-                              Language: <strong>{b.language}</strong> • Official Ratnagiri Impex Document
-                            </p>
+            {activeTab === 'brochure' && (
+              <div className="space-y-4">
+                <div className="space-y-3">
+                  {validBrochures.length > 0 ? (
+                    validBrochures.map((b, idx) => {
+                      const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Leaflet`;
+                      return (
+                        <div
+                          key={idx}
+                          className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <FileText className="w-8 h-8 text-red-600 shrink-0" />
+                            <div>
+                              <h4 className="font-bold text-xs text-gray-900">
+                                {cleanTitle}
+                              </h4>
+                              <p className="text-[11px] text-gray-500">
+                                Language: <strong>{b.language || 'English'}</strong> • Official Ratnagiri Impex Document
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setSelectedBrochureTitle(cleanTitle);
+                                setBrochureModalOpen(true);
+                              }}
+                              className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-3.5 py-2 rounded transition-colors cursor-pointer"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              <span>View Leaflet</span>
+                            </button>
+
+                            <Link
+                              href={`/products/${product.slug || product.id}/brochure?print=1`}
+                              target="_blank"
+                              className="inline-flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-3.5 py-2 rounded transition-colors cursor-pointer border border-gray-300"
+                            >
+                              <Printer className="w-3.5 h-3.5 text-gray-600" />
+                              <span>Print / PDF</span>
+                            </Link>
+
+                            <a
+                              href={`/api/brochures?url=${encodeURIComponent(b.url)}&id=${encodeURIComponent(product.slug || product.id)}&filename=${encodeURIComponent(cleanTitle.toLowerCase().replace(/\s+/g, '_') + '.pdf')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[11px] text-green-700 hover:text-green-800 font-semibold px-2 py-1 underline"
+                              title="Download document"
+                            >
+                              <Download className="w-3 h-3" />
+                              <span>Download</span>
+                            </a>
                           </div>
                         </div>
-
-                        <a
-                          href={b.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer"
-                        >
-                          <span>{b.language || 'Download'}</span>
-                        </a>
+                      );
+                    })
+                  ) : (
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs">
+                      <div className="flex items-center space-x-3">
+                        <FileText className="w-8 h-8 text-red-600 shrink-0" />
+                        <div>
+                          <h4 className="font-bold text-xs text-gray-900">
+                            {product.name} - Technical Leaflet
+                          </h4>
+                          <p className="text-[11px] text-gray-500">
+                            Language: <strong>English</strong> • Official Ratnagiri Impex Document
+                          </p>
+                        </div>
                       </div>
-                    );
-                  })}
+
+                      <div className="flex items-center gap-2 self-start sm:self-auto">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedBrochureTitle(`${product.name} Leaflet`);
+                            setBrochureModalOpen(true);
+                          }}
+                          className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-3.5 py-2 rounded transition-colors cursor-pointer"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>View Leaflet</span>
+                        </button>
+
+                        <Link
+                          href={`/products/${product.slug || product.id}/brochure?print=1`}
+                          target="_blank"
+                          className="inline-flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-3.5 py-2 rounded transition-colors cursor-pointer border border-gray-300"
+                        >
+                          <Printer className="w-3.5 h-3.5 text-gray-600" />
+                          <span>Print / PDF</span>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                {/* Master Corporate Equipment Catalog Banner */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-emerald-200 bg-gradient-to-r from-green-50/70 to-emerald-50/40 rounded-lg gap-3">
+                  <div className="flex items-center space-x-3">
+                    <BookOpen className="w-8 h-8 text-emerald-700 shrink-0" />
+                    <div>
+                      <h4 className="font-bold text-xs text-emerald-950">
+                        Ratnagiri Impex Master Agricultural Catalog (2026 Edition)
+                      </h4>
+                      <p className="text-[11px] text-emerald-800/80">
+                        Complete Machinery &amp; Equipment Range • All Categories &amp; Technical Specs (11.6 MB PDF)
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href="/assets/brochures/agrimart_brochure.pdf"
+                    download="agrimart_master_catalog.pdf"
+                    className="inline-flex items-center gap-1.5 text-xs bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer shadow-xs shrink-0"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download Master Catalog</span>
+                  </a>
+                </div>
+              </div>
             )}
           </div>
         </div>
 
 
       </div>
+
+      {/* Brochure Viewer Modal */}
+      <BrochureModal
+        product={product}
+        isOpen={brochureModalOpen}
+        onClose={() => setBrochureModalOpen(false)}
+        brochureTitle={selectedBrochureTitle}
+        specs={allSpecs}
+      />
 
       {/* Subsidy Modal */}
       <SubsidyModal

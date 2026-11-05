@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense, useRef } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { 
@@ -169,6 +169,32 @@ function ProductsContent() {
     return () => window.removeEventListener('agrimart-reset-products', handleReset);
   }, []);
 
+  const isInitialMount = useRef(true);
+
+  const scrollToProductsTop = () => {
+    if (typeof window !== 'undefined') {
+      const mainEl = document.getElementById('products-main-content');
+      if (mainEl && window.innerWidth >= 1024) {
+        const rect = mainEl.getBoundingClientRect();
+        const targetY = window.scrollY + rect.top - 120;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Automatically scroll up when down the page and any filter or page changes
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (typeof window !== 'undefined' && window.scrollY > 80) {
+      scrollToProductsTop();
+    }
+  }, [selectedCategory, selectedSubcategory, selectedBrands, selectedCapacities, selectedPowerSources, searchTerm, currentPage, sortBy]);
+
   const allBrands = ['KASEI', 'OLEO MAC', 'AGRIMATE', 'GREEN PANTHER'];
   const capacityOptions = ['8 Ltr', '16 Ltr', '20 Ltr'];
   const powerSourceOptions = ['Manual', 'Battery', 'Petrol / Engine'];
@@ -180,6 +206,7 @@ function ProductsContent() {
       return exists ? prev.filter(b => normalizeBrandName(b) !== norm) : [...prev, norm];
     });
     setCurrentPage(1);
+    scrollToProductsTop();
   };
 
   const toggleCapacity = (cap: string) => {
@@ -187,6 +214,7 @@ function ProductsContent() {
       prev.includes(cap) ? prev.filter(c => c !== cap) : [...prev, cap]
     );
     setCurrentPage(1);
+    scrollToProductsTop();
   };
 
   const togglePowerSource = (power: string) => {
@@ -194,6 +222,7 @@ function ProductsContent() {
       prev.includes(power) ? prev.filter(p => p !== power) : [...prev, power]
     );
     setCurrentPage(1);
+    scrollToProductsTop();
   };
 
   // Filtered products calculation
@@ -272,6 +301,7 @@ function ProductsContent() {
     setSelectedPowerSources([]);
     setSearchTerm('');
     setCurrentPage(1);
+    scrollToProductsTop();
   };
 
   // Helper to count products matching a specific criteria
@@ -343,6 +373,7 @@ function ProductsContent() {
                       setSelectedSubcategory('');
                       setExpandedCategory('');
                       setCurrentPage(1);
+                      scrollToProductsTop();
                     }}
                     className="text-[11px] font-normal underline text-white/90 hover:text-white cursor-pointer"
                   >
@@ -369,6 +400,7 @@ function ProductsContent() {
                           setSelectedSubcategory('');
                           setExpandedCategory('');
                           setCurrentPage(1);
+                          scrollToProductsTop();
                         }}
                         className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
                           isSelected
@@ -484,6 +516,7 @@ function ProductsContent() {
                                 }
                                 setSelectedSubcategory('');
                                 setExpandedCategory('');
+                                scrollToProductsTop();
                               }}
                               className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
                                 isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'
@@ -558,7 +591,7 @@ function ProductsContent() {
           )}
 
           {/* ================= RIGHT MAIN AREA: Header + Product Grid ================= */}
-          <main className="w-full min-w-0">
+          <main id="products-main-content" className="w-full min-w-0">
             
             {/* Top Bar: "X Products found" on Left + Sort & View Controls on Right */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
@@ -628,7 +661,7 @@ function ProductsContent() {
                   <span className="text-gray-400 px-1.5 hidden sm:inline text-[11px]">Show:</span>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(30); setCurrentPage(1); }}
+                    onClick={() => { setItemsPerPage(30); setCurrentPage(1); scrollToProductsTop(); }}
                     className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
                       itemsPerPage === 30 ? 'bg-[#0d9749] text-white shadow-2xs' : 'text-gray-600 hover:text-gray-900'
                     }`}
@@ -637,7 +670,7 @@ function ProductsContent() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage(60); setCurrentPage(1); }}
+                    onClick={() => { setItemsPerPage(60); setCurrentPage(1); scrollToProductsTop(); }}
                     className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
                       itemsPerPage === 60 ? 'bg-[#0d9749] text-white shadow-2xs' : 'text-gray-600 hover:text-gray-900'
                     }`}
@@ -646,7 +679,7 @@ function ProductsContent() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setItemsPerPage('all'); setCurrentPage(1); }}
+                    onClick={() => { setItemsPerPage('all'); setCurrentPage(1); scrollToProductsTop(); }}
                     className={`px-2.5 py-1 rounded transition-colors cursor-pointer text-xs ${
                       itemsPerPage === 'all' ? 'bg-[#0d9749] text-white' : 'text-gray-600 hover:text-gray-900'
                     }`}
@@ -664,19 +697,19 @@ function ProductsContent() {
                 {selectedCategory && (
                   <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-0.5 rounded-full font-semibold">
                     Category: {selectedCategory}
-                    <button onClick={() => setSelectedCategory('')} className="hover:text-red-600"><X className="w-3 h-3" /></button>
+                    <button onClick={() => { setSelectedCategory(''); scrollToProductsTop(); }} className="hover:text-red-600 cursor-pointer"><X className="w-3 h-3" /></button>
                   </span>
                 )}
                 {selectedBrands.map((b) => (
                   <span key={b} className="inline-flex items-center gap-1 text-xs bg-blue-50 text-blue-800 border border-blue-200 px-2.5 py-0.5 rounded-full font-semibold">
                     Brand: {b}
-                    <button onClick={() => toggleBrand(b)} className="hover:text-red-600"><X className="w-3 h-3" /></button>
+                    <button onClick={() => toggleBrand(b)} className="hover:text-red-600 cursor-pointer"><X className="w-3 h-3" /></button>
                   </span>
                 ))}
                 {searchTerm && (
                   <span className="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-800 border border-gray-300 px-2.5 py-0.5 rounded-full font-semibold">
                     Search: &quot;{searchTerm}&quot;
-                    <button onClick={() => setSearchTerm('')} className="hover:text-red-600"><X className="w-3 h-3" /></button>
+                    <button onClick={() => { setSearchTerm(''); scrollToProductsTop(); }} className="hover:text-red-600 cursor-pointer"><X className="w-3 h-3" /></button>
                   </span>
                 )}
               </div>
@@ -772,7 +805,7 @@ function ProductsContent() {
                       <button
                         onClick={() => {
                           setCurrentPage((p) => Math.max(1, p - 1));
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                          scrollToProductsTop();
                         }}
                         disabled={currentPage === 1}
                         className="px-3.5 py-2 text-xs font-bold rounded-xl border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer transition-all flex items-center gap-1 shadow-2xs"
@@ -792,7 +825,7 @@ function ProductsContent() {
                               <button
                                 onClick={() => {
                                   setCurrentPage(p);
-                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                  scrollToProductsTop();
                                 }}
                                 className={`w-9 h-9 rounded-xl text-xs font-black transition-all cursor-pointer ${
                                   currentPage === p
@@ -810,7 +843,7 @@ function ProductsContent() {
                       <button
                         onClick={() => {
                           setCurrentPage((p) => Math.min(totalPages, p + 1));
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                          scrollToProductsTop();
                         }}
                         disabled={currentPage === totalPages}
                         className="px-4 py-2 text-xs font-bold rounded-xl bg-[#0d9749] text-white hover:bg-[#097b3a] disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer transition-all flex items-center gap-1.5 shadow-xs"

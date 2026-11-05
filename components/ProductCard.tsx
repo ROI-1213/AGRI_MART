@@ -12,7 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Product } from '@/types';
-import { formatProductTitle } from '@/lib/format';
+import { formatProductTitle, getDefaultCategoryImage } from '@/lib/format';
 import QuoteModal from './QuoteModal';
 import SubsidyModal from './SubsidyModal';
 
@@ -31,19 +31,22 @@ export default function ProductCard({
 }: ProductCardProps) {
   const [internalQuoteOpen, setInternalQuoteOpen] = useState(false);
   const [internalSubsidyOpen, setInternalSubsidyOpen] = useState(false);
-  const primaryImg = product.thumbnailImage || (product.images && product.images[0]) || '/assets/branding/logo.png';
+  const fallbackImg = getDefaultCategoryImage(product.category);
+  const primaryImg = product.thumbnailImage || (product.images && product.images[0]) || fallbackImg;
   const secondaryImg = (product.images && product.images.length > 1) ? product.images[1] : null;
   const [imgSrc, setImgSrc] = useState(primaryImg);
 
   // Sync image source whenever product changes or filters are applied
   useEffect(() => {
-    const nextImg = product.thumbnailImage || (product.images && product.images[0]) || '/assets/branding/logo.png';
+    const nextImg = product.thumbnailImage || (product.images && product.images[0]) || fallbackImg;
     setImgSrc(nextImg);
-  }, [product.id, product.thumbnailImage, product.images]);
+  }, [product.id, product.thumbnailImage, product.images, fallbackImg]);
 
   const handleImageError = () => {
     if (product.images && product.images.length > 1 && imgSrc === product.images[0]) {
       setImgSrc(product.images[1]);
+    } else if (imgSrc !== fallbackImg) {
+      setImgSrc(fallbackImg);
     } else if (imgSrc !== '/assets/branding/logo.png') {
       setImgSrc('/assets/branding/logo.png');
     }
@@ -132,10 +135,10 @@ export default function ProductCard({
         </div>
       ) : (
         /* ================= 3x3 LARGER VERTICAL CARD STYLE ================= */
-        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-xl transition-all duration-300 p-3 sm:p-5 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-xl transition-all duration-300 p-3 sm:p-4 flex flex-col justify-between overflow-hidden">
           
-          {/* Top: Product Visual (Clean, normal, no inner border box, no background section) */}
-          <div className="relative w-full aspect-square sm:aspect-auto sm:h-56 lg:h-64 bg-white flex items-center justify-center p-1 sm:p-2 overflow-hidden [perspective:1000px]">
+          {/* Top: Product Visual (Standardized aspect-square with even padding for balanced image scale) */}
+          <div className="relative w-full aspect-square bg-white flex items-center justify-center p-2.5 sm:p-3.5 overflow-hidden [perspective:1000px]">
             {/* Central HD Product Photo */}
             <Link 
               href={`/products/${product.id}`}
@@ -153,7 +156,7 @@ export default function ProductCard({
                     loading="lazy"
                     onError={handleImageError}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95"
+                    className="object-contain p-1 sm:p-1.5 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95"
                   />
                   <Image
                     src={secondaryImg}
@@ -163,7 +166,7 @@ export default function ProductCard({
                     quality={100}
                     loading="lazy"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-105"
+                    className="object-contain p-1 sm:p-1.5 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-105"
                   />
                 </div>
               ) : (
@@ -179,7 +182,7 @@ export default function ProductCard({
                       loading="lazy"
                       onError={handleImageError}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                      className="object-contain p-1 sm:p-1.5 transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
@@ -191,7 +194,7 @@ export default function ProductCard({
                       quality={100}
                       loading="lazy"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-105"
+                      className="object-contain p-1 sm:p-1.5 scale-x-[-1] transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   </div>
                 </div>

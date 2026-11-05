@@ -12,8 +12,8 @@ const keepUpper = new Set([
   '2S', '4S', '2T', '4T', 'NEO', 'PRO', 'MS+', 'R&F', 'BBP-PRO', 'EA-NEO', 'CC', 'HP', 'KW',
   'RPM', 'ULV', 'LED', 'MB', '4-IN-1', '3-IN-1', '2-IN-1', 'FT', 'MM', 'KG', 'AC', 'DC',
   'MPTC', 'BCH', 'BBP', 'EA', 'BS', 'IS', 'AMH', 'HD', 'XP', 'GX', 'GP', 'TR', 'BV', 'MBD',
-  'BPH', 'BP', 'WC', 'SPARTA', 'TR91E-OM', 'RTP', 'CCMG', 'WT', 'AL', 'DELITE', 'CLASSIC',
-  'CHAMPION', 'LTRS', 'AH', 'V', 'L', 'PP', 'W', 'MAX'
+  'BPH', 'BP', 'WC', 'SPARTA', 'TR91E-OM', 'RTP', 'CCMG', 'WT', 'AL',
+  'LTRS', 'AH', 'V', 'L', 'PP', 'W', 'MAX', 'SS', 'HTP', 'GT', 'GS', 'GSH'
 ]);
 
 /**
@@ -22,8 +22,13 @@ const keepUpper = new Set([
  */
 export function formatProductTitle(name: string): string {
   if (!name) return '';
-  // Clean up awkward trailing hyphens (e.g. "7212- " -> "7212 ")
-  const cleaned = name.replace(/-\s+/g, ' ').replace(/\s*\/\s*/g, ' / ').trim();
+  let cleaned = name
+    .replace(/-\s+/g, ' ')
+    .replace(/\s*\/\s*/g, ' / ')
+    .replace(/\bInter\s+Cultivator\b/gi, 'Intercultivator')
+    .replace(/\s+/g, ' ')
+    .trim();
+
   const tokens = cleaned.split(/\s+/);
   
   return tokens.map((token, idx) => {
@@ -34,7 +39,7 @@ export function formatProductTitle(name: string): string {
         .map(part => {
           if (part === '-' || part === '/') return part;
           const upper = part.toUpperCase();
-          if (keepUpper.has(upper) || (/^[A-Z0-9+]+$/.test(part) && /\d/.test(part)) || (/^[A-Z]{2,4}$/.test(part) && keepUpper.has(upper))) {
+          if (keepUpper.has(upper) || (/^[A-Z0-9+]+$/.test(part) && /\d/.test(part))) {
             return upper;
           }
           if (idx > 0 && lowerWords.has(part.toLowerCase())) {
@@ -54,6 +59,46 @@ export function formatProductTitle(name: string): string {
     }
     return token.charAt(0).toUpperCase() + token.slice(1).toLowerCase();
   }).join(' ');
+}
+
+/**
+ * Returns an authentic category-specific default fallback image for equipment
+ * so cards never display a blank space or broken placeholder.
+ */
+export function getDefaultCategoryImage(category?: string): string {
+  if (!category) return '/assets/products/ripl038521/img_1.jpg';
+  const c = category.toUpperCase();
+  if (c.includes('CHAIN SAW') || c.includes('CHAINSAW')) {
+    return '/assets/products/ripl029552/img_1.jpg'; // Oleo-Mac GSH 56 Chainsaw
+  }
+  if (c.includes('TILLER') || c.includes('INTERCULTIVATOR') || c.includes('WEEDER')) {
+    return '/assets/products/ripl038521/img_1.jpg'; // Agrimate Intercultivator
+  }
+  if (c.includes('BRUSH CUTTER') || c.includes('WEED CUTTER') || c.includes('HARVESTER')) {
+    return '/assets/products/ripl037692/img_1.jpg'; // Kasei Plus Brush Cutter
+  }
+  if (c.includes('SPRAYER') || c.includes('MISTBLOWER') || c.includes('FOGGER')) {
+    return '/assets/products/ripl036461/img_1.jpg'; // Knapsack Power Sprayer
+  }
+  if (c.includes('TRANSPORTER') || c.includes('TROLLEY')) {
+    return '/assets/products/ripl036445/img_1.jpg'; // Agrimate Wheel Trolley
+  }
+  if (c.includes('CHAFF') || c.includes('SHREDDER') || c.includes('CHIPPER')) {
+    return '/assets/products/ripl036956/img_1.jpg'; // Agrimate Chaff Cutter
+  }
+  if (c.includes('LAWN MOWER') || c.includes('MOWER')) {
+    return '/assets/products/ripl026782/img_1.jpg'; // Lawn Mower
+  }
+  if (c.includes('EARTH AUGER') || c.includes('AUGER')) {
+    return '/assets/products/ripl036573/img_1.jpg'; // Earth Auger
+  }
+  if (c.includes('PUMP') || c.includes('WASHER')) {
+    return '/assets/products/ripl028594/img_1.jpg'; // Water Pump
+  }
+  if (c.includes('HEDGE')) {
+    return '/assets/products/ripl022416/img_1.jpg'; // Hedge Trimmer
+  }
+  return '/assets/products/ripl038521/img_1.jpg';
 }
 
 /**

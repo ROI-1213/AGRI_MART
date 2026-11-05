@@ -7,14 +7,13 @@ import { useParams, useRouter } from 'next/navigation';
 import { 
   FileText, 
   Check, 
-  FileCheck2, 
-  Bell
+  FileCheck2
 } from 'lucide-react';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
 import productsData from '@/data/import/products.json';
 import { Product } from '@/types';
-import { formatProductTitle } from '@/lib/format';
+import { formatProductTitle, getDefaultCategoryImage } from '@/lib/format';
 
 interface SpecItem {
   label: string;
@@ -91,12 +90,9 @@ function extractProductSpecs(product: Product): SpecItem[] {
     specs.push({ label: 'Working Width', value: widthMatch[1].trim() });
   }
 
-  // 11. Core Standard Identity Specs
-  specs.push({ label: 'Brand', value: product.brand || 'Ratnagiri Impex' });
-  specs.push({ label: 'Model / RIPL Code', value: product.riplCode || product.id });
+  // 11. Core Standard Identity Specs (Brand, RIPL Code, and Warranty excluded as per design requirement)
   specs.push({ label: 'Category', value: product.category });
   specs.push({ label: 'Government Subsidy', value: 'Eligible under State/Central Farm Mechanization (SMAM)' });
-  specs.push({ label: 'Warranty', value: '1 Year Manufacturer / RIPL Authorized Warranty' });
 
   return specs;
 }
@@ -125,7 +121,8 @@ export default function ProductDetailPage() {
   );
   const hasBrochures = validBrochures.length > 0;
 
-  const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || '/assets/branding/logo.png');
+  const fallbackImg = getDefaultCategoryImage(product.category);
+  const [selectedImage, setSelectedImage] = useState<string>(product.thumbnailImage || product.images[0] || fallbackImg);
   const [activeTab, setActiveTab] = useState<'desc' | 'accessories' | 'brochure'>('desc');
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -168,7 +165,7 @@ export default function ProductDetailPage() {
                   unoptimized
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 650px"
-                  onError={() => setSelectedImage('/assets/branding/logo.png')}
+                  onError={() => setSelectedImage(fallbackImg)}
                   className="object-contain p-1 transition-all duration-300"
                 />
                 {product.discountPercentage > 0 && (
@@ -236,7 +233,7 @@ export default function ProductDetailPage() {
                     </span>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Official quotation inclusive of GST, localized delivery logistics, warranty coverage, and government subsidy assistance.
+                    Official quotation inclusive of GST, localized delivery logistics, after-sales service, and government subsidy assistance.
                   </p>
                 </div>
 
@@ -425,24 +422,7 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        {/* Bulk Enquiry & Technical Assistance Banner */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <h3 className="font-bold text-sm text-gray-900 flex items-center gap-2">
-              <Bell className="w-4 h-4 text-yellow-600" />
-              Need Institutional Quantities or Custom Spare Part Assistance?
-            </h3>
-            <p className="text-xs text-gray-500 mt-1">
-              Contact our product specialists directly for enterprise quotes, distributor pricing, or technical assistance.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="agri-btn-secondary text-xs px-5 py-2.5 font-bold whitespace-nowrap"
-          >
-            Submit Enquiry →
-          </Link>
-        </div>
+
       </div>
 
       {/* Subsidy Modal */}

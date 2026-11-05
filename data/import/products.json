@@ -1135,7 +1135,7 @@
     "id": "amh-200t-4s",
     "name": "AMH-200T-4S",
     "slug": "amh-200t-4s",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL005862",
     "productId": "3301",
     "groupId": "",
     "modelNumber": "AMH-200T-4S",
@@ -1182,9 +1182,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMwMQ==/MTYyNg==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl005862/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl005862/img_1.jpg"
   },
   {
     "id": "am-500hc-4s-bc-pro-brush-cutter",
@@ -1440,7 +1440,7 @@
     "currency": "INR",
     "availability": "Out of Stock",
     "stockQuantity": 0,
-    "description": "Displacement: 40.2cc Type of Handle: Double grip-Low Vibration Power Output: Max. 1.5kw / 2hp/ 9900 rpm Fuel Tank Capacity: 1L Weight: 4.2 Kg(without attachments)One product can serve multiple purpose: Can be used as Brush Cutter | Can be used as Plough | Can be used as Tiller | Can be used as Hedge Trimmer",
+    "description": "Displacement: 40.2cc Type of Handle: Double grip-Low Vibration Power Output: Max. 1.5kw / 2hp/ 9900 rpm Fuel Tank Capacity: 1L Weight: 4.2 Kg",
     "specifications": {},
     "accessories": [
       {
@@ -2079,10 +2079,10 @@
     "id": "gsh-56-chain-saw",
     "name": "GSH-56 Chain Saw",
     "slug": "gsh-56-chain-saw",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL029552",
     "productId": "3309",
     "groupId": "1630",
-    "modelNumber": "DBT",
+    "modelNumber": "GSH-56",
     "brand": "AGRIMATE",
     "category": "CHAIN SAW",
     "categories": [
@@ -2130,9 +2130,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMwOQ==/MTYzMA==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl029552/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl029552/img_1.jpg"
   },
   {
     "id": "gsh-40-with-16",
@@ -4580,10 +4580,10 @@
     "id": "mh-180rk-power-weeder",
     "name": "MH-180RK Power Weeder",
     "slug": "mh-180rk-power-weeder",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL010104",
     "productId": "3319",
     "groupId": "1636",
-    "modelNumber": "DBT",
+    "modelNumber": "MH 180RK",
     "brand": "AGRIMATE",
     "category": "INTERCULTIVATOR/POWER WEEDER",
     "categories": [
@@ -4623,9 +4623,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxOQ==/MTYzNg==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl010104/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl010104/img_1.jpg"
   },
   {
     "id": "am-rt-1212-7pr-intercultivator-power-weeder",
@@ -5008,9 +5008,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyMQ==/MTYzNw==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038521/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038521/img_1.jpg"
   },
   {
     "id": "am-mptc-5d-m-3g-delite-intercultivator-power-weeder",
@@ -5342,9 +5342,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxNw==/MTYzNQ==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl037320/img_3.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl037320/img_3.jpg"
   },
   {
     "id": "am-mptc-1100e-6d-e-6g-agrimate-intercultivator-w-o-battery",
@@ -5530,11 +5530,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzNQ==/MTYzOA==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg",
-      "/assets/products/riplcode/img_2.jpg",
-      "/assets/products/riplcode/img_3.jpg"
+      "/assets/products/ripl036135/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl036135/img_1.jpg"
   },
   {
     "id": "am-rtp-7p-bre-6g-intercultivator-power-weeder-with-e-type-ditcher-attachment",
@@ -5663,13 +5661,13 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NTg1/Mjc4",
     "images": [
+      "/assets/products/ripl037320/img_3.jpg",
       "/assets/products/ripl037320/img_1.jpg",
       "/assets/products/ripl037320/img_2.jpg",
-      "/assets/products/ripl037320/img_3.jpg",
       "/assets/products/ripl037320/img_4.jpg",
       "/assets/products/ripl037320/img_5.jpg"
     ],
-    "thumbnailImage": "/assets/products/ripl037320/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl037320/img_3.jpg"
   },
   {
     "id": "am-mptc-6600-6d-intercultivator-power-weeder",
@@ -5732,9 +5730,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyMw==/MTYzOQ==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl037320/img_3.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl037320/img_3.jpg"
   },
   {
     "id": "am-mptc-2620-dbg-9d-intercultivator-power-weeder",
@@ -8584,10 +8582,10 @@
     "id": "am-16-pro-ss",
     "name": "AM-16-PRO-SS",
     "slug": "am-16-pro-ss",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL027076",
     "productId": "3295",
     "groupId": "1623",
-    "modelNumber": "DBT",
+    "modelNumber": "AM-16-PRO-SS",
     "brand": "AGRIMATE",
     "category": "SPRAYER",
     "categories": [
@@ -8635,10 +8633,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5NQ==/MTYyMw==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg",
-      "/assets/products/riplcode/img_2.jpg"
+      "/assets/products/ripl027076/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl027076/img_1.jpg"
   },
   {
     "id": "am16-pro-ss-manual-sprayer",
@@ -9190,7 +9187,7 @@
     "id": "am-405e-2-in-1-batter-sprayer",
     "name": "AM-405E-2 IN 1 Batter Sprayer",
     "slug": "am-405e-2-in-1-batter-sprayer",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL037702",
     "productId": "3299",
     "groupId": "1625",
     "modelNumber": "AM-405E-2",
@@ -9245,13 +9242,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5OQ==/MTYyNQ==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg",
-      "/assets/products/riplcode/img_2.jpg",
-      "/assets/products/riplcode/img_3.jpg",
-      "/assets/products/riplcode/img_4.jpg",
-      "/assets/products/riplcode/img_5.jpg"
+      "/assets/products/ripl037702/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl037702/img_1.jpg"
   },
   {
     "id": "am-405e-2-in-1-manual-cum-battery-sprayer",
@@ -10131,7 +10124,7 @@
     "id": "am-708-2s-knapsack-power-sprayer",
     "name": "AM-708-2S KNAPSACK POWER SPRAYER",
     "slug": "am-708-2s-knapsack-power-sprayer",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL036461",
     "productId": "3297",
     "groupId": "1624",
     "modelNumber": "AM-708-2S",
@@ -10190,9 +10183,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzI5Nw==/MTYyNA==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl036461/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl036461/img_1.jpg"
   },
   {
     "id": "am-708-2s-neo-knapsack-power-sprayer",
@@ -10918,10 +10911,10 @@
     "id": "am-425t-4s-power-knapsack-sprayer",
     "name": "AM-425T-4S Power Knapsack sprayer",
     "slug": "am-425t-4s-power-knapsack-sprayer",
-    "riplCode": "RIPLCODE",
+    "riplCode": "RIPL017997",
     "productId": "3333",
     "groupId": "1644",
-    "modelNumber": "DBT",
+    "modelNumber": "AM-425T-4S",
     "brand": "AGRIMATE",
     "category": "SPRAYER",
     "categories": [
@@ -10973,9 +10966,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzMw==/MTY0NA==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl017997/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl017997/img_1.jpg"
   },
   {
     "id": "am-22k-ms-htp-power-sprayer-with-engine",
@@ -11508,9 +11501,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyNw==/MTY0MQ==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038028/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038028/img_1.jpg"
   },
   {
     "id": "am708-pro-2s-wc-knapsack-power-sprayer",
@@ -11790,9 +11783,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMw==/MTYzMg==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038028/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038028/img_1.jpg"
   },
   {
     "id": "am-30k-power-operated-sprayer",
@@ -11849,9 +11842,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMyOQ==/MTY0Mg==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038029/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038029/img_1.jpg"
   },
   {
     "id": "am-30-with-honda-gx-160-engine-htp-power-sprayer",
@@ -11912,9 +11905,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxNQ==/MTYzMw==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038029/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038029/img_1.jpg"
   },
   {
     "id": "am30-gx-160-htp-power-sprayer",
@@ -12255,9 +12248,9 @@
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMQ==/MTYzMQ==",
     "images": [
-      "/assets/products/riplcode/img_1.jpg"
+      "/assets/products/ripl038028/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/riplcode/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl038028/img_1.jpg"
   },
   {
     "id": "am-sm-6048-7p-pro-stubble-mower",

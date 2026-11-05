@@ -82,8 +82,8 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     brand: 'AGRIMATE',
     category: 'INTERCULTIVATOR/POWER WEEDER',
     keyFeature: '301 CC 177FP Engine • 1800 RPM • Back Rotary Ditching & Weeding',
-    image: '/assets/products/ripl037320/img_1.jpg',
-    secondaryImage: '/assets/products/ripl037320/img_2.jpg',
+    image: '/assets/products/ripl037320/img_3.jpg',
+    secondaryImage: '/assets/products/ripl037320/img_1.jpg',
     badge: 'Back Rotary Weeder',
   },
   // 6. Agrimate Champion 16L Battery Sprayer (RIPL026669)

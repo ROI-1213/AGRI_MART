@@ -304,6 +304,8 @@ export default function ProductDetailPage() {
                     validBrochures.map((b, idx) => {
                       const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Leaflet`;
                       const docLang = b.language || 'English';
+                      const fileBasename = (b.url || '').split('/').pop() || '';
+                      const directUrl = fileBasename ? `/uploads/product_brochure/1/${fileBasename}` : (b.url || '');
                       return (
                         <div
                           key={idx}
@@ -327,7 +329,7 @@ export default function ProductDetailPage() {
                               onClick={() => {
                                 setSelectedBrochureTitle(cleanTitle);
                                 setSelectedBrochureLang(docLang);
-                                setSelectedBrochureUrl(b.url || '');
+                                setSelectedBrochureUrl(directUrl);
                                 setBrochureModalOpen(true);
                               }}
                               className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
@@ -357,9 +359,10 @@ export default function ProductDetailPage() {
                         <button
                           type="button"
                           onClick={() => {
+                            const fallbackBase = (product.brochures?.[0]?.url || '').split('/').pop() || '';
                             setSelectedBrochureTitle(`${product.name} Leaflet`);
                             setSelectedBrochureLang('English');
-                            setSelectedBrochureUrl(product.brochures?.[0]?.url || '');
+                            setSelectedBrochureUrl(fallbackBase ? `/uploads/product_brochure/1/${fallbackBase}` : '');
                             setBrochureModalOpen(true);
                           }}
                           className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"

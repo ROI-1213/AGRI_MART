@@ -29,19 +29,7 @@ export async function GET(request: NextRequest) {
 
     for (const localPath of candidatePaths) {
       if (fs.existsSync(localPath)) {
-        const fileBuffer = fs.readFileSync(localPath);
-        const ext = path.extname(basename).toLowerCase();
-        let mime = 'application/pdf';
-        if (ext === '.jpg' || ext === '.jpeg') mime = 'image/jpeg';
-        else if (ext === '.png') mime = 'image/png';
-
-        return new NextResponse(fileBuffer, {
-          headers: {
-            'Content-Type': mime,
-            'Content-Disposition': `inline; filename="${basename || customFilename}"`,
-            'Cache-Control': 'public, max-age=31536000, immutable'
-          }
-        });
+        return NextResponse.redirect(new URL(`/uploads/product_brochure/1/${basename}`, request.url));
       }
     }
   } catch {

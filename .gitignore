@@ -33,7 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# local brochures storage
+# local brochures storage (brochers root is backed up by public/uploads)
 brochers/
-public/uploads/
 

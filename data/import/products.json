@@ -1532,60 +1532,6 @@
     "thumbnailImage": "/assets/products/ripl026571/img_1.jpg"
   },
   {
-    "id": "am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt",
-    "name": "AM-CCM-CB1200-GT CHAFF CUTTER WITH CONVEYOR BELT",
-    "slug": "am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt",
-    "riplCode": "RIPL038707",
-    "productId": "3554",
-    "groupId": "1780",
-    "modelNumber": "AM-CCM-CB1200-GT",
-    "brand": "AGRIMATE",
-    "category": "CHAFF CUTTER / SHREDDER",
-    "categories": [
-      "CHAFF CUTTER / SHREDDER"
-    ],
-    "mrp": 39980,
-    "sellingPrice": 39980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-CCM-CB1200-GT Power: 2.2KW/3HP-Copper Winding Motor Voltage: 220v, 50HZ Blades: 6 BLADES (5Rotating + 1Fixed) Chipping Capacity: upto 1000Kg/Hr",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "6 Blades (5 Rotating +1 Fixed Blade)",
-        "included": true
-      },
-      {
-        "name": "Conveyor Belt-1200mm",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt-am-ccm-cb1200-gt-4b3h-wp.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-cb1200-gt-4b3h-wp-chaff-cutter-with-conveyor-belt-am-ccm-cb1200-gt-4b3h-wp_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1NA==/MTc4MA==",
-    "images": [
-      "/assets/products/ripl038707/img_1.jpg",
-      "/assets/products/ripl038707/img_2.jpg",
-      "/assets/products/ripl038707/img_3.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl038707/img_1.jpg"
-  },
-  {
     "id": "kz-4000-bc-pro-2s-kasei-brush-cutter",
     "name": "KZ-4000 BC-PRO 2S-KASEI BRUSH CUTTER",
     "slug": "kz-4000-bc-pro-2s-kasei-brush-cutter",
@@ -1783,6 +1729,156 @@
     "thumbnailImage": "/assets/products/ripl019229/img_1.jpg"
   },
   {
+    "id": "am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt",
+    "name": "AM-CCM-CB1200-GT CHAFF CUTTER WITH CONVEYOR BELT",
+    "slug": "am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt",
+    "riplCode": "RIPL038707",
+    "productId": "3554",
+    "groupId": "1780",
+    "modelNumber": "AM-CCM-CB1200-GT",
+    "brand": "AGRIMATE",
+    "category": "CHAFF CUTTER / SHREDDER",
+    "categories": [
+      "CHAFF CUTTER / SHREDDER"
+    ],
+    "mrp": 39980,
+    "sellingPrice": 39980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-CCM-CB1200-GT Power: 2.2KW/3HP-Copper Winding Motor Voltage: 220v, 50HZ Blades: 6 BLADES (5Rotating + 1Fixed) Chipping Capacity: upto 1000Kg/Hr",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "6 Blades (5 Rotating +1 Fixed Blade)",
+        "included": true
+      },
+      {
+        "name": "Conveyor Belt-1200mm",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-cb1200-gt-chaff-cutter-with-conveyor-belt-am-ccm-cb1200-gt-4b3h-wp.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-cb1200-gt-4b3h-wp-chaff-cutter-with-conveyor-belt-am-ccm-cb1200-gt-4b3h-wp_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1NA==/MTc4MA==",
+    "images": [
+      "/assets/products/ripl038707/img_1.jpg",
+      "/assets/products/ripl038707/img_2.jpg",
+      "/assets/products/ripl038707/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl038707/img_1.jpg"
+  },
+  {
+    "id": "am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor",
+    "name": "AM-CCMG-400-3HP ELITE CHAFF CUTTER WITH COPPER MOTOR",
+    "slug": "am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor",
+    "riplCode": "RIPL036956",
+    "productId": "3368",
+    "groupId": "1665",
+    "modelNumber": "AM-CCMG-400-3HP",
+    "brand": "AGRIMATE",
+    "category": "CHAFF CUTTER / SHREDDER",
+    "categories": [
+      "CHAFF CUTTER / SHREDDER"
+    ],
+    "mrp": 60000,
+    "sellingPrice": 60000,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-CCMG-400-3HP ELITE Power: 3HP,1PH Single speed: 2800RPM Blades: 6Nos. (5Rotating+1Fixed) Chipping Capacity: 600-1000KG/HR Voltage: 220V 50HZ",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "* High Durable steel Case Gear Parts* Adjustable Grass Cutting Length* Grass Cutting Length: 20mm & 40mm",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor-am-ccmg-400.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccmg-400-elite-agrimate-chaff-cutter-am-ccmg-400_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2OA==/MTY2NQ==",
+    "images": [
+      "/assets/products/ripl036956/img_1.jpg",
+      "/assets/products/ripl036956/img_2.jpg",
+      "/assets/products/ripl036956/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl036956/img_1.jpg"
+  },
+  {
+    "id": "am-ccm-400-1-5k-with-3hp-motor-agrimate-chaff-cutter",
+    "name": "AM-CCM-400-1.5K With 3HP Motor Agrimate Chaff Cutter",
+    "slug": "am-ccm-400-1-5k-with-3hp-motor-agrimate-chaff-cutter",
+    "riplCode": "RIPL036131",
+    "productId": "3024",
+    "groupId": "1470",
+    "modelNumber": "AM-CCM - 400-1.5K",
+    "brand": "AGRIMATE",
+    "category": "CHAFF CUTTER / SHREDDER",
+    "categories": [
+      "CHAFF CUTTER / SHREDDER"
+    ],
+    "mrp": 60000,
+    "sellingPrice": 60000,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-CCM - 400-1.5K Power: 3HP, 1PH Single Speed: 2800 RPM Blades: 4 Nos. Chopping Capacity: 1500Kg/Hr",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-400-15k-with-3hp-motor-agrimate-chaff-cutter.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-400-15k-with-3hp-motor-agrimate-chaff-cutter_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzAyNA==/MTQ3MA==",
+    "images": [
+      "/assets/products/ripl036131/img_1.jpg",
+      "/assets/products/ripl036131/img_2.jpg",
+      "/assets/products/ripl036131/img_3.jpg",
+      "/assets/products/ripl036131/img_4.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl036131/img_1.jpg"
+  },
+  {
     "id": "am-cs-6022k-pro-agrimate-chain-saw-22-bar",
     "name": "AM-CS-6022K-PRO AGRIMATE CHAIN SAW - 22 BAR",
     "slug": "am-cs-6022k-pro-agrimate-chain-saw-22-bar",
@@ -1872,56 +1968,6 @@
       "/assets/products/ripl036291/img_1.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl036291/img_1.jpg"
-  },
-  {
-    "id": "am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor",
-    "name": "AM-CCMG-400-3HP ELITE CHAFF CUTTER WITH COPPER MOTOR",
-    "slug": "am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor",
-    "riplCode": "RIPL036956",
-    "productId": "3368",
-    "groupId": "1665",
-    "modelNumber": "AM-CCMG-400-3HP",
-    "brand": "AGRIMATE",
-    "category": "CHAFF CUTTER / SHREDDER",
-    "categories": [
-      "CHAFF CUTTER / SHREDDER"
-    ],
-    "mrp": 60000,
-    "sellingPrice": 60000,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-CCMG-400-3HP ELITE Power: 3HP,1PH Single speed: 2800RPM Blades: 6Nos. (5Rotating+1Fixed) Chipping Capacity: 600-1000KG/HR Voltage: 220V 50HZ",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "* High Durable steel Case Gear Parts* Adjustable Grass Cutting Length* Grass Cutting Length: 20mm & 40mm",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor-am-ccmg-400.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccmg-400-elite-agrimate-chaff-cutter-am-ccmg-400_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2OA==/MTY2NQ==",
-    "images": [
-      "/assets/products/ripl036956/img_1.jpg",
-      "/assets/products/ripl036956/img_2.jpg",
-      "/assets/products/ripl036956/img_3.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl036956/img_1.jpg"
   },
   {
     "id": "am-cs-5922hc-22",
@@ -2028,52 +2074,6 @@
       "/assets/products/ripl038173/img_1.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl038173/img_1.jpg"
-  },
-  {
-    "id": "am-ccm-400-1-5k-with-3hp-motor-agrimate-chaff-cutter",
-    "name": "AM-CCM-400-1.5K With 3HP Motor Agrimate Chaff Cutter",
-    "slug": "am-ccm-400-1-5k-with-3hp-motor-agrimate-chaff-cutter",
-    "riplCode": "RIPL036131",
-    "productId": "3024",
-    "groupId": "1470",
-    "modelNumber": "AM-CCM - 400-1.5K",
-    "brand": "AGRIMATE",
-    "category": "CHAFF CUTTER / SHREDDER",
-    "categories": [
-      "CHAFF CUTTER / SHREDDER"
-    ],
-    "mrp": 60000,
-    "sellingPrice": 60000,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-CCM - 400-1.5K Power: 3HP, 1PH Single Speed: 2800 RPM Blades: 4 Nos. Chopping Capacity: 1500Kg/Hr",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-400-15k-with-3hp-motor-agrimate-chaff-cutter.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-ccm-400-15k-with-3hp-motor-agrimate-chaff-cutter_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzAyNA==/MTQ3MA==",
-    "images": [
-      "/assets/products/ripl036131/img_1.jpg",
-      "/assets/products/ripl036131/img_2.jpg",
-      "/assets/products/ripl036131/img_3.jpg",
-      "/assets/products/ripl036131/img_4.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl036131/img_1.jpg"
   },
   {
     "id": "gsh-56-chain-saw",
@@ -2419,147 +2419,6 @@
     "thumbnailImage": "/assets/products/ripl028396/img_1.jpg"
   },
   {
-    "id": "am-5300ea-2s-ms-drill-agrimate-earth-augur-w-o-bit",
-    "name": "AM-5300EA 2S MS+ DRILL Agrimate Earth Augur W/O BIT",
-    "slug": "am-5300ea-2s-ms-drill-agrimate-earth-augur-w-o-bit",
-    "riplCode": "RIPL036530",
-    "productId": "3153",
-    "groupId": "1542",
-    "modelNumber": "AM-5300EA MS+",
-    "brand": "AGRIMATE",
-    "category": "EARTH AUGER",
-    "categories": [
-      "EARTH AUGER"
-    ],
-    "mrp": 14380,
-    "sellingPrice": 14380,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-5300EA-MS+ Engine type: Air-cooling 2 Stroke Engine Power: 1.4Kw/ 6500 RPM/ 52 CC Carburetor: Diaphragm Type Fuel tank capacity: 1.0 Ltr Suitable Bit: 6\"/ 8\" bit is optional accessory not included in the price.",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-5300ea-2s-ms-drill-agrimate-earth-augur-wo-bit-am-5300ea-ms.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-5300ea-2s-ms-drill-agrimate-earth-augur-wo-bit-am-5300ea-ms_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzE1Mw==/MTU0Mg==",
-    "images": [
-      "/assets/products/ripl036530/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl036530/img_1.jpg"
-  },
-  {
-    "id": "kz-5000ea-2s-kasei-earth-auger-with-bit",
-    "name": "KZ-5000EA-2S-KASEI EARTH AUGER WITH BIT",
-    "slug": "kz-5000ea-2s-kasei-earth-auger-with-bit",
-    "riplCode": "RIPL026714",
-    "productId": "66",
-    "groupId": "34",
-    "modelNumber": "KZ-5000 EA -2S",
-    "brand": "KASEI",
-    "category": "EARTH AUGER",
-    "categories": [
-      "EARTH AUGER"
-    ],
-    "mrp": 30580,
-    "sellingPrice": 30580,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Reduction Rate: 37:1 Engine Type: Single cylinder cooling 2 cycle gasoline engine Displacement: 50.8 CC Fuel Tank Capacity: 0.9 L Carburetor: Diaphragm type Starting Method: Recoil starter Power/KW: 1.5KW/2HP Net Weight: 9.5 Kg",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "Fuel mixing can",
-        "included": true
-      },
-      {
-        "name": "Standard tools",
-        "included": true
-      },
-      {
-        "name": "Safety kit",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Illustrated Parts List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/kasei-earth-auger-kz-5000-ea-2s-kz-5000-ea-2s_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NjY=/MzQ=",
-    "images": [
-      "/assets/products/ripl026714/img_1.jpg",
-      "/assets/products/ripl026714/img_2.jpg",
-      "/assets/products/ripl026714/img_3.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl026714/img_1.jpg"
-  },
-  {
-    "id": "kz-5000-ea-pro-2s-with-6",
-    "name": "KZ-5000 EA-PRO-2S WITH 6",
-    "slug": "kz-5000-ea-pro-2s-with-6",
-    "riplCode": "RIPL033154",
-    "productId": "2822",
-    "groupId": "",
-    "modelNumber": "KZ-5000",
-    "brand": "AGRIMATE",
-    "category": "EARTH AUGER",
-    "categories": [
-      "EARTH AUGER"
-    ],
-    "mrp": 32980,
-    "sellingPrice": 32980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: 5000EA Displacement: 50.8cc Fuel Tank capacity: 0.9L Carburetor: Diaphragm type Start: Recoil Power: 1.5kW/ 2HP Net weight: 9.5Kg",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "KZ LITERTAURE",
-        "url": "https://agrimart.in/uploads/product_brochure/1/kz-5000-ea-pro-2s-with-6.pdf",
-        "language": "English"
-      },
-      {
-        "name": "Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/kz-5000ea-2s-with-6_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MjgyMg==/MTM2MA==",
-    "images": [
-      "/assets/products/ripl033154/img_1.jpg",
-      "/assets/products/ripl033154/img_2.jpg",
-      "/assets/products/ripl033154/img_3.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl033154/img_1.jpg"
-  },
-  {
     "id": "om-947-18",
     "name": "OM-947-18",
     "slug": "om-947-18",
@@ -2749,47 +2608,145 @@
     "thumbnailImage": "/assets/products/ripl010018/img_1.jpg"
   },
   {
-    "id": "am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers",
-    "name": "AM-170F-GE-212CC-DELITE WITH PULLEY-GASOLINE ENGINE FOR HTP SPRAYERS",
-    "slug": "am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers",
-    "riplCode": "RIPL039065",
-    "productId": "3598",
-    "groupId": "1801",
-    "modelNumber": "AM-170F-GE-212CC-DELITE",
+    "id": "am-5300ea-2s-ms-drill-agrimate-earth-augur-w-o-bit",
+    "name": "AM-5300EA 2S MS+ DRILL Agrimate Earth Augur W/O BIT",
+    "slug": "am-5300ea-2s-ms-drill-agrimate-earth-augur-w-o-bit",
+    "riplCode": "RIPL036530",
+    "productId": "3153",
+    "groupId": "1542",
+    "modelNumber": "AM-5300EA MS+",
     "brand": "AGRIMATE",
-    "category": "ENGINE",
+    "category": "EARTH AUGER",
     "categories": [
-      "ENGINE"
+      "EARTH AUGER"
     ],
-    "mrp": 9980,
-    "sellingPrice": 9980,
+    "mrp": 14380,
+    "sellingPrice": 14380,
     "discountPercentage": 0,
     "taxInclusive": true,
     "currency": "INR",
     "availability": "Out of Stock",
     "stockQuantity": 0,
-    "description": "Model: AM-170F-GE-212CC-DELITE Fuel Tank Capacity: 3.10Ltr Max Power: 3600RPM Displacement:212CC Starting System: Recoil Starter",
+    "description": "Model: AM-5300EA-MS+ Engine type: Air-cooling 2 Stroke Engine Power: 1.4Kw/ 6500 RPM/ 52 CC Carburetor: Diaphragm Type Fuel tank capacity: 1.0 Ltr Suitable Bit: 6\"/ 8\" bit is optional accessory not included in the price.",
     "specifications": {},
     "accessories": [],
     "brochures": [
       {
         "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers-am-170f-ge-212cc-delite.pdf",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-5300ea-2s-ms-drill-agrimate-earth-augur-wo-bit-am-5300ea-ms.pdf",
         "language": "English"
       },
       {
         "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers-am-170f-ge-212cc-delite_2.pdf",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-5300ea-2s-ms-drill-agrimate-earth-augur-wo-bit-am-5300ea-ms_2.pdf",
         "language": "English"
       }
     ],
     "videos": [],
     "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5OA==/MTgwMQ==",
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzE1Mw==/MTU0Mg==",
     "images": [
-      "/assets/products/ripl039065/img_1.jpg"
+      "/assets/products/ripl036530/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/ripl039065/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl036530/img_1.jpg"
+  },
+  {
+    "id": "kz-5000ea-2s-kasei-earth-auger-with-bit",
+    "name": "KZ-5000EA-2S-KASEI EARTH AUGER WITH BIT",
+    "slug": "kz-5000ea-2s-kasei-earth-auger-with-bit",
+    "riplCode": "RIPL026714",
+    "productId": "66",
+    "groupId": "34",
+    "modelNumber": "KZ-5000 EA -2S",
+    "brand": "KASEI",
+    "category": "EARTH AUGER",
+    "categories": [
+      "EARTH AUGER"
+    ],
+    "mrp": 30580,
+    "sellingPrice": 30580,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Reduction Rate: 37:1 Engine Type: Single cylinder cooling 2 cycle gasoline engine Displacement: 50.8 CC Fuel Tank Capacity: 0.9 L Carburetor: Diaphragm type Starting Method: Recoil starter Power/KW: 1.5KW/2HP Net Weight: 9.5 Kg",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "Fuel mixing can",
+        "included": true
+      },
+      {
+        "name": "Standard tools",
+        "included": true
+      },
+      {
+        "name": "Safety kit",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Illustrated Parts List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kasei-earth-auger-kz-5000-ea-2s-kz-5000-ea-2s_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NjY=/MzQ=",
+    "images": [
+      "/assets/products/ripl026714/img_1.jpg",
+      "/assets/products/ripl026714/img_2.jpg",
+      "/assets/products/ripl026714/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl026714/img_1.jpg"
+  },
+  {
+    "id": "kz-5000-ea-pro-2s-with-6",
+    "name": "KZ-5000 EA-PRO-2S WITH 6",
+    "slug": "kz-5000-ea-pro-2s-with-6",
+    "riplCode": "RIPL033154",
+    "productId": "2822",
+    "groupId": "",
+    "modelNumber": "KZ-5000",
+    "brand": "AGRIMATE",
+    "category": "EARTH AUGER",
+    "categories": [
+      "EARTH AUGER"
+    ],
+    "mrp": 32980,
+    "sellingPrice": 32980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: 5000EA Displacement: 50.8cc Fuel Tank capacity: 0.9L Carburetor: Diaphragm type Start: Recoil Power: 1.5kW/ 2HP Net weight: 9.5Kg",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "KZ LITERTAURE",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kz-5000-ea-pro-2s-with-6.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kz-5000ea-2s-with-6_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MjgyMg==/MTM2MA==",
+    "images": [
+      "/assets/products/ripl033154/img_1.jpg",
+      "/assets/products/ripl033154/img_2.jpg",
+      "/assets/products/ripl033154/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl033154/img_1.jpg"
   },
   {
     "id": "kz-5000-ea-2s-with-8",
@@ -2828,45 +2785,6 @@
       "/assets/products/ripl033155/img_1.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl033155/img_1.jpg"
-  },
-  {
-    "id": "am-170f-ge-212cc-gasoline-engine-multipurpose",
-    "name": "AM-170F-GE-212CC GASOLINE ENGINE- MULTIPURPOSE",
-    "slug": "am-170f-ge-212cc-gasoline-engine-multipurpose",
-    "riplCode": "RIPL037850",
-    "productId": "3480",
-    "groupId": "1737",
-    "modelNumber": "AM-170F-GE",
-    "brand": "AGRIMATE",
-    "category": "ENGINE",
-    "categories": [
-      "ENGINE"
-    ],
-    "mrp": 11980,
-    "sellingPrice": 11980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model:AM-170F-GE-212CC Engine Type: Air Cooled/4Stroke Max Power: 5.2kw/7HP/3600RPM Displacement:212CC Starting System: Recoil Starter",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-gasoline-engine-multipurpose-am-170f-ge.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4MA==/MTczNw==",
-    "images": [
-      "/assets/products/ripl037850/img_1.jpg",
-      "/assets/products/ripl037850/img_2.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl037850/img_1.jpg"
   },
   {
     "id": "gpea-196-2-men-operated-earth-auger",
@@ -3017,6 +2935,88 @@
       "/assets/products/ripl010038/img_3.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl010038/img_1.jpg"
+  },
+  {
+    "id": "am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers",
+    "name": "AM-170F-GE-212CC-DELITE WITH PULLEY-GASOLINE ENGINE FOR HTP SPRAYERS",
+    "slug": "am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers",
+    "riplCode": "RIPL039065",
+    "productId": "3598",
+    "groupId": "1801",
+    "modelNumber": "AM-170F-GE-212CC-DELITE",
+    "brand": "AGRIMATE",
+    "category": "ENGINE",
+    "categories": [
+      "ENGINE"
+    ],
+    "mrp": 9980,
+    "sellingPrice": 9980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-170F-GE-212CC-DELITE Fuel Tank Capacity: 3.10Ltr Max Power: 3600RPM Displacement:212CC Starting System: Recoil Starter",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers-am-170f-ge-212cc-delite.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-delite-with-pulley-gasoline-engine-for-htp-sprayers-am-170f-ge-212cc-delite_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU5OA==/MTgwMQ==",
+    "images": [
+      "/assets/products/ripl039065/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl039065/img_1.jpg"
+  },
+  {
+    "id": "am-170f-ge-212cc-gasoline-engine-multipurpose",
+    "name": "AM-170F-GE-212CC GASOLINE ENGINE- MULTIPURPOSE",
+    "slug": "am-170f-ge-212cc-gasoline-engine-multipurpose",
+    "riplCode": "RIPL037850",
+    "productId": "3480",
+    "groupId": "1737",
+    "modelNumber": "AM-170F-GE",
+    "brand": "AGRIMATE",
+    "category": "ENGINE",
+    "categories": [
+      "ENGINE"
+    ],
+    "mrp": 11980,
+    "sellingPrice": 11980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model:AM-170F-GE-212CC Engine Type: Air Cooled/4Stroke Max Power: 5.2kw/7HP/3600RPM Displacement:212CC Starting System: Recoil Starter",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-170f-ge-212cc-gasoline-engine-multipurpose-am-170f-ge.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQ4MA==/MTczNw==",
+    "images": [
+      "/assets/products/ripl037850/img_1.jpg",
+      "/assets/products/ripl037850/img_2.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl037850/img_1.jpg"
   },
   {
     "id": "om-emak-engine-k900hr",
@@ -3274,44 +3274,6 @@
     "thumbnailImage": "/assets/products/ripl027082/img_1.jpg"
   },
   {
-    "id": "am-22338",
-    "name": "AM-22338",
-    "slug": "am-22338",
-    "riplCode": "RIPL003337",
-    "productId": "3337",
-    "groupId": "1645",
-    "modelNumber": "DBT",
-    "brand": "AGRIMATE",
-    "category": "GARDEN TOOLS & SPRAYERS",
-    "categories": [
-      "GARDEN TOOLS & SPRAYERS"
-    ],
-    "mrp": 1795,
-    "sellingPrice": 1795,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "AM-22338 (AGRIMATE) genuine agricultural farm equipment.",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-22338-dbt.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzNw==/MTY0NQ==",
-    "images": [
-      "/assets/products/ripl003337/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl003337/img_1.jpg"
-  },
-  {
     "id": "gp-tff-256-thermal-green-panther-fog-sprayer",
     "name": "GP-TFF-256-THERMAL GREEN PANTHER FOG SPRAYER",
     "slug": "gp-tff-256-thermal-green-panther-fog-sprayer",
@@ -3560,6 +3522,44 @@
       "/assets/products/ripl005732/img_3.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl005732/img_1.jpg"
+  },
+  {
+    "id": "am-22338",
+    "name": "AM-22338",
+    "slug": "am-22338",
+    "riplCode": "RIPL003337",
+    "productId": "3337",
+    "groupId": "1645",
+    "modelNumber": "DBT",
+    "brand": "AGRIMATE",
+    "category": "GARDEN TOOLS & SPRAYERS",
+    "categories": [
+      "GARDEN TOOLS & SPRAYERS"
+    ],
+    "mrp": 1795,
+    "sellingPrice": 1795,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "AM-22338 (AGRIMATE) genuine agricultural farm equipment.",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-22338-dbt.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMzNw==/MTY0NQ==",
+    "images": [
+      "/assets/products/ripl003337/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl003337/img_1.jpg"
   },
   {
     "id": "am-4000-atc-h-agrimate-arecanut-harvester",
@@ -4022,6 +4022,68 @@
     "thumbnailImage": "/assets/products/ripl038045/img_1.jpg"
   },
   {
+    "id": "amth-k-320-2s-kawasaki-agrimate-tea-harvester",
+    "name": "AMTH-K-320-2S-Kawasaki -AGRIMATE TEA HARVESTER",
+    "slug": "amth-k-320-2s-kawasaki-agrimate-tea-harvester",
+    "riplCode": "RIPL006044",
+    "productId": "510",
+    "groupId": "243",
+    "modelNumber": "AMTH-2M",
+    "brand": "AGRIMATE",
+    "category": "HARVESTER",
+    "categories": [
+      "HARVESTER"
+    ],
+    "mrp": 199980,
+    "sellingPrice": 199980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Type: 2S Engine: AX-52T Power/RPM: 2.2KW/7500RPM Displacement: 49.4CC Fuel Tank Capacity: 1.4L Cutting Width: 1200MM Weight: 16.3KG",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "Tea bag- 1 No.",
+        "included": true
+      },
+      {
+        "name": "Oil can",
+        "included": true
+      },
+      {
+        "name": "Fuel mixing can",
+        "included": true
+      },
+      {
+        "name": "Standard tools",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-two-men-operated-harvestor-amth-2m-320-amth-2m.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual cum Parts List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-two-men-operated-harvester-amth-2m-320-amth-2m_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NTEw/MjQz",
+    "images": [
+      "/assets/products/ripl006044/img_1.jpg",
+      "/assets/products/ripl006044/img_2.jpg",
+      "/assets/products/ripl006044/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl006044/img_1.jpg"
+  },
+  {
     "id": "kz-slp750a-hedge-trimmer-gasoline",
     "name": "KZ-SLP750A- HEDGE TRIMMER GASOLINE",
     "slug": "kz-slp750a-hedge-trimmer-gasoline",
@@ -4110,68 +4172,6 @@
       "/assets/products/ripl036449/img_3.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl036449/img_1.jpg"
-  },
-  {
-    "id": "amth-k-320-2s-kawasaki-agrimate-tea-harvester",
-    "name": "AMTH-K-320-2S-Kawasaki -AGRIMATE TEA HARVESTER",
-    "slug": "amth-k-320-2s-kawasaki-agrimate-tea-harvester",
-    "riplCode": "RIPL006044",
-    "productId": "510",
-    "groupId": "243",
-    "modelNumber": "AMTH-2M",
-    "brand": "AGRIMATE",
-    "category": "HARVESTER",
-    "categories": [
-      "HARVESTER"
-    ],
-    "mrp": 199980,
-    "sellingPrice": 199980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Type: 2S Engine: AX-52T Power/RPM: 2.2KW/7500RPM Displacement: 49.4CC Fuel Tank Capacity: 1.4L Cutting Width: 1200MM Weight: 16.3KG",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "Tea bag- 1 No.",
-        "included": true
-      },
-      {
-        "name": "Oil can",
-        "included": true
-      },
-      {
-        "name": "Fuel mixing can",
-        "included": true
-      },
-      {
-        "name": "Standard tools",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-two-men-operated-harvestor-amth-2m-320-amth-2m.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual cum Parts List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-two-men-operated-harvester-amth-2m-320-amth-2m_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NTEw/MjQz",
-    "images": [
-      "/assets/products/ripl006044/img_1.jpg",
-      "/assets/products/ripl006044/img_2.jpg",
-      "/assets/products/ripl006044/img_3.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl006044/img_1.jpg"
   },
   {
     "id": "apw-63-mpg-neo-2s-agrimate-mini-power-weeder",
@@ -6389,45 +6389,6 @@
     "thumbnailImage": "/assets/products/ripl036879/img_1.jpg"
   },
   {
-    "id": "om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box",
-    "name": "OM PROSINT2EVO SYNTHETIC-2T-OIL 1 LTR x 12 CANS =1 BOX",
-    "slug": "om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box",
-    "riplCode": "RIPL037653",
-    "productId": "3436",
-    "groupId": "1710",
-    "modelNumber": "OM-PRO2T- OIL",
-    "brand": "AGRIMATE",
-    "category": "LUBRICANTS",
-    "categories": [
-      "LUBRICANTS"
-    ],
-    "mrp": 8388,
-    "sellingPrice": 8388,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "*Prosint2EVO-2T-Oil *Synthetic Lubricant * Origin Italy Made * Ideal for 2Stroke Engines.",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box-om-pro2t-oil.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQzNg==/MTcxMA==",
-    "images": [
-      "/assets/products/ripl037653/img_1.jpg",
-      "/assets/products/ripl037653/img_2.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl037653/img_1.jpg"
-  },
-  {
     "id": "g-44pe-comfort-plus-oleo-mac-lawn-mower",
     "name": "G 44PE -COMFORT PLUS OLEO MAC LAWN MOWER",
     "slug": "g-44pe-comfort-plus-oleo-mac-lawn-mower",
@@ -6652,6 +6613,45 @@
       "/assets/products/ripl020375/img_3.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl020375/img_1.jpg"
+  },
+  {
+    "id": "om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box",
+    "name": "OM PROSINT2EVO SYNTHETIC-2T-OIL 1 LTR x 12 CANS =1 BOX",
+    "slug": "om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box",
+    "riplCode": "RIPL037653",
+    "productId": "3436",
+    "groupId": "1710",
+    "modelNumber": "OM-PRO2T- OIL",
+    "brand": "AGRIMATE",
+    "category": "LUBRICANTS",
+    "categories": [
+      "LUBRICANTS"
+    ],
+    "mrp": 8388,
+    "sellingPrice": 8388,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "*Prosint2EVO-2T-Oil *Synthetic Lubricant * Origin Italy Made * Ideal for 2Stroke Engines.",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/om-prosint2evo-synthetic-2t-oil-1-ltr-x-12-cans-1-box-om-pro2t-oil.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQzNg==/MTcxMA==",
+    "images": [
+      "/assets/products/ripl037653/img_1.jpg",
+      "/assets/products/ripl037653/img_2.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl037653/img_1.jpg"
   },
   {
     "id": "agrimate-gear-oil-ep-140-api-gl-4-1ltr-can-box-of-20",
@@ -7458,44 +7458,6 @@
     "thumbnailImage": "/assets/products/ripl035660/img_1.jpg"
   },
   {
-    "id": "pw210c-om-high-pressure-washer",
-    "name": "PW210C OM HIGH PRESSURE WASHER",
-    "slug": "pw210c-om-high-pressure-washer",
-    "riplCode": "RIPL010053",
-    "productId": "2989",
-    "groupId": "1449",
-    "modelNumber": "PW210C",
-    "brand": "AGRIMATE",
-    "category": "PRESSURE WASHER",
-    "categories": [
-      "PRESSURE WASHER"
-    ],
-    "mrp": 81980,
-    "sellingPrice": 81980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "No Information Available.",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/pw210c-om-high-pressure-washer-pw210c_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjk4OQ==/MTQ0OQ==",
-    "images": [
-      "/assets/products/ripl010053/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl010053/img_1.jpg"
-  },
-  {
     "id": "ppx270-oleo-mac-telescopic-pole-pruner",
     "name": "PPX270-OLEO MAC TELESCOPIC POLE PRUNER",
     "slug": "ppx270-oleo-mac-telescopic-pole-pruner",
@@ -7556,6 +7518,44 @@
       "/assets/products/ripl010132/img_3.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl010132/img_1.jpg"
+  },
+  {
+    "id": "pw210c-om-high-pressure-washer",
+    "name": "PW210C OM HIGH PRESSURE WASHER",
+    "slug": "pw210c-om-high-pressure-washer",
+    "riplCode": "RIPL010053",
+    "productId": "2989",
+    "groupId": "1449",
+    "modelNumber": "PW210C",
+    "brand": "AGRIMATE",
+    "category": "PRESSURE WASHER",
+    "categories": [
+      "PRESSURE WASHER"
+    ],
+    "mrp": 81980,
+    "sellingPrice": 81980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "No Information Available.",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/pw210c-om-high-pressure-washer-pw210c_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjk4OQ==/MTQ0OQ==",
+    "images": [
+      "/assets/products/ripl010053/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl010053/img_1.jpg"
   },
   {
     "id": "five-star-high-pressure-washer",
@@ -7971,92 +7971,6 @@
     "thumbnailImage": "/assets/products/ripl036539/img_1.jpg"
   },
   {
-    "id": "am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper",
-    "name": "AM-GR-4G120-GED WITH AGRIMATE ENGINE Crop Harvester / Reaper",
-    "slug": "am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper",
-    "riplCode": "RIPL028152",
-    "productId": "2842",
-    "groupId": "1372",
-    "modelNumber": "AM-GR-4G-120-GED",
-    "brand": "AGRIMATE",
-    "category": "REAPER / HARVESTER",
-    "categories": [
-      "REAPER / HARVESTER"
-    ],
-    "mrp": 199980,
-    "sellingPrice": 199980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM GR-4G120 GED Power: 5.1kw/7HP Displacement: 212CC Cutting width: 1200mm Cutting height: 50mm Speed: 3600RPM Productivity: 5 to 7Hr/Ha Working speed: 2.6~3.6 km/h Fuel tank capacity: 3.1Ltr",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual cum Parts List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper_2.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg0Mg==/MTM3Mg==",
-    "images": [
-      "/assets/products/ripl028152/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl028152/img_1.jpg"
-  },
-  {
-    "id": "multi-crop-harvester-reaper-am-mpr-7p-3g1-0",
-    "name": "Multi Crop Harvester / Reaper AM-MPR-7P-3G1.0",
-    "slug": "multi-crop-harvester-reaper-am-mpr-7p-3g1-0",
-    "riplCode": "RIPL036610",
-    "productId": "3408",
-    "groupId": "1687",
-    "modelNumber": "AM-MPR-7P-3G1.0",
-    "brand": "AGRIMATE",
-    "category": "REAPER / HARVESTER",
-    "categories": [
-      "REAPER / HARVESTER"
-    ],
-    "mrp": 136200,
-    "sellingPrice": 136200,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model : AM-MPR-7P-3G1.0",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "Tool Kit",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "CATALOGUE",
-        "url": "https://agrimart.in/uploads/product_brochure/1/multi-crop-harvester-reaper-am-mpr-7p-3g10-am-mpr-7p-3g10.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQwOA==/MTY4Nw==",
-    "images": [
-      "/assets/products/ripl036610/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl036610/img_1.jpg"
-  },
-  {
     "id": "am-wpd-186hh-3x2-es-water-pump-set-diesel",
     "name": "AM-WPD-186HH-3X2-ES WATER PUMP SET - DIESEL",
     "slug": "am-wpd-186hh-3x2-es-water-pump-set-diesel",
@@ -8241,177 +8155,90 @@
     "thumbnailImage": "/assets/products/ripl037063/img_1.jpg"
   },
   {
-    "id": "am-rt-3024-r-f-rotavator-3-ft-regular-series",
-    "name": "AM-RT-3024-R&F ROTAVATOR 3.ft REGULAR+ SERIES",
-    "slug": "am-rt-3024-r-f-rotavator-3-ft-regular-series",
-    "riplCode": "RIPL034045",
-    "productId": "2894",
-    "groupId": "1399",
-    "modelNumber": "AM-RT-3024-R&F",
+    "id": "am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper",
+    "name": "AM-GR-4G120-GED WITH AGRIMATE ENGINE Crop Harvester / Reaper",
+    "slug": "am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper",
+    "riplCode": "RIPL028152",
+    "productId": "2842",
+    "groupId": "1372",
+    "modelNumber": "AM-GR-4G-120-GED",
     "brand": "AGRIMATE",
-    "category": "ROTAVATOR",
+    "category": "REAPER / HARVESTER",
     "categories": [
-      "ROTAVATOR"
+      "REAPER / HARVESTER"
     ],
-    "mrp": 105800,
-    "sellingPrice": 105800,
+    "mrp": 199980,
+    "sellingPrice": 199980,
     "discountPercentage": 0,
     "taxInclusive": true,
     "currency": "INR",
     "availability": "Out of Stock",
     "stockQuantity": 0,
-    "description": "No Information Available.",
+    "description": "Model: AM GR-4G120 GED Power: 5.1kw/7HP Displacement: 212CC Cutting width: 1200mm Cutting height: 50mm Speed: 3600RPM Productivity: 5 to 7Hr/Ha Working speed: 2.6~3.6 km/h Fuel tank capacity: 3.1Ltr",
     "specifications": {},
     "accessories": [],
     "brochures": [
       {
         "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-3024-rf-agrimate-rotavator-3ft-reverse-forward-regular-series.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5NA==/MTM5OQ==",
-    "images": [
-      "/assets/products/ripl034045/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl034045/img_1.jpg"
-  },
-  {
-    "id": "am-champion-16-ltrs-12v-8ah-battery-sprayer",
-    "name": "AM CHAMPION - 16 LTRS - 12V / 8AH- BATTERY SPRAYER",
-    "slug": "am-champion-16-ltrs-12v-8ah-battery-sprayer",
-    "riplCode": "RIPL026669",
-    "productId": "1646",
-    "groupId": "847",
-    "modelNumber": "AM CHAMPION",
-    "brand": "AGRIMATE",
-    "category": "SPRAYER",
-    "categories": [
-      "SPRAYER"
-    ],
-    "mrp": 2304,
-    "sellingPrice": 2304,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Capacity : 16L Tank material : PP Discharge : 7.5L/M Working pressure : Upto 0.55 MPA Battery : 12V/8AH",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "Nozzle kit",
-        "included": true
-      },
-      {
-        "name": "Battery charger",
-        "included": true
-      },
-      {
-        "name": "Mask",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-battery-sprayer-am-champion-16-ltrs-12v-8ah-am-champion.pdf",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper.pdf",
         "language": "English"
       },
       {
         "name": "User Manual cum Parts List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-battery-sprayer-am-champion-16-ltrs-12v-8ah-am-champion_2.pdf",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-gr-4g120-ged-with-agrimate-engine-crop-harvester-reaper_2.pdf",
         "language": "English"
       }
     ],
     "videos": [],
     "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MTY0Ng==/ODQ3",
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg0Mg==/MTM3Mg==",
     "images": [
-      "/assets/products/ripl026669/img_1.jpg",
-      "/assets/products/ripl026669/img_2.jpg",
-      "/assets/products/ripl026669/img_3.jpg"
+      "/assets/products/ripl028152/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/ripl026669/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl028152/img_1.jpg"
   },
   {
-    "id": "am-rt-4024-ms-st-rotavator-4-ft-mini-series",
-    "name": "AM-RT-4024-MS-ST ROTAVATOR 4.ft MINI SERIES",
-    "slug": "am-rt-4024-ms-st-rotavator-4-ft-mini-series",
-    "riplCode": "RIPL034047",
-    "productId": "2898",
-    "groupId": "1401",
-    "modelNumber": "AM-RT-4024-MS-ST",
+    "id": "multi-crop-harvester-reaper-am-mpr-7p-3g1-0",
+    "name": "Multi Crop Harvester / Reaper AM-MPR-7P-3G1.0",
+    "slug": "multi-crop-harvester-reaper-am-mpr-7p-3g1-0",
+    "riplCode": "RIPL036610",
+    "productId": "3408",
+    "groupId": "1687",
+    "modelNumber": "AM-MPR-7P-3G1.0",
     "brand": "AGRIMATE",
-    "category": "ROTAVATOR",
+    "category": "REAPER / HARVESTER",
     "categories": [
-      "ROTAVATOR"
+      "REAPER / HARVESTER"
     ],
-    "mrp": 109800,
-    "sellingPrice": 109800,
+    "mrp": 136200,
+    "sellingPrice": 136200,
     "discountPercentage": 0,
     "taxInclusive": true,
     "currency": "INR",
     "availability": "Out of Stock",
     "stockQuantity": 0,
-    "description": "Model: AM-RT4024MS-ST Size: 4.0FT Blades: 24 Nos Power: 24+ Speed: 540 RPM Tilling Width: 1200mm Weight: 250mm",
+    "description": "Model : AM-MPR-7P-3G1.0",
     "specifications": {},
-    "accessories": [],
+    "accessories": [
+      {
+        "name": "Tool Kit",
+        "included": true
+      }
+    ],
     "brochures": [
       {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-4024-ms-st-agrimate-rotavator-single-speed-mini-series-4ft-am-rt-4024-ms-st.pdf",
+        "name": "CATALOGUE",
+        "url": "https://agrimart.in/uploads/product_brochure/1/multi-crop-harvester-reaper-am-mpr-7p-3g10-am-mpr-7p-3g10.pdf",
         "language": "English"
       }
     ],
     "videos": [],
     "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5OA==/MTQwMQ==",
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQwOA==/MTY4Nw==",
     "images": [
-      "/assets/products/ripl034047/img_1.jpg"
+      "/assets/products/ripl036610/img_1.jpg"
     ],
-    "thumbnailImage": "/assets/products/ripl034047/img_1.jpg"
-  },
-  {
-    "id": "am-rt-7048hd-rotavator-7-ft-hd-series",
-    "name": "AM-RT-7048HD+ ROTAVATOR 7.ft HD + SERIES",
-    "slug": "am-rt-7048hd-rotavator-7-ft-hd-series",
-    "riplCode": "RIPL033120",
-    "productId": "2908",
-    "groupId": "1406",
-    "modelNumber": "AM-RT-7048HD+",
-    "brand": "AGRIMATE",
-    "category": "ROTAVATOR",
-    "categories": [
-      "ROTAVATOR"
-    ],
-    "mrp": 179800,
-    "sellingPrice": 179800,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "No Information Available.",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [
-      {
-        "name": "English",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-7048hd-agrimate-rotavator-multispeed-hd-series-7ft-am-rt-7048hd.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MjkwOA==/MTQwNg==",
-    "images": [
-      "/assets/products/ripl033120/img_1.jpg",
-      "/assets/products/ripl033120/img_2.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl033120/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl036610/img_1.jpg"
   },
   {
     "id": "am-gr-4g120-ge-multi-crop-harvester-reaper",
@@ -8510,6 +8337,179 @@
       "/assets/products/ripl038447/img_2.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl038447/img_1.jpg"
+  },
+  {
+    "id": "am-rt-3024-r-f-rotavator-3-ft-regular-series",
+    "name": "AM-RT-3024-R&F ROTAVATOR 3.ft REGULAR+ SERIES",
+    "slug": "am-rt-3024-r-f-rotavator-3-ft-regular-series",
+    "riplCode": "RIPL034045",
+    "productId": "2894",
+    "groupId": "1399",
+    "modelNumber": "AM-RT-3024-R&F",
+    "brand": "AGRIMATE",
+    "category": "ROTAVATOR",
+    "categories": [
+      "ROTAVATOR"
+    ],
+    "mrp": 105800,
+    "sellingPrice": 105800,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "No Information Available.",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-3024-rf-agrimate-rotavator-3ft-reverse-forward-regular-series.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5NA==/MTM5OQ==",
+    "images": [
+      "/assets/products/ripl034045/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl034045/img_1.jpg"
+  },
+  {
+    "id": "am-rt-4024-ms-st-rotavator-4-ft-mini-series",
+    "name": "AM-RT-4024-MS-ST ROTAVATOR 4.ft MINI SERIES",
+    "slug": "am-rt-4024-ms-st-rotavator-4-ft-mini-series",
+    "riplCode": "RIPL034047",
+    "productId": "2898",
+    "groupId": "1401",
+    "modelNumber": "AM-RT-4024-MS-ST",
+    "brand": "AGRIMATE",
+    "category": "ROTAVATOR",
+    "categories": [
+      "ROTAVATOR"
+    ],
+    "mrp": 109800,
+    "sellingPrice": 109800,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-RT4024MS-ST Size: 4.0FT Blades: 24 Nos Power: 24+ Speed: 540 RPM Tilling Width: 1200mm Weight: 250mm",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-4024-ms-st-agrimate-rotavator-single-speed-mini-series-4ft-am-rt-4024-ms-st.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg5OA==/MTQwMQ==",
+    "images": [
+      "/assets/products/ripl034047/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl034047/img_1.jpg"
+  },
+  {
+    "id": "am-rt-7048hd-rotavator-7-ft-hd-series",
+    "name": "AM-RT-7048HD+ ROTAVATOR 7.ft HD + SERIES",
+    "slug": "am-rt-7048hd-rotavator-7-ft-hd-series",
+    "riplCode": "RIPL033120",
+    "productId": "2908",
+    "groupId": "1406",
+    "modelNumber": "AM-RT-7048HD+",
+    "brand": "AGRIMATE",
+    "category": "ROTAVATOR",
+    "categories": [
+      "ROTAVATOR"
+    ],
+    "mrp": 179800,
+    "sellingPrice": 179800,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "No Information Available.",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "English",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-7048hd-agrimate-rotavator-multispeed-hd-series-7ft-am-rt-7048hd.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MjkwOA==/MTQwNg==",
+    "images": [
+      "/assets/products/ripl033120/img_1.jpg",
+      "/assets/products/ripl033120/img_2.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl033120/img_1.jpg"
+  },
+  {
+    "id": "am-champion-16-ltrs-12v-8ah-battery-sprayer",
+    "name": "AM CHAMPION - 16 LTRS - 12V / 8AH- BATTERY SPRAYER",
+    "slug": "am-champion-16-ltrs-12v-8ah-battery-sprayer",
+    "riplCode": "RIPL026669",
+    "productId": "1646",
+    "groupId": "847",
+    "modelNumber": "AM CHAMPION",
+    "brand": "AGRIMATE",
+    "category": "SPRAYER",
+    "categories": [
+      "SPRAYER"
+    ],
+    "mrp": 2304,
+    "sellingPrice": 2304,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Capacity : 16L Tank material : PP Discharge : 7.5L/M Working pressure : Upto 0.55 MPA Battery : 12V/8AH",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "Nozzle kit",
+        "included": true
+      },
+      {
+        "name": "Battery charger",
+        "included": true
+      },
+      {
+        "name": "Mask",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-battery-sprayer-am-champion-16-ltrs-12v-8ah-am-champion.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual cum Parts List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-battery-sprayer-am-champion-16-ltrs-12v-8ah-am-champion_2.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MTY0Ng==/ODQ3",
+    "images": [
+      "/assets/products/ripl026669/img_1.jpg",
+      "/assets/products/ripl026669/img_2.jpg",
+      "/assets/products/ripl026669/img_3.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl026669/img_1.jpg"
   },
   {
     "id": "am-16-champion-manual-sprayer",
@@ -12075,6 +12075,114 @@
     "thumbnailImage": "/assets/products/ripl025188/img_1.jpg"
   },
   {
+    "id": "am-22-with-honda-gx-80-engine-htp-power-sprayer",
+    "name": "AM-22 WITH HONDA GX-80 ENGINE HTP POWER SPRAYER",
+    "slug": "am-22-with-honda-gx-80-engine-htp-power-sprayer",
+    "riplCode": "RIPLCODE",
+    "productId": "3311",
+    "groupId": "1631",
+    "modelNumber": "AM-22",
+    "brand": "AGRIMATE",
+    "category": "SPRAYER",
+    "categories": [
+      "SPRAYER"
+    ],
+    "mrp": 65480,
+    "sellingPrice": 65480,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-22 WITH HONDA GX 80 Engine: GX 80 / 4Stroke Max Power: 3600RPM Displacement: 79.7CC Pump: AM22 RPM: 800 Working Pressure: 20-24Kg/Cm2 Discharge: 18LPM",
+    "specifications": {},
+    "accessories": [
+      {
+        "name": "Suction Hose - 4Mtr",
+        "included": true
+      },
+      {
+        "name": "Overflow Hose -4Mtr",
+        "included": true
+      },
+      {
+        "name": "Strainer",
+        "included": true
+      },
+      {
+        "name": "O Ring Kit",
+        "included": true
+      },
+      {
+        "name": "Lance-3 feet",
+        "included": true
+      }
+    ],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-22-with-honda-gx-80-engine-htp-power-sprayer-dbt.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMQ==/MTYzMQ==",
+    "images": [
+      "/assets/products/ripl038028/img_1.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl038028/img_1.jpg"
+  },
+  {
+    "id": "am-sm-6048-7p-pro-stubble-mower",
+    "name": "AM-SM-6048-7P-PRO STUBBLE MOWER",
+    "slug": "am-sm-6048-7p-pro-stubble-mower",
+    "riplCode": "RIPL037800",
+    "productId": "3550",
+    "groupId": "1777",
+    "modelNumber": "AM-SM-6048-7P-PRO",
+    "brand": "AGRIMATE",
+    "category": "STUBBLE MOWER",
+    "categories": [
+      "STUBBLE MOWER"
+    ],
+    "mrp": 119000,
+    "sellingPrice": 119000,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-SM-6048-7P-PRO Power: 7HP Displacement: 212CC Cutting Width: 600MM Cutting Depth: 10MM RPM:3600",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [
+      {
+        "name": "Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro.pdf",
+        "language": "English"
+      },
+      {
+        "name": "User Manual Cum Part List",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Engine User Manual",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro_3.pdf",
+        "language": "English"
+      }
+    ],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1MA==/MTc3Nw==",
+    "images": [
+      "/assets/products/ripl037800/img_1.jpg",
+      "/assets/products/ripl037800/img_2.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl037800/img_1.jpg"
+  },
+  {
     "id": "am-ctg-1680-corn-thresher-with-motor",
     "name": "AM-CTG-1680 CORN THRESHER WITH MOTOR",
     "slug": "am-ctg-1680-corn-thresher-with-motor",
@@ -12194,112 +12302,72 @@
     "thumbnailImage": "/assets/products/ripl036436/img_1.jpg"
   },
   {
-    "id": "am-22-with-honda-gx-80-engine-htp-power-sprayer",
-    "name": "AM-22 WITH HONDA GX-80 ENGINE HTP POWER SPRAYER",
-    "slug": "am-22-with-honda-gx-80-engine-htp-power-sprayer",
-    "riplCode": "RIPLCODE",
-    "productId": "3311",
-    "groupId": "1631",
-    "modelNumber": "AM-22",
+    "id": "am-ctpg-1860-corn-thresher-cum-peeler-with-wooden-crate-packing-without-motor",
+    "name": "AM-CTPG-1860 CORN THRESHER CUM PEELER WITH WOODEN CRATE PACKING & WITHOUT MOTOR",
+    "slug": "am-ctpg-1860-corn-thresher-cum-peeler-with-wooden-crate-packing-without-motor",
+    "riplCode": "RIPL036958",
+    "productId": "3374",
+    "groupId": "1668",
+    "modelNumber": "AM-CTPG-1860",
     "brand": "AGRIMATE",
-    "category": "SPRAYER",
+    "category": "THRESHER",
     "categories": [
-      "SPRAYER"
+      "THRESHER"
     ],
-    "mrp": 65480,
-    "sellingPrice": 65480,
+    "mrp": 79980,
+    "sellingPrice": 79980,
     "discountPercentage": 0,
     "taxInclusive": true,
     "currency": "INR",
     "availability": "Out of Stock",
     "stockQuantity": 0,
-    "description": "Model: AM-22 WITH HONDA GX 80 Engine: GX 80 / 4Stroke Max Power: 3600RPM Displacement: 79.7CC Pump: AM22 RPM: 800 Working Pressure: 20-24Kg/Cm2 Discharge: 18LPM",
-    "specifications": {},
-    "accessories": [
-      {
-        "name": "Suction Hose - 4Mtr",
-        "included": true
-      },
-      {
-        "name": "Overflow Hose -4Mtr",
-        "included": true
-      },
-      {
-        "name": "Strainer",
-        "included": true
-      },
-      {
-        "name": "O Ring Kit",
-        "included": true
-      },
-      {
-        "name": "Lance-3 feet",
-        "included": true
-      }
-    ],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-22-with-honda-gx-80-engine-htp-power-sprayer-dbt.pdf",
-        "language": "English"
-      }
-    ],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzMxMQ==/MTYzMQ==",
-    "images": [
-      "/assets/products/ripl038028/img_1.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl038028/img_1.jpg"
-  },
-  {
-    "id": "am-sm-6048-7p-pro-stubble-mower",
-    "name": "AM-SM-6048-7P-PRO STUBBLE MOWER",
-    "slug": "am-sm-6048-7p-pro-stubble-mower",
-    "riplCode": "RIPL037800",
-    "productId": "3550",
-    "groupId": "1777",
-    "modelNumber": "AM-SM-6048-7P-PRO",
-    "brand": "AGRIMATE",
-    "category": "STUBBLE MOWER",
-    "categories": [
-      "STUBBLE MOWER"
-    ],
-    "mrp": 119000,
-    "sellingPrice": 119000,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-SM-6048-7P-PRO Power: 7HP Displacement: 212CC Cutting Width: 600MM Cutting Depth: 10MM RPM:3600",
+    "description": "Model: AM-CTPG-1860 Power: 4 HP Phase: 1 PH Motor Voltage: 220V,50HZ",
     "specifications": {},
     "accessories": [],
-    "brochures": [
-      {
-        "name": "Leaflet",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro.pdf",
-        "language": "English"
-      },
-      {
-        "name": "User Manual Cum Part List",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro_2.pdf",
-        "language": "English"
-      },
-      {
-        "name": "Engine User Manual",
-        "url": "https://agrimart.in/uploads/product_brochure/1/am-sm-6048-7p-pro-stubble-mower-am-sm-6048-7p-pro_3.pdf",
-        "language": "English"
-      }
-    ],
+    "brochures": [],
     "videos": [],
     "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU1MA==/MTc3Nw==",
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3NA==/MTY2OA==",
     "images": [
-      "/assets/products/ripl037800/img_1.jpg",
-      "/assets/products/ripl037800/img_2.jpg"
+      "/assets/products/ripl036958/img_1.jpg",
+      "/assets/products/ripl036958/img_2.jpg"
     ],
-    "thumbnailImage": "/assets/products/ripl037800/img_1.jpg"
+    "thumbnailImage": "/assets/products/ripl036958/img_1.jpg"
+  },
+  {
+    "id": "am-ptmg-500-170en-paddy-thresher-with-diesel-engine",
+    "name": "AM-PTMG-500-170EN PADDY THRESHER WITH DIESEL ENGINE",
+    "slug": "am-ptmg-500-170en-paddy-thresher-with-diesel-engine",
+    "riplCode": "RIPL038742",
+    "productId": "3560",
+    "groupId": "1782",
+    "modelNumber": "AM-PTMG-500-170EN",
+    "brand": "AGRIMATE",
+    "category": "THRESHER",
+    "categories": [
+      "THRESHER"
+    ],
+    "mrp": 65980,
+    "sellingPrice": 65980,
+    "discountPercentage": 0,
+    "taxInclusive": true,
+    "currency": "INR",
+    "availability": "Out of Stock",
+    "stockQuantity": 0,
+    "description": "Model: AM-PTMG-500-170EN Displacement: 247CC Power: 5HP Diesel Engine Productivity: 500-750Kg/H",
+    "specifications": {},
+    "accessories": [],
+    "brochures": [],
+    "videos": [],
+    "spareParts": [],
+    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2MA==/MTc4Mg==",
+    "images": [
+      "/assets/products/ripl038742/img_1.jpg",
+      "/assets/products/ripl038742/img_2.jpg",
+      "/assets/products/ripl038742/img_3.jpg",
+      "/assets/products/ripl038742/img_4.jpg"
+    ],
+    "thumbnailImage": "/assets/products/ripl038742/img_1.jpg"
   },
   {
     "id": "am-mt-320m-agrimate-track-trolley-transporter",
@@ -12398,39 +12466,6 @@
     "thumbnailImage": "/assets/products/ripl036445/img_1.jpg"
   },
   {
-    "id": "am-ctpg-1860-corn-thresher-cum-peeler-with-wooden-crate-packing-without-motor",
-    "name": "AM-CTPG-1860 CORN THRESHER CUM PEELER WITH WOODEN CRATE PACKING & WITHOUT MOTOR",
-    "slug": "am-ctpg-1860-corn-thresher-cum-peeler-with-wooden-crate-packing-without-motor",
-    "riplCode": "RIPL036958",
-    "productId": "3374",
-    "groupId": "1668",
-    "modelNumber": "AM-CTPG-1860",
-    "brand": "AGRIMATE",
-    "category": "THRESHER",
-    "categories": [
-      "THRESHER"
-    ],
-    "mrp": 79980,
-    "sellingPrice": 79980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-CTPG-1860 Power: 4 HP Phase: 1 PH Motor Voltage: 220V,50HZ",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3NA==/MTY2OA==",
-    "images": [
-      "/assets/products/ripl036958/img_1.jpg",
-      "/assets/products/ripl036958/img_2.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl036958/img_1.jpg"
-  },
-  {
     "id": "am-wcs-192fp-agrimate-wood-chipper",
     "name": "AM-WCS-192FP- AGRIMATE WOOD CHIPPER",
     "slug": "am-wcs-192fp-agrimate-wood-chipper",
@@ -12473,40 +12508,5 @@
       "/assets/products/ripl036653/img_2.jpg"
     ],
     "thumbnailImage": "/assets/products/ripl036653/img_1.jpg"
-  },
-  {
-    "id": "am-ptmg-500-170en-paddy-thresher-with-diesel-engine",
-    "name": "AM-PTMG-500-170EN PADDY THRESHER WITH DIESEL ENGINE",
-    "slug": "am-ptmg-500-170en-paddy-thresher-with-diesel-engine",
-    "riplCode": "RIPL038742",
-    "productId": "3560",
-    "groupId": "1782",
-    "modelNumber": "AM-PTMG-500-170EN",
-    "brand": "AGRIMATE",
-    "category": "THRESHER",
-    "categories": [
-      "THRESHER"
-    ],
-    "mrp": 65980,
-    "sellingPrice": 65980,
-    "discountPercentage": 0,
-    "taxInclusive": true,
-    "currency": "INR",
-    "availability": "Out of Stock",
-    "stockQuantity": 0,
-    "description": "Model: AM-PTMG-500-170EN Displacement: 247CC Power: 5HP Diesel Engine Productivity: 500-750Kg/H",
-    "specifications": {},
-    "accessories": [],
-    "brochures": [],
-    "videos": [],
-    "spareParts": [],
-    "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2MA==/MTc4Mg==",
-    "images": [
-      "/assets/products/ripl038742/img_1.jpg",
-      "/assets/products/ripl038742/img_2.jpg",
-      "/assets/products/ripl038742/img_3.jpg",
-      "/assets/products/ripl038742/img_4.jpg"
-    ],
-    "thumbnailImage": "/assets/products/ripl038742/img_1.jpg"
   }
 ]

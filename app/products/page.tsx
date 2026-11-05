@@ -301,6 +301,47 @@ function ProductsContent() {
     setSelectedPowerSources([]);
     setSearchTerm('');
     setCurrentPage(1);
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/products');
+    }
+    scrollToProductsTop();
+  };
+
+  const handleCategoryClick = (catName: string) => {
+    const isSelected = selectedCategory.toLowerCase() === catName.toLowerCase();
+    const newCat = isSelected ? '' : catName;
+    setSelectedCategory(newCat);
+    setSelectedSubcategory('');
+    setExpandedCategory('');
+    setCurrentPage(1);
+
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (newCat) {
+        url.searchParams.set('category', newCat);
+      } else {
+        url.searchParams.delete('category');
+      }
+      url.searchParams.delete('sub');
+      url.searchParams.delete('page');
+      window.history.pushState({}, '', url.pathname + (url.search ? url.search : ''));
+    }
+
+    scrollToProductsTop();
+  };
+
+  const handleResetCategory = () => {
+    setSelectedCategory('');
+    setSelectedSubcategory('');
+    setExpandedCategory('');
+    setCurrentPage(1);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('category');
+      url.searchParams.delete('sub');
+      url.searchParams.delete('page');
+      window.history.pushState({}, '', url.pathname + (url.search ? url.search : ''));
+    }
     scrollToProductsTop();
   };
 
@@ -368,13 +409,7 @@ function ProductsContent() {
                 {(selectedCategory || selectedSubcategory) && (
                   <button
                     type="button"
-                    onClick={() => {
-                      setSelectedCategory('');
-                      setSelectedSubcategory('');
-                      setExpandedCategory('');
-                      setCurrentPage(1);
-                      scrollToProductsTop();
-                    }}
+                    onClick={handleResetCategory}
                     className="text-[11px] font-normal underline text-white/90 hover:text-white cursor-pointer"
                   >
                     Reset
@@ -391,17 +426,7 @@ function ProductsContent() {
                     <div key={cat.id} className="relative">
                       <button
                         type="button"
-                        onClick={() => {
-                          if (isSelected) {
-                            setSelectedCategory('');
-                          } else {
-                            setSelectedCategory(cat.name);
-                          }
-                          setSelectedSubcategory('');
-                          setExpandedCategory('');
-                          setCurrentPage(1);
-                          scrollToProductsTop();
-                        }}
+                        onClick={() => handleCategoryClick(cat.name)}
                         className={`w-full text-left px-3 py-2 text-[12px] font-bold uppercase tracking-tight text-white border-b border-[#579304] flex items-center justify-between cursor-pointer transition-colors ${
                           isSelected
                             ? 'bg-[#317e00]'
@@ -490,9 +515,8 @@ function ProductsContent() {
                         <button
                           type="button"
                           onClick={() => {
-                            setSelectedCategory('');
-                            setSelectedSubcategory('');
-                            setExpandedCategory('');
+                            handleResetCategory();
+                            setMobileFilterOpen(false);
                           }}
                           className="text-[10px] underline font-normal text-white/90"
                         >
@@ -509,14 +533,8 @@ function ProductsContent() {
                             <button
                               type="button"
                               onClick={() => {
-                                if (isSelected) {
-                                  setSelectedCategory('');
-                                } else {
-                                  setSelectedCategory(cat.name);
-                                }
-                                setSelectedSubcategory('');
-                                setExpandedCategory('');
-                                scrollToProductsTop();
+                                handleCategoryClick(cat.name);
+                                setMobileFilterOpen(false);
                               }}
                               className={`w-full text-left px-3 py-2 text-xs font-bold uppercase text-white flex items-center justify-between transition-colors ${
                                 isSelected ? 'bg-[#317e00]' : 'bg-gradient-to-b from-[#64a507] to-[#558f04] hover:from-[#71b608] hover:to-[#5c9805]'

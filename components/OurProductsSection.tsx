@@ -196,12 +196,12 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                         className={
                           product.secondaryImage
-                            ? "object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 drop-shadow-md scale-105 sm:scale-110"
-                            : "object-contain p-1.5 sm:p-2 drop-shadow-md product-image-flip"
+                            ? "object-contain p-2 sm:p-2.5 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95"
+                            : "object-contain p-2 sm:p-2.5 product-image-flip"
                         }
                       />
 
-                      {/* Secondary Angle Revealed on Hover with Magnified Zoom */}
+                      {/* Secondary Angle Revealed on Hover */}
                       {product.secondaryImage && (
                         <Image
                           src={product.secondaryImage}
@@ -211,7 +211,7 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                           quality={100}
                           loading="lazy"
                           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-contain p-1.5 sm:p-2 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-115 drop-shadow-2xl"
+                          className="object-contain p-2 sm:p-2.5 transition-all duration-500 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-105"
                         />
                       )}
                     </div>

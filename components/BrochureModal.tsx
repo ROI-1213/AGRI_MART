@@ -4,15 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { 
   X, 
-  Printer, 
   CheckCircle2, 
   ShieldCheck, 
   FileText, 
   ExternalLink, 
-  Download, 
   Check, 
-  FileCheck, 
-  Maximize2 
+  FileCheck 
 } from 'lucide-react';
 import { Product } from '@/types';
 import { getLocalizedBrochure } from '@/lib/brochureData';
@@ -129,102 +126,12 @@ export default function BrochureModal({
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-            {/* View Mode Toggle (when official document exists) */}
-            {hasDocument && (
-              <div className="flex items-center bg-green-950/40 p-0.5 rounded-lg border border-green-700/60 text-xs">
-                <button
-                  type="button"
-                  onClick={() => setViewMode('document')}
-                  className={`px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
-                    viewMode === 'document'
-                      ? 'bg-white text-[#0d9749] shadow-xs'
-                      : 'text-white/90 hover:text-white'
-                  }`}
-                >
-                  Official Brochure
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setViewMode('datasheet')}
-                  className={`px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
-                    viewMode === 'datasheet'
-                      ? 'bg-white text-[#0d9749] shadow-xs'
-                      : 'text-white/90 hover:text-white'
-                  }`}
-                >
-                  Datasheet
-                </button>
-              </div>
-            )}
-
-            {/* Language Selector Pills */}
-            <div className="flex items-center bg-green-950/40 p-0.5 rounded-lg border border-green-700/60 text-xs">
-              <button
-                type="button"
-                onClick={() => handleLanguageChange('English')}
-                className={`px-2 sm:px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
-                  currentLang.toLowerCase() === 'english'
-                    ? 'bg-white text-[#0d9749] shadow-xs'
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                English
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLanguageChange('Kannada')}
-                className={`px-2 sm:px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
-                  currentLang.toLowerCase() === 'kannada'
-                    ? 'bg-white text-[#0d9749] shadow-xs'
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                ಕನ್ನಡ
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLanguageChange('Telugu')}
-                className={`px-2 sm:px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
-                  currentLang.toLowerCase() === 'telugu'
-                    ? 'bg-white text-[#0d9749] shadow-xs'
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                తెలుగు
-              </button>
-            </div>
-
-            {/* Direct Open in Full Tab */}
-            {hasDocument && directDocumentUrl && (
-              <a
-                href={directDocumentUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:inline-flex items-center gap-1 bg-white text-[#0d9749] hover:bg-green-50 px-2.5 py-1 rounded text-xs font-bold transition-colors cursor-pointer shadow-xs"
-                title="Open original document in full browser tab"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                <span>Full Tab</span>
-              </a>
-            )}
-
-            {/* Print or Save as PDF */}
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="inline-flex items-center gap-1 bg-green-800 hover:bg-green-900 text-white px-2.5 py-1 rounded text-xs font-bold transition-colors cursor-pointer shadow-xs"
-              title="Print document"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Print</span>
-            </button>
-
+          <div className="flex items-center gap-2">
             {/* Close Modal */}
             <button
               type="button"
               onClick={onClose}
-              className="p-1 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-colors ml-1 cursor-pointer"
+              className="p-1.5 rounded-full text-white/90 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -278,13 +185,6 @@ export default function BrochureModal({
                     <ExternalLink className="w-3 h-3" />
                     <span>Open in new tab</span>
                   </a>
-                  <button
-                    type="button"
-                    onClick={() => setViewMode('datasheet')}
-                    className="text-gray-700 hover:text-green-800 font-semibold underline cursor-pointer"
-                  >
-                    Switch to Datasheet Table
-                  </button>
                 </div>
               </div>
             </div>

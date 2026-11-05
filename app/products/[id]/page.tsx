@@ -9,8 +9,6 @@ import {
   Check, 
   FileCheck2,
   Eye,
-  Download,
-  Printer,
   Bell
 } from 'lucide-react';
 import SubsidyModal from '@/components/SubsidyModal';
@@ -322,7 +320,7 @@ export default function ProductDetailPage() {
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+                          <div className="flex items-center gap-2 self-start sm:self-auto">
                             <button
                               type="button"
                               onClick={() => {
@@ -330,31 +328,11 @@ export default function ProductDetailPage() {
                                 setSelectedBrochureLang(docLang);
                                 setBrochureModalOpen(true);
                               }}
-                              className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-3.5 py-2 rounded transition-colors cursor-pointer"
+                              className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               <span>View Leaflet</span>
                             </button>
-
-                            <Link
-                              href={`/products/${product.slug || product.id}/brochure?lang=${encodeURIComponent(docLang)}&print=1`}
-                              target="_blank"
-                              className="inline-flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-3.5 py-2 rounded transition-colors cursor-pointer border border-gray-300"
-                            >
-                              <Printer className="w-3.5 h-3.5 text-gray-600" />
-                              <span>Print / PDF</span>
-                            </Link>
-
-                            <a
-                              href={`/api/brochures?url=${encodeURIComponent(b.url)}&id=${encodeURIComponent(product.slug || product.id)}&lang=${encodeURIComponent(docLang)}&filename=${encodeURIComponent((cleanTitle + '_' + docLang).toLowerCase().replace(/\s+/g, '_') + '.pdf')}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-[11px] text-green-700 hover:text-green-800 font-semibold px-2 py-1 underline"
-                              title="Download document"
-                            >
-                              <Download className="w-3 h-3" />
-                              <span>Download</span>
-                            </a>
                           </div>
                         </div>
                       );
@@ -380,20 +358,11 @@ export default function ProductDetailPage() {
                             setSelectedBrochureTitle(`${product.name} Leaflet`);
                             setBrochureModalOpen(true);
                           }}
-                          className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-3.5 py-2 rounded transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>View Leaflet</span>
                         </button>
-
-                        <Link
-                          href={`/products/${product.slug || product.id}/brochure?print=1`}
-                          target="_blank"
-                          className="inline-flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-3.5 py-2 rounded transition-colors cursor-pointer border border-gray-300"
-                        >
-                          <Printer className="w-3.5 h-3.5 text-gray-600" />
-                          <span>Print / PDF</span>
-                        </Link>
                       </div>
                     </div>
                   )}

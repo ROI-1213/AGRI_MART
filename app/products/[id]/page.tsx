@@ -53,12 +53,6 @@ export default function ProductDetailPage() {
   const [selectedBrochureTitle, setSelectedBrochureTitle] = useState('');
   const [selectedBrochureLang, setSelectedBrochureLang] = useState('English');
   const [selectedBrochureUrl, setSelectedBrochureUrl] = useState('');
-  const [selectedBrochureMode, setSelectedBrochureMode] = useState<'document' | 'datasheet'>('document');
-
-  const primaryBrochure = (product.brochures || []).find(b => b && b.url && !b.url.includes('_2.') && !b.url.includes('_3.')) || product.brochures?.[0];
-  const primaryBase = (primaryBrochure?.url || '').split('/').pop() || '';
-  const primaryUrl = primaryBase ? `/uploads/product_brochure/1/${primaryBase}` : '';
-  const secondaryBrochures = (product.brochures || []).filter(b => b && b.url && b.url !== primaryBrochure?.url);
 
   const handleRequestQuote = () => {
     setQuoteModalOpen(true);
@@ -302,147 +296,57 @@ export default function ProductDetailPage() {
               </div>
             )}
 
-            {/* 3. MULTILINGUAL BROCHURE TAB */}
+            {/* 3. ORIGINAL PRODUCT BROCHURES */}
             {activeTab === 'brochure' && (
               <div className="space-y-4">
                 <div className="space-y-3">
-                  {/* English Brochure */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs">
-                    <div className="flex items-center space-x-3">
-                      <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                      <div>
-                        <h4 className="font-bold text-xs text-gray-900">
-                          English
-                        </h4>
-                        <p className="text-[11px] text-gray-500">
-                          Language: <strong>English</strong> • Official Ratnagiri Impex Document
-                        </p>
-                      </div>
-                    </div>
+                  {validBrochures && validBrochures.length > 0 ? (
+                    validBrochures.map((b, idx) => {
+                      const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || `${product.name} Brochure`;
+                      const docLang = b.language || 'English';
+                      const fileBasename = (b.url || '').split('/').pop() || '';
+                      const directUrl = fileBasename ? `/uploads/product_brochure/1/${fileBasename}` : (b.url || '');
+                      return (
+                        <div
+                          key={idx}
+                          className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <FileText className="w-8 h-8 text-red-600 shrink-0" />
+                            <div>
+                              <h4 className="font-bold text-xs text-gray-900">
+                                {cleanTitle}
+                              </h4>
+                              <p className="text-[11px] text-gray-500">
+                                Language: <strong>{docLang}</strong> • Official Ratnagiri Impex Document
+                              </p>
+                            </div>
+                          </div>
 
-                    <div className="flex items-center gap-2 self-start sm:self-auto">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSelectedBrochureTitle('English');
-                          setSelectedBrochureLang('English');
-                          setSelectedBrochureUrl(primaryUrl);
-                          setSelectedBrochureMode('document');
-                          setBrochureModalOpen(true);
-                        }}
-                        className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>View Leaflet</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Kannada Brochure */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs">
-                    <div className="flex items-center space-x-3">
-                      <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                      <div>
-                        <h4 className="font-bold text-xs text-gray-900">
-                          Kannada
-                        </h4>
-                        <p className="text-[11px] text-gray-500">
-                          Language: <strong>Kannada</strong> • Official Ratnagiri Impex Document
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 self-start sm:self-auto">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSelectedBrochureTitle('Kannada');
-                          setSelectedBrochureLang('Kannada');
-                          setSelectedBrochureUrl(primaryUrl);
-                          setSelectedBrochureMode('datasheet');
-                          setBrochureModalOpen(true);
-                        }}
-                        className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>View Leaflet</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Telugu Brochure */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs">
-                    <div className="flex items-center space-x-3">
-                      <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                      <div>
-                        <h4 className="font-bold text-xs text-gray-900">
-                          Telugu
-                        </h4>
-                        <p className="text-[11px] text-gray-500">
-                          Language: <strong>Telugu</strong> • Official Ratnagiri Impex Document
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 self-start sm:self-auto">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSelectedBrochureTitle('Telugu');
-                          setSelectedBrochureLang('Telugu');
-                          setSelectedBrochureUrl(primaryUrl);
-                          setSelectedBrochureMode('datasheet');
-                          setBrochureModalOpen(true);
-                        }}
-                        className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>View Leaflet</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Additional Product-Specific Documents from brochers folder (Diagrams, Parts Lists, User Manuals) */}
-                  {secondaryBrochures.map((b, idx) => {
-                    const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || 'Diagram and Part List';
-                    const fileBasename = (b.url || '').split('/').pop() || '';
-                    const directUrl = fileBasename ? `/uploads/product_brochure/1/${fileBasename}` : (b.url || '');
-                    return (
-                      <div
-                        key={idx}
-                        className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-green-600 transition-colors gap-3 bg-white shadow-2xs"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <FileText className="w-8 h-8 text-red-600 shrink-0" />
-                          <div>
-                            <h4 className="font-bold text-xs text-gray-900">
-                              {cleanTitle}
-                            </h4>
-                            <p className="text-[11px] text-gray-500">
-                              Language: <strong>English</strong> • Official Ratnagiri Impex Document
-                            </p>
+                          <div className="flex items-center gap-2 self-start sm:self-auto">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setSelectedBrochureTitle(cleanTitle);
+                                setSelectedBrochureLang(docLang);
+                                setSelectedBrochureUrl(directUrl);
+                                setBrochureModalOpen(true);
+                              }}
+                              className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              <span>View Leaflet</span>
+                            </button>
                           </div>
                         </div>
-
-                        <div className="flex items-center gap-2 self-start sm:self-auto">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setSelectedBrochureTitle(cleanTitle);
-                              setSelectedBrochureLang('English');
-                              setSelectedBrochureUrl(directUrl);
-                              setSelectedBrochureMode('document');
-                              setBrochureModalOpen(true);
-                            }}
-                            className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                            <span>View Leaflet</span>
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  ) : (
+                    <div className="p-8 text-center bg-white rounded-lg border border-gray-200 text-gray-500">
+                      <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                      <p className="font-medium text-xs">No brochures available for this product.</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -506,8 +410,6 @@ export default function ProductDetailPage() {
         brochureTitle={selectedBrochureTitle}
         initialLanguage={selectedBrochureLang}
         brochureUrl={selectedBrochureUrl}
-        initialMode={selectedBrochureMode}
-        specs={allSpecs}
       />
 
       {/* Subsidy Modal */}

@@ -11,7 +11,8 @@ import {
   Eye,
   Download,
   Printer,
-  BookOpen
+  BookOpen,
+  Bell
 } from 'lucide-react';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
@@ -424,6 +425,24 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
+        {/* Bulk Enquiry & Technical Assistance Banner */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 shadow-2xs">
+          <div>
+            <h3 className="font-bold text-sm text-gray-900 flex items-center gap-2">
+              <Bell className="w-4 h-4 text-yellow-600 shrink-0" />
+              <span>Need Institutional Quantities or Custom Spare Part Assistance?</span>
+            </h3>
+            <p className="text-xs text-gray-500 mt-1">
+              Contact our product specialists directly for enterprise quotes, distributor pricing, or technical assistance.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="agri-btn-secondary text-xs px-5 py-2.5 font-bold whitespace-nowrap"
+          >
+            Submit Enquiry →
+          </Link>
+        </div>
 
       </div>
 

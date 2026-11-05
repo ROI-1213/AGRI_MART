@@ -139,6 +139,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mbd-5650-agrimate-mist-blower-4-in-1-am-mbo-5650_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mbd-5650mist-blower-4-in-1-agrimate-am-mbo-5650.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -366,6 +371,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-243-brush-cutter-2-stroke-neo-am-243-bc-neo_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-243-brush-cutter-2-stroke-neo-am-243-bc-neo.jpg",
         "language": "English"
       }
     ],
@@ -1008,6 +1018,11 @@
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-243-2s-bc-neo-brush-cutter-with-reaper-attachment_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-243-2s-bc-neo-agrimate-brush-cutter-with-reaper-attachment-am-243-bc-neo.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -1520,7 +1535,13 @@
         "included": true
       }
     ],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/amh-300t-4s-taiwan-brush-cutter.jpeg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MjQ5/MTIx",
@@ -1915,6 +1936,11 @@
       {
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-cs-6022k-pro-agrimate-chain-saw-22_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/om-chain-saw-gs35-14.jpg",
         "language": "English"
       }
     ],
@@ -2691,6 +2717,16 @@
         "name": "Illustrated Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/kasei-earth-auger-kz-5000-ea-2s-kz-5000-ea-2s_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kasei-earth-auger-kz-5000-ea-2s-kz-5000-ea-2s.jpeg",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kz-5000-ea-2s-with-8-bit-kz-5000-ea-2s-with-6bit.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -2813,6 +2849,11 @@
       {
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/gpea-196-2-men-operated-earth-auger_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/gpea-196-2-men-operated-earth-auger.jpg",
         "language": "English"
       }
     ],
@@ -3131,6 +3172,11 @@
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/2000-gold-agrimate-mini-fog-super-sprayer_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-mini-fog-super-2000-gold-sprayer-2000-gold.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -3176,6 +3222,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-cfs-4000-am-cfs-4000_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-cfs-4000-cold-fog-spayer-hand-held.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -3215,6 +3266,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-cold-fog-sprayer-am-cfs-756-ulv-am-cfs-756-ulv_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/aam-cfs-756-ulv-cold-fog-sprayer-mobile.jpeg",
         "language": "English"
       }
     ],
@@ -3260,6 +3316,11 @@
       {
         "name": "User Manual cum Part list",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-grease-pro-pump-for-knapsakportable-sprayers-all-models-am-cfs-207-ulv_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/cfs-207-ulv-cold-fog-sprayer-backpack.jpeg",
         "language": "English"
       }
     ],
@@ -3401,7 +3462,13 @@
         "included": true
       }
     ],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-mini-fog-super-3000-gold-sprayer-auto-3000-gold.jpeg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MTcxOA==/ODk1",
@@ -3448,6 +3515,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-fogger-vm-af4000nk-af4000nk_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/af-4000nk-vm-korea-isi-thermal-fog-sprayer-ss-body-vehicle-mount.jpeg",
         "language": "English"
       }
     ],
@@ -3686,6 +3758,11 @@
         "name": "User Manual & Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-th-v120-60-classic-2-stroke-tea-harvester-with-standard-accessories-amth-v120-60-classic_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-th-v120-60-classic-2-stroke-tea-harvester-with-standard-accessories-amth-v120-60-classic.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -3902,6 +3979,11 @@
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/amth-v120-60-pro-2s-agrimate-tea-harvester-amth-v-120-60_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/amth-v120-60-pro-2s-agrimate-tea-harvester-amth-v-120-60.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -4106,7 +4188,13 @@
     "description": "Model: SLP750A-2 stroke- single cylinder Cutting width: 750MM Displacement: 25.6 CC Max. Output: 0.65KW/ 7500 R/Min Carburetor: Diaphragm Fuel tank capacity: 1 Ltr Start: Recoil & Hand Operated Gross weight: 7.5 KG New weight: 5.5 KG",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/kz-slp750a-hedge-trimmer-gasoline.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM2Ng==/MTY2Mw==",
@@ -4201,6 +4289,11 @@
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/apw-63-mpg-neo-2s-agrimart-mini-power-weeder-apw-63mpg-neo_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/apw-63-mpg-neo-2s-agrimart-mini-power-weeder-apw-63mpg-neo.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -4239,6 +4332,11 @@
       {
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/apw-63-mpg-pro-agrimart-mini-power-weeder-apw-63mpg-pro_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/apw-63-mpg-pro-2s-agrimart-mini-power-weeder.jpg",
         "language": "English"
       }
     ],
@@ -4453,7 +4551,13 @@
         "included": true
       }
     ],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/sunmax-wm500-sm505-rotary-tiller-with-standard-accessories-sm505.jpeg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/NTgx/Mjc2",
@@ -4943,6 +5047,11 @@
         "name": "Engine Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mptc-1100-6d-e-6-gear-agrimate-intercultivator-am-mptc-1100-6d_3.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mptc-1100-6d-e-6-gear-agrimate-intercultivator-am-mptc-1100-6d.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -5001,6 +5110,11 @@
       {
         "name": "Leaflet",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-rt-5p-power-weeder-dbt-t.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am30gx-160-neo-htp-power-sprayer-am-30-gx-160-neo.jpg",
         "language": "English"
       }
     ],
@@ -6079,6 +6193,11 @@
         "name": "Engine Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mpt-1100-9d-e-agrimate-intercultivator_3.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mpt-1100-e-6d-6gear-am-mpt1100-e-6d-6g-with-standard-accessoreiselectric-start.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -6970,6 +7089,11 @@
         "name": "User Manual Cum Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mrsf-14p-pro-2-in-1-agrimate-manual-rotary-seeder-cum-fertilizer_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mrsf-14p-pro-2-in-1-agrimate-manual-rotary-seeder-am-mrsf-14p.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -7233,7 +7357,13 @@
     "description": "1. Attachments are not included with the machine 2. Attachments are optional accessories which are chargeable basis.",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-cf-ppt-50ft-carbon-fibre-telescopic-manual-pole.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzNA==/MTQ3Ng==",
@@ -7416,7 +7546,13 @@
     "description": "1. Attachments are not included with the Machine2. Attachments are optional accessories which are chargeable basis",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-cf-ppt-60ft-carbon-fiber-telescopic-pole.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzNg==/MTQ3Nw==",
@@ -7448,7 +7584,13 @@
     "description": "1. Attachments are not included with the Machine2. Attachments are optional accessories which are chargeable basis",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-cf-ppt-70ft-carbon-fiber-telescopic-pole.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzAzOA==/MTQ3OA==",
@@ -8901,6 +9043,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-battery-sprayer-am-405e-elite-18ltr-with-high-presssure-double-pump-12v-12ah-am405e_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-405e-elite-18l-battery-sprayer-double-pump-12v12ah.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -9025,6 +9172,11 @@
       {
         "name": "User Manual",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-pbs-battery-sprayer-portable-am-pbs_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-pbs-battery-sprayer-portable-am-pbs.jpeg",
         "language": "English"
       }
     ],
@@ -10063,6 +10215,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am22-nt-agrimate-htp-sprayer_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am22-nt-agrimate-htp-sprayer.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -10395,6 +10552,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-htp-power-sprayer-am30-auto-9_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-htp-sprayer-am30-am30.jpg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -10455,6 +10617,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-22fsk-htp-power-sprayer-with-std-accessories-am-22fsk_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-22fsk-htp-power-sprayer-with-std-accessories-am-22fsk.jpeg",
         "language": "English"
       }
     ],
@@ -10718,6 +10885,11 @@
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/agrimate-power-sprayer-am708t-knapsack-am708t_2.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-708-pro-2s-wc-knapsack-power-sprayer.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -10838,6 +11010,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-30fsk-htp-agrimate-power-sprayer-with-std-accessories-am-30fsk_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-30fsk-htp-power-sprayer-with-std-accessories-am-30fsk.jpeg",
         "language": "English"
       }
     ],
@@ -11623,7 +11800,18 @@
         "included": true
       }
     ],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-22-gx-80d-neo-htp-power-sprayer-am-22-gx-80d-neo.jpg",
+        "language": "English"
+      },
+      {
+        "name": "Illustrated Parts List / Diagram",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-22-gx-80d-neo-htp-power-sprayer-am-22-gx-80d-neo_2.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/Mjg0Ng==/MTM3NA==",
@@ -11680,6 +11868,11 @@
       {
         "name": "User Manual cum Parts List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-eps1-ls518-electric-power-sprayer-with-std-accessories-am-eps1-ls518_2.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-eps1-ls518-electric-agrimate-power-sprayer-am-eps1-ls518.jpg",
         "language": "English"
       }
     ],
@@ -12205,7 +12398,13 @@
     "description": "Model: AM-CTG-1680 Power: 3 HP Phase: 1 PH Motor Voltage: 220V,50HZ",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ctg-1680-agrimate-corn-thresher-with-motor.jpeg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzQxOA==/MTY5NA==",
@@ -12324,7 +12523,13 @@
     "description": "Model: AM-CTPG-1860 Power: 4 HP Phase: 1 PH Motor Voltage: 220V,50HZ",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ctpg-1860-corn-thresher-cum-peeler-with-wooden-crate-packing-without-motor-am-ctpg-1860.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzM3NA==/MTY2OA==",
@@ -12357,7 +12562,13 @@
     "description": "Model: AM-PTMG-500-170EN Displacement: 247CC Power: 5HP Diesel Engine Productivity: 500-750Kg/H",
     "specifications": {},
     "accessories": [],
-    "brochures": [],
+    "brochures": [
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-ptmg-500-170en-paddy-thresher-with-diesel-engine-am-ptmg-500-170en.jpg",
+        "language": "English"
+      }
+    ],
     "videos": [],
     "spareParts": [],
     "sourceUrl": "https://agrimart.in/index.php/home/prduct_details/MzU2MA==/MTc4Mg==",
@@ -12407,6 +12618,11 @@
         "name": "Engine Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mt-320m-agrimate-track-trolley-transporter-am-mt-320m_3.pdf",
         "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mt-320m-agrimate-track-trolley-transporter-am-mt-320m.jpeg",
+        "language": "English"
       }
     ],
     "videos": [],
@@ -12454,6 +12670,11 @@
       {
         "name": "Engine Part List",
         "url": "https://agrimart.in/uploads/product_brochure/1/am-mt-320m-wt-agrimate-wheel-trolleytransporter-am-mt-320m-wt_3.pdf",
+        "language": "English"
+      },
+      {
+        "name": "Official Product Leaflet",
+        "url": "https://agrimart.in/uploads/product_brochure/1/am-mt-320m-wt-agrimate-wheel-trolleytransporter-am-mt-320m-wt.jpeg",
         "language": "English"
       }
     ],

@@ -52,6 +52,7 @@ export default function ProductDetailPage() {
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const [selectedBrochureTitle, setSelectedBrochureTitle] = useState('');
   const [selectedBrochureLang, setSelectedBrochureLang] = useState('English');
+  const [selectedBrochureUrl, setSelectedBrochureUrl] = useState('');
 
   const handleRequestQuote = () => {
     setQuoteModalOpen(true);
@@ -326,6 +327,7 @@ export default function ProductDetailPage() {
                               onClick={() => {
                                 setSelectedBrochureTitle(cleanTitle);
                                 setSelectedBrochureLang(docLang);
+                                setSelectedBrochureUrl(b.url || '');
                                 setBrochureModalOpen(true);
                               }}
                               className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
@@ -356,6 +358,8 @@ export default function ProductDetailPage() {
                           type="button"
                           onClick={() => {
                             setSelectedBrochureTitle(`${product.name} Leaflet`);
+                            setSelectedBrochureLang('English');
+                            setSelectedBrochureUrl(product.brochures?.[0]?.url || '');
                             setBrochureModalOpen(true);
                           }}
                           className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-4 py-2 rounded transition-colors cursor-pointer shadow-2xs"
@@ -428,6 +432,7 @@ export default function ProductDetailPage() {
         onClose={() => setBrochureModalOpen(false)}
         brochureTitle={selectedBrochureTitle}
         initialLanguage={selectedBrochureLang}
+        brochureUrl={selectedBrochureUrl}
         specs={allSpecs}
       />
 

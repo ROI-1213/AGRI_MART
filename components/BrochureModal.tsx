@@ -24,6 +24,7 @@ interface BrochureModalProps {
   brochureTitle?: string;
   initialLanguage?: string;
   brochureUrl?: string;
+  initialMode?: 'document' | 'datasheet';
   specs?: Array<{ label: string; value: string }>;
 }
 
@@ -33,7 +34,8 @@ export default function BrochureModal({
   onClose,
   brochureTitle,
   initialLanguage = 'English',
-  brochureUrl
+  brochureUrl,
+  initialMode
 }: BrochureModalProps) {
   const [currentLang, setCurrentLang] = useState<string>(initialLanguage);
   const [activeUrl, setActiveUrl] = useState<string>(brochureUrl || '');
@@ -43,25 +45,38 @@ export default function BrochureModal({
   // Sync state on open or prop change
   useEffect(() => {
     if (isOpen) {
-      setCurrentLang(initialLanguage || 'English');
+      const lang = initialLanguage || 'English';
+      setCurrentLang(lang);
       setActiveUrl(brochureUrl || '');
-      setViewMode(brochureUrl ? 'document' : 'datasheet');
+      if (initialMode) {
+        setViewMode(initialMode);
+      } else if (lang.toLowerCase() === 'kannada' || lang.toLowerCase() === 'telugu') {
+        setViewMode('datasheet');
+      } else {
+        setViewMode(brochureUrl ? 'document' : 'datasheet');
+      }
       setIsPdfLoading(true);
     }
-  }, [isOpen, initialLanguage, brochureUrl]);
+  }, [isOpen, initialLanguage, brochureUrl, initialMode]);
 
-  // When language changes, update activeUrl if multilingual brochures exist
+  // When language changes, update viewMode and activeUrl
   const handleLanguageChange = (lang: string) => {
     setCurrentLang(lang);
-    if (product.brochures && product.brochures.length > 0) {
-      const match = product.brochures.find(
+    if (lang.toLowerCase() === 'english' && brochureUrl) {
+      setActiveUrl(brochureUrl);
+      setViewMode('document');
+    } else {
+      const match = (product.brochures || []).find(
         (b) => b.language && b.language.toLowerCase() === lang.toLowerCase()
       );
       if (match && match.url) {
         setActiveUrl(match.url);
-        setIsPdfLoading(true);
+        setViewMode('document');
+      } else {
+        setViewMode('datasheet');
       }
     }
+    setIsPdfLoading(true);
   };
 
   if (!isOpen) return null;
@@ -81,9 +96,10 @@ export default function BrochureModal({
   const isImageBrochure = ext === 'jpg' || ext === 'jpeg' || ext === 'png' || ext === 'webp';
   const hasDocument = Boolean(activeUrl);
 
-  const documentApiUrl = activeUrl
-    ? `/api/brochures?url=${encodeURIComponent(activeUrl)}&id=${encodeURIComponent(product.slug || product.id)}&lang=${encodeURIComponent(currentLang)}&filename=${encodeURIComponent((brochureTitle || product.name || 'brochure').replace(/\s+/g, '_') + '.' + (ext || 'pdf'))}`
-    : '';
+  const fileBasename = (activeUrl || '').split('/').pop() || '';
+  const directDocumentUrl = activeUrl.startsWith('/uploads/')
+    ? activeUrl
+    : (fileBasename ? `/uploads/product_brochure/1/${fileBasename}` : activeUrl);
 
   const handlePrint = () => {
     if (typeof window !== 'undefined') {
@@ -180,9 +196,9 @@ export default function BrochureModal({
             </div>
 
             {/* Direct Open in Full Tab */}
-            {hasDocument && documentApiUrl && (
+            {hasDocument && directDocumentUrl && (
               <a
-                href={documentApiUrl}
+                href={directDocumentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden md:inline-flex items-center gap-1 bg-white text-[#0d9749] hover:bg-green-50 px-2.5 py-1 rounded text-xs font-bold transition-colors cursor-pointer shadow-xs"
@@ -227,7 +243,7 @@ export default function BrochureModal({
                 <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-gray-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={documentApiUrl}
+                    src={directDocumentUrl}
                     alt={brochureTitle || product.name}
                     className="max-w-full max-h-[82vh] object-contain shadow-2xl rounded"
                   />
@@ -236,7 +252,7 @@ export default function BrochureModal({
                 /* Embedded Official PDF View */
                 <div className="flex-1 flex flex-col w-full h-full relative">
                   <iframe
-                    src={`${documentApiUrl}#toolbar=1&navpanes=0&view=FitH`}
+                    src={`${directDocumentUrl}#toolbar=1&navpanes=0&view=FitH`}
                     className="w-full flex-1 border-0 min-h-[75vh]"
                     title={brochureTitle || product.name}
                     onLoad={() => setIsPdfLoading(false)}
@@ -254,7 +270,7 @@ export default function BrochureModal({
                 </div>
                 <div className="flex items-center gap-3">
                   <a
-                    href={documentApiUrl}
+                    href={directDocumentUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-700 hover:underline font-bold inline-flex items-center gap-1"
@@ -280,14 +296,11 @@ export default function BrochureModal({
               <div className="border-b-2 border-[#0d9749] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center space-x-3">
                   <div className="relative h-12 w-auto flex items-center">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src="/assets/branding/logo.png"
-                      alt="Agrimart Logo"
-                      width={160}
-                      height={48}
+                      alt="Agrimart"
                       className="h-10 w-auto object-contain object-left"
-                      priority
-                      unoptimized
                     />
                   </div>
                   <div className="border-l border-gray-300 pl-3">

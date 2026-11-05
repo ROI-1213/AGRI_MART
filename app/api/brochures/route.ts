@@ -16,24 +16,19 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));
   }
 
-  // 1. Try resolving locally from stored brochures repository
+  // 1. Direct resolution from local static brochure repository
   try {
-    const parsed = new URL(targetUrl.startsWith('http') ? targetUrl : `https://agrimart.in${targetUrl}`);
+    const cleanUrl = targetUrl.startsWith('http') 
+      ? targetUrl 
+      : `https://agrimart.in${targetUrl.startsWith('/') ? '' : '/'}${targetUrl}`;
+    const parsed = new URL(cleanUrl);
     const basename = path.basename(parsed.pathname);
 
-    const candidatePaths = [
-      path.join(process.cwd(), 'public', 'uploads', 'product_brochure', '1', basename),
-      path.join(process.cwd(), 'brochers', basename),
-      path.join(process.cwd(), 'public', 'brochures', basename)
-    ];
-
-    for (const localPath of candidatePaths) {
-      if (fs.existsSync(localPath)) {
-        return NextResponse.redirect(new URL(`/uploads/product_brochure/1/${basename}`, request.url));
-      }
+    if (basename && /\.(pdf|jpg|jpeg|png|webp)$/i.test(basename)) {
+      return NextResponse.redirect(new URL(`/uploads/product_brochure/1/${basename}`, request.url));
     }
   } catch {
-    // Continue to remote fetch if local path parsing failed
+    // Continue to fallback if parsing failed
   }
 
   // 2. Fetch from remote if not available locally

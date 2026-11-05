@@ -12,7 +12,8 @@ const keepUpper = new Set([
   '2S', '4S', '2T', '4T', 'NEO', 'PRO', 'MS+', 'R&F', 'BBP-PRO', 'EA-NEO', 'CC', 'HP', 'KW',
   'RPM', 'ULV', 'LED', 'MB', '4-IN-1', '3-IN-1', '2-IN-1', 'FT', 'MM', 'KG', 'AC', 'DC',
   'MPTC', 'BCH', 'BBP', 'EA', 'BS', 'IS', 'AMH', 'HD', 'XP', 'GX', 'GP', 'TR', 'BV', 'MBD',
-  'BPH', 'BP', 'WC', 'SPARTA', 'TR91E-OM'
+  'BPH', 'BP', 'WC', 'SPARTA', 'TR91E-OM', 'RTP', 'CCMG', 'WT', 'AL', 'DELITE', 'CLASSIC',
+  'CHAMPION', 'LTRS', 'AH', 'V', 'L', 'PP', 'W', 'MAX'
 ]);
 
 /**
@@ -21,7 +22,9 @@ const keepUpper = new Set([
  */
 export function formatProductTitle(name: string): string {
   if (!name) return '';
-  const tokens = name.trim().split(/\s+/);
+  // Clean up awkward trailing hyphens (e.g. "7212- " -> "7212 ")
+  const cleaned = name.replace(/-\s+/g, ' ').replace(/\s*\/\s*/g, ' / ').trim();
+  const tokens = cleaned.split(/\s+/);
   
   return tokens.map((token, idx) => {
     // If token has hyphens/slashes

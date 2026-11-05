@@ -25,10 +25,10 @@ export interface FeaturedProductItem {
 }
 
 const FEATURED_PRODUCTS: FeaturedProductItem[] = [
-  // 1. Agrimate Pro-Classic Inter Cultivator / Power Weeder (RIPL038521)
+  // 1. Agrimate Pro-Classic Intercultivator & Power Weeder (RIPL038521)
   {
     id: 'am-rtp-7212-pro-classic-inter-cultivator-power-weeder',
-    name: 'AM-RTP-7212- PRO-CLASSIC INTER CULTIVATOR/POWER WEEDER',
+    name: 'AM-RTP-7212 Pro-Classic Intercultivator & Power Weeder',
     code: 'RIPL038521',
     brand: 'AGRIMATE',
     category: 'INTERCULTIVATOR/POWER WEEDER',
@@ -38,10 +38,10 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     badge: '★ Flagship Power Weeder',
     isFlagship: true,
   },
-  // 2. Agrimate Crop Harvester (RIPL036440)
+  // 2. Agrimate Multi-Crop Harvester (RIPL036440)
   {
     id: 'am-400-bch-4s-ms-crop-harvester',
-    name: 'AM-400-BCH-4S-MS+ CROP HARVESTER',
+    name: 'AM-400-BCH-4S-MS+ Multi-Crop Harvester',
     code: 'RIPL036440',
     brand: 'AGRIMATE',
     category: 'BRUSH CUTTER - WEED CUTTER',
@@ -53,7 +53,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
   // 3. Kasei Brush Cutter Kasei Plus (RIPL037692)
   {
     id: 'kz-4000bc-2s-delite-brush-cutter-kasei-plus',
-    name: 'KZ-4000BC-2S-DELITE BRUSH CUTTER KASEI PLUS',
+    name: 'KZ-4000BC-2S-DELITE Brush Cutter Kasei Plus',
     code: 'RIPL037692',
     brand: 'KASEI',
     category: 'BRUSH CUTTER - WEED CUTTER',
@@ -65,7 +65,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
   // 4. Agrimate 20L Knapsack Power Sprayer (RIPL036461)
   {
     id: 'am708-2s-al-ms-20l-knapsack-power-sprayer',
-    name: 'AM708-2S-AL-MS+ 20L KNAPSACK POWER SPRAYER',
+    name: 'AM-708-2S-AL-MS+ 20L Knapsack Power Sprayer',
     code: 'RIPL036461',
     brand: 'AGRIMATE',
     category: 'SPRAYER',
@@ -74,10 +74,10 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     secondaryImage: '/assets/products/ripl036461/img_2.jpg',
     badge: 'Heavy Plant Protection',
   },
-  // 5. Agrimate Intercultivator - Back Rotary (RIPL037320)
+  // 5. Agrimate Back Rotary Intercultivator (RIPL037320)
   {
     id: 'am-mptc-6600-9p-intercultivator-power-weeder-back-rotary',
-    name: 'AM-MPTC-6600-9P-INTERCULTIVATOR/POWER WEEDER -BACK ROTARY',
+    name: 'AM-MPTC-6600-9P Back Rotary Intercultivator & Power Weeder',
     code: 'RIPL037320',
     brand: 'AGRIMATE',
     category: 'INTERCULTIVATOR/POWER WEEDER',
@@ -89,7 +89,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
   // 6. Agrimate Champion 16L Battery Sprayer (RIPL026669)
   {
     id: 'am-champion-16-ltrs-12v-8ah-battery-sprayer',
-    name: 'AM CHAMPION - 16 LTRS - 12V / 8AH- BATTERY SPRAYER',
+    name: 'AM Champion 16L 12V/8Ah Commercial Battery Sprayer',
     code: 'RIPL026669',
     brand: 'AGRIMATE',
     category: 'SPRAYER',
@@ -101,7 +101,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
   // 7. Agrimate Elite Chaff Cutter with Copper Motor (RIPL036956)
   {
     id: 'am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor',
-    name: 'AM-CCMG-400-3HP ELITE CHAFF CUTTER WITH COPPER MOTOR',
+    name: 'AM-CCMG-400-3HP Elite Chaff Cutter with Copper Motor',
     code: 'RIPL036956',
     brand: 'AGRIMATE',
     category: 'CHAFF CUTTER / SHREDDER',
@@ -110,10 +110,10 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     secondaryImage: '/assets/products/ripl036956/img_2.jpg',
     badge: 'Copper Motor Chaff Cutter',
   },
-  // 8. Agrimate Wheel Trolley / Transporter (RIPL036445)
+  // 8. Agrimate Heavy Wheel Trolley & Transporter (RIPL036445)
   {
     id: 'am-mt-320m-wt-wheel-trolley-transporter',
-    name: 'AM-MT-320M-WT WHEEL TROLLEY/TRANSPORTER',
+    name: 'AM-MT-320M-WT Heavy Wheel Trolley & Transporter',
     code: 'RIPL036445',
     brand: 'AGRIMATE',
     category: 'TRANSPORTER',
@@ -232,10 +232,10 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
                       </span>
                     </div>
 
-                    {/* Product Title (Normal, unbolded text, unified format) */}
+                    {/* Product Title (Elegant, clean typography matching site) */}
                     <Link href={`/products/${product.id}`} className="block group-hover:text-[#0d9749] transition-colors">
-                      <h3 className="font-normal text-xs sm:text-[15px] text-gray-800 leading-snug line-clamp-2 mb-2 min-h-[32px] sm:min-h-[40px]" title={product.name}>
-                        {formatProductTitle(product.name)}
+                      <h3 className="font-medium text-xs sm:text-[14px] md:text-[15px] text-gray-900 leading-snug line-clamp-2 mb-2 min-h-[34px] sm:min-h-[42px] tracking-tight" title={product.name}>
+                        {product.name}
                       </h3>
                     </Link>
                   </div>

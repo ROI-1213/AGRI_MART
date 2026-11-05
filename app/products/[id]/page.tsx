@@ -11,7 +11,6 @@ import {
   Eye,
   Download,
   Printer,
-  BookOpen,
   Bell
 } from 'lucide-react';
 import SubsidyModal from '@/components/SubsidyModal';
@@ -395,30 +394,6 @@ export default function ProductDetailPage() {
                       </div>
                     </div>
                   )}
-                </div>
-
-                {/* Master Corporate Equipment Catalog Banner */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border border-emerald-200 bg-gradient-to-r from-green-50/70 to-emerald-50/40 rounded-lg gap-3">
-                  <div className="flex items-center space-x-3">
-                    <BookOpen className="w-8 h-8 text-emerald-700 shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-xs text-emerald-950">
-                        Ratnagiri Impex Master Agricultural Catalog (2026 Edition)
-                      </h4>
-                      <p className="text-[11px] text-emerald-800/80">
-                        Complete Machinery &amp; Equipment Range • All Categories &amp; Technical Specs (11.6 MB PDF)
-                      </p>
-                    </div>
-                  </div>
-
-                  <a
-                    href="/assets/brochures/agrimart_brochure.pdf"
-                    download="agrimart_master_catalog.pdf"
-                    className="inline-flex items-center gap-1.5 text-xs bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded transition-colors self-start sm:self-auto cursor-pointer shadow-xs shrink-0"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>Download Master Catalog</span>
-                  </a>
                 </div>
               </div>
             )}

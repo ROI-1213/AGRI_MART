@@ -25,56 +25,7 @@ export interface FeaturedProductItem {
 }
 
 const FEATURED_PRODUCTS: FeaturedProductItem[] = [
-  // 1. Agrimate Pro-Classic Intercultivator & Power Weeder (RIPL038521)
-  {
-    id: 'am-rtp-7212-pro-classic-inter-cultivator-power-weeder',
-    name: 'AM-RTP-7212 Pro-Classic Intercultivator & Power Weeder',
-    code: 'RIPL038521',
-    brand: 'AGRIMATE',
-    category: 'INTERCULTIVATOR/POWER WEEDER',
-    keyFeature: '212 CC Petrol Engine • 3600 RPM • 550-750-1000mm Tilling Width',
-    image: '/assets/products/ripl038521/img_1.jpg',
-    secondaryImage: '/assets/products/ripl038521/img_2.jpg',
-    badge: '★ Flagship Power Weeder',
-    isFlagship: true,
-  },
-  // 2. Agrimate Multi-Crop Harvester (RIPL036440)
-  {
-    id: 'am-400-bch-4s-ms-crop-harvester',
-    name: 'AM-400-BCH-4S-MS+ Multi-Crop Harvester',
-    code: 'RIPL036440',
-    brand: 'AGRIMATE',
-    category: 'BRUSH CUTTER - WEED CUTTER',
-    keyFeature: '35.8 CC 4-Stroke Engine • 6500 RPM • Multi-Crop Harvester Attachment',
-    image: '/assets/products/ripl036440/img_1.jpg',
-    secondaryImage: '/assets/products/ripl036440/img_2.jpg',
-    badge: 'Precision Crop Harvester',
-  },
-  // 3. Kasei Brush Cutter Kasei Plus (RIPL037692)
-  {
-    id: 'kz-4000bc-2s-delite-brush-cutter-kasei-plus',
-    name: 'KZ-4000BC-2S-DELITE Brush Cutter Kasei Plus',
-    code: 'RIPL037692',
-    brand: 'KASEI',
-    category: 'BRUSH CUTTER - WEED CUTTER',
-    keyFeature: '40.2 CC 2-Stroke • 10000 RPM High-Speed Recoil • Heavy Weeding',
-    image: '/assets/products/ripl037692/img_1.jpg',
-    secondaryImage: '/assets/products/ripl037692/img_2.jpg',
-    badge: 'Japanese Technology',
-  },
-  // 4. Agrimate 20L Knapsack Power Sprayer (RIPL036461)
-  {
-    id: 'am708-2s-al-ms-20l-knapsack-power-sprayer',
-    name: 'AM-708-2S-AL-MS+ 20L Knapsack Power Sprayer',
-    code: 'RIPL036461',
-    brand: 'AGRIMATE',
-    category: 'SPRAYER',
-    keyFeature: '25.6 CC 2-Stroke • 20L Chemical Tank • 35 kg/cm² Pressure',
-    image: '/assets/products/ripl036461/img_1.jpg',
-    secondaryImage: '/assets/products/ripl036461/img_2.jpg',
-    badge: 'Heavy Plant Protection',
-  },
-  // 5. Agrimate Back Rotary Intercultivator (RIPL037320)
+  // 1. Agrimate Back Rotary Intercultivator (RIPL037320)
   {
     id: 'am-mptc-6600-9p-intercultivator-power-weeder-back-rotary',
     name: 'AM-MPTC-6600-9P Back Rotary Intercultivator & Power Weeder',
@@ -84,21 +35,10 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     keyFeature: '301 CC 177FP Engine • 1800 RPM • Back Rotary Ditching & Weeding',
     image: '/assets/products/ripl037320/img_3.jpg',
     secondaryImage: '/assets/products/ripl037320/img_1.jpg',
-    badge: 'Back Rotary Weeder',
+    badge: '★ Flagship Back Rotary',
+    isFlagship: true,
   },
-  // 6. Agrimate Champion 16L Battery Sprayer (RIPL026669)
-  {
-    id: 'am-champion-16-ltrs-12v-8ah-battery-sprayer',
-    name: 'AM Champion 16L 12V/8Ah Commercial Battery Sprayer',
-    code: 'RIPL026669',
-    brand: 'AGRIMATE',
-    category: 'SPRAYER',
-    keyFeature: '16L PP Tank • 12V/8AH Battery • 7.5 L/min Discharge • 0.55 MPa',
-    image: '/assets/products/ripl026669/img_1.jpg',
-    secondaryImage: '/assets/products/ripl026669/img_2.jpg',
-    badge: 'High-Efficiency Battery Sprayer',
-  },
-  // 7. Agrimate Elite Chaff Cutter with Copper Motor (RIPL036956)
+  // 2. Agrimate Elite Chaff Cutter with Copper Motor (RIPL036956)
   {
     id: 'am-ccmg-400-3hp-elite-chaff-cutter-with-copper-motor',
     name: 'AM-CCMG-400-3HP Elite Chaff Cutter with Copper Motor',
@@ -110,7 +50,7 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     secondaryImage: '/assets/products/ripl036956/img_2.jpg',
     badge: 'Copper Motor Chaff Cutter',
   },
-  // 8. Agrimate Heavy Wheel Trolley & Transporter (RIPL036445)
+  // 3. Agrimate Heavy Wheel Trolley & Transporter (RIPL036445)
   {
     id: 'am-mt-320m-wt-wheel-trolley-transporter',
     name: 'AM-MT-320M-WT Heavy Wheel Trolley & Transporter',
@@ -120,6 +60,66 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
     keyFeature: '7 HP / 212 CC Engine • 350 KG Max Load • 3 Forward + 1 Reverse',
     image: '/assets/products/ripl036445/img_1.jpg',
     badge: 'Heavy Farm Transporter',
+  },
+  // 4. Agrimate Pro-Classic Intercultivator & Power Weeder (RIPL038521)
+  {
+    id: 'am-rtp-7212-pro-classic-inter-cultivator-power-weeder',
+    name: 'AM-RTP-7212 Pro-Classic Intercultivator & Power Weeder',
+    code: 'RIPL038521',
+    brand: 'AGRIMATE',
+    category: 'INTERCULTIVATOR/POWER WEEDER',
+    keyFeature: '212 CC Petrol Engine • 3600 RPM • 550-750-1000mm Tilling Width',
+    image: '/assets/products/ripl038521/img_1.jpg',
+    secondaryImage: '/assets/products/ripl038521/img_2.jpg',
+    badge: 'Flagship Power Weeder',
+  },
+  // 5. Agrimate Champion 16L Battery Sprayer (RIPL026669)
+  {
+    id: 'am-champion-16-ltrs-12v-8ah-battery-sprayer',
+    name: 'AM Champion 16L 12V/8Ah Commercial Battery Sprayer',
+    code: 'RIPL026669',
+    brand: 'AGRIMATE',
+    category: 'SPRAYER',
+    keyFeature: '16L PP Tank • 12V/8AH Battery • 7.5 L/min Discharge • 0.55 MPa',
+    image: '/assets/products/ripl026669/img_1.jpg',
+    secondaryImage: '/assets/products/ripl026669/img_2.jpg',
+    badge: 'High-Efficiency Battery Sprayer',
+  },
+  // 6. Agrimate 20L Knapsack Power Sprayer (RIPL036461)
+  {
+    id: 'am708-2s-al-ms-20l-knapsack-power-sprayer',
+    name: 'AM-708-2S-AL-MS+ 20L Knapsack Power Sprayer',
+    code: 'RIPL036461',
+    brand: 'AGRIMATE',
+    category: 'SPRAYER',
+    keyFeature: '25.6 CC 2-Stroke • 20L Chemical Tank • 35 kg/cm² Pressure',
+    image: '/assets/products/ripl036461/img_1.jpg',
+    secondaryImage: '/assets/products/ripl036461/img_2.jpg',
+    badge: 'Heavy Plant Protection',
+  },
+  // 7. Kasei Brush Cutter Kasei Plus (RIPL037692)
+  {
+    id: 'kz-4000bc-2s-delite-brush-cutter-kasei-plus',
+    name: 'KZ-4000BC-2S-DELITE Brush Cutter Kasei Plus',
+    code: 'RIPL037692',
+    brand: 'KASEI',
+    category: 'BRUSH CUTTER - WEED CUTTER',
+    keyFeature: '40.2 CC 2-Stroke • 10000 RPM High-Speed Recoil • Heavy Weeding',
+    image: '/assets/products/ripl037692/img_1.jpg',
+    secondaryImage: '/assets/products/ripl037692/img_2.jpg',
+    badge: 'Japanese Technology',
+  },
+  // 8. Agrimate Multi-Crop Harvester (RIPL036440)
+  {
+    id: 'am-400-bch-4s-ms-crop-harvester',
+    name: 'AM-400-BCH-4S-MS+ Multi-Crop Harvester',
+    code: 'RIPL036440',
+    brand: 'AGRIMATE',
+    category: 'BRUSH CUTTER - WEED CUTTER',
+    keyFeature: '35.8 CC 4-Stroke Engine • 6500 RPM • Multi-Crop Harvester Attachment',
+    image: '/assets/products/ripl036440/img_1.jpg',
+    secondaryImage: '/assets/products/ripl036440/img_2.jpg',
+    badge: 'Precision Crop Harvester',
   },
 ];
 

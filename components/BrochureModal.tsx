@@ -1,17 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, Printer, Download, CheckCircle2, ShieldCheck, Phone, Mail, Globe, MapPin, FileText } from 'lucide-react';
+import { X, Printer, CheckCircle2, ShieldCheck, FileText, Globe, Check } from 'lucide-react';
 import { Product } from '@/types';
-import { formatCategoryName } from '@/lib/format';
+import { getLocalizedBrochure } from '@/lib/brochureData';
 
 interface BrochureModalProps {
   product: Product;
   isOpen: boolean;
   onClose: () => void;
   brochureTitle?: string;
-  specs: Array<{ label: string; value: string }>;
+  initialLanguage?: string;
+  specs?: Array<{ label: string; value: string }>;
 }
 
 export default function BrochureModal({
@@ -19,9 +20,19 @@ export default function BrochureModal({
   isOpen,
   onClose,
   brochureTitle,
-  specs
+  initialLanguage = 'English'
 }: BrochureModalProps) {
+  const [currentLang, setCurrentLang] = useState<string>(initialLanguage);
+
+  useEffect(() => {
+    if (initialLanguage) {
+      setCurrentLang(initialLanguage);
+    }
+  }, [initialLanguage, isOpen]);
+
   if (!isOpen) return null;
+
+  const data = getLocalizedBrochure(product, currentLang, brochureTitle);
 
   const validAccessories = (product.accessories || []).filter(
     (a) => a && a.name && !/^(no information available\.?|na|n\/a|none)$/i.test(a.name.trim())
@@ -47,20 +58,57 @@ export default function BrochureModal({
       <div className="relative bg-white w-full max-w-4xl rounded-xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[92vh] print:max-h-none print:shadow-none print:rounded-none">
         
         {/* Sticky Action Toolbar (Hidden during print) */}
-        <div className="bg-[#0d9749] text-white px-4 sm:px-6 py-3 flex items-center justify-between shrink-0 print:hidden select-none">
+        <div className="bg-[#0d9749] text-white px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2 shrink-0 print:hidden select-none">
           <div className="flex items-center space-x-2">
-            <FileText className="w-5 h-5 text-white/90" />
+            <FileText className="w-5 h-5 text-white/90 shrink-0" />
             <div>
               <h3 className="text-sm font-bold tracking-tight">
-                {brochureTitle || 'Official Product Leaflet & Brochure'}
+                {data.docType}
               </h3>
               <p className="text-[11px] text-white/80">
-                Ratnagiri Impex Official Equipment Datasheet
+                Language: <strong>{data.langBadge}</strong> • Ratnagiri Impex Official Document
               </p>
             </div>
           </div>
 
           <div className="flex items-center space-x-2">
+            {/* Language Selector Pills */}
+            <div className="flex items-center bg-green-900/60 p-0.5 rounded-lg border border-green-700/60 text-xs">
+              <button
+                type="button"
+                onClick={() => setCurrentLang('English')}
+                className={`px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
+                  currentLang.toLowerCase() === 'english'
+                    ? 'bg-white text-[#0d9749] shadow-xs'
+                    : 'text-white/90 hover:text-white'
+                }`}
+              >
+                English
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentLang('Kannada')}
+                className={`px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
+                  currentLang.toLowerCase() === 'kannada'
+                    ? 'bg-white text-[#0d9749] shadow-xs'
+                    : 'text-white/90 hover:text-white'
+                }`}
+              >
+                ಕನ್ನಡ (Kannada)
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentLang('Telugu')}
+                className={`px-2.5 py-1 rounded text-xs font-bold transition-all cursor-pointer ${
+                  currentLang.toLowerCase() === 'telugu'
+                    ? 'bg-white text-[#0d9749] shadow-xs'
+                    : 'text-white/90 hover:text-white'
+                }`}
+              >
+                తెలుగు (Telugu)
+              </button>
+            </div>
+
             <button
               type="button"
               onClick={handlePrint}
@@ -68,18 +116,8 @@ export default function BrochureModal({
               title="Print or Save as PDF"
             >
               <Printer className="w-4 h-4" />
-              <span className="hidden sm:inline">Print / Save as PDF</span>
+              <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
-
-            <a
-              href="/assets/brochures/agrimart_brochure.pdf"
-              download="agrimart_equipment_catalog.pdf"
-              className="inline-flex items-center gap-1.5 bg-green-800 hover:bg-green-900 text-white px-3 py-1.5 rounded text-xs font-bold transition-colors cursor-pointer"
-              title="Download Full Agrimart Catalog"
-            >
-              <Download className="w-4 h-4" />
-              <span className="hidden sm:inline">Master Catalog (PDF)</span>
-            </a>
 
             <button
               type="button"
@@ -109,18 +147,18 @@ export default function BrochureModal({
               </div>
               <div className="border-l border-gray-300 pl-3">
                 <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">
-                  RATNAGIRI IMPEX PVT. LTD.
+                  {data.companyName}
                 </p>
-                <p className="text-xs font-extrabold text-[#0d9749] uppercase">
-                  Product Technical Leaflet
+                <p className="text-xs font-extrabold text-[#0d9749]">
+                  {data.docType}
                 </p>
               </div>
             </div>
 
-            <div className="text-right text-[11px] text-gray-500 sm:border-l sm:border-gray-200 sm:pl-4">
-              <p className="font-bold text-gray-800">Helpline: 7393 938 938</p>
-              <p>Email: customercare@ratnagiriimpex.com</p>
-              <p>Web: www.agrimart.in</p>
+            <div className="text-right text-[11px] text-gray-500 sm:border-l sm:border-gray-200 sm:pl-4 space-y-0.5">
+              <p className="font-bold text-gray-800">{data.footerNotice.helplineLabel}: {data.footerNotice.helpline}</p>
+              <p>{data.footerNotice.email}</p>
+              <p>{data.footerNotice.web}</p>
             </div>
           </div>
 
@@ -131,7 +169,7 @@ export default function BrochureModal({
               <div className="relative w-full aspect-square bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
                 <Image
                   src={mainImage}
-                  alt={product.name}
+                  alt={data.productTitle}
                   fill
                   className="object-contain p-2"
                   sizes="240px"
@@ -141,10 +179,10 @@ export default function BrochureModal({
 
               <div className="mt-3 w-full space-y-1.5 text-center">
                 <div className="inline-block bg-green-50 text-[#0d9749] border border-green-200 px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wide w-full">
-                  CODE: {product.riplCode}
+                  {data.codeLabel}: {data.riplCode}
                 </div>
                 <div className="text-[11px] text-gray-500 font-semibold">
-                  Brand: <span className="font-bold text-gray-800">{product.brand}</span>
+                  {data.brandLabel}: <span className="font-bold text-gray-800">{data.brand}</span>
                 </div>
               </div>
             </div>
@@ -152,61 +190,77 @@ export default function BrochureModal({
             {/* Right: Product Identification & Key Info */}
             <div className="space-y-3">
               <div className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider">
-                <span>{formatCategoryName(product.category)}</span>
+                <span>{data.categoryLabel}</span>
+                <span className="text-green-700">• {data.langBadge}</span>
               </div>
 
               <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 leading-snug">
-                {product.name}
+                {data.productTitle}
               </h2>
 
-              {product.description && (
-                <div className="bg-gray-50/80 p-3 rounded-md border border-gray-200/80 text-xs text-gray-700 leading-relaxed font-normal">
+              {data.description && (
+                <div className="bg-gray-50/80 p-3.5 rounded-md border border-gray-200/80 text-xs text-gray-700 leading-relaxed font-normal">
                   <p className="font-bold text-gray-900 mb-1 text-[11px] uppercase tracking-wide text-[#0d9749]">
-                    Product Overview & Specifications
+                    {data.overviewTitle}
                   </p>
-                  <p>{product.description}</p>
+                  <p>{data.description}</p>
                 </div>
               )}
 
               {/* Commercial & Subsidy Highlights */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
                 <div className="p-2.5 bg-green-50/60 border border-green-100 rounded-md">
-                  <p className="text-[10px] uppercase font-bold text-green-800">MRP</p>
-                  <p className="text-sm font-extrabold text-gray-900">
-                    {product.mrp > 0 ? `₹${product.mrp.toLocaleString('en-IN')}` : 'Price on Request'}
-                  </p>
-                  <p className="text-[9px] text-green-700 font-medium">Incl. all taxes</p>
+                  <p className="text-[10px] uppercase font-bold text-green-800">{data.commercial.mrpLabel}</p>
+                  <p className="text-sm font-extrabold text-gray-900">{data.commercial.mrpValue}</p>
+                  <p className="text-[9px] text-green-700 font-medium">{data.commercial.mrpSub}</p>
                 </div>
 
                 <div className="p-2.5 bg-blue-50/60 border border-blue-100 rounded-md">
-                  <p className="text-[10px] uppercase font-bold text-blue-800">Availability</p>
-                  <p className="text-xs font-bold text-gray-900">{product.availability || 'In Stock'}</p>
-                  <p className="text-[9px] text-blue-700 font-medium">Pan-India Delivery</p>
+                  <p className="text-[10px] uppercase font-bold text-blue-800">{data.commercial.availLabel}</p>
+                  <p className="text-xs font-bold text-gray-900">{data.commercial.availVal}</p>
+                  <p className="text-[9px] text-blue-700 font-medium">{data.commercial.availSub}</p>
                 </div>
 
                 <div className="col-span-2 sm:col-span-1 p-2.5 bg-amber-50/60 border border-amber-100 rounded-md">
-                  <p className="text-[10px] uppercase font-bold text-amber-800">Govt. Subsidy</p>
-                  <p className="text-xs font-bold text-gray-900">SMAM Eligible</p>
-                  <p className="text-[9px] text-amber-700 font-medium">Central/State Subsidy</p>
+                  <p className="text-[10px] uppercase font-bold text-amber-800">{data.commercial.subsidyLabel}</p>
+                  <p className="text-xs font-bold text-gray-900">{data.commercial.subsidyVal}</p>
+                  <p className="text-[9px] text-amber-700 font-medium">{data.commercial.subsidySub}</p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Key Features List */}
+          {data.features && data.features.length > 0 && (
+            <div className="space-y-2 pt-1">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#0d9749]">
+                {data.featuresTitle}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                {data.features.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-2 p-2 bg-gray-50/80 rounded border border-gray-200/60">
+                    <Check className="w-3.5 h-3.5 text-green-600 mt-0.5 shrink-0" />
+                    <span className="text-gray-800">{feat}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Technical Specifications Sheet */}
-          {specs && specs.length > 0 && (
+          {data.specs && data.specs.length > 0 && (
             <div className="space-y-2">
               <div className="flex items-center space-x-2 border-b border-gray-200 pb-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#0d9749]" />
                 <h3 className="text-xs font-bold uppercase tracking-wider text-gray-900">
-                  Technical Specifications
+                  {data.specsTitle}
                 </h3>
               </div>
 
               <div className="border border-gray-200 rounded-lg overflow-hidden shadow-2xs">
                 <table className="w-full text-xs text-left">
                   <tbody className="divide-y divide-gray-100">
-                    {specs.map((s, idx) => (
+                    {data.specs.map((s, idx) => (
                       <tr
                         key={idx}
                         className={idx % 2 === 0 ? 'bg-gray-50/80' : 'bg-white'}
@@ -229,7 +283,7 @@ export default function BrochureModal({
           {validAccessories.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#0d9749]">
-                Included Standard Accessories ({validAccessories.length})
+                {data.accessoriesTitle} ({validAccessories.length})
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {validAccessories.map((acc, idx) => (
@@ -249,7 +303,7 @@ export default function BrochureModal({
           {validSpareParts.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-xs font-bold uppercase tracking-wider text-amber-700">
-                Genuine Spare Parts Available ({validSpareParts.length})
+                {data.sparesTitle} ({validSpareParts.length})
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 {validSpareParts.map((sp, idx) => (
@@ -269,14 +323,14 @@ export default function BrochureModal({
           <div className="pt-4 border-t border-gray-200 text-[10px] text-gray-500 flex flex-col sm:flex-row justify-between gap-3 bg-gray-50/50 p-3 rounded-lg">
             <div className="space-y-0.5">
               <p className="font-bold text-gray-800">
-                RATNAGIRI IMPEX PVT. LTD. (AGRIMART)
+                {data.footerNotice.company}
               </p>
-              <p>Annapurneshwari Complex, Survey No. 28/1, Doddakallasandra, Kanakapura Main Road, Bengaluru - 560062</p>
-              <p>All specifications and technical data are authentic manufacturer specifications.</p>
+              <p>{data.footerNotice.address}</p>
+              <p>{data.footerNotice.note}</p>
             </div>
             <div className="sm:text-right space-y-0.5 shrink-0">
-              <p><strong>Toll Free:</strong> 7393 938 938</p>
-              <p><strong>Email:</strong> info@ratnagiriimpex.com</p>
+              <p><strong>{data.footerNotice.helplineLabel}:</strong> {data.footerNotice.helpline}</p>
+              <p><strong>Email:</strong> {data.footerNotice.email}</p>
               <p><strong>Website:</strong> https://agrimart.in</p>
             </div>
           </div>

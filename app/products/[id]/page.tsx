@@ -53,6 +53,7 @@ export default function ProductDetailPage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const [selectedBrochureTitle, setSelectedBrochureTitle] = useState('');
+  const [selectedBrochureLang, setSelectedBrochureLang] = useState('English');
 
   const handleRequestQuote = () => {
     setQuoteModalOpen(true);
@@ -303,6 +304,7 @@ export default function ProductDetailPage() {
                   {validBrochures.length > 0 ? (
                     validBrochures.map((b, idx) => {
                       const cleanTitle = (b.name || '').replace(/^(view\s*)+/i, '').trim() || b.language || `${product.name} Leaflet`;
+                      const docLang = b.language || 'English';
                       return (
                         <div
                           key={idx}
@@ -315,7 +317,7 @@ export default function ProductDetailPage() {
                                 {cleanTitle}
                               </h4>
                               <p className="text-[11px] text-gray-500">
-                                Language: <strong>{b.language || 'English'}</strong> • Official Ratnagiri Impex Document
+                                Language: <strong>{docLang}</strong> • Official Ratnagiri Impex Document
                               </p>
                             </div>
                           </div>
@@ -325,6 +327,7 @@ export default function ProductDetailPage() {
                               type="button"
                               onClick={() => {
                                 setSelectedBrochureTitle(cleanTitle);
+                                setSelectedBrochureLang(docLang);
                                 setBrochureModalOpen(true);
                               }}
                               className="inline-flex items-center gap-1.5 text-xs bg-[#0d9749] hover:bg-green-800 text-white font-bold px-3.5 py-2 rounded transition-colors cursor-pointer"
@@ -334,7 +337,7 @@ export default function ProductDetailPage() {
                             </button>
 
                             <Link
-                              href={`/products/${product.slug || product.id}/brochure?print=1`}
+                              href={`/products/${product.slug || product.id}/brochure?lang=${encodeURIComponent(docLang)}&print=1`}
                               target="_blank"
                               className="inline-flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-3.5 py-2 rounded transition-colors cursor-pointer border border-gray-300"
                             >
@@ -343,7 +346,7 @@ export default function ProductDetailPage() {
                             </Link>
 
                             <a
-                              href={`/api/brochures?url=${encodeURIComponent(b.url)}&id=${encodeURIComponent(product.slug || product.id)}&filename=${encodeURIComponent(cleanTitle.toLowerCase().replace(/\s+/g, '_') + '.pdf')}`}
+                              href={`/api/brochures?url=${encodeURIComponent(b.url)}&id=${encodeURIComponent(product.slug || product.id)}&lang=${encodeURIComponent(docLang)}&filename=${encodeURIComponent((cleanTitle + '_' + docLang).toLowerCase().replace(/\s+/g, '_') + '.pdf')}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1 text-[11px] text-green-700 hover:text-green-800 font-semibold px-2 py-1 underline"
@@ -455,6 +458,7 @@ export default function ProductDetailPage() {
         isOpen={brochureModalOpen}
         onClose={() => setBrochureModalOpen(false)}
         brochureTitle={selectedBrochureTitle}
+        initialLanguage={selectedBrochureLang}
         specs={allSpecs}
       />
 

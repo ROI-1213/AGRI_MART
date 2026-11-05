@@ -4,11 +4,12 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const targetUrl = searchParams.get('url');
   const productId = searchParams.get('id') || searchParams.get('code') || '';
+  const lang = searchParams.get('lang') || 'English';
   const filename = searchParams.get('filename') || 'product_brochure.pdf';
 
   if (!targetUrl) {
     if (productId) {
-      return NextResponse.redirect(new URL(`/products/${productId}/brochure`, request.url));
+      return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}&print=1`, request.url));
     }
     return NextResponse.redirect(new URL('/assets/brochures/agrimart_brochure.pdf', request.url));
   }
@@ -43,9 +44,9 @@ export async function GET(request: NextRequest) {
     // Remote fetch failed or timed out (e.g. agrimart.in under maintenance)
   }
 
-  // Graceful fallback: Redirect to dedicated printable in-app brochure view
+  // Graceful fallback: Redirect to dedicated printable in-app brochure view in user's language
   if (productId) {
-    return NextResponse.redirect(new URL(`/products/${productId}/brochure`, request.url));
+    return NextResponse.redirect(new URL(`/products/${productId}/brochure?lang=${encodeURIComponent(lang)}&print=1`, request.url));
   }
 
   // Master catalog fallback

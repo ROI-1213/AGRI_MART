@@ -29,10 +29,12 @@ import {
   Home,
   Building2,
   Sparkles,
-  Globe
+  Globe,
+  Database
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
+import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS } from '@/lib/cmsDefaults';
 import { Product } from '@/types';
 
 export default function AdminPage() {
@@ -41,40 +43,28 @@ export default function AdminPage() {
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
 
+  // PostgreSQL Connection Health State
+  const [dbStatus, setDbStatus] = useState<{
+    connected: boolean;
+    database?: string;
+    host?: string;
+    port?: number;
+    error?: string;
+  } | null>(null);
+
   // Products & Categories Live State
   const [products, setProducts] = useState<Product[]>(productsData as unknown as Product[]);
   const [categories, setCategories] = useState<any[]>(categoriesData);
 
   // Home Page CMS State
-  const [homeHeroBanners, setHomeHeroBanners] = useState([
-    { id: 1, title: 'AGRIMATE — Farm Equipment for a Better Tomorrow', image: '/assets/banners/hero_agrimate_hd.png', link: '/products?brand=AGRIMATE', active: true },
-    { id: 2, title: 'KASEI — Advanced Technology Powerful Performance', image: '/assets/banners/hero_kasei_hd.png', link: '/products?brand=KASEI', active: true },
-    { id: 3, title: 'OLEO-MAC — Italian Design & Engineering to meet Indian Fields', image: '/assets/banners/hero_oleomac_hd.png', link: '/products?brand=OLEO-MAC', active: true },
-    { id: 4, title: 'Become an Authorised Dealer — Ratnagiri Impex', image: '/assets/banners/hero_dealer_partner_hd.png', link: '/become-a-partner', active: true },
-  ]);
-
-  const [homePromoBanners, setHomePromoBanners] = useState([
-    { id: 1, title: 'Become a Partner', subtitle: 'GROW TOGETHER', desc: '1,200+ partners across India are already making profit. Partner with us today!', link: '/become-a-partner', buttonText: 'Partner With Us' },
-    { id: 2, title: 'Buy, Earn and Rent', subtitle: 'MORE VALUE FOR YOU', desc: 'Be a pioneer in the booming Indian rural retail marketing.', link: '/cms/buy-earn-rent', buttonText: 'Explore Opportunities' },
-    { id: 3, title: 'Knowledge Bank', subtitle: 'KNOW MORE, GROW MORE', desc: 'Access expert guides, product information and farming insights.', link: '/cms/knowledge-bank', buttonText: 'Explore Resources' },
-  ]);
-
+  const [homeHeroBanners, setHomeHeroBanners] = useState(DEFAULT_HOMEPAGE_CMS.heroBanners);
+  const [homePromoBanners, setHomePromoBanners] = useState(DEFAULT_HOMEPAGE_CMS.promoBanners);
+  const [isSavingHome, setIsSavingHome] = useState(false);
   const [homeSaveSuccess, setHomeSaveSuccess] = useState(false);
 
   // About Us CMS State
-  const [aboutData, setAboutData] = useState({
-    title: 'Welcome to RATNAGIRI IMPEX',
-    subtitle: 'About Ratnagiri Impex Pvt. Ltd.',
-    foundedYear: '2000',
-    parentGroup: 'Annapurna Group',
-    flagshipBrand: 'AGRIMATE',
-    showroomImage: '/assets/about/agrimart_mega_showroom.jpg',
-    description: 'We have an extensive presence all over India and are a reputable agricultural equipment enterprise that supplies high-quality products, ensuring durability, enhanced yield, and unmatched customer satisfaction. Ratnagiri Impex was founded in 2000, bringing over two decades of technological excellence in agricultural machinery.',
-    vision: 'To be the premier agricultural machinery provider across India, revolutionizing farming efficiency through affordable, innovative mechanization that reduces manual labor, conserves water and resources, and maximizes economic returns for every farmer.',
-    mission: 'To deliver world-class machinery, robust after-sales support, easily accessible spare parts, and comprehensive hands-on training to agricultural communities via our widespread network of over 750+ dedicated dealers and service hubs.',
-    headquarters: 'Ratnagiri Impex Pvt. Ltd. (Annapurna House), #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.',
-    helpline: '7393 938 938',
-  });
+  const [aboutData, setAboutData] = useState(DEFAULT_ABOUTUS_CMS);
+  const [isSavingAbout, setIsSavingAbout] = useState(false);
   const [aboutSaveSuccess, setAboutSaveSuccess] = useState(false);
 
   // Product Edit / Create Modal State
@@ -94,8 +84,20 @@ export default function AdminPage() {
   const [isSavingCategory, setIsSavingCategory] = useState(false);
   const [catSuccessMsg, setCatSuccessMsg] = useState<string | null>(null);
 
-  // Sync with API on mount
+  const fetchDbStatus = async () => {
+    try {
+      const res = await fetch('/api/admin/db-status');
+      const data = await res.json();
+      setDbStatus(data);
+    } catch (e: any) {
+      setDbStatus({ connected: false, error: e.message });
+    }
+  };
+
+  // Sync all admin state with PostgreSQL API on mount
   useEffect(() => {
+    fetchDbStatus();
+
     fetch('/api/admin/products')
       .then(res => res.json())
       .then(data => {
@@ -113,6 +115,17 @@ export default function AdminPage() {
         }
       })
       .catch(e => console.error('API categories load error:', e));
+
+    fetch('/api/admin/cms')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          if (data.homepage?.heroBanners) setHomeHeroBanners(data.homepage.heroBanners);
+          if (data.homepage?.promoBanners) setHomePromoBanners(data.homepage.promoBanners);
+          if (data.aboutus) setAboutData(data.aboutus);
+        }
+      })
+      .catch(e => console.error('API CMS load error:', e));
   }, []);
 
   // Product Actions
@@ -321,6 +334,76 @@ export default function AdminPage() {
     }
   };
 
+  const handleDeleteCategory = async (id: string, name: string) => {
+    if (!window.confirm(`Delete category "${name}"?`)) return;
+    try {
+      const res = await fetch(`/api/admin/categories?id=${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success) {
+        setCategories(prev => prev.filter(c => c.id !== id));
+      } else {
+        alert('Error deleting category: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to delete category: ' + e.message);
+    }
+  };
+
+  const handleSaveHomeCms = async () => {
+    setIsSavingHome(true);
+    try {
+      const res = await fetch('/api/admin/cms', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'homepage',
+          data: {
+            heroBanners: homeHeroBanners,
+            promoBanners: homePromoBanners,
+          },
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setHomeSaveSuccess(true);
+        setTimeout(() => setHomeSaveSuccess(false), 2500);
+      } else {
+        alert('Error saving Home settings: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to save Home settings: ' + e.message);
+    } finally {
+      setIsSavingHome(false);
+    }
+  };
+
+  const handleSaveAboutCms = async () => {
+    setIsSavingAbout(true);
+    try {
+      const res = await fetch('/api/admin/cms', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'aboutus',
+          data: aboutData,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setAboutSaveSuccess(true);
+        setTimeout(() => setAboutSaveSuccess(false), 2500);
+      } else {
+        alert('Error saving About Us settings: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to save About Us settings: ' + e.message);
+    } finally {
+      setIsSavingAbout(false);
+    }
+  };
+
   // Dealer Applications State
   const [dealerApplications, setDealerApplications] = useState<any[]>([]);
   const [dealerSearch, setDealerSearch] = useState('');
@@ -363,6 +446,25 @@ export default function AdminPage() {
       }
     } catch (e) {
       console.error('Failed updating status:', e);
+    }
+  };
+
+  const updateApplicationNotes = async (id: string, adminNotes: string) => {
+    try {
+      const res = await fetch('/api/partner-application', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, adminNotes })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setDealerApplications(prev => prev.map(a => a.id === id ? { ...a, adminNotes } : a));
+        if (selectedDealerApp && selectedDealerApp.id === id) {
+          setSelectedDealerApp((prev: any) => ({ ...prev, adminNotes }));
+        }
+      }
+    } catch (e) {
+      console.error('Failed updating notes:', e);
     }
   };
 
@@ -417,14 +519,92 @@ export default function AdminPage() {
     return matchSearch && matchStatus;
   });
 
-  // Customer Enquiries State
-  const [enquiries, setEnquiries] = useState([
-    { id: 'enq_1', name: 'Ramesh Patel', mobile: '9845012345', email: 'ramesh.p@gmail.com', type: 'Product Enquiry', subject: 'Kasei Brush Cutter KZ-5200', date: '28 Oct 2026', status: 'NEW', notes: 'Farmer inquiring about KZ-5200 stock & blade kit.' },
-    { id: 'enq_2', name: 'Suresh Gowda', mobile: '9448123456', email: 'sgowda@farms.in', type: 'Dealer/Franchise', subject: 'Dealership Enquiry for Shimoga', date: '27 Oct 2026', status: 'CONTACTED', notes: 'Interested in becoming official retail partner.' },
-    { id: 'enq_3', name: 'Anand Kumar', mobile: '9731234567', email: 'anand@outlook.com', type: 'Service Enquiry', subject: 'Oleo-Mac 2T Oil Bulk Pack', date: '26 Oct 2026', status: 'RESOLVED', notes: 'Bulk dispatch completed.' },
-  ]);
+  // Customer Enquiries State (synced with PostgreSQL)
+  const [enquiries, setEnquiries] = useState<any[]>([]);
+  const [isLoadingEnquiries, setIsLoadingEnquiries] = useState(false);
   const [editingEnquiry, setEditingEnquiry] = useState<any | null>(null);
   const [isNewEnquiry, setIsNewEnquiry] = useState(false);
+
+  const fetchEnquiries = async () => {
+    setIsLoadingEnquiries(true);
+    try {
+      const res = await fetch('/api/enquiry');
+      const data = await res.json();
+      if (data.success && Array.isArray(data.enquiries)) {
+        setEnquiries(data.enquiries);
+      }
+    } catch (e) {
+      console.error('Failed fetching enquiries:', e);
+    } finally {
+      setIsLoadingEnquiries(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchEnquiries();
+  }, []);
+
+  const handleUpdateEnquiryField = async (id: string, updates: Record<string, any>) => {
+    setEnquiries(prev => prev.map(item => (item.id === id ? { ...item, ...updates } : item)));
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, ...updates }),
+      });
+      const data = await res.json();
+      if (data.success && data.enquiry) {
+        setEnquiries(prev => prev.map(item => (item.id === id ? data.enquiry : item)));
+      }
+    } catch (e) {
+      console.error('Failed updating enquiry:', e);
+    }
+  };
+
+  const handleSaveEnquiryModal = async () => {
+    if (!editingEnquiry) return;
+    if (!editingEnquiry.name?.trim() || !editingEnquiry.subject?.trim()) {
+      alert('Customer name and requirement are required');
+      return;
+    }
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: isNewEnquiry ? 'POST' : 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editingEnquiry),
+      });
+      const data = await res.json();
+      if (data.success && data.enquiry) {
+        if (isNewEnquiry) {
+          setEnquiries(prev => [data.enquiry, ...prev]);
+        } else {
+          setEnquiries(prev => prev.map(item => (item.id === data.enquiry.id ? data.enquiry : item)));
+        }
+        setEditingEnquiry(null);
+      } else {
+        alert('Error: ' + (data.error || 'Failed to save enquiry'));
+      }
+    } catch (e: any) {
+      alert('Network error: ' + e.message);
+    }
+  };
+
+  const handleDeleteEnquiry = async (id: string, name: string) => {
+    if (!window.confirm(`Delete inquiry from ${name}?`)) return;
+    try {
+      const res = await fetch(`/api/enquiry?id=${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success) {
+        setEnquiries(prev => prev.filter(item => item.id !== id));
+      } else {
+        alert('Error deleting enquiry: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to delete enquiry: ' + e.message);
+    }
+  };
 
   return (
     <div className="bg-[#f1f5f9] min-h-screen">
@@ -443,6 +623,21 @@ export default function AdminPage() {
           <span className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
             Admin Console
           </span>
+          {dbStatus && (
+            <span
+              className={`hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-0.5 rounded border ${
+                dbStatus.connected
+                  ? 'bg-emerald-950/60 text-emerald-300 border-emerald-500/40'
+                  : 'bg-red-950/60 text-red-300 border-red-500/40'
+              }`}
+              title={dbStatus.connected ? `${dbStatus.database} @ ${dbStatus.host}:${dbStatus.port}` : dbStatus.error}
+            >
+              <Database className="w-3 h-3" />
+              <span>
+                {dbStatus.connected ? `PostgreSQL: ${dbStatus.database}` : 'PostgreSQL Disconnected'}
+              </span>
+            </span>
+          )}
         </div>
         <div className="flex items-center space-x-3 text-xs">
           <Link
@@ -587,7 +782,27 @@ export default function AdminPage() {
           {/* TAB: DASHBOARD */}
           {activeTab === 'dashboard' && (
             <div className="space-y-6">
-              <h1 className="text-xl font-bold text-gray-900">Executive Summary</h1>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <h1 className="text-xl font-bold text-gray-900">Executive Summary</h1>
+                <div
+                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-semibold ${
+                    dbStatus?.connected
+                      ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                      : dbStatus === null
+                      ? 'bg-slate-100 border-slate-200 text-slate-600'
+                      : 'bg-red-50 border-red-200 text-red-700'
+                  }`}
+                >
+                  <Database className="w-3.5 h-3.5" />
+                  <span>
+                    {dbStatus === null
+                      ? 'Connecting to PostgreSQL...'
+                      : dbStatus.connected
+                      ? `PostgreSQL Live: ${dbStatus.database} (${dbStatus.host}:${dbStatus.port})`
+                      : `PostgreSQL Error: ${dbStatus.error || 'Disconnected'}`}
+                  </span>
+                </div>
+              </div>
 
               {/* Metrics */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -806,14 +1021,23 @@ export default function AdminPage() {
                     <div>
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-bold text-gray-900 text-sm">{c.name}</h3>
-                        <button
-                          onClick={() => handleOpenEditCategory(c)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-[#0d9749] font-bold rounded border border-emerald-300 text-xs transition-colors cursor-pointer"
-                          title="Edit Category & Subcategories"
-                        >
-                          <Edit className="w-3 h-3" />
-                          <span>Edit</span>
-                        </button>
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            onClick={() => handleOpenEditCategory(c)}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-[#0d9749] font-bold rounded border border-emerald-300 text-xs transition-colors cursor-pointer"
+                            title="Edit Category & Subcategories"
+                          >
+                            <Edit className="w-3 h-3" />
+                            <span>Edit</span>
+                          </button>
+                          <button
+                            onClick={() => handleDeleteCategory(c.id, c.name)}
+                            className="p-1 text-red-500 hover:bg-red-50 rounded border border-red-200 transition-colors cursor-pointer"
+                            title="Delete Category"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
                       </div>
                       <p className="text-gray-500 mb-2">Slug: <code className="text-green-700 font-mono">{c.slug}</code></p>
                       <div className="flex flex-wrap gap-1">
@@ -1090,6 +1314,28 @@ export default function AdminPage() {
                           </p>
                         </div>
                       )}
+
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Admin Internal Notes (Saved to DB)</p>
+                        <div className="flex gap-2">
+                          <textarea
+                            rows={2}
+                            value={selectedDealerApp.adminNotes || ''}
+                            onChange={(e) =>
+                              setSelectedDealerApp((prev: any) => ({ ...prev, adminNotes: e.target.value }))
+                            }
+                            placeholder="Record follow-up status or territory verification notes..."
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => updateApplicationNotes(selectedDealerApp.id, selectedDealerApp.adminNotes || '')}
+                            className="px-3 py-2 bg-[#075C36] hover:bg-[#064e2e] text-white text-xs font-bold rounded-lg shrink-0 self-start cursor-pointer"
+                          >
+                            Save Note
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="border-t border-gray-100 pt-3 flex justify-end">
@@ -1112,30 +1358,48 @@ export default function AdminPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">Contact Enquiries & Leads ({enquiries.length})</h1>
-                  <p className="text-xs text-gray-500">Review, update status, record notes, and follow up with farmer and dealer leads</p>
+                  <p className="text-xs text-gray-500">Review, update status, record notes, and follow up with farmer and dealer leads (PostgreSQL Synced)</p>
                 </div>
-                <button
-                  onClick={() => {
-                    setEditingEnquiry({
-                      id: `enq_${Date.now()}`,
-                      name: '',
-                      mobile: '',
-                      email: '',
-                      type: 'Product Enquiry',
-                      subject: '',
-                      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
-                      status: 'NEW',
-                      notes: ''
-                    });
-                    setIsNewEnquiry(true);
-                  }}
-                  className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>+ Log New Lead / Inquiry</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={fetchEnquiries}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg transition-colors cursor-pointer"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isLoadingEnquiries ? 'animate-spin' : ''}`} />
+                    <span>Refresh</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setEditingEnquiry({
+                        id: `enq_${Date.now()}`,
+                        name: '',
+                        mobile: '',
+                        email: '',
+                        type: 'Product Enquiry',
+                        subject: '',
+                        date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+                        status: 'NEW',
+                        notes: ''
+                      });
+                      setIsNewEnquiry(true);
+                    }}
+                    className="bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold px-3.5 py-2 rounded flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Log New Lead / Inquiry</span>
+                  </button>
+                </div>
               </div>
 
+              {enquiries.length === 0 ? (
+                <div className="bg-white border rounded-lg p-12 text-center text-gray-500">
+                  <MessageSquare className="w-12 h-12 mx-auto text-gray-300 mb-3" />
+                  <p className="font-semibold text-sm text-gray-700">No enquiries recorded yet</p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Contact Us forms, Quote Requests, and Subsidy Applications from the storefront appear here live.
+                  </p>
+                </div>
+              ) : (
               <div className="space-y-3 text-xs">
                 {enquiries.map((enq) => (
                   <div key={enq.id} className="bg-white border rounded-lg p-5 shadow-sm space-y-3">
@@ -1147,6 +1411,7 @@ export default function AdminPage() {
                         </div>
                         <p className="text-gray-600 mt-0.5">
                           Mobile: <strong className="text-gray-900">+91 {enq.mobile}</strong> {enq.email ? `• Email: ${enq.email}` : ''}
+                          {enq.state ? ` • ${enq.city ? enq.city + ', ' : ''}${enq.state}` : ''}
                         </p>
                       </div>
 
@@ -1157,8 +1422,7 @@ export default function AdminPage() {
                           <select
                             value={enq.status}
                             onChange={(e) => {
-                              const newStatus = e.target.value;
-                              setEnquiries(prev => prev.map(item => item.id === enq.id ? { ...item, status: newStatus } : item));
+                              handleUpdateEnquiryField(enq.id, { status: e.target.value });
                             }}
                             className={`text-xs font-bold px-2.5 py-1 rounded border cursor-pointer focus:outline-none ${
                               enq.status === 'NEW' ? 'bg-blue-50 text-blue-800 border-blue-300' :
@@ -1187,11 +1451,7 @@ export default function AdminPage() {
                           <Edit className="w-3.5 h-3.5" />
                         </button>
                         <button
-                          onClick={() => {
-                            if (window.confirm(`Delete inquiry from ${enq.name}?`)) {
-                              setEnquiries(prev => prev.filter(item => item.id !== enq.id));
-                            }
-                          }}
+                          onClick={() => handleDeleteEnquiry(enq.id, enq.name)}
                           className="p-1.5 text-red-500 hover:bg-red-50 rounded border border-red-200 transition-colors"
                           title="Delete Lead"
                         >
@@ -1204,6 +1464,9 @@ export default function AdminPage() {
                       <p className="text-gray-800">
                         <strong className="text-gray-900">{enq.type}:</strong> {enq.subject}
                       </p>
+                      {enq.message && enq.message !== enq.subject && (
+                        <p className="text-gray-600 text-[11px] mt-1">{enq.message}</p>
+                      )}
                     </div>
 
                     {/* Internal Follow-up Notes */}
@@ -1216,13 +1479,21 @@ export default function AdminPage() {
                           const val = e.target.value;
                           setEnquiries(prev => prev.map(item => item.id === enq.id ? { ...item, notes: val } : item));
                         }}
+                        onBlur={(e) => handleUpdateEnquiryField(enq.id, { notes: e.target.value })}
                         className="flex-1 px-3 py-1.5 text-xs bg-slate-50 border border-gray-200 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
                       />
-                      <span className="text-[10px] text-gray-400 font-semibold shrink-0">Auto-saved</span>
+                      <button
+                        type="button"
+                        onClick={() => handleUpdateEnquiryField(enq.id, { notes: enq.notes || '' })}
+                        className="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-900 text-white text-[11px] font-semibold rounded shrink-0 cursor-pointer"
+                      >
+                        Save Note
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
+              )}
             </div>
           )}
 
@@ -1341,18 +1612,7 @@ export default function AdminPage() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => {
-                      if (!editingEnquiry.name.trim() || !editingEnquiry.subject.trim()) {
-                        alert('Customer name and requirement are required');
-                        return;
-                      }
-                      if (isNewEnquiry) {
-                        setEnquiries(prev => [editingEnquiry, ...prev]);
-                      } else {
-                        setEnquiries(prev => prev.map(item => item.id === editingEnquiry.id ? editingEnquiry : item));
-                      }
-                      setEditingEnquiry(null);
-                    }}
+                    onClick={handleSaveEnquiryModal}
                     className="px-5 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
                   >
                     {isNewEnquiry ? 'Log Inquiry' : 'Save Changes'}
@@ -1390,14 +1650,12 @@ export default function AdminPage() {
                     <span>View Live Home Page ↗</span>
                   </Link>
                   <button
-                    onClick={() => {
-                      setHomeSaveSuccess(true);
-                      setTimeout(() => setHomeSaveSuccess(false), 2000);
-                    }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                    onClick={handleSaveHomeCms}
+                    disabled={isSavingHome}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
                   >
                     {homeSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
-                    <span>{homeSaveSuccess ? 'Saved Live!' : 'Save Home Settings'}</span>
+                    <span>{isSavingHome ? 'Saving...' : homeSaveSuccess ? 'Saved to DB!' : 'Save Home Settings'}</span>
                   </button>
                 </div>
               </div>
@@ -1410,7 +1668,7 @@ export default function AdminPage() {
                       <Sparkles className="w-4 h-4 text-emerald-600" />
                       <span>1. Main Hero Carousel Banners ({homeHeroBanners.length} Slides)</span>
                     </h2>
-                    <p className="text-xs text-gray-500 mt-0.5">High-definition slides auto-advancing every 6 seconds on the home page</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Edit slide titles, banner image URLs, destination links, or toggle visibility</p>
                   </div>
                   <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                     6s Transition
@@ -1419,25 +1677,69 @@ export default function AdminPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {homeHeroBanners.map((banner, bIdx) => (
-                    <div key={banner.id} className="border border-gray-200 rounded-lg p-3 bg-gray-50 flex flex-col justify-between">
+                    <div key={banner.id} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2.5">
                       <div className="flex items-start gap-3">
                         <div className="w-24 h-16 relative rounded bg-white border shrink-0 overflow-hidden">
                           <Image src={banner.image} alt={banner.title} fill unoptimized className="object-cover" />
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
-                          <p className="font-bold text-xs text-gray-900 truncate mt-0.5" title={banner.title}>{banner.title}</p>
-                          <p className="text-[11px] text-gray-500 font-mono truncate mt-0.5">Link: {banner.link}</p>
+                        <div className="flex-1 min-w-0 space-y-1.5 text-xs">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
+                            <label className="inline-flex items-center gap-1 cursor-pointer text-[11px] font-semibold text-gray-700">
+                              <input
+                                type="checkbox"
+                                checked={banner.active !== false}
+                                onChange={(e) => {
+                                  const checked = e.target.checked;
+                                  setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, active: checked } : b)));
+                                }}
+                                className="rounded text-emerald-600"
+                              />
+                              <span>Active</span>
+                            </label>
+                          </div>
+                          <input
+                            type="text"
+                            value={banner.title}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, title: val } : b)));
+                            }}
+                            placeholder="Banner title / alt text"
+                            className="w-full px-2.5 py-1.5 bg-white border border-gray-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                          />
                         </div>
                       </div>
-                      <div className="mt-3 pt-2 border-t border-gray-200 flex items-center justify-between text-xs">
-                        <span className="text-[11px] text-green-700 font-bold flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"></span>
-                          <span>Active on Store</span>
-                        </span>
-                        <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold text-[11px]">
-                          Test Link →
-                        </Link>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                        <div>
+                          <label className="block font-semibold text-gray-500 mb-0.5">Banner Image URL</label>
+                          <input
+                            type="text"
+                            value={banner.image}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, image: val } : b)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
+                          />
+                        </div>
+                        <div>
+                          <label className="block font-semibold text-gray-500 mb-0.5">Destination Link</label>
+                          <div className="flex gap-1.5 items-center">
+                            <input
+                              type="text"
+                              value={banner.link}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, link: val } : b)));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
+                            />
+                            <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
+                              ↗
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1460,20 +1762,69 @@ export default function AdminPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {homePromoBanners.map((promo) => (
-                    <div key={promo.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col justify-between">
+                  {homePromoBanners.map((promo, pIdx) => (
+                    <div key={promo.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-2 text-xs">
                       <div>
-                        <span className="text-[10px] font-bold tracking-wider text-amber-700 uppercase bg-amber-100 px-2 py-0.5 rounded">
-                          {promo.subtitle}
-                        </span>
-                        <h3 className="font-bold text-sm text-gray-900 mt-2">{promo.title}</h3>
-                        <p className="text-xs text-gray-600 mt-1 leading-relaxed">{promo.desc}</p>
+                        <label className="block text-[10px] font-bold text-amber-700 uppercase mb-0.5">Tag / Subtitle</label>
+                        <input
+                          type="text"
+                          value={promo.subtitle}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, subtitle: val } : item)));
+                          }}
+                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-[11px]"
+                        />
                       </div>
-                      <div className="mt-4 pt-2 border-t border-gray-200 flex items-center justify-between text-xs">
-                        <span className="text-gray-500 font-mono text-[10px] truncate max-w-[120px]">{promo.link}</span>
-                        <span className="text-emerald-800 font-bold bg-white px-2 py-0.5 rounded border text-[11px]">
-                          {promo.buttonText} →
-                        </span>
+                      <div>
+                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Card Title</label>
+                        <input
+                          type="text"
+                          value={promo.title}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, title: val } : item)));
+                          }}
+                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Description</label>
+                        <textarea
+                          rows={2}
+                          value={promo.desc}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, desc: val } : item)));
+                          }}
+                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-[11px]"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link</label>
+                          <input
+                            type="text"
+                            value={promo.link}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, link: val } : item)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Button Text</label>
+                          <input
+                            type="text"
+                            value={promo.buttonText}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, buttonText: val } : item)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-[11px]"
+                          />
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1574,14 +1925,12 @@ export default function AdminPage() {
                     <span>View Live About Page ↗</span>
                   </Link>
                   <button
-                    onClick={() => {
-                      setAboutSaveSuccess(true);
-                      setTimeout(() => setAboutSaveSuccess(false), 2000);
-                    }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                    onClick={handleSaveAboutCms}
+                    disabled={isSavingAbout}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
                   >
                     {aboutSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
-                    <span>{aboutSaveSuccess ? 'Saved Live!' : 'Save About Us Settings'}</span>
+                    <span>{isSavingAbout ? 'Saving...' : aboutSaveSuccess ? 'Saved to DB!' : 'Save About Us Settings'}</span>
                   </button>
                 </div>
               </div>

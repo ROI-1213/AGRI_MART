@@ -20,6 +20,7 @@ import OurProductsSection from '@/components/OurProductsSection';
 import AwardsShowcase from '@/components/AwardsShowcase';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
+import { DEFAULT_HOMEPAGE_CMS } from '@/lib/cmsDefaults';
 import { Product } from '@/types';
 
 export default function HomePage() {
@@ -31,71 +32,81 @@ export default function HomePage() {
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
-  const heroBanners = [
-    {
-      id: 1,
-      image: '/assets/banners/hero_agrimate_hd.png',
-      alt: 'AGRIMATE — Reliable Farm Equipment for a Better Tomorrow | Agrimart',
-      link: '/products?brand=AGRIMATE',
-    },
-    {
-      id: 2,
-      image: '/assets/banners/hero_kasei_hd.png',
-      alt: 'KASEI — Advanced Technology Powerful Performance | Agrimart',
-      link: '/products?brand=KASEI',
-    },
-    {
-      id: 3,
-      image: '/assets/banners/hero_oleomac_hd.png',
-      alt: 'OLEO-MAC — Italian Design & Engineering to meet Indian Fields | Agrimart',
-      link: '/products?brand=OLEO-MAC',
-    },
-    {
-      id: 4,
-      image: '/assets/banners/hero_dealer_partner_hd.png',
-      alt: 'Become a Dealer Today — Ratnagiri Impex & Agrimart Authorised Dealer | Elevate your Future',
-      link: '/become-a-partner',
-    },
-  ];
+  const [heroBanners, setHeroBanners] = useState(
+    DEFAULT_HOMEPAGE_CMS.heroBanners
+      .filter((b) => b.active !== false)
+      .map((b) => ({ id: b.id, image: b.image, alt: b.title, link: b.link }))
+  );
 
-  const promoBanners = [
-    {
-      id: 1,
-      title: 'Become a Partner',
+  const defaultPromoExtras: Record<number, { tabTitle: string; photo: string; bgGradient: string; mobileObjectPosition: string }> = {
+    1: {
       tabTitle: 'Become a Partner',
-      subtitle: 'GROW TOGETHER',
-      description: '1,200+ partners across India are already making profit. Partner with us today!',
-      buttonText: 'Partner With Us',
-      link: '/become-a-partner',
       photo: '/assets/branding/become_partner_hd.png',
       bgGradient: 'from-[#f2f8f3] via-[#ffffff] to-[#f4f9f5]',
       mobileObjectPosition: '33% center',
     },
-    {
-      id: 2,
-      title: 'Buy, Earn and Rent',
+    2: {
       tabTitle: 'Buy, Earn & Rent',
-      subtitle: 'MORE VALUE FOR YOU',
-      description: 'Be a pioneer in the booming Indian rural retail marketing.',
-      buttonText: 'Explore Opportunities',
-      link: '/cms/buy-earn-rent',
       photo: '/assets/branding/buy_earn_rent_hd.png',
       bgGradient: 'from-[#fefcf3] via-[#ffffff] to-[#fefcf3]',
       mobileObjectPosition: '48% center',
     },
-    {
-      id: 3,
-      title: 'Knowledge Bank',
+    3: {
       tabTitle: 'Knowledge Bank',
-      subtitle: 'KNOW MORE, GROW MORE',
-      description: 'Access expert guides, product information and farming insights.',
-      buttonText: 'Explore Resources',
-      link: '/cms/knowledge-bank',
       photo: '/assets/branding/knowledge_bank_hd.png',
       bgGradient: 'from-[#f0f7f3] via-[#ffffff] to-[#f2f8f4]',
       mobileObjectPosition: '58% center',
     },
-  ];
+  };
+
+  const [promoBanners, setPromoBanners] = useState(
+    DEFAULT_HOMEPAGE_CMS.promoBanners.map((p) => ({
+      id: p.id,
+      title: p.title,
+      tabTitle: defaultPromoExtras[p.id]?.tabTitle || p.title,
+      subtitle: p.subtitle,
+      description: p.desc,
+      buttonText: p.buttonText,
+      link: p.link,
+      photo: defaultPromoExtras[p.id]?.photo || '/assets/branding/become_partner_hd.png',
+      bgGradient: defaultPromoExtras[p.id]?.bgGradient || 'from-[#f2f8f3] via-[#ffffff] to-[#f4f9f5]',
+      mobileObjectPosition: defaultPromoExtras[p.id]?.mobileObjectPosition || 'center center',
+    }))
+  );
+
+  // Sync live CMS updates saved from Admin Console
+  useEffect(() => {
+    fetch('/api/admin/cms?key=homepage')
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          if (Array.isArray(resData.data.heroBanners)) {
+            const activeSlides = resData.data.heroBanners
+              .filter((b: any) => b.active !== false)
+              .map((b: any) => ({ id: b.id, image: b.image, alt: b.title, link: b.link }));
+            if (activeSlides.length > 0) setHeroBanners(activeSlides);
+          }
+          if (Array.isArray(resData.data.promoBanners) && resData.data.promoBanners.length > 0) {
+            setPromoBanners(
+              resData.data.promoBanners.map((p: any) => ({
+                id: p.id,
+                title: p.title,
+                tabTitle: defaultPromoExtras[p.id]?.tabTitle || p.title,
+                subtitle: p.subtitle,
+                description: p.desc,
+                buttonText: p.buttonText,
+                link: p.link,
+                photo: defaultPromoExtras[p.id]?.photo || '/assets/branding/become_partner_hd.png',
+                bgGradient: defaultPromoExtras[p.id]?.bgGradient || 'from-[#f2f8f3] via-[#ffffff] to-[#f4f9f5]',
+                mobileObjectPosition: defaultPromoExtras[p.id]?.mobileObjectPosition || 'center center',
+              }))
+            );
+          }
+        }
+      })
+      .catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Auto-advance hero banner slides every 6 seconds
   useEffect(() => {

@@ -138,6 +138,29 @@ function ProductsContent() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
+  const [liveProducts, setLiveProducts] = useState<Product[]>(productsData as unknown as Product[]);
+  const [liveCategories, setLiveCategories] = useState<any[]>(categoriesData);
+
+  useEffect(() => {
+    fetch('/api/admin/products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.products)) {
+          setLiveProducts(data.products);
+        }
+      })
+      .catch(() => {});
+
+    fetch('/api/admin/categories')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.categories)) {
+          setLiveCategories(data.categories);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   useEffect(() => {
     const cat = searchParams.get('category') || '';
     const rawB = searchParams.get('brand') || '';
@@ -227,7 +250,7 @@ function ProductsContent() {
 
   // Filtered products calculation
   const filteredProducts = useMemo(() => {
-    return (productsData as unknown as Product[]).filter((p) => {
+    return liveProducts.filter((p) => {
       // Category filter
       if (selectedCategory) {
         const normSelected = selectedCategory.replace(/\s+/g, ' ').trim().toLowerCase();
@@ -283,7 +306,7 @@ function ProductsContent() {
       if (sortBy === 'brand-asc') return a.brand.localeCompare(b.brand);
       return 0;
     });
-  }, [selectedCategory, selectedSubcategory, selectedBrands, selectedCapacities, selectedPowerSources, searchTerm, sortBy]);
+  }, [liveProducts, selectedCategory, selectedSubcategory, selectedBrands, selectedCapacities, selectedPowerSources, searchTerm, sortBy]);
 
   const totalPages = itemsPerPage === 'all' ? 1 : Math.ceil(filteredProducts.length / itemsPerPage) || 1;
   const paginatedProducts = useMemo(() => {
@@ -347,12 +370,12 @@ function ProductsContent() {
 
   // Helper to count products matching a specific criteria
   const getCategoryCount = (catName: string) => {
-    return (productsData as unknown as Product[]).filter(p => p.category.toLowerCase() === catName.toLowerCase()).length;
+    return liveProducts.filter(p => p.category.toLowerCase() === catName.toLowerCase()).length;
   };
 
   const getBrandCount = (brandName: string) => {
     const normTarget = normalizeBrandName(brandName);
-    return (productsData as unknown as Product[]).filter(p => {
+    return liveProducts.filter(p => {
       if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
       return normalizeBrandName(p.brand) === normTarget;
     }).length;
@@ -360,7 +383,7 @@ function ProductsContent() {
 
   const getCapacityCount = (capStr: string) => {
     const num = capStr.replace(/[^0-9]/g, '');
-    return (productsData as unknown as Product[]).filter(p => {
+    return liveProducts.filter(p => {
       if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
       const text = (p.name + ' ' + (p.description || '')).toLowerCase();
       return text.includes(`${num}l`) || text.includes(`${num} l`) || text.includes(`${num}ltr`) || text.includes(`${num} ltr`);
@@ -368,7 +391,7 @@ function ProductsContent() {
   };
 
   const getPowerSourceCount = (ps: string) => {
-    return (productsData as unknown as Product[]).filter(p => {
+    return liveProducts.filter(p => {
       if (selectedCategory && p.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
       const text = (p.name + ' ' + (p.description || '')).toLowerCase();
       if (ps === 'Manual') return text.includes('manual');
@@ -419,7 +442,7 @@ function ProductsContent() {
 
               {/* Categories List */}
               <div className="divide-y divide-[#579304]">
-                {categoriesData.map((cat) => {
+                {liveCategories.map((cat) => {
                   const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
 
                   return (
@@ -525,7 +548,7 @@ function ProductsContent() {
                       )}
                     </div>
                     <div className="divide-y divide-[#579304]">
-                      {categoriesData.map((cat) => {
+                      {liveCategories.map((cat) => {
                         const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
 
                         return (

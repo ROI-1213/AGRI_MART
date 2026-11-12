@@ -2,8 +2,24 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Target, Compass, Award, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
+import { getCmsSetting } from '@/lib/db';
+import { DEFAULT_ABOUTUS_CMS, AboutUsCmsData } from '@/lib/cmsDefaults';
 
-export default function AboutPage() {
+export const revalidate = 60;
+
+async function getAboutData(): Promise<AboutUsCmsData> {
+  try {
+    const dbData = await getCmsSetting<AboutUsCmsData>('aboutus');
+    if (dbData) return { ...DEFAULT_ABOUTUS_CMS, ...dbData };
+  } catch {
+    // Fallback cleanly if DB is unreachable during offline static checks
+  }
+  return DEFAULT_ABOUTUS_CMS;
+}
+
+export default async function AboutPage() {
+  const about = await getAboutData();
+
   return (
     <div className="bg-white min-h-screen py-10">
       <div className="agri-container">
@@ -18,25 +34,17 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <span className="text-xs font-bold text-[#0d9749] uppercase tracking-wider">
-              About Ratnagiri Impex Pvt. Ltd.
+              {about.subtitle}
             </span>
             <h1 className="text-3xl font-extrabold text-gray-900 mt-1 mb-4">
-              Welcome to RATNAGIRI IMPEX
+              {about.title}
             </h1>
             <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
 
             <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+              <p>{about.description}</p>
               <p>
-                We have an extensive presence all over India and are a reputable agricultural equipment enterprise that supplies high-quality products, ensuring durability, enhanced yield, and unmatched customer satisfaction.
-              </p>
-              <p>
-                Additionally, we are an all-in-one destination for agricultural equipment that simplifies the procurement process and offers comprehensive after-sales service across the nation.
-              </p>
-              <p>
-                <strong>Ratnagiri Impex was founded in 2000</strong>, and since inception we have worked to achieve technological excellence by importing the most advanced agricultural machinery and introducing private-label innovations under our flagship brand <strong>AGRIMATE</strong>.
-              </p>
-              <p>
-                AGRIMART is based in Bangalore and marketed by Ratnagiri Impex Pvt. Ltd., an initiative of the <strong>Annapurna Group</strong>, who bring decades of deep experience in agricultural equipment, plantations, operations, distribution, and service.
+                <strong>Founded in {about.foundedYear}</strong>, AGRIMART is based in Bangalore and marketed by Ratnagiri Impex Pvt. Ltd., an initiative of the <strong>{about.parentGroup}</strong>, bringing decades of experience in agricultural equipment under our flagship brand <strong>{about.flagshipBrand}</strong>.
               </p>
             </div>
           </div>
@@ -44,7 +52,7 @@ export default function AboutPage() {
           <div className="relative">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200/90 shadow-md bg-white">
               <Image
-                src="/assets/about/agrimart_mega_showroom.jpg"
+                src={about.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
                 alt="Ratnagiri Impex & Agrimart Mega Showroom"
                 fill
                 priority
@@ -67,7 +75,7 @@ export default function AboutPage() {
               <h2 className="text-xl font-bold text-gray-900">Our Vision</h2>
             </div>
             <p className="text-sm text-gray-700 leading-relaxed">
-              To be the premier agricultural machinery provider across India, revolutionizing farming efficiency through affordable, innovative mechanization that reduces manual labor, conserves water and resources, and maximizes economic returns for every farmer.
+              {about.vision}
             </p>
           </div>
 
@@ -80,7 +88,7 @@ export default function AboutPage() {
               <h2 className="text-xl font-bold text-gray-900">Our Mission</h2>
             </div>
             <p className="text-sm text-gray-700 leading-relaxed">
-              To deliver world-class machinery, robust after-sales support, easily accessible spare parts, and comprehensive hands-on training to agricultural communities via our widespread network of over 750+ dedicated dealers and service hubs.
+              {about.mission}
             </p>
           </div>
         </div>
@@ -123,7 +131,7 @@ export default function AboutPage() {
                 Recognized Quality
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Tested and certified by leading agricultural universities (ANGRAU, TNAU, UAS) and Central FM&TTI testing institutes.
+                Tested and certified by leading agricultural universities (ANGRAU, TNAU, UAS) and Central FM&amp;TTI testing institutes.
               </p>
             </div>
 
@@ -149,7 +157,7 @@ export default function AboutPage() {
                 Dedicated Assistance
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Customer support, technician assistance, and telephone helpline (7393 938 938) operating 6 days a week.
+                Customer support, technician assistance, and telephone helpline ({about.helpline}) operating 6 days a week.
               </p>
             </div>
           </div>
@@ -162,8 +170,7 @@ export default function AboutPage() {
             <div>
               <h3 className="font-bold text-base text-gray-900">Headquarters & Corporate Office</h3>
               <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                Ratnagiri Impex Pvt. Ltd. (Annapurna House)<br />
-                #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.
+                {about.headquarters}
               </p>
             </div>
           </div>

@@ -1,6 +1,10 @@
 import { redirect, notFound } from 'next/navigation';
 import productsData from '@/data/import/products.json';
+import { getProductByIdOrSlug } from '@/lib/db';
 import { Product } from '@/types';
+
+export const dynamicParams = true;
+export const revalidate = 60;
 
 export function generateStaticParams() {
   const prods = productsData as unknown as Product[];
@@ -25,14 +29,23 @@ export function generateStaticParams() {
 }
 
 export default async function ProductBrochurePage({
-  params
+  params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const product = (productsData as unknown as Product[]).find(
-    p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
-  );
+  let product: Product | undefined;
+  try {
+    const dbProduct = await getProductByIdOrSlug(id);
+    if (dbProduct) product = dbProduct;
+  } catch {
+    // Fallback to seed data
+  }
+  if (!product) {
+    product = (productsData as unknown as Product[]).find(
+      p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
+    );
+  }
 
   if (!product) {
     notFound();

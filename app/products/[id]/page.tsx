@@ -1,11 +1,23 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import productsData from '@/data/import/products.json';
+import { getProductByIdOrSlug } from '@/lib/db';
 import { Product } from '@/types';
 import ProductDetailClient from '@/components/ProductDetailClient';
 
-interface PageProps {
-  params: Promise<{ id: string }>;
+export const dynamicParams = true;
+export const revalidate = 60;
+
+async function resolveProduct(id: string): Promise<Product | undefined> {
+  try {
+    const dbProduct = await getProductByIdOrSlug(id);
+    if (dbProduct) return dbProduct;
+  } catch {
+    // Fallback to static seed JSON if DB is unreachable at build time
+  }
+  return (productsData as unknown as Product[]).find(
+    p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
+  );
 }
 
 export function generateStaticParams() {
@@ -30,11 +42,9 @@ export function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
-  const product = (productsData as unknown as Product[]).find(
-    p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
-  );
+  const product = await resolveProduct(id);
   if (!product) return { title: 'Product Not Found | AGRIMART' };
   return {
     title: `${product.name} | AGRIMART`,
@@ -42,11 +52,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ProductDetailPage({ params }: PageProps) {
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const product = (productsData as unknown as Product[]).find(
-    p => p.id === id || p.slug === id || p.riplCode.toLowerCase() === id?.toLowerCase()
-  );
+  const product = await resolveProduct(id);
 
   if (!product) {
     notFound();

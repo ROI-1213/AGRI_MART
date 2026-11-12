@@ -135,7 +135,7 @@ export default function ProductCard({
         </div>
       ) : (
         /* ================= 3x3 LARGER VERTICAL CARD STYLE ================= */
-        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-xl transition-all duration-300 p-3 sm:p-4 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 shadow-xs hover:shadow-2xl hover:border-emerald-200/80 hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 ease-out p-3 sm:p-4 flex flex-col justify-between overflow-hidden">
           
           {/* Top: Product Visual (Standardized aspect-square with even padding for balanced image scale) */}
           <div className="relative w-full aspect-square bg-white flex items-center justify-center p-2.5 sm:p-3.5 overflow-hidden [perspective:1000px]">

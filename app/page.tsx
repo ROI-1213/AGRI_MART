@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -18,6 +18,7 @@ import TopPicksShowcase from '@/components/TopPicksShowcase';
 import TestingInstitutesShowcase from '@/components/TestingInstitutesShowcase';
 import OurProductsSection from '@/components/OurProductsSection';
 import AwardsShowcase from '@/components/AwardsShowcase';
+import RevealOnScroll from '@/components/RevealOnScroll';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
 import { DEFAULT_HOMEPAGE_CMS } from '@/lib/cmsDefaults';
@@ -31,6 +32,9 @@ export default function HomePage() {
   const [subsidyModalOpen, setSubsidyModalOpen] = useState(false);
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [heroParallaxY, setHeroParallaxY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const touchStartXRef = useRef<number | null>(null);
 
   const [heroBanners, setHeroBanners] = useState(
     DEFAULT_HOMEPAGE_CMS.heroBanners
@@ -125,6 +129,46 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, [isPromoPaused, promoBanners.length]);
 
+  // Smooth GPU-accelerated scroll parallax & top progress bar
+  useEffect(() => {
+    let rafId: number | null = null;
+    const onScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+        const factor = window.innerWidth < 768 ? 0.08 : 0.16;
+        setHeroParallaxY(Math.min(y * factor, 48));
+
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? Math.min(100, (y / docHeight) * 100) : 0);
+        rafId = null;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  const handleHeroTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0]?.clientX ?? null;
+  };
+
+  const handleHeroTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const endX = e.changedTouches[0]?.clientX ?? touchStartXRef.current;
+    const delta = touchStartXRef.current - endX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) {
+        setCurrentSlide((prev) => (prev + 1) % heroBanners.length);
+      } else {
+        setCurrentSlide((prev) => (prev === 0 ? heroBanners.length - 1 : prev - 1));
+      }
+    }
+    touchStartXRef.current = null;
+  };
+
   const handleOpenSubsidy = (product: Product) => {
     setSelectedSubsidyProduct(product);
     setSubsidyModalOpen(true);
@@ -136,23 +180,38 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full bg-white">
-      {/* 1. Hero Banner Carousel: Formal High-Definition Agrimart Showcase */}
-      <section className="relative w-full bg-[#f8faf8] overflow-hidden border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto relative aspect-[3/1] min-h-[120px] sm:min-h-[220px] md:min-h-[280px] w-full">
+    <div className="w-full bg-white relative">
+      {/* Subtle Luxury Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none bg-transparent">
+        <div
+          className="h-full bg-gradient-to-r from-[#0d9749] via-[#70b308] to-[#f59e0b] transition-[width] duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      {/* 1. Hero Banner Carousel: Cinematic Layered Parallax & Slow Ken Burns Zoom */}
+      <section
+        className="relative w-full bg-[#0d1f14] overflow-hidden border-b border-gray-200"
+        onTouchStart={handleHeroTouchStart}
+        onTouchEnd={handleHeroTouchEnd}
+      >
+        <div className="max-w-[1440px] mx-auto relative aspect-[3/1] min-h-[150px] sm:min-h-[240px] md:min-h-[300px] w-full overflow-hidden">
           {heroBanners.map((banner, idx) => {
             const isVisible = idx === currentSlide;
             return (
               <div
                 key={banner.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                style={{
+                  transform: `translate3d(0, ${heroParallaxY}px, 0)`,
+                }}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-out will-change-transform ${
                   isVisible ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
                 }`}
               >
-                {/* Formal Pristine Ultra-HD Banner Artwork */}
+                {/* Layered Ultra-HD Banner Artwork with Slow Ken Burns Zoom */}
                 <Link
                   href={banner.link}
-                  className="block relative w-full h-full cursor-pointer select-none"
+                  className="block relative w-full h-full cursor-pointer select-none overflow-hidden"
                   aria-label={banner.alt}
                 >
                   <Image
@@ -164,37 +223,41 @@ export default function HomePage() {
                     unoptimized
                     quality={100}
                     sizes="(max-width: 1440px) 100vw, 1440px"
-                    className="object-cover object-center pointer-events-none select-none"
+                    className={`object-cover object-center pointer-events-none select-none ${
+                      isVisible ? 'animate-hero-kenburns' : ''
+                    }`}
                   />
+                  {/* Luxury Subtle Vignette Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10 pointer-events-none" />
                 </Link>
               </div>
             );
           })}
 
-          {/* Slider Prev / Next Controls */}
+          {/* Glassmorphic Slider Prev / Next Controls */}
           <button
             onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroBanners.length - 1 : prev - 1))}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors cursor-pointer"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center bg-black/35 backdrop-blur-md border border-white/25 hover:bg-[#0d9749]/90 active:scale-95 text-white rounded-full shadow-lg transition-all duration-200 cursor-pointer"
             aria-label="Previous Banner"
           >
             <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={() => setCurrentSlide((prev) => (prev + 1) % heroBanners.length)}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors cursor-pointer"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center bg-black/35 backdrop-blur-md border border-white/25 hover:bg-[#0d9749]/90 active:scale-95 text-white rounded-full shadow-lg transition-all duration-200 cursor-pointer"
             aria-label="Next Banner"
           >
             <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
           </button>
 
-          {/* Slide Indicator Dots */}
-          <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+          {/* Frosted Glass Slide Indicator Dots */}
+          <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-2 bg-black/25 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full shadow-md">
             {heroBanners.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-1.5 sm:h-2 rounded-full transition-all cursor-pointer ${
-                  idx === currentSlide ? 'w-6 sm:w-8 bg-[#097b3a]' : 'w-2 bg-gray-400/80 hover:bg-gray-600'
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === currentSlide ? 'w-6 sm:w-8 bg-white shadow-xs' : 'w-2 bg-white/50 hover:bg-white/80'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -348,29 +411,42 @@ export default function HomePage() {
       </section>
 
       {/* 3. Premium Shop by Category Showcase */}
-      <ShopByCategory />
+      <RevealOnScroll variant="fade-up" durationMs={650}>
+        <ShopByCategory />
+      </RevealOnScroll>
 
       {/* 4. Our Trusted International & In-House Brands Showcase */}
-      <TrustedBrandsShowcase />
+      <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
+        <TrustedBrandsShowcase />
+      </RevealOnScroll>
 
       {/* 5. Agrimart's Top Picks Showcase (Matching Reference Design) */}
-      <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
+      <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
+        <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
+      </RevealOnScroll>
 
       {/* 6. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
-      <OurProductsSection onOpenQuote={handleOpenQuote} />
+      <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
+        <OurProductsSection onOpenQuote={handleOpenQuote} />
+      </RevealOnScroll>
 
       {/* 7. Awards & Recognition Showcase (Clean Background with Continuous Smooth Sliding) */}
-      <AwardsShowcase />
+      <RevealOnScroll variant="fade-in" durationMs={750}>
+        <AwardsShowcase />
+      </RevealOnScroll>
 
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}
-      <TestingInstitutesShowcase />
+      <RevealOnScroll variant="fade-up" durationMs={700}>
+        <TestingInstitutesShowcase />
+      </RevealOnScroll>
 
       {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Direct Google Play & App Store Buttons) */}
-      <section className="py-8 sm:py-12 bg-gradient-to-b from-white to-[#fbfdfa] border-t border-gray-200/70">
-        <div className="agri-container">
-          <div
-            className="relative w-full aspect-[1024/340] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-sm hover:shadow-md transition-all duration-300 select-none group"
-          >
+      <RevealOnScroll variant="scale-in" durationMs={700}>
+        <section className="py-8 sm:py-12 bg-gradient-to-b from-white to-[#fbfdfa] border-t border-gray-200/70">
+          <div className="agri-container">
+            <div
+              className="relative w-full aspect-[1024/340] rounded-2xl sm:rounded-3xl overflow-hidden border border-emerald-950/10 shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-500 select-none group"
+            >
             {/* 3K Ultra-HD Banner Artwork (unoptimized for 100% loss-free HD clarity) */}
             <Image
               src="/assets/banners/app_download_banner_hd.png"
@@ -430,6 +506,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </RevealOnScroll>
 
       {/* Subsidy Modal */}
       <SubsidyModal

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { CartProvider } from '@/context/CartContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import MobileBottomNav from '@/components/MobileBottomNav';
 import AuthModal from '@/components/AuthModal';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
@@ -21,9 +22,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <CartProvider>
-      {!isAdminRoute && <Header onOpenAuth={handleOpenAuth} />}
-      <main className="flex-1">{children}</main>
-      {!isAdminRoute && <Footer />}
+      <div className="min-h-screen flex flex-col w-full">
+        {!isAdminRoute && <Header onOpenAuth={handleOpenAuth} />}
+        <main className="flex-1 w-full">{children}</main>
+        {!isAdminRoute && <Footer />}
+        {!isAdminRoute && <MobileBottomNav />}
+      </div>
       <AuthModal
         isOpen={authModalOpen}
         initialMode={authMode}

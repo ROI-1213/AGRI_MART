@@ -19,8 +19,13 @@ html, body {
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeLegibility;
   letter-spacing: -0.011em;
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -261,5 +266,44 @@ p, span, div, a, button, input, textarea, select, label {
   .group:active .product-image-flip {
     transform: rotateY(180deg) scale(1.1);
   }
+}
+
+/* Mobile-First Safe Area & App Navigation Utilities */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pb-mobile-nav {
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .pb-mobile-nav {
+    padding-bottom: 0;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes sheetSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-sheet-up {
+  animation: sheetSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

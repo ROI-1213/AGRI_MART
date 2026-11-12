@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock, FileText, Download } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#e9f1f4] text-gray-800 text-sm mt-0 border-t-4 border-[#0d9749] overflow-hidden">
+    <footer className="relative mt-auto bg-[#e9f1f4] text-gray-800 text-sm border-t-4 border-[#0d9749] overflow-hidden pb-mobile-nav">
       {/* Agricultural Landscape Background Banner Image */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <Image
@@ -22,8 +22,8 @@ export default function Footer() {
       </div>
 
       {/* Top Footer Section */}
-      <div className="relative z-10 agri-container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="relative z-10 agri-container py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Column 1: Company Profile & About */}
           <div>
             <div className="mb-4">
@@ -39,23 +39,22 @@ export default function Footer() {
             <p className="text-xs text-gray-800 leading-relaxed mb-4 font-medium">
               AGRIMART is an initiative of <strong className="text-gray-950 font-bold">Ratnagiri Impex Pvt. Ltd.</strong>, part of the Annapurna Group. Founded in 2000, we specialize in high-efficiency agricultural machinery, mechanization solutions, pest control sprayers, garden care equipment, and reliable customer service across India.
             </p>
-            <div className="space-y-2">
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5">
               <a
                 href="/assets/brochures/corporate_brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs bg-[#0d9749] hover:bg-[#097b3a] text-white font-bold px-3 py-1.5 rounded shadow-sm hover:shadow transition-all"
+                className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-[#0d9749] hover:bg-[#097b3a] text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
               >
-                <Download className="w-3.5 h-3.5" /> Download Corporate Brochure
+                <Download className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" /> Download Corporate Brochure
               </a>
-              <br />
               <a
                 href="/assets/brochures/agrimart_brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-3 py-1.5 rounded shadow-sm hover:shadow transition-all"
+                className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
               >
-                <FileText className="w-3.5 h-3.5" /> Download Agrimate Brochure
+                <FileText className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" /> Download Agrimate Brochure
               </a>
             </div>
           </div>

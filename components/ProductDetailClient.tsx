@@ -160,7 +160,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <div className="pt-2 mb-4">
                   <button
                     onClick={handleRequestQuote}
-                    className="w-full bg-[#0d9749] hover:bg-[#097b3a] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.99]"
+                    className="w-full min-h-[48px] bg-[#0d9749] hover:bg-[#097b3a] text-white font-extrabold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer active:scale-[0.98]"
                   >
                     <FileText className="w-5 h-5 text-yellow-300" />
                     <span>Request a Quote</span>

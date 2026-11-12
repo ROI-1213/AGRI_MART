@@ -106,10 +106,10 @@ export default function Header({ onOpenAuth }: HeaderProps) {
 
           {/* Right Action Icons: Mobile Menu Toggle */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button (48px thumb target) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-[#0d9749] hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
+              className="md:hidden min-h-[48px] min-w-[48px] flex items-center justify-center p-2 text-gray-700 hover:text-[#0d9749] hover:bg-gray-50 active:scale-95 rounded-xl transition-all cursor-pointer"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -119,25 +119,25 @@ export default function Header({ onOpenAuth }: HeaderProps) {
 
         </div>
 
-        {/* Mobile Search Bar Row (Clean, dedicated & always accessible on mobile) */}
-        <div className="mt-2.5 md:hidden">
+        {/* Mobile Search Bar Row (Clean, 48px thumb-friendly & padded) */}
+        <div className="agri-container mt-2.5 md:hidden">
           <form 
             onSubmit={handleSearchSubmit}
-            className="w-full flex items-center border border-gray-300 rounded-lg overflow-hidden bg-gray-50 focus-within:bg-white focus-within:border-[#0d9749] focus-within:ring-2 focus-within:ring-[#0d9749]/20 transition-all"
+            className="w-full flex items-center border border-gray-300 rounded-xl overflow-hidden bg-gray-50 focus-within:bg-white focus-within:border-[#0d9749] focus-within:ring-2 focus-within:ring-[#0d9749]/20 transition-all shadow-2xs"
           >
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search machinery, RIPL code, brands..."
-              className="w-full px-3 py-2 text-xs bg-transparent focus:outline-none text-gray-900 placeholder:text-gray-400"
+              className="w-full min-h-[48px] px-3.5 py-2.5 text-sm bg-transparent focus:outline-none text-gray-900 placeholder:text-gray-400"
             />
             <button
               type="submit"
-              className="bg-[#0d9749] text-white px-3.5 py-2 hover:bg-[#097b3a] transition-colors cursor-pointer shrink-0"
+              className="min-h-[48px] min-w-[48px] bg-[#0d9749] text-white px-4 flex items-center justify-center hover:bg-[#097b3a] active:scale-95 transition-all cursor-pointer shrink-0"
               aria-label="Search"
             >
-              <Search className="w-3.5 h-3.5" />
+              <Search className="w-4 h-4" />
             </button>
           </form>
         </div>
@@ -274,7 +274,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
                       window.dispatchEvent(new CustomEvent('agrimart-reset-products'));
                     }
                   }}
-                  className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-bold transition-colors ${
+                  className={`min-h-[48px] flex items-center justify-between py-2.5 px-3.5 rounded-xl text-sm font-bold transition-all active:scale-[0.99] ${
                     isActive 
                       ? 'bg-white/15 text-yellow-300' 
                       : 'text-white hover:bg-white/10'

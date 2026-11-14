@@ -24,7 +24,7 @@ function normalizeBrandName(b: string): string {
   if (!b) return '';
   const clean = b.trim().toLowerCase().replace(/[-_\s]+/g, ' ');
   if (clean === 'oleo mac' || clean === 'oleomac') return 'OLEO MAC';
-  if (clean === 'green panther' || clean === 'greenpanther') return 'GREEN PANTHER';
+  if (clean === 'green panther' || clean === 'greenpanther') return 'AGRIMATE';
   if (clean === 'agrimate') return 'AGRIMATE';
   if (clean === 'kasei') return 'KASEI';
   return b.toUpperCase();

@@ -1989,7 +1989,7 @@ export default function AdminPage() {
                 <div className="flex flex-col sm:flex-row gap-5 items-center">
                   <div className="w-full sm:w-64 aspect-[4/3] relative rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shrink-0 shadow-sm">
                     <Image
-                      src={aboutData.showroomImage}
+                      src={aboutData.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
                       alt="Bangalore Mega Showroom"
                       fill
                       unoptimized
@@ -1997,15 +1997,45 @@ export default function AdminPage() {
                     />
                   </div>
                   <div className="flex-1 space-y-2 text-xs">
-                    <label className="block font-bold text-gray-700">Image Asset Path</label>
+                    <label className="block font-bold text-gray-700">Showroom Image Asset Path</label>
                     <input
                       type="text"
-                      value={aboutData.showroomImage}
+                      value={aboutData.showroomImage || ''}
                       onChange={(e) => setAboutData({ ...aboutData, showroomImage: e.target.value })}
                       className="w-full px-3 py-2 border rounded-lg font-mono text-gray-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                     />
                     <p className="text-[11px] text-gray-500 leading-relaxed">
                       Rendered on the About Us page using loss-free ultra-high definition rendering.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2b. Central Warehouse & Logistics Photo */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
+                  3. Central Warehouse &amp; Logistics Facility Photograph
+                </h2>
+                <div className="flex flex-col sm:flex-row gap-5 items-center">
+                  <div className="w-full sm:w-64 aspect-[4/3] relative rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shrink-0 shadow-sm">
+                    <Image
+                      src={aboutData.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
+                      alt="Central Warehouse Facility"
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2 text-xs">
+                    <label className="block font-bold text-gray-700">Warehouse Image Asset Path</label>
+                    <input
+                      type="text"
+                      value={aboutData.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
+                      onChange={(e) => setAboutData({ ...aboutData, warehouseImage: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-mono text-gray-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                    <p className="text-[11px] text-gray-500 leading-relaxed">
+                      Displays alongside the showroom image in the Welcome section of About Us.
                     </p>
                   </div>
                 </div>

@@ -31,35 +31,70 @@ export default async function AboutPage() {
         </div>
 
         {/* Section 1: Welcome to Ratnagiri Impex */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+          <div className="lg:col-span-6 space-y-4">
             <span className="text-xs font-bold text-[#0d9749] uppercase tracking-wider">
-              {about.subtitle}
+              {about.subtitle || 'ABOUT RATNAGIRI IMPEX PVT. LTD.'}
             </span>
-            <h1 className="text-3xl font-extrabold text-gray-900 mt-1 mb-4">
-              {about.title}
+            <h1 className="text-3xl font-extrabold text-gray-900 mt-1 mb-2">
+              {about.title || 'Welcome to RATNAGIRI IMPEX'}
             </h1>
-            <div className="w-16 h-1 bg-[#0d9749] mb-6"></div>
+            <div className="w-16 h-1 bg-[#0d9749] mb-4"></div>
 
-            <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-              <p>{about.description}</p>
+            <div className="space-y-3.5 text-sm text-gray-700 leading-relaxed">
               <p>
-                <strong>Founded in {about.foundedYear}</strong>, AGRIMART is based in Bangalore and marketed by Ratnagiri Impex Pvt. Ltd., an initiative of the <strong>{about.parentGroup}</strong>, bringing decades of experience in agricultural equipment under our flagship brand <strong>{about.flagshipBrand}</strong>.
+                We have an extensive presence all over India and are a reputable agricultural equipment enterprise that supplies high-quality products, ensuring durability, enhanced yield, and unmatched customer satisfaction.
+              </p>
+              <p>
+                Additionally, we are an all-in-one destination for agricultural equipment that simplifies the procurement process and offers comprehensive after-sales service across the nation.
+              </p>
+              <p>
+                <strong>Ratnagiri Impex was founded in {about.foundedYear || '2000'}</strong>, and since inception we have worked to achieve technological excellence by importing the most advanced agricultural machinery and introducing private-label innovations under our flagship brand <strong>{about.flagshipBrand || 'AGRIMATE'}</strong>.
+              </p>
+              <p>
+                AGRIMART is based in Bangalore and marketed by Ratnagiri Impex Pvt. Ltd., an initiative of the <strong>{about.parentGroup || 'Annapurna Group'}</strong>, who bring decades of deep experience in agricultural equipment, plantations, operations, distribution, and service.
               </p>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200/90 shadow-md bg-white">
-              <Image
-                src={about.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
-                alt="Ratnagiri Impex & Agrimart Mega Showroom"
-                fill
-                priority
-                unoptimized
-                sizes="100vw"
-                className="object-cover object-center hover:scale-105 transition-transform duration-700"
-              />
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            {/* Showroom Image Card */}
+            <div className="group relative rounded-2xl overflow-hidden border border-gray-200/90 shadow-md bg-white">
+              <div className="relative w-full aspect-[16/10]">
+                <Image
+                  src={about.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
+                  alt="Ratnagiri Impex & Agrimart Mega Showroom"
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg text-white text-xs font-semibold flex items-center gap-2 border border-white/10 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Agrimart Mega Showroom
+                </div>
+              </div>
+            </div>
+
+            {/* Warehouse Facility Image Card */}
+            <div className="group relative rounded-2xl overflow-hidden border border-gray-200/90 shadow-md bg-white">
+              <div className="relative w-full aspect-[16/10]">
+                <Image
+                  src={about.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
+                  alt="Ratnagiri Impex Central Warehouse & Logistics Facility"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg text-white text-xs font-semibold flex items-center gap-2 border border-white/10 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Ratnagiri Impex Central Warehouse &amp; Logistics
+                </div>
+              </div>
             </div>
           </div>
         </div>

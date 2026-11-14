@@ -27,6 +27,7 @@ export interface AboutUsCmsData {
   parentGroup: string;
   flagshipBrand: string;
   showroomImage: string;
+  warehouseImage?: string;
   description: string;
   vision: string;
   mission: string;
@@ -100,6 +101,7 @@ export const DEFAULT_ABOUTUS_CMS: AboutUsCmsData = {
   parentGroup: 'Annapurna Group',
   flagshipBrand: 'AGRIMATE',
   showroomImage: '/assets/about/agrimart_mega_showroom.jpg',
+  warehouseImage: '/assets/about/ratnagiri_impex_warehouse.jpg',
   description:
     'We have an extensive presence all over India and are a reputable agricultural equipment enterprise that supplies high-quality products, ensuring durability, enhanced yield, and unmatched customer satisfaction. Additionally, we are an all-in-one destination for agricultural equipment that simplifies the procurement process and offers comprehensive after-sales service across the nation. Ratnagiri Impex was founded in 2000, bringing over two decades of technological excellence in agricultural machinery.',
   vision:

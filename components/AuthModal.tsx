@@ -48,13 +48,32 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
     }
   };
 
-  const handleGeneralLogin = (e: React.FormEvent) => {
+  const handleGeneralLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (mode === 'admin') {
-      if (email === 'admin@agrimart.in' && password === 'admin123') {
-        window.location.href = '/admin';
-      } else {
-        setAuthenticatedUser('Admin User');
+      try {
+        const res = await fetch('/api/admin/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'verify', email, password }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.href = '/admin';
+          return;
+        } else {
+          alert(data.message || 'Invalid admin credentials');
+          return;
+        }
+      } catch (err) {
+        // Fallback for offline or local dev
+        if (email === 'admin@agrimart.in' && password === 'admin123') {
+          window.location.href = '/admin';
+          return;
+        } else {
+          alert('Unable to authenticate. Please check your credentials.');
+          return;
+        }
       }
     } else if (mode === 'b2b') {
       setAuthenticatedUser(`Dealer: ${companyName || 'Registered Partner'}`);
@@ -284,7 +303,7 @@ export default function AuthModal({ isOpen, initialMode = 'signin', onClose }: A
 
                   {mode === 'admin' && (
                     <p className="text-[11px] text-gray-500 bg-gray-50 p-2 rounded">
-                      Demo Admin credentials: <code>admin@agrimart.in</code> / <code>admin123</code>
+                      Admin credentials: <code>admin@agrimart.in</code> (Default: <code>admin123</code> or your custom updated password)
                     </p>
                   )}
 

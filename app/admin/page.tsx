@@ -33,7 +33,11 @@ import {
   Phone,
   MapPin,
   Mail,
-  Clock
+  Clock,
+  Key,
+  Lock,
+  ShieldCheck,
+  EyeOff
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
@@ -55,7 +59,7 @@ import {
 import { Product } from '@/types';
 
 export default function AdminPage() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus' | 'footer'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus' | 'footer' | 'security'>('dashboard');
   const [productSearch, setProductSearch] = useState('');
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
@@ -161,6 +165,28 @@ export default function AdminPage() {
   const [isSavingFooter, setIsSavingFooter] = useState(false);
   const [footerSaveSuccess, setFooterSaveSuccess] = useState(false);
 
+  // Admin Password & Security State
+  const [adminAuthInfo, setAdminAuthInfo] = useState<{
+    email: string;
+    hasCustomPassword: boolean;
+    lastUpdated: string | null;
+  }>({
+    email: 'admin@agrimart.in',
+    hasCustomPassword: false,
+    lastUpdated: null,
+  });
+  const [currentPasswordInput, setCurrentPasswordInput] = useState('');
+  const [newPasswordInput, setNewPasswordInput] = useState('');
+  const [confirmPasswordInput, setConfirmPasswordInput] = useState('');
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [passwordFeedback, setPasswordFeedback] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isNewProduct, setIsNewProduct] = useState(false);
@@ -235,6 +261,19 @@ export default function AdminPage() {
         }
       })
       .catch(e => console.error('API CMS load error:', e));
+
+    fetch('/api/admin/auth')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setAdminAuthInfo({
+            email: data.email || 'admin@agrimart.in',
+            hasCustomPassword: Boolean(data.hasCustomPassword),
+            lastUpdated: data.lastUpdated || null,
+          });
+        }
+      })
+      .catch(e => console.error('API auth load error:', e));
   }, []);
 
   // Product Actions
@@ -583,6 +622,74 @@ export default function AdminPage() {
     }
   };
 
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasswordFeedback({ type: null, message: '' });
+
+    if (!currentPasswordInput.trim()) {
+      setPasswordFeedback({ type: 'error', message: 'Please enter your current password.' });
+      return;
+    }
+    if (!newPasswordInput.trim()) {
+      setPasswordFeedback({ type: 'error', message: 'Please enter a new password.' });
+      return;
+    }
+    if (newPasswordInput.length < 6) {
+      setPasswordFeedback({ type: 'error', message: 'New password must be at least 6 characters long.' });
+      return;
+    }
+    if (newPasswordInput !== confirmPasswordInput) {
+      setPasswordFeedback({ type: 'error', message: 'New password and confirmation password do not match.' });
+      return;
+    }
+    if (newPasswordInput === currentPasswordInput) {
+      setPasswordFeedback({ type: 'error', message: 'New password cannot be identical to your current password.' });
+      return;
+    }
+
+    setIsChangingPassword(true);
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'change-password',
+          currentPassword: currentPasswordInput,
+          newPassword: newPasswordInput,
+          confirmPassword: confirmPasswordInput,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setPasswordFeedback({
+          type: 'success',
+          message: data.message || 'Password changed successfully! Next time you login, please use your new password.',
+        });
+        setCurrentPasswordInput('');
+        setNewPasswordInput('');
+        setConfirmPasswordInput('');
+        setAdminAuthInfo(prev => ({
+          ...prev,
+          hasCustomPassword: true,
+          lastUpdated: data.lastUpdated || new Date().toISOString(),
+        }));
+      } else {
+        setPasswordFeedback({
+          type: 'error',
+          message: data.message || 'Failed to update password. Please check your current password.',
+        });
+      }
+    } catch (err: any) {
+      setPasswordFeedback({
+        type: 'error',
+        message: err.message || 'Network error while attempting to update password.',
+      });
+    } finally {
+      setIsChangingPassword(false);
+    }
+  };
+
   // Dealer Applications State
   const [dealerApplications, setDealerApplications] = useState<any[]>([]);
   const [dealerSearch, setDealerSearch] = useState('');
@@ -837,6 +944,18 @@ export default function AdminPage() {
           </Link>
           <span className="text-gray-500">|</span>
           <span className="text-gray-300">Logged in as: <strong>Admin User (Ratnagiri Impex)</strong></span>
+          <button
+            onClick={() => setActiveTab('security')}
+            className={`px-2.5 py-1.5 rounded flex items-center gap-1.5 transition-colors font-semibold cursor-pointer border ${
+              activeTab === 'security'
+                ? 'bg-emerald-600 text-white border-emerald-500'
+                : 'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30'
+            }`}
+            title="Manage Admin Password & Security"
+          >
+            <Key className="w-3.5 h-3.5" />
+            <span>Change Password</span>
+          </button>
           <Link href="/" className="text-gray-400 hover:text-white flex items-center gap-1">
             <LogOut className="w-3.5 h-3.5" /> Back to Store
           </Link>
@@ -982,6 +1101,25 @@ export default function AdminPage() {
             </div>
             <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
               Live
+            </span>
+          </button>
+
+          <div className="pt-3 pb-1 px-3">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Security & Account</p>
+          </div>
+
+          <button
+            onClick={() => setActiveTab('security')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
+              activeTab === 'security' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Key className="w-4 h-4" />
+              <span>Change Password</span>
+            </div>
+            <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-amber-100 text-amber-800">
+              Security
             </span>
           </button>
         </aside>
@@ -4145,6 +4283,255 @@ export default function AdminPage() {
                     <span>{isSavingFooter ? 'Saving to Database...' : footerSaveSuccess ? 'Saved Successfully!' : 'Save Footer Settings'}</span>
                   </button>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: ADMIN PASSWORD & SECURITY */}
+          {activeTab === 'security' && (
+            <div className="space-y-6 max-w-4xl pb-16">
+              {/* Header Banner */}
+              <div className="bg-white rounded-xl shadow-xs border border-gray-200 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-200">
+                      Access Credentials & Authentication
+                    </span>
+                    <span className="text-xs text-gray-400 font-mono">
+                      PostgreSQL: cms_settings (admin_auth)
+                    </span>
+                  </div>
+                  <h1 className="text-2xl font-black text-gray-900 tracking-tight flex items-center gap-2">
+                    <Lock className="w-6 h-6 text-[#0d9749]" />
+                    <span>Change Admin Password</span>
+                  </h1>
+                  <p className="text-xs text-gray-500 max-w-2xl">
+                    Update your master administrator password. Changes are securely hashed and stored in your PostgreSQL database, taking effect immediately for all subsequent logins.
+                  </p>
+                </div>
+              </div>
+
+              {/* Security Status Card */}
+              <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl p-5 shadow-sm border border-slate-700">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-300">Authorized Master Account</p>
+                      <p className="text-sm font-black text-white flex items-center gap-2">
+                        <span>{adminAuthInfo.email}</span>
+                        <span className="text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
+                          Super Administrator
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-left sm:text-right border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-700/60">
+                    <p className="text-[11px] text-gray-400">Password Status</p>
+                    <p className="text-xs font-bold text-emerald-400 flex items-center sm:justify-end gap-1.5 mt-0.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      {adminAuthInfo.hasCustomPassword ? 'Custom Password Active' : 'Default Credentials (admin123)'}
+                    </p>
+                    {adminAuthInfo.lastUpdated && (
+                      <p className="text-[10px] text-gray-400 mt-1">
+                        Last modified: {new Date(adminAuthInfo.lastUpdated).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Password Feedback Notification */}
+              {passwordFeedback.message && (
+                <div
+                  className={`p-4 rounded-xl border flex items-start gap-3 animate-in fade-in duration-200 ${
+                    passwordFeedback.type === 'success'
+                      ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                      : 'bg-red-50 border-red-200 text-red-900'
+                  }`}
+                >
+                  {passwordFeedback.type === 'success' ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  ) : (
+                    <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                  )}
+                  <div className="text-xs space-y-0.5">
+                    <p className="font-bold">
+                      {passwordFeedback.type === 'success' ? 'Password Updated Successfully' : 'Password Update Failed'}
+                    </p>
+                    <p>{passwordFeedback.message}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Password Form Card */}
+              <div className="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
+                <div className="p-5 bg-gray-50/80 border-b border-gray-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Key className="w-4 h-4 text-[#0d9749]" />
+                    <h2 className="text-sm font-bold text-gray-900">Set New Admin Credentials</h2>
+                  </div>
+                  <span className="text-[11px] text-gray-500 font-medium">All fields required</span>
+                </div>
+
+                <form onSubmit={handleChangePassword} className="p-6 space-y-5">
+                  {/* Current Password Field */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                      Current Password <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative max-w-lg">
+                      <input
+                        type={showCurrentPassword ? 'text' : 'password'}
+                        value={currentPasswordInput}
+                        onChange={(e) => setCurrentPasswordInput(e.target.value)}
+                        placeholder="Enter current password (default: admin123)"
+                        required
+                        className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-xs font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer p-0.5"
+                      >
+                        {showCurrentPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                    <p className="text-[11px] text-gray-500 mt-1">
+                      If you have never changed the password before, the initial default password is <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700 font-bold">admin123</code>.
+                    </p>
+                  </div>
+
+                  <div className="border-t border-gray-100 pt-5 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl">
+                    {/* New Password Field */}
+                    <div>
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                        New Password <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          type={showNewPassword ? 'text' : 'password'}
+                          value={newPasswordInput}
+                          onChange={(e) => setNewPasswordInput(e.target.value)}
+                          placeholder="Enter new strong password"
+                          required
+                          className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-xs font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowNewPassword(!showNewPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer p-0.5"
+                        >
+                          {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Confirm Password Field */}
+                    <div>
+                      <label className="block text-xs font-bold text-gray-800 mb-1.5">
+                        Confirm New Password <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          type={showConfirmPassword ? 'text' : 'password'}
+                          value={confirmPasswordInput}
+                          onChange={(e) => setConfirmPasswordInput(e.target.value)}
+                          placeholder="Re-enter new password"
+                          required
+                          className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-xs font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer p-0.5"
+                        >
+                          {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Real-time Checklist */}
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-3.5 max-w-2xl text-[11px] space-y-1.5">
+                    <p className="font-bold text-gray-700">Password Requirements Checklist:</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-600">
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold ${
+                          newPasswordInput.length >= 6 ? 'bg-emerald-500 text-white' : 'bg-gray-200 text-gray-500'
+                        }`}>
+                          {newPasswordInput.length >= 6 ? '✓' : '•'}
+                        </span>
+                        <span>At least 6 characters in length</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold ${
+                          newPasswordInput.length > 0 && newPasswordInput === confirmPasswordInput ? 'bg-emerald-500 text-white' : 'bg-gray-200 text-gray-500'
+                        }`}>
+                          {newPasswordInput.length > 0 && newPasswordInput === confirmPasswordInput ? '✓' : '•'}
+                        </span>
+                        <span>New & Confirm passwords match</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold ${
+                          newPasswordInput.length > 0 && newPasswordInput !== currentPasswordInput ? 'bg-emerald-500 text-white' : 'bg-gray-200 text-gray-500'
+                        }`}>
+                          {newPasswordInput.length > 0 && newPasswordInput !== currentPasswordInput ? '✓' : '•'}
+                        </span>
+                        <span>Different from current password</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Form Submission Buttons */}
+                  <div className="pt-2 flex items-center gap-3">
+                    <button
+                      type="submit"
+                      disabled={isChangingPassword}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                    >
+                      {isChangingPassword ? (
+                        <>
+                          <RefreshCw className="w-4 h-4 animate-spin" />
+                          <span>Updating Password in Database...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Save className="w-4 h-4" />
+                          <span>Update Admin Password</span>
+                        </>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCurrentPasswordInput('');
+                        setNewPasswordInput('');
+                        setConfirmPasswordInput('');
+                        setPasswordFeedback({ type: null, message: '' });
+                      }}
+                      className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-lg transition-colors cursor-pointer"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              {/* Best Practices Guide */}
+              <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl p-5 text-xs text-amber-950 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-amber-900">
+                  <ShieldCheck className="w-4 h-4 text-amber-700" />
+                  <span>Security Recommendations for Agrimart Administrators</span>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-[11px] text-amber-900/80">
+                  <li>Use a strong password that mixes uppercase letters, numbers, and symbols.</li>
+                  <li>Do not share your master administrator credentials with unauthorized personnel.</li>
+                  <li>Your password change takes effect immediately on all open sessions and devices.</li>
+                  <li>In case of emergency or locked credentials, system administrators can reset credentials directly via PostgreSQL.</li>
+                </ul>
               </div>
             </div>
           )}

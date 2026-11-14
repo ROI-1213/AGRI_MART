@@ -70,10 +70,16 @@ export default function AdminPage() {
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isNewProduct, setIsNewProduct] = useState(false);
-  const [activeEditTab, setActiveEditTab] = useState<'basic' | 'pricing' | 'images' | 'specs' | 'desc'>('basic');
+  const [activeEditTab, setActiveEditTab] = useState<'basic' | 'pricing' | 'images' | 'specs' | 'brochures' | 'desc'>('basic');
   const [editSpecs, setEditSpecs] = useState<Array<{ key: string; value: string }>>([]);
   const [editImages, setEditImages] = useState<string[]>([]);
   const [newImageUrl, setNewImageUrl] = useState('');
+  const [editBrochures, setEditBrochures] = useState<Array<{ language: string; url: string; name: string }>>([]);
+  const [newBrochureLang, setNewBrochureLang] = useState('English');
+  const [customBrochureLang, setCustomBrochureLang] = useState('');
+  const [newBrochureName, setNewBrochureName] = useState('');
+  const [newBrochureUrl, setNewBrochureUrl] = useState('');
+  const [editingBrochureIndex, setEditingBrochureIndex] = useState<number | null>(null);
   const [isSavingProduct, setIsSavingProduct] = useState(false);
   const [saveSuccessMsg, setSaveSuccessMsg] = useState<string | null>(null);
 
@@ -135,6 +141,12 @@ export default function AdminPage() {
     setActiveEditTab('basic');
     setSaveSuccessMsg(null);
     setNewImageUrl('');
+    setEditBrochures(Array.isArray(p.brochures) ? [...p.brochures] : []);
+    setNewBrochureLang('English');
+    setCustomBrochureLang('');
+    setNewBrochureName('');
+    setNewBrochureUrl('');
+    setEditingBrochureIndex(null);
     
     const specsArr = Object.entries(p.specifications || {}).map(([key, value]) => ({
       key,
@@ -181,6 +193,12 @@ export default function AdminPage() {
     setActiveEditTab('basic');
     setSaveSuccessMsg(null);
     setNewImageUrl('');
+    setEditBrochures([]);
+    setNewBrochureLang('English');
+    setCustomBrochureLang('');
+    setNewBrochureName('');
+    setNewBrochureUrl('');
+    setEditingBrochureIndex(null);
     setEditSpecs(Object.entries(newProd.specifications).map(([key, value]) => ({ key, value: String(value) })));
     setEditImages([...newProd.images]);
   };
@@ -212,6 +230,7 @@ export default function AdminPage() {
       thumbnailImage: editImages[0] || editingProduct.thumbnailImage || '/assets/branding/logo.png',
       images: editImages.length > 0 ? editImages : [editingProduct.thumbnailImage || '/assets/branding/logo.png'],
       specifications: specsRecord,
+      brochures: editBrochures.filter(b => b && b.url && b.url.trim() !== ''),
     };
 
     try {
@@ -2159,12 +2178,21 @@ export default function AdminPage() {
                     4. Technical Specs ({editSpecs.length})
                   </button>
                   <button
+                    onClick={() => setActiveEditTab('brochures')}
+                    className={`py-3 px-3 border-b-2 transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+                      activeEditTab === 'brochures' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>5. Multi-Language Brochures ({editBrochures.length})</span>
+                  </button>
+                  <button
                     onClick={() => setActiveEditTab('desc')}
                     className={`py-3 px-3 border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
                       activeEditTab === 'desc' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    5. Description & Overview
+                    6. Description & Overview
                   </button>
                 </div>
 
@@ -2449,6 +2477,32 @@ export default function AdminPage() {
                           ))}
                         </div>
                       </div>
+
+                      {/* Multi-Language Brochures Quick Link in Tab 3 */}
+                      <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0">
+                            <FileText className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-900 text-xs">
+                              Multi-Language Product Brochures ({editBrochures.length})
+                            </h4>
+                            <p className="text-[11px] text-gray-600 mt-0.5">
+                              {editBrochures.length > 0 
+                                ? `Configured in: ${Array.from(new Set(editBrochures.map(b => b.language))).join(', ')}`
+                                : 'No brochures configured yet. Add brochures in Kannada, Telugu, Hindi, or English.'}
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setActiveEditTab('brochures')}
+                          className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs transition-colors shrink-0 shadow-xs cursor-pointer text-center"
+                        >
+                          Manage Language Brochures →
+                        </button>
+                      </div>
                     </div>
                   )}
 
@@ -2510,7 +2564,337 @@ export default function AdminPage() {
                     </div>
                   )}
 
-                  {/* TAB 5: DESCRIPTION */}
+                  {/* TAB 5: MULTI-LANGUAGE BROCHURES */}
+                  {activeEditTab === 'brochures' && (
+                    <div className="space-y-6">
+                      {/* Section Info Banner */}
+                      <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 p-4 rounded-xl text-emerald-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <FileText className="w-4 h-4 text-emerald-700" />
+                            <h3 className="font-bold text-sm text-emerald-900">Multi-Language Product Brochures &amp; User Manuals</h3>
+                          </div>
+                          <p className="text-[11px] text-emerald-800 mt-1 leading-relaxed">
+                            Upload or link official PDF brochures in English, Kannada, Hindi, Telugu, Tamil, and other regional languages. These show on the live product page so farmers across India can read in their native language.
+                          </p>
+                        </div>
+                        <div className="bg-white/80 border border-emerald-300 px-3 py-1.5 rounded-lg text-center shrink-0">
+                          <span className="text-[10px] uppercase font-bold text-gray-500 block">Total Brochures</span>
+                          <span className="text-base font-extrabold text-emerald-700">{editBrochures.length}</span>
+                        </div>
+                      </div>
+
+                      {/* Add or Edit Brochure Form */}
+                      <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-5 space-y-4">
+                        <div className="flex items-center justify-between border-b pb-3">
+                          <h4 className="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2">
+                            <Plus className="w-4 h-4 text-emerald-600" />
+                            <span>{editingBrochureIndex !== null ? `Edit Brochure (#${editingBrochureIndex + 1})` : 'Add New Multi-Language Brochure'}</span>
+                          </h4>
+                          {editingBrochureIndex !== null && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setEditingBrochureIndex(null);
+                                setNewBrochureName('');
+                                setNewBrochureUrl('');
+                                setNewBrochureLang('English');
+                                setCustomBrochureLang('');
+                              }}
+                              className="text-xs text-gray-500 hover:text-gray-800 underline font-semibold cursor-pointer"
+                            >
+                              Cancel Edit
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+                          {/* Language Selector */}
+                          <div className="sm:col-span-4">
+                            <label className="block font-bold text-gray-700 mb-1">
+                              Brochure Language <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                              value={newBrochureLang}
+                              onChange={(e) => {
+                                const selected = e.target.value;
+                                setNewBrochureLang(selected);
+                                if (!newBrochureName.trim() || newBrochureName.includes('Brochure')) {
+                                  const langDisplay = selected === 'Other' ? '' : selected;
+                                  setNewBrochureName(`${editingProduct.name || 'Product'} Brochure ${langDisplay ? `(${langDisplay})` : ''}`.trim());
+                                }
+                              }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs bg-white font-semibold text-gray-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                            >
+                              <option value="English">English</option>
+                              <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+                              <option value="Telugu">Telugu (తెలుగు)</option>
+                              <option value="Hindi">Hindi (हिन्दी)</option>
+                              <option value="Tamil">Tamil (தமிழ்)</option>
+                              <option value="Malayalam">Malayalam (മലയാളം)</option>
+                              <option value="Marathi">Marathi (मराठी)</option>
+                              <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+                              <option value="Bengali">Bengali (বাংলা)</option>
+                              <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+                              <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+                              <option value="Other">Other / Custom Language...</option>
+                            </select>
+                          </div>
+
+                          {/* Custom Language Input if "Other" is chosen */}
+                          {newBrochureLang === 'Other' && (
+                            <div className="sm:col-span-8">
+                              <label className="block font-bold text-gray-700 mb-1">
+                                Specify Custom Language <span className="text-red-500">*</span>
+                              </label>
+                              <input
+                                type="text"
+                                placeholder="e.g. Assamese, Urdu, Spanish..."
+                                value={customBrochureLang}
+                                onChange={(e) => setCustomBrochureLang(e.target.value)}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                              />
+                            </div>
+                          )}
+
+                          {/* Brochure Name / Title */}
+                          <div className={newBrochureLang === 'Other' ? 'sm:col-span-12' : 'sm:col-span-8'}>
+                            <div className="flex items-center justify-between mb-1">
+                              <label className="font-bold text-gray-700">
+                                Brochure Title / Label <span className="text-red-500">*</span>
+                              </label>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const effectiveLang = newBrochureLang === 'Other' ? (customBrochureLang || 'Document') : newBrochureLang;
+                                  setNewBrochureName(`${editingProduct.name || 'Machinery'} Specifications Brochure (${effectiveLang})`);
+                                }}
+                                className="text-[11px] text-emerald-700 hover:text-emerald-900 font-semibold underline cursor-pointer"
+                              >
+                                Auto-fill Title
+                              </button>
+                            </div>
+                            <input
+                              type="text"
+                              placeholder="e.g. Heavy Duty Brush Cutter Brochure (Kannada)"
+                              value={newBrochureName}
+                              onChange={(e) => setNewBrochureName(e.target.value)}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                            />
+                          </div>
+
+                          {/* Brochure PDF File Path / URL */}
+                          <div className="sm:col-span-12">
+                            <label className="block font-bold text-gray-700 mb-1">
+                              PDF Brochure File Path or Public URL <span className="text-red-500">*</span>
+                            </label>
+                            <div className="flex gap-2">
+                              <input
+                                type="text"
+                                placeholder="/uploads/product_brochure/1/example.pdf or https://..."
+                                value={newBrochureUrl}
+                                onChange={(e) => setNewBrochureUrl(e.target.value)}
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const effectiveLang = (newBrochureLang === 'Other' ? customBrochureLang : newBrochureLang).trim();
+                                  if (!effectiveLang) {
+                                    alert('Please specify the brochure language');
+                                    return;
+                                  }
+                                  if (!newBrochureUrl.trim()) {
+                                    alert('Please provide a valid PDF URL or file path');
+                                    return;
+                                  }
+                                  const effectiveName = newBrochureName.trim() || `${editingProduct.name || 'Machinery'} Brochure (${effectiveLang})`;
+
+                                  if (editingBrochureIndex !== null) {
+                                    const updated = [...editBrochures];
+                                    updated[editingBrochureIndex] = {
+                                      language: effectiveLang,
+                                      name: effectiveName,
+                                      url: newBrochureUrl.trim(),
+                                    };
+                                    setEditBrochures(updated);
+                                    setEditingBrochureIndex(null);
+                                  } else {
+                                    setEditBrochures([
+                                      ...editBrochures,
+                                      {
+                                        language: effectiveLang,
+                                        name: effectiveName,
+                                        url: newBrochureUrl.trim(),
+                                      },
+                                    ]);
+                                  }
+
+                                  setNewBrochureName('');
+                                  setNewBrochureUrl('');
+                                  setNewBrochureLang('English');
+                                  setCustomBrochureLang('');
+                                }}
+                                className="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs transition-colors shrink-0 shadow-xs cursor-pointer"
+                              >
+                                {editingBrochureIndex !== null ? 'Update Brochure' : '+ Add Brochure'}
+                              </button>
+                            </div>
+                            <p className="text-[11px] text-gray-500 mt-1">
+                              Supports local brochure uploads under <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">/uploads/product_brochure/1/...</code> or any remote HTTPS document URL.
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Quick Regional Presets */}
+                        <div className="pt-2 border-t border-gray-200">
+                          <p className="text-[11px] font-bold text-gray-600 mb-2">Quick Regional Language Presets:</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {[
+                              { lang: 'English', label: 'English' },
+                              { lang: 'Kannada', label: 'ಕನ್ನಡ (Kannada)' },
+                              { lang: 'Telugu', label: 'తెలుగు (Telugu)' },
+                              { lang: 'Hindi', label: 'हिन्दी (Hindi)' },
+                              { lang: 'Tamil', label: 'தமிழ் (Tamil)' },
+                              { lang: 'Malayalam', label: 'മലയാളം (Malayalam)' },
+                              { lang: 'Marathi', label: 'मराठी (Marathi)' },
+                            ].map((preset) => (
+                              <button
+                                key={preset.lang}
+                                type="button"
+                                onClick={() => {
+                                  setNewBrochureLang(preset.lang);
+                                  setNewBrochureName(`${editingProduct.name || 'Machinery'} Brochure (${preset.lang})`);
+                                }}
+                                className="px-2.5 py-1 bg-white hover:bg-emerald-50 text-gray-700 hover:text-emerald-800 border border-gray-300 hover:border-emerald-400 rounded-md text-[11px] font-medium transition-colors cursor-pointer"
+                              >
+                                {preset.label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Current Brochures List */}
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="font-bold text-gray-800 text-xs sm:text-sm">
+                            Configured Brochures for this Machine ({editBrochures.length})
+                          </h4>
+                          {editBrochures.length > 0 && (
+                            <span className="text-[11px] text-gray-500">
+                              These will appear in the &quot;Brochure&quot; tab on the live website.
+                            </span>
+                          )}
+                        </div>
+
+                        {editBrochures.length === 0 ? (
+                          <div className="p-8 text-center bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 text-gray-500">
+                            <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                            <p className="font-bold text-gray-700 text-xs">No multi-language brochures added yet</p>
+                            <p className="text-[11px] text-gray-500 mt-1 max-w-md mx-auto">
+                              Add brochures in English, Kannada, Telugu, or Hindi so customers and dealers can download genuine technical specs in their regional language.
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="space-y-2.5">
+                            {editBrochures.map((b, bIdx) => {
+                              const normL = (b.language || 'English').toLowerCase();
+                              const badgeColor = normL.includes('kannada') || normL === 'kn'
+                                ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                                : normL.includes('telugu') || normL === 'te'
+                                ? 'bg-purple-100 text-purple-800 border-purple-300'
+                                : normL.includes('hindi') || normL === 'hi'
+                                ? 'bg-amber-100 text-amber-800 border-amber-300'
+                                : normL.includes('tamil') || normL === 'ta'
+                                ? 'bg-rose-100 text-rose-800 border-rose-300'
+                                : normL.includes('malayalam') || normL === 'ml'
+                                ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
+                                : normL.includes('marathi') || normL === 'mr'
+                                ? 'bg-orange-100 text-orange-800 border-orange-300'
+                                : 'bg-blue-100 text-blue-800 border-blue-300';
+
+                              return (
+                                <div
+                                  key={bIdx}
+                                  className="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-white border border-gray-200 hover:border-emerald-300 rounded-xl gap-3 shadow-2xs transition-all"
+                                >
+                                  <div className="flex items-start gap-3 min-w-0">
+                                    <div className="p-2 bg-red-50 text-red-600 rounded-lg shrink-0 mt-0.5">
+                                      <FileText className="w-5 h-5" />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <div className="flex items-center gap-2 flex-wrap">
+                                        <span className={`text-[10px] uppercase font-extrabold px-2 py-0.5 rounded border ${badgeColor}`}>
+                                          {b.language || 'English'}
+                                        </span>
+                                        <h5 className="font-bold text-gray-900 text-xs sm:text-sm truncate">
+                                          {b.name || 'Brochure'}
+                                        </h5>
+                                      </div>
+                                      <p className="text-[11px] text-gray-500 font-mono truncate mt-0.5">
+                                        {b.url}
+                                      </p>
+                                    </div>
+                                  </div>
+
+                                  <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                                    {b.url && (
+                                      <a
+                                        href={b.url.startsWith('/') ? b.url : b.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-xs font-semibold transition-colors"
+                                        title="Preview in new tab"
+                                      >
+                                        <ExternalLink className="w-3.5 h-3.5" />
+                                        <span>Test Link</span>
+                                      </a>
+                                    )}
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingBrochureIndex(bIdx);
+                                        setNewBrochureName(b.name);
+                                        setNewBrochureUrl(b.url);
+                                        const knownLangs = ['English', 'Kannada', 'Telugu', 'Hindi', 'Tamil', 'Malayalam', 'Marathi', 'Gujarati', 'Bengali', 'Odia', 'Punjabi'];
+                                        if (knownLangs.includes(b.language)) {
+                                          setNewBrochureLang(b.language);
+                                          setCustomBrochureLang('');
+                                        } else {
+                                          setNewBrochureLang('Other');
+                                          setCustomBrochureLang(b.language);
+                                        }
+                                      }}
+                                      className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg text-xs font-semibold transition-colors cursor-pointer"
+                                    >
+                                      <Edit className="w-3.5 h-3.5" />
+                                      <span>Edit</span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditBrochures(editBrochures.filter((_, idx) => idx !== bIdx));
+                                        if (editingBrochureIndex === bIdx) {
+                                          setEditingBrochureIndex(null);
+                                        }
+                                      }}
+                                      className="p-1.5 text-red-500 hover:bg-red-50 hover:text-red-700 rounded-lg transition-colors cursor-pointer"
+                                      title="Delete this brochure"
+                                    >
+                                      <Trash2 className="w-4 h-4" />
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* TAB 6: DESCRIPTION */}
                   {activeEditTab === 'desc' && (
                     <div className="space-y-4">
                       <div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -10,10 +10,25 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  AlertCircle 
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
+import { DEFAULT_CONTACTUS_CMS, ContactUsCmsData } from '@/lib/cmsDefaults';
 
 export default function ContactPage() {
+  const [cmsData, setCmsData] = useState<ContactUsCmsData>(DEFAULT_CONTACTUS_CMS);
+
+  useEffect(() => {
+    fetch('/api/admin/cms?key=contactus')
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          setCmsData({ ...DEFAULT_CONTACTUS_CMS, ...resData.data });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -75,13 +90,13 @@ export default function ContactPage() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
             <Phone className="w-3.5 h-3.5" />
-            <span>Pan-India Sales &amp; Service Support</span>
+            <span>{cmsData.badge}</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Contact Agrimart
+            {cmsData.title}
           </h1>
           <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl leading-relaxed">
-            Expert consultation for agricultural machinery selection, institutional subsidies, genuine spare parts, and nationwide dealer network assistance.
+            {cmsData.subtitle}
           </p>
         </div>
 
@@ -89,7 +104,7 @@ export default function ContactPage() {
           {/* Left Column: Form (2 cols) */}
           <div className="lg:col-span-2 bg-white rounded-lg border border-gray-200 p-6 sm:p-8 shadow-sm">
             <h2 className="text-lg font-bold text-gray-900 mb-4 pb-2 border-b">
-              Send an Enquiry
+              {cmsData.formTitle}
             </h2>
 
             {status === 'success' ? (
@@ -301,9 +316,20 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-gray-900">Head Office</h3>
                     <p className="mt-1 leading-relaxed text-gray-600">
-                      <strong>Ratnagiri Impex Pvt. Ltd.</strong><br />
-                      Annapurna House, #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.
+                      <strong>{cmsData.companyName}</strong><br />
+                      {cmsData.headOfficeAddress}
                     </p>
+                    {cmsData.googleMapsLink && (
+                      <a
+                        href={cmsData.googleMapsLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 hover:text-emerald-900 hover:underline mt-1.5"
+                      >
+                        <span>Open in Google Maps</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -312,8 +338,13 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-gray-900">Telephone / Helpline</h3>
                     <p className="mt-1 text-gray-600">
-                      Toll Free: <a href="tel:7393938938" className="font-bold text-[#0d9749] hover:underline">7393 938 938</a>
+                      Toll Free: <a href={`tel:${cmsData.tollFreePhone.replace(/\s+/g, '')}`} className="font-bold text-[#0d9749] hover:underline">{cmsData.tollFreePhone}</a>
                     </p>
+                    {cmsData.supportPhone && (
+                      <p className="mt-0.5 text-gray-600">
+                        Direct Desk: <a href={`tel:${cmsData.supportPhone.replace(/[\s+-]+/g, '')}`} className="font-semibold text-gray-800 hover:text-[#0d9749] hover:underline">{cmsData.supportPhone}</a>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -322,10 +353,17 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-gray-900">Email Address</h3>
                     <p className="mt-1 text-gray-600">
-                      <a href="mailto:ask@agrimart.in" className="hover:underline text-[#0d9749]">
-                        ask@agrimart.in
+                      <a href={`mailto:${cmsData.email}`} className="hover:underline text-[#0d9749] font-medium">
+                        {cmsData.email}
                       </a>
                     </p>
+                    {cmsData.supportEmail && (
+                      <p className="mt-0.5 text-gray-600">
+                        Support: <a href={`mailto:${cmsData.supportEmail}`} className="hover:underline text-gray-700">
+                          {cmsData.supportEmail}
+                        </a>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -334,13 +372,47 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-gray-900">Working Hours</h3>
                     <p className="mt-1 text-gray-600">
-                      Monday – Saturday: 9:30 AM – 6:00 PM<br />
-                      Sunday: Closed
+                      {cmsData.workingHoursWeekday}<br />
+                      {cmsData.workingHoursWeekend}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Embedded Google Maps */}
+            {cmsData.mapEmbedUrl && (
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                <div className="p-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                  <span className="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Headquarters Location</span>
+                  </span>
+                  {cmsData.googleMapsLink && (
+                    <a
+                      href={cmsData.googleMapsLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-bold text-emerald-700 hover:underline"
+                    >
+                      Directions ↗
+                    </a>
+                  )}
+                </div>
+                <div className="w-full h-48 bg-gray-100">
+                  <iframe
+                    src={cmsData.mapEmbedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Agrimart & Ratnagiri Impex Headquarters Location"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

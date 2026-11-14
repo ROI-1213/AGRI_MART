@@ -122,6 +122,23 @@ export interface AboutUsCmsData {
   helpline: string;
 }
 
+export interface ContactUsCmsData {
+  badge: string;
+  title: string;
+  subtitle: string;
+  formTitle: string;
+  companyName: string;
+  headOfficeAddress: string;
+  tollFreePhone: string;
+  supportPhone?: string;
+  email: string;
+  supportEmail?: string;
+  workingHoursWeekday: string;
+  workingHoursWeekend: string;
+  mapEmbedUrl?: string;
+  googleMapsLink?: string;
+}
+
 export const DEFAULT_HOMEPAGE_CMS: HomepageCmsData = {
   heroBanners: [
     {
@@ -486,4 +503,23 @@ export const DEFAULT_ABOUTUS_CMS: AboutUsCmsData = {
   headquarters:
     'Ratnagiri Impex Pvt. Ltd. (Annapurna House), #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.',
   helpline: '7393 938 938',
+};
+
+export const DEFAULT_CONTACTUS_CMS: ContactUsCmsData = {
+  badge: 'Pan-India Sales & Service Support',
+  title: 'Contact Agrimart',
+  subtitle:
+    'Expert consultation for agricultural machinery selection, institutional subsidies, genuine spare parts, and nationwide dealer network assistance.',
+  formTitle: 'Send an Enquiry',
+  companyName: 'Ratnagiri Impex Pvt. Ltd.',
+  headOfficeAddress:
+    'Annapurna House, #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.',
+  tollFreePhone: '7393 938 938',
+  supportPhone: '+91 80 2674 1777',
+  email: 'ask@agrimart.in',
+  supportEmail: 'customercare@agrimart.in',
+  workingHoursWeekday: 'Monday – Saturday: 9:30 AM – 6:00 PM',
+  workingHoursWeekend: 'Sunday: Closed',
+  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.309489574441!2d77.54580227598858!3d12.951980915307525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e18a99252ef%3A0xe54d63503f90e54!2sRatnagiri%20Impex%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
+  googleMapsLink: 'https://maps.app.goo.gl/3wJj62n6235q35678',
 };

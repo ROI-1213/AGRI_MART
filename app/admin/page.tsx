@@ -29,13 +29,19 @@ import {
   Building2,
   Sparkles,
   Globe,
-  Database
+  Database,
+  Phone,
+  MapPin,
+  Mail,
+  Clock
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
 import { 
   DEFAULT_HOMEPAGE_CMS, 
   DEFAULT_ABOUTUS_CMS,
+  DEFAULT_CONTACTUS_CMS,
+  ContactUsCmsData,
   SectionHeaderCms,
   BrandCmsItem,
   TopPickCmsItem,
@@ -47,7 +53,7 @@ import {
 import { Product } from '@/types';
 
 export default function AdminPage() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus'>('dashboard');
   const [productSearch, setProductSearch] = useState('');
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
@@ -143,6 +149,11 @@ export default function AdminPage() {
   const [isSavingAbout, setIsSavingAbout] = useState(false);
   const [aboutSaveSuccess, setAboutSaveSuccess] = useState(false);
 
+  // Contact Us CMS State
+  const [contactData, setContactData] = useState<ContactUsCmsData>(DEFAULT_CONTACTUS_CMS);
+  const [isSavingContact, setIsSavingContact] = useState(false);
+  const [contactSaveSuccess, setContactSaveSuccess] = useState(false);
+
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isNewProduct, setIsNewProduct] = useState(false);
@@ -212,6 +223,7 @@ export default function AdminPage() {
           if (data.homepage?.institutesSection) setHomeInstitutesSection(data.homepage.institutesSection);
           if (data.homepage?.appBanner) setHomeAppBanner(data.homepage.appBanner);
           if (data.aboutus) setAboutData(data.aboutus);
+          if (data.contactus) setContactData(data.contactus);
         }
       })
       .catch(e => console.error('API CMS load error:', e));
@@ -510,6 +522,31 @@ export default function AdminPage() {
       alert('Failed to save About Us settings: ' + e.message);
     } finally {
       setIsSavingAbout(false);
+    }
+  };
+
+  const handleSaveContactCms = async () => {
+    setIsSavingContact(true);
+    try {
+      const res = await fetch('/api/admin/cms', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'contactus',
+          data: contactData,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setContactSaveSuccess(true);
+        setTimeout(() => setContactSaveSuccess(false), 2500);
+      } else {
+        alert('Error saving Contact Us settings: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to save Contact Us settings: ' + e.message);
+    } finally {
+      setIsSavingContact(false);
     }
   };
 
@@ -879,6 +916,21 @@ export default function AdminPage() {
             <div className="flex items-center gap-2.5">
               <Building2 className="w-4 h-4" />
               <span>About Us Page</span>
+            </div>
+            <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
+              Live
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('contactus')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
+              activeTab === 'contactus' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Phone className="w-4 h-4" />
+              <span>Contact Us Page</span>
             </div>
             <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
               Live
@@ -3329,6 +3381,324 @@ export default function AdminPage() {
                     onChange={(e) => setAboutData({ ...aboutData, helpline: e.target.value })}
                     className="w-full max-w-xs px-3 py-2 border rounded-lg font-bold text-emerald-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                   />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: CONTACT US CMS */}
+          {activeTab === 'contactus' && (
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+                      <Phone className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h1 className="text-xl font-bold text-gray-900">Contact Us Page Configuration & Desks</h1>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage corporate head office, nationwide customer care toll-free numbers, direct support emails, operating hours, and Google Maps embed
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/contact"
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>View Live Contact Page ↗</span>
+                  </Link>
+                  <button
+                    onClick={handleSaveContactCms}
+                    disabled={isSavingContact}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    {contactSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{isSavingContact ? 'Saving...' : contactSaveSuccess ? 'Saved to DB!' : 'Save Contact Us Settings'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 1. Header & Introductory Information */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-emerald-600" />
+                    <span>1. Page Header & Introduction</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Header badges, main title, and introductory text displayed at the top of the Contact Us page</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Badge Tag</label>
+                    <input
+                      type="text"
+                      value={contactData.badge}
+                      onChange={(e) => setContactData({ ...contactData, badge: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs font-semibold"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Main Heading</label>
+                    <input
+                      type="text"
+                      value={contactData.title}
+                      onChange={(e) => setContactData({ ...contactData, title: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Form Heading</label>
+                    <input
+                      type="text"
+                      value={contactData.formTitle}
+                      onChange={(e) => setContactData({ ...contactData, formTitle: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs"
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block font-bold text-gray-700 mb-1">Subtitle / Overview Description</label>
+                    <textarea
+                      rows={2}
+                      value={contactData.subtitle}
+                      onChange={(e) => setContactData({ ...contactData, subtitle: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs leading-relaxed"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. Head Office Address & Company Identity */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-emerald-600" />
+                    <span>2. Head Office & Registered Address</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Corporate identity and physical location displayed to prospective clients and farmers</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Company / Entity Name</label>
+                    <input
+                      type="text"
+                      value={contactData.companyName}
+                      onChange={(e) => setContactData({ ...contactData, companyName: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Google Maps Direct Share / Directions Link</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={contactData.googleMapsLink || ''}
+                        onChange={(e) => setContactData({ ...contactData, googleMapsLink: e.target.value })}
+                        placeholder="https://maps.app.goo.gl/..."
+                        className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                      {contactData.googleMapsLink && (
+                        <Link href={contactData.googleMapsLink} target="_blank" className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-emerald-700 font-bold shrink-0">
+                          ↗
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block font-bold text-gray-700 mb-1">Head Office Complete Physical Address</label>
+                    <textarea
+                      rows={2}
+                      value={contactData.headOfficeAddress}
+                      onChange={(e) => setContactData({ ...contactData, headOfficeAddress: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs leading-relaxed"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Phone Numbers, Helplines & Emails */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Phone Helplines */}
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="border-b pb-3">
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-emerald-600" />
+                      <span>3. Telephone & Missed Call Numbers</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">Primary toll-free and direct phone numbers with one-click calling enabled</p>
+                  </div>
+
+                  <div className="space-y-3 text-xs">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Toll-Free / Missed Call Number</label>
+                      <input
+                        type="text"
+                        value={contactData.tollFreePhone}
+                        onChange={(e) => setContactData({ ...contactData, tollFreePhone: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-bold text-emerald-800 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Direct Landline / Regional Desk</label>
+                      <input
+                        type="text"
+                        value={contactData.supportPhone || ''}
+                        onChange={(e) => setContactData({ ...contactData, supportPhone: e.target.value })}
+                        placeholder="+91 80 2674 1777"
+                        className="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email Addresses */}
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="border-b pb-3">
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-emerald-600" />
+                      <span>4. Official Inboxes & Email Addresses</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">Official support mailboxes for customers, dealers, and corporate enquiries</p>
+                  </div>
+
+                  <div className="space-y-3 text-xs">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Primary Email Address</label>
+                      <input
+                        type="email"
+                        value={contactData.email}
+                        onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-bold text-gray-900 text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Customer Support / Secondary Email</label>
+                      <input
+                        type="email"
+                        value={contactData.supportEmail || ''}
+                        onChange={(e) => setContactData({ ...contactData, supportEmail: e.target.value })}
+                        placeholder="customercare@agrimart.in"
+                        className="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5. Working Hours & Schedule */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-emerald-600" />
+                    <span>5. Working Hours & Support Availability</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Operating hours during weekdays and weekend schedule</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Weekday Operating Hours</label>
+                    <input
+                      type="text"
+                      value={contactData.workingHoursWeekday}
+                      onChange={(e) => setContactData({ ...contactData, workingHoursWeekday: e.target.value })}
+                      placeholder="Monday – Saturday: 9:30 AM – 6:00 PM"
+                      className="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Sunday & Public Holidays</label>
+                    <input
+                      type="text"
+                      value={contactData.workingHoursWeekend}
+                      onChange={(e) => setContactData({ ...contactData, workingHoursWeekend: e.target.value })}
+                      placeholder="Sunday: Closed"
+                      className="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 6. Google Maps Embed URL & Live Location Preview */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-emerald-600" />
+                    <span>6. Google Maps Interactive Embed</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Interactive Google Maps frame embedded directly on the contact page for live directions</p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+                  <div className="lg:col-span-2 space-y-2">
+                    <label className="block font-bold text-gray-700">Google Maps Embed URL (iframe src)</label>
+                    <textarea
+                      rows={3}
+                      value={contactData.mapEmbedUrl || ''}
+                      onChange={(e) => setContactData({ ...contactData, mapEmbedUrl: e.target.value })}
+                      placeholder="https://www.google.com/maps/embed?pb=..."
+                      className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500 leading-relaxed"
+                    />
+                    <p className="text-[10px] text-gray-500">
+                      Tip: Obtain this by navigating to your showroom on Google Maps &gt; Click <em>Share</em> &gt; Select <em>Embed a map</em> &gt; Copy only the <code>src=&quot;...&quot;</code> URL.
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-1">
+                    <label className="block font-bold text-gray-700 mb-1">Live Map Preview</label>
+                    <div className="w-full h-36 rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
+                      {contactData.mapEmbedUrl ? (
+                        <iframe
+                          src={contactData.mapEmbedUrl}
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen={false}
+                          loading="lazy"
+                          title="Preview Map"
+                        />
+                      ) : (
+                        <div className="h-full flex items-center justify-center text-gray-400 text-[11px]">
+                          No map embed URL provided
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Sticky Save Bar for Contact Us CMS */}
+              <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  <div>
+                    <p className="text-xs font-bold text-gray-900">Contact Us Page Configuration Ready</p>
+                    <p className="text-[11px] text-gray-500">Changes will be saved directly into PostgreSQL and immediately reflected on the live Contact Us page.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/contact"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition-colors"
+                  >
+                    Preview Contact Page ↗
+                  </Link>
+                  <button
+                    onClick={handleSaveContactCms}
+                    disabled={isSavingContact}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow transition-colors cursor-pointer"
+                  >
+                    {contactSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{isSavingContact ? 'Saving to Database...' : contactSaveSuccess ? 'Saved Successfully!' : 'Save Contact Us Settings'}</span>
+                  </button>
                 </div>
               </div>
             </div>

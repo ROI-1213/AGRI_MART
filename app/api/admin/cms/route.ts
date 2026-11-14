@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getCmsSetting, upsertCmsSetting } from '@/lib/db';
-import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS } from '@/lib/cmsDefaults';
+import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS, DEFAULT_CONTACTUS_CMS } from '@/lib/cmsDefaults';
 
 export async function GET(req: NextRequest) {
   try {
@@ -10,20 +10,28 @@ export async function GET(req: NextRequest) {
 
     if (key) {
       const data = await getCmsSetting(key);
-      const fallback = key === 'homepage' ? DEFAULT_HOMEPAGE_CMS : key === 'aboutus' ? DEFAULT_ABOUTUS_CMS : null;
+      const fallback = key === 'homepage' 
+        ? DEFAULT_HOMEPAGE_CMS 
+        : key === 'aboutus' 
+        ? DEFAULT_ABOUTUS_CMS 
+        : key === 'contactus'
+        ? DEFAULT_CONTACTUS_CMS
+        : null;
       const merged = (data && fallback) ? { ...fallback, ...data } : (data || fallback);
       return NextResponse.json({ success: true, key, data: merged });
     }
 
-    const [homepage, aboutus] = await Promise.all([
+    const [homepage, aboutus, contactus] = await Promise.all([
       getCmsSetting('homepage'),
       getCmsSetting('aboutus'),
+      getCmsSetting('contactus'),
     ]);
 
     return NextResponse.json({
       success: true,
       homepage: homepage ? { ...DEFAULT_HOMEPAGE_CMS, ...homepage } : DEFAULT_HOMEPAGE_CMS,
       aboutus: aboutus ? { ...DEFAULT_ABOUTUS_CMS, ...aboutus } : DEFAULT_ABOUTUS_CMS,
+      contactus: contactus ? { ...DEFAULT_CONTACTUS_CMS, ...contactus } : DEFAULT_CONTACTUS_CMS,
     });
   } catch (err: any) {
     console.error('Error loading CMS settings from PostgreSQL:', err);
@@ -45,6 +53,7 @@ export async function PUT(req: NextRequest) {
     try {
       if (key === 'homepage') revalidatePath('/');
       if (key === 'aboutus') revalidatePath('/about');
+      if (key === 'contactus') revalidatePath('/contact');
     } catch {
       // Ignore outside request context
     }

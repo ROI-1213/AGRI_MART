@@ -83,28 +83,31 @@ const BRAND_PICKS: BrandShowcaseItem[] = [
 
 interface TopPicksShowcaseProps {
   onOpenSubsidy?: (product: Product) => void;
+  header?: { badge?: string; title?: string; subtitle?: string };
+  customPicks?: BrandShowcaseItem[];
 }
 
-export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProps) {
+export default function TopPicksShowcase({ onOpenSubsidy, header, customPicks }: TopPicksShowcaseProps) {
   const [activeBrandIndex, setActiveBrandIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const currentBrand = BRAND_PICKS[activeBrandIndex];
-  const nextBrand = BRAND_PICKS[(activeBrandIndex + 1) % BRAND_PICKS.length];
+  const picksList = customPicks && customPicks.length > 0 ? customPicks : BRAND_PICKS;
+  const currentBrand = picksList[activeBrandIndex % picksList.length];
+  const nextBrand = picksList[(activeBrandIndex + 1) % picksList.length];
 
   // Auto-slide to the next brand every 2 seconds
   useEffect(() => {
     if (!isPlaying) return;
 
     const timer = setInterval(() => {
-      setActiveBrandIndex((prev) => (prev + 1) % BRAND_PICKS.length);
+      setActiveBrandIndex((prev) => (prev + 1) % picksList.length);
     }, 2000);
 
     return () => clearInterval(timer);
-  }, [isPlaying]);
+  }, [isPlaying, picksList.length]);
 
   const handleNextBrand = () => {
-    setActiveBrandIndex((prev) => (prev + 1) % BRAND_PICKS.length);
+    setActiveBrandIndex((prev) => (prev + 1) % picksList.length);
   };
 
   const handleOpenQuoteModal = (e: React.MouseEvent, item: BrandShowcaseItem) => {
@@ -135,13 +138,13 @@ export default function TopPicksShowcase({ onOpenSubsidy }: TopPicksShowcaseProp
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-green-200/60">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
-            <span>Authorized Brand Portfolio</span>
+            <span>{header?.badge || 'Authorized Brand Portfolio'}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Agrimart&apos;s Top Picks
+            {header?.title || "Agrimart's Top Picks"}
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-xl mx-auto leading-relaxed">
-            Explore top agricultural machinery and high-efficiency equipment with us
+            {header?.subtitle || 'Explore top agricultural machinery and high-efficiency equipment with us'}
           </p>
         </div>
 

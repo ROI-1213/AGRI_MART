@@ -56,11 +56,18 @@ export const AWARDS: AwardItem[] = [
   },
 ];
 
-export default function AwardsShowcase() {
+export default function AwardsShowcase({
+  header,
+  customAwards,
+}: {
+  header?: { badge?: string; title?: string; subtitle?: string };
+  customAwards?: AwardItem[];
+} = {}) {
   const [isPaused, setIsPaused] = useState(false);
 
+  const awardsList = customAwards && customAwards.length > 0 ? customAwards : AWARDS;
   // Triple the items for a completely seamless, gap-free infinite scroll
-  const slidingAwards = [...AWARDS, ...AWARDS, ...AWARDS];
+  const slidingAwards = [...awardsList, ...awardsList, ...awardsList];
 
   return (
     <section 
@@ -71,14 +78,14 @@ export default function AwardsShowcase() {
         {/* Top Recognition Badge */}
         <div className="inline-flex items-center gap-1.5 bg-amber-50 text-[#b45309] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-amber-200/80 shadow-2xs">
           <Trophy className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-          <span>Prestigious Accolades &amp; Honors</span>
+          <span>{header?.badge || 'Prestigious Accolades & Honors'}</span>
         </div>
 
         {/* Section Heading with Golden Laurel Icon */}
         <div className="flex items-center justify-center gap-2.5 sm:gap-3">
           <span className="text-2xl sm:text-3xl text-amber-500 select-none">🌿</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
-            Awards
+            {header?.title || 'Awards'}
           </h2>
           <span className="text-2xl sm:text-3xl text-amber-500 select-none transform scale-x-[-1]">🌿</span>
         </div>
@@ -88,7 +95,7 @@ export default function AwardsShowcase() {
 
         {/* Subtitle */}
         <p className="text-xs sm:text-sm text-gray-600 font-medium max-w-xl mx-auto leading-relaxed">
-          Recognition for our commitment to a stronger, greener tomorrow
+          {header?.subtitle || 'Recognition for our commitment to a stronger, greener tomorrow'}
         </p>
       </div>
 

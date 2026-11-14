@@ -79,7 +79,11 @@ const PRIORITY_ORDER = [
   'MB PLOUGH'
 ];
 
-export default function ShopByCategory() {
+export default function ShopByCategory({
+  header
+}: {
+  header?: { badge?: string; title?: string; subtitle?: string };
+} = {}) {
   // Sort categories by priority list
   const sortedCategories = React.useMemo(() => {
     return [...roundCategoriesData].sort((a, b) => {
@@ -117,17 +121,17 @@ export default function ShopByCategory() {
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
           <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
-            <span>Equipment Catalog</span>
+            <span>{header?.badge || 'Equipment Catalog'}</span>
           </div>
 
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Shop by Category
+            {header?.title || 'Shop by Category'}
           </h2>
 
           {/* Subtitle */}
           <p className="text-xs sm:text-sm text-gray-500 mt-1 leading-relaxed font-normal">
-            Discover our popular categories and find the perfect equipment for your needs.
+            {header?.subtitle || 'Discover our popular categories and find the perfect equipment for your needs.'}
           </p>
         </div>
 

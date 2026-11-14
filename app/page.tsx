@@ -21,7 +21,7 @@ import AwardsShowcase from '@/components/AwardsShowcase';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import SubsidyModal from '@/components/SubsidyModal';
 import QuoteModal from '@/components/QuoteModal';
-import { DEFAULT_HOMEPAGE_CMS } from '@/lib/cmsDefaults';
+import { DEFAULT_HOMEPAGE_CMS, HomepageCmsData } from '@/lib/cmsDefaults';
 import { Product } from '@/types';
 
 export default function HomePage() {
@@ -35,6 +35,8 @@ export default function HomePage() {
   const [heroParallaxY, setHeroParallaxY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const touchStartXRef = useRef<number | null>(null);
+
+  const [homeCms, setHomeCms] = useState<HomepageCmsData>(DEFAULT_HOMEPAGE_CMS);
 
   const [heroBanners, setHeroBanners] = useState(
     DEFAULT_HOMEPAGE_CMS.heroBanners
@@ -84,15 +86,18 @@ export default function HomePage() {
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
-          if (Array.isArray(resData.data.heroBanners)) {
-            const activeSlides = resData.data.heroBanners
+          const cms: HomepageCmsData = { ...DEFAULT_HOMEPAGE_CMS, ...resData.data };
+          setHomeCms(cms);
+
+          if (Array.isArray(cms.heroBanners)) {
+            const activeSlides = cms.heroBanners
               .filter((b: any) => b.active !== false)
               .map((b: any) => ({ id: b.id, image: b.image, alt: b.title, link: b.link }));
             if (activeSlides.length > 0) setHeroBanners(activeSlides);
           }
-          if (Array.isArray(resData.data.promoBanners) && resData.data.promoBanners.length > 0) {
+          if (Array.isArray(cms.promoBanners) && cms.promoBanners.length > 0) {
             setPromoBanners(
-              resData.data.promoBanners.map((p: any) => ({
+              cms.promoBanners.map((p: any) => ({
                 id: p.id,
                 title: p.title,
                 tabTitle: defaultPromoExtras[p.id]?.tabTitle || p.title,
@@ -412,32 +417,49 @@ export default function HomePage() {
 
       {/* 3. Premium Shop by Category Showcase */}
       <RevealOnScroll variant="fade-up" durationMs={650}>
-        <ShopByCategory />
+        <ShopByCategory header={homeCms.categoriesSection} />
       </RevealOnScroll>
 
       {/* 4. Our Trusted International & In-House Brands Showcase */}
       <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
-        <TrustedBrandsShowcase />
+        <TrustedBrandsShowcase
+          header={homeCms.brandsSection?.header}
+          customBrands={homeCms.brandsSection?.brands}
+        />
       </RevealOnScroll>
 
       {/* 5. Agrimart's Top Picks Showcase (Matching Reference Design) */}
       <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
-        <TopPicksShowcase onOpenSubsidy={handleOpenSubsidy} />
+        <TopPicksShowcase
+          header={homeCms.topPicksSection?.header}
+          customPicks={homeCms.topPicksSection?.picks}
+          onOpenSubsidy={handleOpenSubsidy}
+        />
       </RevealOnScroll>
 
       {/* 6. Our Featured Products Section (8 Flagship Products with Agrimate Tractor & Interactive Animations) */}
       <RevealOnScroll variant="fade-up" delayMs={60} durationMs={700}>
-        <OurProductsSection onOpenQuote={handleOpenQuote} />
+        <OurProductsSection
+          header={homeCms.featuredProductsSection?.header}
+          customProducts={homeCms.featuredProductsSection?.products}
+          onOpenQuote={handleOpenQuote}
+        />
       </RevealOnScroll>
 
       {/* 7. Awards & Recognition Showcase (Clean Background with Continuous Smooth Sliding) */}
       <RevealOnScroll variant="fade-in" durationMs={750}>
-        <AwardsShowcase />
+        <AwardsShowcase
+          header={homeCms.awardsSection?.header}
+          customAwards={homeCms.awardsSection?.awards}
+        />
       </RevealOnScroll>
 
       {/* 10. Academic & Testing Institute Recognition (3-at-once Carousel Showcase) */}
       <RevealOnScroll variant="fade-up" durationMs={700}>
-        <TestingInstitutesShowcase />
+        <TestingInstitutesShowcase
+          header={homeCms.institutesSection?.header}
+          customInstitutes={homeCms.institutesSection?.institutes}
+        />
       </RevealOnScroll>
 
       {/* 9. Download Agrimart Mobile App Showcase Banner (Ultra-HD with Direct Google Play & App Store Buttons) */}
@@ -449,8 +471,8 @@ export default function HomePage() {
             >
             {/* 3K Ultra-HD Banner Artwork (unoptimized for 100% loss-free HD clarity) */}
             <Image
-              src="/assets/banners/app_download_banner_hd.png"
-              alt="Download Agrimart Mobile App — Get every farming solution in one place"
+              src={homeCms.appBanner?.bannerImage || "/assets/banners/app_download_banner_hd.png"}
+              alt={homeCms.appBanner?.title || "Download Agrimart Mobile App — Get every farming solution in one place"}
               fill
               priority
               unoptimized
@@ -465,7 +487,7 @@ export default function HomePage() {
             >
               {/* Google Play Store Button */}
               <a
-                href="https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"
+                href={homeCms.appBanner?.googlePlayLink || "https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Download Agrimart App on Google Play"
@@ -485,7 +507,7 @@ export default function HomePage() {
 
               {/* Apple App Store Button */}
               <a
-                href="https://apps.apple.com/in/app/agrimart/id1599062786"
+                href={homeCms.appBanner?.appStoreLink || "https://apps.apple.com/in/app/agrimart/id1599062786"}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Download Agrimart App on App Store"

@@ -125,9 +125,13 @@ const FEATURED_PRODUCTS: FeaturedProductItem[] = [
 
 interface OurProductsSectionProps {
   onOpenQuote?: (product: Product) => void;
+  header?: { badge?: string; title?: string; subtitle?: string };
+  customProducts?: FeaturedProductItem[];
 }
 
-export default function OurProductsSection({ onOpenQuote }: OurProductsSectionProps) {
+export default function OurProductsSection({ onOpenQuote, header, customProducts }: OurProductsSectionProps) {
+  const productsList = customProducts && customProducts.length > 0 ? customProducts : FEATURED_PRODUCTS;
+
   const handleRequestQuote = (e: React.MouseEvent, item: FeaturedProductItem) => {
     e.preventDefault();
     e.stopPropagation();
@@ -154,17 +158,21 @@ export default function OurProductsSection({ onOpenQuote }: OurProductsSectionPr
         
         {/* ================= SECTION HEADER ================= */}
         <div className="text-center mb-8 sm:mb-10 border-b border-gray-200/80 pb-6">
+          <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-green-200/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
+            <span>{header?.badge || 'Engineered for Indian Agriculture'}</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
-            Our Products
+            {header?.title || 'Our Products'}
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-2xl mx-auto leading-relaxed">
-            Explore our top-tier agricultural machinery, heavy-duty 4WD tillers, commercial sprayers, and precision farm solutions built for maximum field productivity.
+            {header?.subtitle || 'Explore our top-tier agricultural machinery, heavy-duty 4WD tillers, commercial sprayers, and precision farm solutions built for maximum field productivity.'}
           </p>
         </div>
 
         {/* ================= 8 FEATURED PRODUCTS GRID: 2x2 ON MOBILE, 4-COL ON DESKTOP ================= */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-7">
-          {FEATURED_PRODUCTS.map((product) => {
+          {productsList.map((product) => {
             return (
               <div
                 key={product.id}

@@ -11,7 +11,8 @@ export async function GET(req: NextRequest) {
     if (key) {
       const data = await getCmsSetting(key);
       const fallback = key === 'homepage' ? DEFAULT_HOMEPAGE_CMS : key === 'aboutus' ? DEFAULT_ABOUTUS_CMS : null;
-      return NextResponse.json({ success: true, key, data: data || fallback });
+      const merged = (data && fallback) ? { ...fallback, ...data } : (data || fallback);
+      return NextResponse.json({ success: true, key, data: merged });
     }
 
     const [homepage, aboutus] = await Promise.all([
@@ -21,8 +22,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      homepage: homepage || DEFAULT_HOMEPAGE_CMS,
-      aboutus: aboutus || DEFAULT_ABOUTUS_CMS,
+      homepage: homepage ? { ...DEFAULT_HOMEPAGE_CMS, ...homepage } : DEFAULT_HOMEPAGE_CMS,
+      aboutus: aboutus ? { ...DEFAULT_ABOUTUS_CMS, ...aboutus } : DEFAULT_ABOUTUS_CMS,
     });
   } catch (err: any) {
     console.error('Error loading CMS settings from PostgreSQL:', err);

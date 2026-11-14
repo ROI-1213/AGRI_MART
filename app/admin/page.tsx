@@ -7,7 +7,6 @@ import {
   LayoutDashboard, 
   Package, 
   Layers, 
-  ShoppingBag, 
   MessageSquare, 
   FileText, 
   Plus, 
@@ -34,7 +33,17 @@ import {
 } from 'lucide-react';
 import productsData from '@/data/import/products.json';
 import categoriesData from '@/data/import/categories.json';
-import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS } from '@/lib/cmsDefaults';
+import { 
+  DEFAULT_HOMEPAGE_CMS, 
+  DEFAULT_ABOUTUS_CMS,
+  SectionHeaderCms,
+  BrandCmsItem,
+  TopPickCmsItem,
+  FeaturedProductCmsItem,
+  AwardCmsItem,
+  TestingInstituteCmsItem,
+  AppDownloadCmsData
+} from '@/lib/cmsDefaults';
 import { Product } from '@/types';
 
 export default function AdminPage() {
@@ -59,6 +68,73 @@ export default function AdminPage() {
   // Home Page CMS State
   const [homeHeroBanners, setHomeHeroBanners] = useState(DEFAULT_HOMEPAGE_CMS.heroBanners);
   const [homePromoBanners, setHomePromoBanners] = useState(DEFAULT_HOMEPAGE_CMS.promoBanners);
+  const [homeCategoriesSection, setHomeCategoriesSection] = useState<SectionHeaderCms>(
+    DEFAULT_HOMEPAGE_CMS.categoriesSection || {
+      badge: 'BROWSE OUR RANGE',
+      title: 'Shop by Category',
+      subtitle: 'Explore our comprehensive selection of agricultural and gardening machinery designed for precision, durability, and top performance.',
+    }
+  );
+  const [homeBrandsSection, setHomeBrandsSection] = useState(
+    DEFAULT_HOMEPAGE_CMS.brandsSection || {
+      header: {
+        badge: 'WORLD-CLASS MACHINERY BRANDS',
+        title: 'Our Trusted In-House & Global Brands',
+        subtitle: 'Engineered for performance, trusted by farmers across India. Explore machinery from world-renowned agricultural manufacturers.',
+      },
+      brands: [],
+    }
+  );
+  const [homeTopPicksSection, setHomeTopPicksSection] = useState(
+    DEFAULT_HOMEPAGE_CMS.topPicksSection || {
+      header: {
+        badge: 'CURATED SELECTION',
+        title: "Agrimart's Top Picks",
+        subtitle: 'Explore flagship machinery built for peak agricultural performance, durability, and reliability in Indian conditions.',
+      },
+      picks: [],
+    }
+  );
+  const [homeFeaturedSection, setHomeFeaturedSection] = useState(
+    DEFAULT_HOMEPAGE_CMS.featuredProductsSection || {
+      header: {
+        badge: 'TOP SELLING MACHINERY',
+        title: 'Featured Agricultural Products',
+        subtitle: 'Discover high-demand farm machinery engineered for modern Indian agriculture — field-tested, certified, and subsidy-approved across states.',
+      },
+      products: [],
+    }
+  );
+  const [homeAwardsSection, setHomeAwardsSection] = useState(
+    DEFAULT_HOMEPAGE_CMS.awardsSection || {
+      header: {
+        badge: 'EXCELLENCE RECOGNIZED',
+        title: 'Awards & Industry Recognition',
+        subtitle: 'Over two decades of recognized excellence in agricultural technology and equipment distribution across India and Asia.',
+      },
+      awards: [],
+    }
+  );
+  const [homeInstitutesSection, setHomeInstitutesSection] = useState(
+    DEFAULT_HOMEPAGE_CMS.institutesSection || {
+      header: {
+        badge: 'GOVERNMENT CERTIFIED & APPROVED',
+        title: 'Tested by India’s Premier Agricultural Institutes',
+        subtitle: 'Our machinery is tested, verified, and certified by government farm machinery testing centers and state agricultural universities nationwide.',
+      },
+      institutes: [],
+    }
+  );
+  const [homeAppBanner, setHomeAppBanner] = useState<AppDownloadCmsData>(
+    DEFAULT_HOMEPAGE_CMS.appBanner || {
+      title: 'Download Agrimart Mobile App — Get every farming solution in one place',
+      subtitle: 'Available on Android and iOS',
+      bannerImage: '/assets/banners/app_download_banner_hd.png',
+      googlePlayLink: 'https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1',
+      appStoreLink: 'https://apps.apple.com/in/app/agrimart/id1599062786',
+    }
+  );
+  const [homeSectionFilter, setHomeSectionFilter] = useState<string>('all');
   const [isSavingHome, setIsSavingHome] = useState(false);
   const [homeSaveSuccess, setHomeSaveSuccess] = useState(false);
 
@@ -128,6 +204,13 @@ export default function AdminPage() {
         if (data.success) {
           if (data.homepage?.heroBanners) setHomeHeroBanners(data.homepage.heroBanners);
           if (data.homepage?.promoBanners) setHomePromoBanners(data.homepage.promoBanners);
+          if (data.homepage?.categoriesSection) setHomeCategoriesSection(data.homepage.categoriesSection);
+          if (data.homepage?.brandsSection) setHomeBrandsSection(data.homepage.brandsSection);
+          if (data.homepage?.topPicksSection) setHomeTopPicksSection(data.homepage.topPicksSection);
+          if (data.homepage?.featuredProductsSection) setHomeFeaturedSection(data.homepage.featuredProductsSection);
+          if (data.homepage?.awardsSection) setHomeAwardsSection(data.homepage.awardsSection);
+          if (data.homepage?.institutesSection) setHomeInstitutesSection(data.homepage.institutesSection);
+          if (data.homepage?.appBanner) setHomeAppBanner(data.homepage.appBanner);
           if (data.aboutus) setAboutData(data.aboutus);
         }
       })
@@ -381,6 +464,13 @@ export default function AdminPage() {
           data: {
             heroBanners: homeHeroBanners,
             promoBanners: homePromoBanners,
+            categoriesSection: homeCategoriesSection,
+            brandsSection: homeBrandsSection,
+            topPicksSection: homeTopPicksSection,
+            featuredProductsSection: homeFeaturedSection,
+            awardsSection: homeAwardsSection,
+            institutesSection: homeInstitutesSection,
+            appBanner: homeAppBanner,
           },
         }),
       });
@@ -1674,243 +1764,1371 @@ export default function AdminPage() {
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
                   >
                     {homeSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
-                    <span>{isSavingHome ? 'Saving...' : homeSaveSuccess ? 'Saved to DB!' : 'Save Home Settings'}</span>
+                    <span>{isSavingHome ? 'Saving...' : homeSaveSuccess ? 'Saved to DB!' : 'Save All Home Settings'}</span>
                   </button>
                 </div>
               </div>
 
-              {/* 1. Hero Banners Carousel Manager */}
-              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
-                <div className="flex items-center justify-between border-b pb-3">
-                  <div>
-                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-emerald-600" />
-                      <span>1. Main Hero Carousel Banners ({homeHeroBanners.length} Slides)</span>
-                    </h2>
-                    <p className="text-xs text-gray-500 mt-0.5">Edit slide titles, banner image URLs, destination links, or toggle visibility</p>
-                  </div>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                    6s Transition
-                  </span>
-                </div>
+              {/* Quick Section Filter Navigation Bar */}
+              <div className="flex flex-wrap items-center gap-1.5 p-2 bg-white rounded-xl border border-gray-200 shadow-sm sticky top-2 z-10">
+                <span className="text-[11px] font-bold text-gray-500 uppercase px-2">Jump to Section:</span>
+                {[
+                  { id: 'all', label: 'All 9 Sections' },
+                  { id: 'hero', label: '1. Hero Carousel' },
+                  { id: 'promo', label: '2. Promo Cards' },
+                  { id: 'categories', label: '3. Categories' },
+                  { id: 'brands', label: '4. Brands Strip' },
+                  { id: 'toppicks', label: '5. Top Picks' },
+                  { id: 'featured', label: '6. Featured Machinery' },
+                  { id: 'awards', label: '7. Awards Marquee' },
+                  { id: 'institutes', label: '8. Testing Institutes' },
+                  { id: 'app', label: '9. Mobile App Banner' },
+                ].map((s) => (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setHomeSectionFilter(s.id)}
+                    className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer ${
+                      homeSectionFilter === s.id
+                        ? 'bg-emerald-600 text-white shadow-sm'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {homeHeroBanners.map((banner, bIdx) => (
-                    <div key={banner.id} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2.5">
-                      <div className="flex items-start gap-3">
-                        <div className="w-24 h-16 relative rounded bg-white border shrink-0 overflow-hidden">
-                          <Image src={banner.image} alt={banner.title} fill unoptimized className="object-cover" />
-                        </div>
-                        <div className="flex-1 min-w-0 space-y-1.5 text-xs">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
-                            <label className="inline-flex items-center gap-1 cursor-pointer text-[11px] font-semibold text-gray-700">
-                              <input
-                                type="checkbox"
-                                checked={banner.active !== false}
-                                onChange={(e) => {
-                                  const checked = e.target.checked;
-                                  setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, active: checked } : b)));
-                                }}
-                                className="rounded text-emerald-600"
-                              />
-                              <span>Active</span>
-                            </label>
+              {/* 1. Hero Banners Carousel Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'hero') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-emerald-600" />
+                        <span>1. Main Hero Carousel Banners ({homeHeroBanners.length} Slides)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">Edit slide titles, banner image URLs, destination links, or toggle visibility</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                        6s Auto-Transition
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newId = Math.max(0, ...homeHeroBanners.map(b => b.id)) + 1;
+                          setHomeHeroBanners(prev => [
+                            ...prev,
+                            {
+                              id: newId,
+                              title: 'New Machinery Slide',
+                              image: '/assets/banners/hero_agrimate_hd.png',
+                              link: '/products',
+                              active: true,
+                            }
+                          ]);
+                        }}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add Slide</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {homeHeroBanners.map((banner, bIdx) => (
+                      <div key={banner.id} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2.5">
+                        <div className="flex items-start gap-3">
+                          <div className="w-24 h-16 relative rounded bg-white border shrink-0 overflow-hidden">
+                            <Image src={banner.image} alt={banner.title} fill unoptimized className="object-cover" />
                           </div>
-                          <input
-                            type="text"
-                            value={banner.title}
-                            onChange={(e) => {
-                              const val = e.target.value;
-                              setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, title: val } : b)));
-                            }}
-                            placeholder="Banner title / alt text"
-                            className="w-full px-2.5 py-1.5 bg-white border border-gray-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
-                        <div>
-                          <label className="block font-semibold text-gray-500 mb-0.5">Banner Image URL</label>
-                          <input
-                            type="text"
-                            value={banner.image}
-                            onChange={(e) => {
-                              const val = e.target.value;
-                              setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, image: val } : b)));
-                            }}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
-                          />
-                        </div>
-                        <div>
-                          <label className="block font-semibold text-gray-500 mb-0.5">Destination Link</label>
-                          <div className="flex gap-1.5 items-center">
+                          <div className="flex-1 min-w-0 space-y-1.5 text-xs">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
+                              <div className="flex items-center gap-2">
+                                <label className="inline-flex items-center gap-1 cursor-pointer text-[11px] font-semibold text-gray-700">
+                                  <input
+                                    type="checkbox"
+                                    checked={banner.active !== false}
+                                    onChange={(e) => {
+                                      const checked = e.target.checked;
+                                      setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, active: checked } : b)));
+                                    }}
+                                    className="rounded text-emerald-600"
+                                  />
+                                  <span>Active</span>
+                                </label>
+                                {homeHeroBanners.length > 1 && (
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      if (confirm(`Remove Slide ${bIdx + 1}?`)) {
+                                        setHomeHeroBanners(prev => prev.filter((_, i) => i !== bIdx));
+                                      }
+                                    }}
+                                    className="text-red-500 hover:text-red-700 p-0.5"
+                                    title="Delete Slide"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                )}
+                              </div>
+                            </div>
                             <input
                               type="text"
-                              value={banner.link}
+                              value={banner.title}
                               onChange={(e) => {
                                 const val = e.target.value;
-                                setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, link: val } : b)));
+                                setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, title: val } : b)));
+                              }}
+                              placeholder="Banner title / alt text"
+                              className="w-full px-2.5 py-1.5 bg-white border border-gray-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                            />
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                          <div>
+                            <label className="block font-semibold text-gray-500 mb-0.5">Banner Image URL</label>
+                            <input
+                              type="text"
+                              value={banner.image}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, image: val } : b)));
                               }}
                               className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
                             />
-                            <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
+                          </div>
+                          <div>
+                            <label className="block font-semibold text-gray-500 mb-0.5">Destination Link</label>
+                            <div className="flex gap-1.5 items-center">
+                              <input
+                                type="text"
+                                value={banner.link}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, link: val } : b)));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
+                              />
+                              <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
+                                ↗
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 2. Promotional Showcase Banners */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'promo') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Handshake className="w-4 h-4 text-emerald-600" />
+                        <span>2. Growth & Promo Showcase Cards ({homePromoBanners.length} Cards)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage interactive cards for Partner Program, Buy & Rent, and Knowledge Bank
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {homePromoBanners.map((promo, pIdx) => (
+                      <div key={promo.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-2 text-xs">
+                        <div>
+                          <label className="block text-[10px] font-bold text-amber-700 uppercase mb-0.5">Tag / Subtitle</label>
+                          <input
+                            type="text"
+                            value={promo.subtitle}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, subtitle: val } : item)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-[11px]"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Card Title</label>
+                          <input
+                            type="text"
+                            value={promo.title}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, title: val } : item)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Description</label>
+                          <textarea
+                            rows={2}
+                            value={promo.desc}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, desc: val } : item)));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-[11px]"
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link</label>
+                            <input
+                              type="text"
+                              value={promo.link}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, link: val } : item)));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Button Text</label>
+                            <input
+                              type="text"
+                              value={promo.buttonText}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, buttonText: val } : item)));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-[11px]"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 3. Shop by Category Header Editor */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'categories') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Layers className="w-4 h-4 text-emerald-600" />
+                        <span>3. Shop by Category Showcase Section Header</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Edit the top badge, heading, and description intro for the 28 circular category icons grid
+                      </p>
+                    </div>
+                    <span className="text-[11px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                      28 Categories Active
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-600 uppercase mb-1">Badge Tag</label>
+                      <input
+                        type="text"
+                        value={homeCategoriesSection.badge}
+                        onChange={(e) => setHomeCategoriesSection(prev => ({ ...prev, badge: e.target.value }))}
+                        className="w-full px-3 py-1.5 bg-gray-50 border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[11px] font-bold text-gray-600 uppercase mb-1">Main Heading</label>
+                      <input
+                        type="text"
+                        value={homeCategoriesSection.title}
+                        onChange={(e) => setHomeCategoriesSection(prev => ({ ...prev, title: e.target.value }))}
+                        className="w-full px-3 py-1.5 bg-gray-50 border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[11px] font-bold text-gray-600 uppercase mb-1">Section Subtitle / Description</label>
+                      <textarea
+                        rows={2}
+                        value={homeCategoriesSection.subtitle}
+                        onChange={(e) => setHomeCategoriesSection(prev => ({ ...prev, subtitle: e.target.value }))}
+                        className="w-full px-3 py-1.5 bg-gray-50 border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-3 bg-emerald-50 rounded-lg border border-emerald-100 flex items-center justify-between text-xs text-emerald-900">
+                    <span>Individual categories, images, and subcategories can be managed in the <strong>Categories</strong> tab on the left.</span>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('categories')}
+                      className="text-xs font-bold text-emerald-700 underline hover:text-emerald-900 cursor-pointer"
+                    >
+                      Open Categories Tab →
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* 4. Trusted Brands Strip Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'brands') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Globe className="w-4 h-4 text-emerald-600" />
+                        <span>4. Our Trusted In-House & Global Brands Strip ({homeBrandsSection.brands.length} Brands)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Customize section headers and brand cards (AGRIMATE, KASEI, OLEO-MAC)
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setHomeBrandsSection(prev => ({
+                          ...prev,
+                          brands: [
+                            ...prev.brands,
+                            {
+                              name: 'NEW BRAND',
+                              tagline: 'Precision Agricultural Solutions',
+                              href: '/products',
+                              logo: '/assets/branding/agrimate_brand_hd.png',
+                            }
+                          ]
+                        }));
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Brand</span>
+                    </button>
+                  </div>
+
+                  {/* Header Fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Badge</label>
+                      <input
+                        type="text"
+                        value={homeBrandsSection.header.badge}
+                        onChange={(e) => setHomeBrandsSection(prev => ({ ...prev, header: { ...prev.header, badge: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Title</label>
+                      <input
+                        type="text"
+                        value={homeBrandsSection.header.title}
+                        onChange={(e) => setHomeBrandsSection(prev => ({ ...prev, header: { ...prev.header, title: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Subtitle</label>
+                      <input
+                        type="text"
+                        value={homeBrandsSection.header.subtitle}
+                        onChange={(e) => setHomeBrandsSection(prev => ({ ...prev, header: { ...prev.header, subtitle: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Brands List */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {homeBrandsSection.brands.map((brand, bIdx) => (
+                      <div key={bIdx} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2 text-xs">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-emerald-800 text-[11px]">Brand #{bIdx + 1}</span>
+                          {homeBrandsSection.brands.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (confirm(`Remove brand "${brand.name}"?`)) {
+                                  setHomeBrandsSection(prev => ({
+                                    ...prev,
+                                    brands: prev.brands.filter((_, i) => i !== bIdx)
+                                  }));
+                                }
+                              }}
+                              className="text-red-500 hover:text-red-700 p-0.5"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <div className="w-20 h-10 relative rounded bg-white border shrink-0 overflow-hidden p-1 flex items-center justify-center">
+                            <Image src={brand.logo} alt={brand.name} fill unoptimized className="object-contain p-1" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Brand Name</label>
+                            <input
+                              type="text"
+                              value={brand.name}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeBrandsSection(prev => ({
+                                  ...prev,
+                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, name: val } : b)
+                                }));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Tagline / Caption</label>
+                          <input
+                            type="text"
+                            value={brand.tagline}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeBrandsSection(prev => ({
+                                ...prev,
+                                brands: prev.brands.map((b, i) => i === bIdx ? { ...b, tagline: val } : b)
+                              }));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-1.5">
+                          <div>
+                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Logo URL</label>
+                            <input
+                              type="text"
+                              value={brand.logo}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeBrandsSection(prev => ({
+                                  ...prev,
+                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, logo: val } : b)
+                                }));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link Href</label>
+                            <input
+                              type="text"
+                              value={brand.href}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeBrandsSection(prev => ({
+                                  ...prev,
+                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, href: val } : b)
+                                }));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 5. Agrimart Top Picks Showcase Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'toppicks') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-emerald-600" />
+                        <span>5. Agrimart's Top Picks Showcase ({homeTopPicksSection.picks.length} Spotlights)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Edit curated hero machine spotlights (Weeders, Tillers, Chainsaws) with full specs and imagery
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setHomeTopPicksSection(prev => ({
+                          ...prev,
+                          picks: [
+                            ...prev.picks,
+                            {
+                              id: `pick-${Date.now()}`,
+                              brand: 'AGRIMATE',
+                              tagline: 'High Performance Machinery',
+                              brandLogo: '/assets/branding/agrimate_brand_hd.png',
+                              brandSubtitle: 'Premium Quality',
+                              category: 'POWER MACHINERY',
+                              leadTitle: 'NEW MACHINE SPOTLIGHT',
+                              leadSubtitle: 'Engineered for tough agricultural conditions',
+                              priceRange: '₹35,000 – ₹85,000',
+                              specs: '212cc Engine • 4-Stroke • 3600 RPM',
+                              bannerImage: '/assets/branding/power_weeder_hd.png',
+                              badge: 'TOP SELECTION',
+                              route: '/products?brand=AGRIMATE',
+                            }
+                          ]
+                        }));
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Spotlight</span>
+                    </button>
+                  </div>
+
+                  {/* Header Fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Badge</label>
+                      <input
+                        type="text"
+                        value={homeTopPicksSection.header.badge}
+                        onChange={(e) => setHomeTopPicksSection(prev => ({ ...prev, header: { ...prev.header, badge: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Title</label>
+                      <input
+                        type="text"
+                        value={homeTopPicksSection.header.title}
+                        onChange={(e) => setHomeTopPicksSection(prev => ({ ...prev, header: { ...prev.header, title: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Subtitle</label>
+                      <input
+                        type="text"
+                        value={homeTopPicksSection.header.subtitle}
+                        onChange={(e) => setHomeTopPicksSection(prev => ({ ...prev, header: { ...prev.header, subtitle: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Picks Grid */}
+                  <div className="space-y-4">
+                    {homeTopPicksSection.picks.map((pick, pIdx) => (
+                      <div key={pick.id || pIdx} className="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-3 text-xs">
+                        <div className="flex items-center justify-between border-b pb-2">
+                          <span className="font-bold text-emerald-800 text-xs">Spotlight #{pIdx + 1}: {pick.leadTitle}</span>
+                          {homeTopPicksSection.picks.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (confirm(`Remove spotlight "${pick.leadTitle}"?`)) {
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.filter((_, i) => i !== pIdx)
+                                  }));
+                                }
+                              }}
+                              className="text-red-500 hover:text-red-700 p-0.5"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                          <div className="md:col-span-1 space-y-2">
+                            <div className="w-full h-32 relative rounded bg-white border overflow-hidden flex items-center justify-center">
+                              <Image src={pick.bannerImage} alt={pick.leadTitle} fill unoptimized className="object-contain p-2" />
+                            </div>
+                            <div>
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Banner Image URL</label>
+                              <input
+                                type="text"
+                                value={pick.bannerImage}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, bannerImage: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                            <div>
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Brand</label>
+                              <input
+                                type="text"
+                                value={pick.brand}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, brand: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Category</label>
+                              <input
+                                type="text"
+                                value={pick.category}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, category: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Badge Text</label>
+                              <input
+                                type="text"
+                                value={pick.badge}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, badge: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs text-amber-700"
+                              />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Lead Title</label>
+                              <input
+                                type="text"
+                                value={pick.leadTitle}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, leadTitle: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Destination Link</label>
+                              <input
+                                type="text"
+                                value={pick.route}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, route: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                              />
+                            </div>
+
+                            <div className="sm:col-span-3">
+                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Technical Specs Tagline</label>
+                              <input
+                                type="text"
+                                value={pick.specs}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeTopPicksSection(prev => ({
+                                    ...prev,
+                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, specs: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs font-mono text-emerald-800"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 6. Featured Machinery Products Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'featured') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Package className="w-4 h-4 text-emerald-600" />
+                        <span>6. Featured Agricultural Machinery Section ({homeFeaturedSection.products.length} Products)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Customize flagship highlight cards including the Agrimate 4WD Tractor, Brush Cutters, and Power Weeders
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setHomeFeaturedSection(prev => ({
+                          ...prev,
+                          products: [
+                            ...prev.products,
+                            {
+                              id: `feat-${Date.now()}`,
+                              name: 'AGRIMATE PREMIUM WEEDER',
+                              code: 'RIPL123456',
+                              brand: 'AGRIMATE',
+                              category: 'POWER TILLER - WEEDER',
+                              keyFeature: 'Field Tested 7HP',
+                              image: '/assets/branding/power_weeder_hd.png',
+                              badge: 'TOP SELLER',
+                              isFlagship: false,
+                            }
+                          ]
+                        }));
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Product</span>
+                    </button>
+                  </div>
+
+                  {/* Header Fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Badge</label>
+                      <input
+                        type="text"
+                        value={homeFeaturedSection.header.badge}
+                        onChange={(e) => setHomeFeaturedSection(prev => ({ ...prev, header: { ...prev.header, badge: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Title</label>
+                      <input
+                        type="text"
+                        value={homeFeaturedSection.header.title}
+                        onChange={(e) => setHomeFeaturedSection(prev => ({ ...prev, header: { ...prev.header, title: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Subtitle</label>
+                      <input
+                        type="text"
+                        value={homeFeaturedSection.header.subtitle}
+                        onChange={(e) => setHomeFeaturedSection(prev => ({ ...prev, header: { ...prev.header, subtitle: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Products Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {homeFeaturedSection.products.map((prod, pIdx) => (
+                      <div key={prod.id || pIdx} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2 text-xs">
+                        <div className="flex items-center justify-between border-b pb-1.5">
+                          <span className="font-bold text-emerald-800 text-[11px]">#{pIdx + 1} {prod.code}</span>
+                          <div className="flex items-center gap-2">
+                            <label className="inline-flex items-center gap-1 cursor-pointer text-[10px] font-semibold text-emerald-800">
+                              <input
+                                type="checkbox"
+                                checked={!!prod.isFlagship}
+                                onChange={(e) => {
+                                  const checked = e.target.checked;
+                                  setHomeFeaturedSection(prev => ({
+                                    ...prev,
+                                    products: prev.products.map((p, i) => i === pIdx ? { ...p, isFlagship: checked } : p)
+                                  }));
+                                }}
+                                className="rounded text-emerald-600"
+                              />
+                              <span>Flagship Large Card</span>
+                            </label>
+                            {homeFeaturedSection.products.length > 1 && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (confirm(`Remove product "${prod.name}"?`)) {
+                                    setHomeFeaturedSection(prev => ({
+                                      ...prev,
+                                      products: prev.products.filter((_, i) => i !== pIdx)
+                                    }));
+                                  }
+                                }}
+                                className="text-red-500 hover:text-red-700 p-0.5"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-20 h-20 relative rounded bg-white border shrink-0 overflow-hidden flex items-center justify-center">
+                            <Image src={prod.image} alt={prod.name} fill unoptimized className="object-contain p-1" />
+                          </div>
+                          <div className="flex-1 min-w-0 space-y-1.5">
+                            <div>
+                              <label className="block text-[9px] font-bold text-gray-500 uppercase">Product Name</label>
+                              <input
+                                type="text"
+                                value={prod.name}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setHomeFeaturedSection(prev => ({
+                                    ...prev,
+                                    products: prev.products.map((p, i) => i === pIdx ? { ...p, name: val } : p)
+                                  }));
+                                }}
+                                className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-bold text-xs"
+                              />
+                            </div>
+                            <div className="grid grid-cols-2 gap-1.5">
+                              <div>
+                                <label className="block text-[9px] font-bold text-gray-500 uppercase">RIPL Code</label>
+                                <input
+                                  type="text"
+                                  value={prod.code}
+                                  onChange={(e) => {
+                                    const val = e.target.value;
+                                    setHomeFeaturedSection(prev => ({
+                                      ...prev,
+                                      products: prev.products.map((p, i) => i === pIdx ? { ...p, code: val } : p)
+                                    }));
+                                  }}
+                                  className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-[9px] font-bold text-gray-500 uppercase">Brand</label>
+                                <input
+                                  type="text"
+                                  value={prod.brand}
+                                  onChange={(e) => {
+                                    const val = e.target.value;
+                                    setHomeFeaturedSection(prev => ({
+                                      ...prev,
+                                      products: prev.products.map((p, i) => i === pIdx ? { ...p, brand: val } : p)
+                                    }));
+                                  }}
+                                  className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-xs font-semibold"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Category</label>
+                            <input
+                              type="text"
+                              value={prod.category}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeFeaturedSection(prev => ({
+                                  ...prev,
+                                  products: prev.products.map((p, i) => i === pIdx ? { ...p, category: val } : p)
+                                }));
+                              }}
+                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px]"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Key Feature Tag</label>
+                            <input
+                              type="text"
+                              value={prod.keyFeature}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeFeaturedSection(prev => ({
+                                  ...prev,
+                                  products: prev.products.map((p, i) => i === pIdx ? { ...p, keyFeature: val } : p)
+                                }));
+                              }}
+                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px]"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Primary Image URL</label>
+                            <input
+                              type="text"
+                              value={prod.image}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeFeaturedSection(prev => ({
+                                  ...prev,
+                                  products: prev.products.map((p, i) => i === pIdx ? { ...p, image: val } : p)
+                                }));
+                              }}
+                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Badge Label</label>
+                            <input
+                              type="text"
+                              value={prod.badge}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeFeaturedSection(prev => ({
+                                  ...prev,
+                                  products: prev.products.map((p, i) => i === pIdx ? { ...p, badge: val } : p)
+                                }));
+                              }}
+                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px] font-bold text-amber-700"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 7. Awards & Recognition Showcase Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'awards') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        <span>7. Awards & Recognition Showcase ({homeAwardsSection.awards.length} Trophies)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage awards in the sliding marquee (Ministry of Agriculture, Krishi Ratna, Asian Leadership)
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newId = Math.max(0, ...homeAwardsSection.awards.map(a => a.id)) + 1;
+                        setHomeAwardsSection(prev => ({
+                          ...prev,
+                          awards: [
+                            ...prev.awards,
+                            {
+                              id: newId,
+                              title: 'Agricultural Excellence Award',
+                              organization: 'Government of India',
+                              image: '/assets/branding/award_trophy_1.png',
+                            }
+                          ]
+                        }));
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Award</span>
+                    </button>
+                  </div>
+
+                  {/* Header Fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Badge</label>
+                      <input
+                        type="text"
+                        value={homeAwardsSection.header.badge}
+                        onChange={(e) => setHomeAwardsSection(prev => ({ ...prev, header: { ...prev.header, badge: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Title</label>
+                      <input
+                        type="text"
+                        value={homeAwardsSection.header.title}
+                        onChange={(e) => setHomeAwardsSection(prev => ({ ...prev, header: { ...prev.header, title: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Subtitle</label>
+                      <input
+                        type="text"
+                        value={homeAwardsSection.header.subtitle}
+                        onChange={(e) => setHomeAwardsSection(prev => ({ ...prev, header: { ...prev.header, subtitle: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Awards Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {homeAwardsSection.awards.map((award, aIdx) => (
+                      <div key={award.id || aIdx} className="border border-gray-200 rounded-lg p-3 bg-gray-50 space-y-2 text-xs">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-emerald-800 text-[11px]">Trophy #{aIdx + 1}</span>
+                          {homeAwardsSection.awards.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (confirm(`Remove award "${award.title}"?`)) {
+                                  setHomeAwardsSection(prev => ({
+                                    ...prev,
+                                    awards: prev.awards.filter((_, i) => i !== aIdx)
+                                  }));
+                                }
+                              }}
+                              className="text-red-500 hover:text-red-700 p-0.5"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <div className="w-14 h-14 relative rounded bg-white border shrink-0 overflow-hidden flex items-center justify-center">
+                            <Image src={award.image} alt={award.title} fill unoptimized className="object-contain p-1" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Award Title</label>
+                            <input
+                              type="text"
+                              value={award.title}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setHomeAwardsSection(prev => ({
+                                  ...prev,
+                                  awards: prev.awards.map((a, i) => i === aIdx ? { ...a, title: val } : a)
+                                }));
+                              }}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Organization / Category</label>
+                          <input
+                            type="text"
+                            value={award.organization}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeAwardsSection(prev => ({
+                                ...prev,
+                                awards: prev.awards.map((a, i) => i === aIdx ? { ...a, organization: val } : a)
+                              }));
+                            }}
+                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px]"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Trophy Image URL</label>
+                          <input
+                            type="text"
+                            value={award.image}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeAwardsSection(prev => ({
+                                ...prev,
+                                awards: prev.awards.map((a, i) => i === aIdx ? { ...a, image: val } : a)
+                              }));
+                            }}
+                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 8. Academic & Testing Institutes Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'institutes') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Building2 className="w-4 h-4 text-emerald-600" />
+                        <span>8. Academic & Testing Institutes ({homeInstitutesSection.institutes.length} Institutes)</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage certified farm machinery testing institutes (ICAR-CIAE, SRFMTTI, UAS, TNAU)
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setHomeInstitutesSection(prev => ({
+                          ...prev,
+                          institutes: [
+                            ...prev.institutes,
+                            {
+                              id: `inst-${Date.now()}`,
+                              code: 'NEW INSTITUTE',
+                              name: 'Central Farm Machinery Institute',
+                              logo: '/assets/institutes/icar_ciae_logo.png',
+                            }
+                          ]
+                        }));
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Institute</span>
+                    </button>
+                  </div>
+
+                  {/* Header Fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Badge</label>
+                      <input
+                        type="text"
+                        value={homeInstitutesSection.header.badge}
+                        onChange={(e) => setHomeInstitutesSection(prev => ({ ...prev, header: { ...prev.header, badge: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Title</label>
+                      <input
+                        type="text"
+                        value={homeInstitutesSection.header.title}
+                        onChange={(e) => setHomeInstitutesSection(prev => ({ ...prev, header: { ...prev.header, title: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Section Subtitle</label>
+                      <input
+                        type="text"
+                        value={homeInstitutesSection.header.subtitle}
+                        onChange={(e) => setHomeInstitutesSection(prev => ({ ...prev, header: { ...prev.header, subtitle: e.target.value } }))}
+                        className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Institutes Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                    {homeInstitutesSection.institutes.map((inst, iIdx) => (
+                      <div key={inst.id || iIdx} className="border border-gray-200 rounded-lg p-3 bg-gray-50 space-y-2 text-xs">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-emerald-800 text-[11px]">Institute #{iIdx + 1}</span>
+                          {homeInstitutesSection.institutes.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (confirm(`Remove institute "${inst.code}"?`)) {
+                                  setHomeInstitutesSection(prev => ({
+                                    ...prev,
+                                    institutes: prev.institutes.filter((_, i) => i !== iIdx)
+                                  }));
+                                }
+                              }}
+                              className="text-red-500 hover:text-red-700 p-0.5"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+
+                        <div className="w-full h-14 relative rounded bg-white border overflow-hidden flex items-center justify-center">
+                          <Image src={inst.logo} alt={inst.code} fill unoptimized className="object-contain p-1.5" />
+                        </div>
+
+                        <div>
+                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Code / Short Name</label>
+                          <input
+                            type="text"
+                            value={inst.code}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeInstitutesSection(prev => ({
+                                ...prev,
+                                institutes: prev.institutes.map((item, i) => i === iIdx ? { ...item, code: val } : item)
+                              }));
+                            }}
+                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-bold text-xs"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Full Official Name</label>
+                          <input
+                            type="text"
+                            value={inst.name}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeInstitutesSection(prev => ({
+                                ...prev,
+                                institutes: prev.institutes.map((item, i) => i === iIdx ? { ...item, name: val } : item)
+                              }));
+                            }}
+                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px]"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Logo URL</label>
+                          <input
+                            type="text"
+                            value={inst.logo}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeInstitutesSection(prev => ({
+                                ...prev,
+                                institutes: prev.institutes.map((item, i) => i === iIdx ? { ...item, logo: val } : item)
+                              }));
+                            }}
+                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 9. Mobile App Download Banner Manager */}
+              {(homeSectionFilter === 'all' || homeSectionFilter === 'app') && (
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div>
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <Layers className="w-4 h-4 text-emerald-600" />
+                        <span>9. Download Agrimart Mobile App Banner</span>
+                      </h2>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage Ultra-HD download banner and direct Google Play & Apple App Store buttons
+                      </p>
+                    </div>
+                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      3K Ultra-HD Banner
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="md:col-span-1 space-y-2">
+                      <div className="w-full aspect-[1024/340] relative rounded-lg bg-white border overflow-hidden">
+                        <Image
+                          src={homeAppBanner.bannerImage}
+                          alt={homeAppBanner.title || 'App Download'}
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                      <p className="text-[10px] text-gray-500 italic text-center">Banner artwork preview</p>
+                    </div>
+
+                    <div className="md:col-span-2 space-y-3 text-xs">
+                      <div>
+                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Banner Image URL</label>
+                        <input
+                          type="text"
+                          value={homeAppBanner.bannerImage}
+                          onChange={(e) => setHomeAppBanner(prev => ({ ...prev, bannerImage: e.target.value }))}
+                          className="w-full px-2.5 py-1.5 bg-gray-50 border border-gray-300 rounded font-mono text-[11px]"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Title / Alt Text</label>
+                          <input
+                            type="text"
+                            value={homeAppBanner.title || ''}
+                            onChange={(e) => setHomeAppBanner(prev => ({ ...prev, title: e.target.value }))}
+                            className="w-full px-2.5 py-1.5 bg-gray-50 border border-gray-300 rounded text-xs font-semibold"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Subtitle</label>
+                          <input
+                            type="text"
+                            value={homeAppBanner.subtitle || ''}
+                            onChange={(e) => setHomeAppBanner(prev => ({ ...prev, subtitle: e.target.value }))}
+                            className="w-full px-2.5 py-1.5 bg-gray-50 border border-gray-300 rounded text-xs"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-emerald-800 uppercase mb-0.5">
+                            Google Play Store Link
+                          </label>
+                          <div className="flex gap-1.5 items-center">
+                            <input
+                              type="text"
+                              value={homeAppBanner.googlePlayLink}
+                              onChange={(e) => setHomeAppBanner(prev => ({ ...prev, googlePlayLink: e.target.value }))}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                            <Link href={homeAppBanner.googlePlayLink} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
+                              ↗
+                            </Link>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-800 uppercase mb-0.5">
+                            Apple App Store Link
+                          </label>
+                          <div className="flex gap-1.5 items-center">
+                            <input
+                              type="text"
+                              value={homeAppBanner.appStoreLink}
+                              onChange={(e) => setHomeAppBanner(prev => ({ ...prev, appStoreLink: e.target.value }))}
+                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            />
+                            <Link href={homeAppBanner.appStoreLink} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
                               ↗
                             </Link>
                           </div>
                         </div>
                       </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* 2. Promotional Showcase Banners */}
-              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
-                <div className="flex items-center justify-between border-b pb-3">
+              {/* Bottom Sticky Save Bar for Home Page CMS */}
+              <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                   <div>
-                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-emerald-600" />
-                      <span>2. Agrimart Growth & Opportunities Banners ({homePromoBanners.length} Cards)</span>
-                    </h2>
-                    <p className="text-xs text-gray-500 mt-0.5">Interactive cards positioned immediately below the hero slider</p>
+                    <p className="text-xs font-bold text-gray-900">All 9 Homepage Sections Ready</p>
+                    <p className="text-[11px] text-gray-500">Changes are saved directly to PostgreSQL database and synchronized with your live website.</p>
                   </div>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                    2.5s Auto-Cycle
-                  </span>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {homePromoBanners.map((promo, pIdx) => (
-                    <div key={promo.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-2 text-xs">
-                      <div>
-                        <label className="block text-[10px] font-bold text-amber-700 uppercase mb-0.5">Tag / Subtitle</label>
-                        <input
-                          type="text"
-                          value={promo.subtitle}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, subtitle: val } : item)));
-                          }}
-                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-[11px]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Card Title</label>
-                        <input
-                          type="text"
-                          value={promo.title}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, title: val } : item)));
-                          }}
-                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Description</label>
-                        <textarea
-                          rows={2}
-                          value={promo.desc}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, desc: val } : item)));
-                          }}
-                          className="w-full px-2 py-1 bg-white border border-gray-300 rounded text-[11px]"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link</label>
-                          <input
-                            type="text"
-                            value={promo.link}
-                            onChange={(e) => {
-                              const val = e.target.value;
-                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, link: val } : item)));
-                            }}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Button Text</label>
-                          <input
-                            type="text"
-                            value={promo.buttonText}
-                            onChange={(e) => {
-                              const val = e.target.value;
-                              setHomePromoBanners(prev => prev.map((item, i) => (i === pIdx ? { ...item, buttonText: val } : item)));
-                            }}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-semibold text-[11px]"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 3. Included Sections Summary Grid */}
-              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
-                <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
-                  3. Active Sections Configured on Home Page
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Shop by Category</p>
-                      <p className="text-gray-500 text-[11px]">28 round categories with icons</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Trusted Brands Strip</p>
-                      <p className="text-gray-500 text-[11px]">AGRIMATE, KASEI, OLEO-MAC</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Agrimart Top Picks</p>
-                      <p className="text-gray-500 text-[11px]">Weeders, Tillers, Chainsaws</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Flagship Products</p>
-                      <p className="text-gray-500 text-[11px]">8 featured units with 4WD tractor</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Industry Awards Marquee</p>
-                      <p className="text-gray-500 text-[11px]">6 National & Asian Trophies</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center">
-                    <div>
-                      <p className="font-bold text-gray-900">Academic & Testing Institutes</p>
-                      <p className="text-gray-500 text-[11px]">ICAR-CIAE, SRFMTTI, UAS, TNAU</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
-
-                  <div className="p-3 bg-gray-50 rounded border border-gray-200 flex justify-between items-center sm:col-span-2 lg:col-span-3">
-                    <div>
-                      <p className="font-bold text-gray-900">Mobile App Download Banner</p>
-                      <p className="text-gray-500 text-[11px]">Google Play Store & Apple App Store direct badges</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Active</span>
-                  </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition-colors"
+                  >
+                    Preview Homepage ↗
+                  </Link>
+                  <button
+                    onClick={handleSaveHomeCms}
+                    disabled={isSavingHome}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow transition-colors cursor-pointer"
+                  >
+                    {homeSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{isSavingHome ? 'Saving to Database...' : homeSaveSuccess ? 'Saved Successfully!' : 'Save All Homepage Changes'}</span>
+                  </button>
                 </div>
               </div>
             </div>

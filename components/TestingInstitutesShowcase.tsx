@@ -56,10 +56,17 @@ export const TESTING_INSTITUTES: TestingInstitute[] = [
   },
 ];
 
-export default function TestingInstitutesShowcase() {
-  const total = TESTING_INSTITUTES.length;
+export default function TestingInstitutesShowcase({
+  header,
+  customInstitutes,
+}: {
+  header?: { badge?: string; title?: string; subtitle?: string };
+  customInstitutes?: TestingInstitute[];
+} = {}) {
+  const institutesList = customInstitutes && customInstitutes.length > 0 ? customInstitutes : TESTING_INSTITUTES;
+  const total = institutesList.length;
   // Double the list for seamless infinite circular sliding
-  const carouselItems = [...TESTING_INSTITUTES, ...TESTING_INSTITUTES];
+  const carouselItems = [...institutesList, ...institutesList];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -141,13 +148,13 @@ export default function TestingInstitutesShowcase() {
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-1.5 bg-green-50 text-[#0d9749] px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2.5 border border-green-200/60">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0d9749]"></span>
-            <span>Institutional Validation</span>
+            <span>{header?.badge || 'Institutional Validation'}</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Tested &amp; Approved by Premier Agricultural Universities &amp; FM&amp;TTI Institutes
+            {header?.title || 'Tested & Approved by Premier Agricultural Universities & FM&TTI Institutes'}
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 mt-1.5 max-w-2xl mx-auto leading-relaxed">
-            Every Agrimart machine undergoes rigorous institutional testing to guarantee maximum durability, fuel efficiency, and farmer safety.
+            {header?.subtitle || 'Every Agrimart machine undergoes rigorous institutional testing to guarantee maximum durability, fuel efficiency, and farmer safety.'}
           </p>
 
           {/* Indicator dots for the 7 institutes */}

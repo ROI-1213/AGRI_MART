@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getCmsSetting, upsertCmsSetting } from '@/lib/db';
-import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS, DEFAULT_CONTACTUS_CMS } from '@/lib/cmsDefaults';
+import { DEFAULT_HOMEPAGE_CMS, DEFAULT_ABOUTUS_CMS, DEFAULT_CONTACTUS_CMS, DEFAULT_FOOTER_CMS } from '@/lib/cmsDefaults';
 
 export async function GET(req: NextRequest) {
   try {
@@ -16,15 +16,18 @@ export async function GET(req: NextRequest) {
         ? DEFAULT_ABOUTUS_CMS 
         : key === 'contactus'
         ? DEFAULT_CONTACTUS_CMS
+        : key === 'footer'
+        ? DEFAULT_FOOTER_CMS
         : null;
       const merged = (data && fallback) ? { ...fallback, ...data } : (data || fallback);
       return NextResponse.json({ success: true, key, data: merged });
     }
 
-    const [homepage, aboutus, contactus] = await Promise.all([
+    const [homepage, aboutus, contactus, footer] = await Promise.all([
       getCmsSetting('homepage'),
       getCmsSetting('aboutus'),
       getCmsSetting('contactus'),
+      getCmsSetting('footer'),
     ]);
 
     return NextResponse.json({
@@ -32,6 +35,7 @@ export async function GET(req: NextRequest) {
       homepage: homepage ? { ...DEFAULT_HOMEPAGE_CMS, ...homepage } : DEFAULT_HOMEPAGE_CMS,
       aboutus: aboutus ? { ...DEFAULT_ABOUTUS_CMS, ...aboutus } : DEFAULT_ABOUTUS_CMS,
       contactus: contactus ? { ...DEFAULT_CONTACTUS_CMS, ...contactus } : DEFAULT_CONTACTUS_CMS,
+      footer: footer ? { ...DEFAULT_FOOTER_CMS, ...footer } : DEFAULT_FOOTER_CMS,
     });
   } catch (err: any) {
     console.error('Error loading CMS settings from PostgreSQL:', err);
@@ -54,6 +58,9 @@ export async function PUT(req: NextRequest) {
       if (key === 'homepage') revalidatePath('/');
       if (key === 'aboutus') revalidatePath('/about');
       if (key === 'contactus') revalidatePath('/contact');
+      if (key === 'footer') {
+        revalidatePath('/', 'layout');
+      }
     } catch {
       // Ignore outside request context
     }

@@ -41,7 +41,9 @@ import {
   DEFAULT_HOMEPAGE_CMS, 
   DEFAULT_ABOUTUS_CMS,
   DEFAULT_CONTACTUS_CMS,
+  DEFAULT_FOOTER_CMS,
   ContactUsCmsData,
+  FooterCmsData,
   SectionHeaderCms,
   BrandCmsItem,
   TopPickCmsItem,
@@ -53,7 +55,7 @@ import {
 import { Product } from '@/types';
 
 export default function AdminPage() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus' | 'footer'>('dashboard');
   const [productSearch, setProductSearch] = useState('');
   const [productPage, setProductPage] = useState(1);
   const adminPageSize = 20;
@@ -154,6 +156,11 @@ export default function AdminPage() {
   const [isSavingContact, setIsSavingContact] = useState(false);
   const [contactSaveSuccess, setContactSaveSuccess] = useState(false);
 
+  // Footer CMS State
+  const [footerData, setFooterData] = useState<FooterCmsData>(DEFAULT_FOOTER_CMS);
+  const [isSavingFooter, setIsSavingFooter] = useState(false);
+  const [footerSaveSuccess, setFooterSaveSuccess] = useState(false);
+
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isNewProduct, setIsNewProduct] = useState(false);
@@ -224,6 +231,7 @@ export default function AdminPage() {
           if (data.homepage?.appBanner) setHomeAppBanner(data.homepage.appBanner);
           if (data.aboutus) setAboutData(data.aboutus);
           if (data.contactus) setContactData(data.contactus);
+          if (data.footer) setFooterData(data.footer);
         }
       })
       .catch(e => console.error('API CMS load error:', e));
@@ -547,6 +555,31 @@ export default function AdminPage() {
       alert('Failed to save Contact Us settings: ' + e.message);
     } finally {
       setIsSavingContact(false);
+    }
+  };
+
+  const handleSaveFooterCms = async () => {
+    setIsSavingFooter(true);
+    try {
+      const res = await fetch('/api/admin/cms', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'footer',
+          data: footerData,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFooterSaveSuccess(true);
+        setTimeout(() => setFooterSaveSuccess(false), 2500);
+      } else {
+        alert('Error saving Footer settings: ' + (data.error || 'Unknown error'));
+      }
+    } catch (e: any) {
+      alert('Failed to save Footer settings: ' + e.message);
+    } finally {
+      setIsSavingFooter(false);
     }
   };
 
@@ -931,6 +964,21 @@ export default function AdminPage() {
             <div className="flex items-center gap-2.5">
               <Phone className="w-4 h-4" />
               <span>Contact Us Page</span>
+            </div>
+            <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
+              Live
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('footer')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded transition-colors ${
+              activeTab === 'footer' ? 'bg-[#0d9749] text-white' : 'hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Layers className="w-4 h-4" />
+              <span>Global Footer</span>
             </div>
             <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-green-100 text-green-800">
               Live
@@ -3698,6 +3746,403 @@ export default function AdminPage() {
                   >
                     {contactSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
                     <span>{isSavingContact ? 'Saving to Database...' : contactSaveSuccess ? 'Saved Successfully!' : 'Save Contact Us Settings'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: GLOBAL FOOTER CMS */}
+          {activeTab === 'footer' && (
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+                      <Layers className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <h1 className="text-xl font-bold text-gray-900">Global Website Footer & Social Presence</h1>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Manage corporate overview, downloadable brochures, pan-India reach statistics, mobile app links, social media channels, and copyright notice
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>View Live Footer ↗</span>
+                  </Link>
+                  <button
+                    onClick={handleSaveFooterCms}
+                    disabled={isSavingFooter}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  >
+                    {footerSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{isSavingFooter ? 'Saving...' : footerSaveSuccess ? 'Saved to DB!' : 'Save Footer Settings'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 1. Company Profile & Background Imagery */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-emerald-600" />
+                    <span>1. Company Overview Blurb & Imagery</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Column 1 summary text, corporate brand logo, and the scenic farm landscape background</p>
+                </div>
+
+                <div className="space-y-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Corporate Overview Paragraph</label>
+                    <textarea
+                      rows={3}
+                      value={footerData.aboutText}
+                      onChange={(e) => setFooterData({ ...footerData, aboutText: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 text-xs leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Logo Artwork URL</label>
+                      <input
+                        type="text"
+                        value={footerData.logoImage || ''}
+                        onChange={(e) => setFooterData({ ...footerData, logoImage: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Scenic Background Image URL</label>
+                      <input
+                        type="text"
+                        value={footerData.backgroundImage || ''}
+                        onChange={(e) => setFooterData({ ...footerData, backgroundImage: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. Downloadable PDF Brochures */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Download className="w-4 h-4 text-emerald-600" />
+                    <span>2. Downloadable PDF Brochures</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Direct PDF download buttons placed in the first column of the footer</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  <div className="p-3.5 bg-gray-50 rounded-lg border border-gray-200 space-y-2.5">
+                    <span className="font-bold text-emerald-800 text-[11px] uppercase tracking-wider">Button 1: Corporate Brochure</span>
+                    <div>
+                      <label className="block font-semibold text-gray-600 mb-0.5">Button Label</label>
+                      <input
+                        type="text"
+                        value={footerData.corporateBrochureText || ''}
+                        onChange={(e) => setFooterData({ ...footerData, corporateBrochureText: e.target.value })}
+                        className="w-full px-2.5 py-1.5 bg-white border rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-semibold text-gray-600 mb-0.5">PDF File URL</label>
+                      <input
+                        type="text"
+                        value={footerData.corporateBrochureUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, corporateBrochureUrl: e.target.value })}
+                        className="w-full px-2.5 py-1.5 bg-white border rounded font-mono text-[11px]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 bg-gray-50 rounded-lg border border-gray-200 space-y-2.5">
+                    <span className="font-bold text-amber-800 text-[11px] uppercase tracking-wider">Button 2: Brand / Machinery Brochure</span>
+                    <div>
+                      <label className="block font-semibold text-gray-600 mb-0.5">Button Label</label>
+                      <input
+                        type="text"
+                        value={footerData.brandBrochureText || ''}
+                        onChange={(e) => setFooterData({ ...footerData, brandBrochureText: e.target.value })}
+                        className="w-full px-2.5 py-1.5 bg-white border rounded font-semibold text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-semibold text-gray-600 mb-0.5">PDF File URL</label>
+                      <input
+                        type="text"
+                        value={footerData.brandBrochureUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, brandBrochureUrl: e.target.value })}
+                        className="w-full px-2.5 py-1.5 bg-white border rounded font-mono text-[11px]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Contact & Location Information */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-emerald-600" />
+                    <span>3. Contact & Headquarters Details</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Details presented in Column 4 of the global footer</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  <div className="md:col-span-2">
+                    <label className="block font-bold text-gray-700 mb-1">Headquarters Physical Address</label>
+                    <input
+                      type="text"
+                      value={footerData.address}
+                      onChange={(e) => setFooterData({ ...footerData, address: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Toll-Free Helpline Phone</label>
+                    <input
+                      type="text"
+                      value={footerData.helplinePhone}
+                      onChange={(e) => setFooterData({ ...footerData, helplinePhone: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-bold text-emerald-800 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">Official Email Address</label>
+                    <input
+                      type="email"
+                      value={footerData.email}
+                      onChange={(e) => setFooterData({ ...footerData, email: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block font-bold text-gray-700 mb-1">Working Hours String</label>
+                    <input
+                      type="text"
+                      value={footerData.workingHours}
+                      onChange={(e) => setFooterData({ ...footerData, workingHours: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 4. Pan-India Network Map & Stats Banner */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-emerald-600" />
+                    <span>4. Pan-India Network Reach & Statistics</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">India network map graphic and the two green counter badges</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                  <div>
+                    <label className="block font-bold text-gray-700 mb-1">India Network Map Image URL</label>
+                    <input
+                      type="text"
+                      value={footerData.networkMapImage || ''}
+                      onChange={(e) => setFooterData({ ...footerData, networkMapImage: e.target.value })}
+                      className="w-full px-3 py-2 border rounded-lg font-mono text-[11px]"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Stat 1 Count</label>
+                      <input
+                        type="text"
+                        value={footerData.touchpointsCount}
+                        onChange={(e) => setFooterData({ ...footerData, touchpointsCount: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-bold text-emerald-800"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Stat 1 Label</label>
+                      <input
+                        type="text"
+                        value={footerData.touchpointsLabel}
+                        onChange={(e) => setFooterData({ ...footerData, touchpointsLabel: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Stat 2 Count</label>
+                      <input
+                        type="text"
+                        value={footerData.statesCoveredCount}
+                        onChange={(e) => setFooterData({ ...footerData, statesCoveredCount: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-bold text-emerald-800"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Stat 2 Label</label>
+                      <input
+                        type="text"
+                        value={footerData.statesCoveredLabel}
+                        onChange={(e) => setFooterData({ ...footerData, statesCoveredLabel: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5. Mobile App Links & Social Media Channels */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* App Store Links */}
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="border-b pb-3">
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Download className="w-4 h-4 text-emerald-600" />
+                      <span>5. Mobile App Download Links</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">Badges in Column 3</p>
+                  </div>
+
+                  <div className="space-y-3 text-xs">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Google Play Store URL</label>
+                      <input
+                        type="text"
+                        value={footerData.googlePlayLink}
+                        onChange={(e) => setFooterData({ ...footerData, googlePlayLink: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-mono text-[10px]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-1">Apple App Store URL</label>
+                      <input
+                        type="text"
+                        value={footerData.appStoreLink}
+                        onChange={(e) => setFooterData({ ...footerData, appStoreLink: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg font-mono text-[10px]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                  <div className="border-b pb-3">
+                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-emerald-600" />
+                      <span>6. Social Media Channels</span>
+                    </h2>
+                    <p className="text-xs text-gray-500 mt-0.5">Circular icons in Column 4</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-0.5">Facebook</label>
+                      <input
+                        type="text"
+                        value={footerData.facebookUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, facebookUrl: e.target.value })}
+                        className="w-full px-2 py-1 border rounded font-mono text-[10px]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-0.5">Instagram</label>
+                      <input
+                        type="text"
+                        value={footerData.instagramUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, instagramUrl: e.target.value })}
+                        className="w-full px-2 py-1 border rounded font-mono text-[10px]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-0.5">X (Twitter)</label>
+                      <input
+                        type="text"
+                        value={footerData.twitterUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, twitterUrl: e.target.value })}
+                        className="w-full px-2 py-1 border rounded font-mono text-[10px]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-bold text-gray-700 mb-0.5">LinkedIn</label>
+                      <input
+                        type="text"
+                        value={footerData.linkedinUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, linkedinUrl: e.target.value })}
+                        className="w-full px-2 py-1 border rounded font-mono text-[10px]"
+                      />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <label className="block font-bold text-gray-700 mb-0.5">YouTube</label>
+                      <input
+                        type="text"
+                        value={footerData.youtubeUrl || ''}
+                        onChange={(e) => setFooterData({ ...footerData, youtubeUrl: e.target.value })}
+                        className="w-full px-2 py-1 border rounded font-mono text-[10px]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 7. Bottom Copyright Bar */}
+              <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                <div className="border-b pb-3">
+                  <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>7. Copyright Bar Notice</span>
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-0.5">Text shown in the bottom frosted bar</p>
+                </div>
+
+                <div className="text-xs">
+                  <label className="block font-bold text-gray-700 mb-1">Copyright Line Text (Year is automatically injected)</label>
+                  <input
+                    type="text"
+                    value={footerData.copyrightText || ''}
+                    onChange={(e) => setFooterData({ ...footerData, copyrightText: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                </div>
+              </div>
+
+              {/* Bottom Sticky Save Bar for Footer CMS */}
+              <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  <div>
+                    <p className="text-xs font-bold text-gray-900">Global Footer Configuration Ready</p>
+                    <p className="text-[11px] text-gray-500">Changes will be saved into PostgreSQL and reflected immediately across all website footers.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition-colors"
+                  >
+                    Preview Homepage Footer ↗
+                  </Link>
+                  <button
+                    onClick={handleSaveFooterCms}
+                    disabled={isSavingFooter}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#0d9749] hover:bg-[#097b3a] disabled:opacity-60 text-white text-xs font-bold rounded-lg shadow transition-colors cursor-pointer"
+                  >
+                    {footerSaveSuccess ? <CheckCircle2 className="w-4 h-4 text-white" /> : <Save className="w-4 h-4" />}
+                    <span>{isSavingFooter ? 'Saving to Database...' : footerSaveSuccess ? 'Saved Successfully!' : 'Save Footer Settings'}</span>
                   </button>
                 </div>
               </div>

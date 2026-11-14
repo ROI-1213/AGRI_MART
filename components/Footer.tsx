@@ -1,15 +1,31 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock, FileText, Download } from 'lucide-react';
+import { DEFAULT_FOOTER_CMS, FooterCmsData } from '@/lib/cmsDefaults';
 
 export default function Footer() {
+  const [footerData, setFooterData] = useState<FooterCmsData>(DEFAULT_FOOTER_CMS);
+
+  useEffect(() => {
+    fetch('/api/admin/cms?key=footer')
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          setFooterData({ ...DEFAULT_FOOTER_CMS, ...resData.data });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <footer className="relative mt-auto bg-[#e9f1f4] text-gray-800 text-sm border-t-4 border-[#0d9749] overflow-hidden pb-mobile-nav">
       {/* Agricultural Landscape Background Banner Image */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <Image
-          src="/assets/banners/footer_bg_hd.png"
+          src={footerData.backgroundImage || "/assets/banners/footer_bg_hd.png"}
           alt="Agrimart Farm Fields Background"
           fill
           priority
@@ -28,7 +44,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/assets/branding/logo.png"
+                src={footerData.logoImage || "/assets/branding/logo.png"}
                 alt="Agrimart"
                 width={180}
                 height={50}
@@ -37,25 +53,31 @@ export default function Footer() {
               />
             </div>
             <p className="text-xs text-gray-800 leading-relaxed mb-4 font-medium">
-              AGRIMART is an initiative of <strong className="text-gray-950 font-bold">Ratnagiri Impex Pvt. Ltd.</strong>, part of the Annapurna Group. Founded in 2000, we specialize in high-efficiency agricultural machinery, mechanization solutions, pest control sprayers, garden care equipment, and reliable customer service across India.
+              {footerData.aboutText}
             </p>
             <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5">
-              <a
-                href="/assets/brochures/corporate_brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-[#0d9749] hover:bg-[#097b3a] text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
-              >
-                <Download className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" /> Download Corporate Brochure
-              </a>
-              <a
-                href="/assets/brochures/agrimart_brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
-              >
-                <FileText className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" /> Download Agrimate Brochure
-              </a>
+              {footerData.corporateBrochureUrl && (
+                <a
+                  href={footerData.corporateBrochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-[#0d9749] hover:bg-[#097b3a] text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
+                >
+                  <Download className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" />
+                  <span>{footerData.corporateBrochureText || 'Download Corporate Brochure'}</span>
+                </a>
+              )}
+              {footerData.brandBrochureUrl && (
+                <a
+                  href={footerData.brandBrochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-h-[48px] sm:min-h-0 inline-flex items-center justify-center sm:justify-start gap-2 text-xs bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded shadow-sm hover:shadow active:scale-[0.98] transition-all"
+                >
+                  <FileText className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" />
+                  <span>{footerData.brandBrochureText || 'Download Agrimate Brochure'}</span>
+                </a>
+              )}
             </div>
           </div>
 
@@ -159,7 +181,7 @@ export default function Footer() {
               <p className="text-xs font-bold text-gray-900 mb-2">Download Our Mobile App</p>
               <div className="flex items-center space-x-2">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"
+                  href={footerData.googlePlayLink || "https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-90 transition-opacity inline-block shadow-sm rounded overflow-hidden"
@@ -174,7 +196,7 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="https://apps.apple.com/in/app/agrimart/id1599062786"
+                  href={footerData.appStoreLink || "https://apps.apple.com/in/app/agrimart/id1599062786"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-90 transition-opacity inline-block shadow-sm rounded overflow-hidden"
@@ -201,26 +223,25 @@ export default function Footer() {
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-[#0d9749] shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-gray-950">Annapurna House</strong>, #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.
+                  {footerData.address}
                 </span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-[#0d9749] shrink-0" />
                 <span>
-                  Toll Free: <a href="tel:7393938938" className="text-gray-950 hover:text-[#0d9749] font-bold">7393 938 938</a>
+                  Toll Free: <a href={`tel:${footerData.helplinePhone.replace(/\s+/g, '')}`} className="text-gray-950 hover:text-[#0d9749] font-bold">{footerData.helplinePhone}</a>
                 </span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-[#0d9749] shrink-0" />
                 <span>
-                  Email: <a href="mailto:ask@agrimart.in" className="hover:text-[#0d9749] text-gray-900 font-semibold">ask@agrimart.in</a>
+                  Email: <a href={`mailto:${footerData.email}`} className="hover:text-[#0d9749] text-gray-900 font-semibold">{footerData.email}</a>
                 </span>
               </div>
               <div className="flex items-start space-x-2.5">
                 <Clock className="w-4 h-4 text-[#0d9749] shrink-0 mt-0.5" />
-                <span>
-                  Mon – Sat: 9:30 AM – 6:00 PM<br />
-                  Sunday: Closed
+                <span className="whitespace-pre-line">
+                  {footerData.workingHours}
                 </span>
               </div>
             </div>
@@ -231,7 +252,7 @@ export default function Footer() {
                 {/* Upper: Ultra-HD India Network Map */}
                 <div className="p-2 sm:p-2.5 bg-white flex items-center justify-center">
                   <Image
-                    src="/assets/branding/india_network_map_hd.png"
+                    src={footerData.networkMapImage || "/assets/branding/india_network_map_hd.png"}
                     alt="Agrimart Pan India Network Map"
                     width={632}
                     height={696}
@@ -245,18 +266,18 @@ export default function Footer() {
                 <div className="bg-[#097b3a] py-2 px-3 grid grid-cols-2 divide-x divide-white/20 text-center select-none">
                   <div className="px-1 flex flex-col items-center justify-center">
                     <span className="text-sm sm:text-base font-black text-yellow-300 leading-none tracking-tight">
-                      750+
+                      {footerData.touchpointsCount}
                     </span>
                     <span className="text-[8px] sm:text-[9px] font-bold text-white tracking-wider uppercase leading-tight mt-0.5">
-                      Network Touchpoints
+                      {footerData.touchpointsLabel}
                     </span>
                   </div>
                   <div className="px-1 flex flex-col items-center justify-center">
                     <span className="text-sm sm:text-base font-black text-yellow-300 leading-none tracking-tight">
-                      28
+                      {footerData.statesCoveredCount}
                     </span>
                     <span className="text-[8px] sm:text-[9px] font-bold text-white tracking-wider uppercase leading-tight mt-0.5">
-                      States Covered
+                      {footerData.statesCoveredLabel}
                     </span>
                   </div>
                 </div>
@@ -270,77 +291,87 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-2.5">
                 {/* Facebook */}
-                <a
-                  href="https://www.facebook.com/agrimart20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  title="Facebook"
-                  className="w-8 h-8 rounded-full bg-[#1877F2] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
-                >
-                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
+                {footerData.facebookUrl && (
+                  <a
+                    href={footerData.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    title="Facebook"
+                    className="w-8 h-8 rounded-full bg-[#1877F2] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                )}
 
                 {/* Instagram */}
-                <a
-                  href="https://www.instagram.com/agrimart20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  title="Instagram"
-                  className="w-8 h-8 rounded-full hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer overflow-hidden"
-                  style={{
-                    background: 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)'
-                  }}
-                >
-                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
+                {footerData.instagramUrl && (
+                  <a
+                    href={footerData.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                    className="w-8 h-8 rounded-full hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer overflow-hidden"
+                    style={{
+                      background: 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)'
+                    }}
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                )}
 
                 {/* Twitter / X */}
-                <a
-                  href="https://x.com/Agrimart3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X (Twitter)"
-                  title="X (Twitter)"
-                  className="w-8 h-8 rounded-full bg-black hover:bg-gray-800 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
-                >
-                  <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </a>
+                {footerData.twitterUrl && (
+                  <a
+                    href={footerData.twitterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X (Twitter)"
+                    title="X (Twitter)"
+                    className="w-8 h-8 rounded-full bg-black hover:bg-gray-800 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                )}
 
                 {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/company/agrimart20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  title="LinkedIn"
-                  className="w-8 h-8 rounded-full bg-[#0A66C2] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
-                >
-                  <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                </a>
+                {footerData.linkedinUrl && (
+                  <a
+                    href={footerData.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                    className="w-8 h-8 rounded-full bg-[#0A66C2] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
+                )}
 
                 {/* YouTube */}
-                <a
-                  href="https://www.youtube.com/channel/UCPChKPEwHssr4WmuOxrJY9g?reload=9&view_as=subscriber"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  title="YouTube"
-                  className="w-8 h-8 rounded-full bg-[#FF0000] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
-                >
-                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                </a>
+                {footerData.youtubeUrl && (
+                  <a
+                    href={footerData.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    title="YouTube"
+                    className="w-8 h-8 rounded-full bg-[#FF0000] hover:opacity-90 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-xs cursor-pointer"
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -350,7 +381,9 @@ export default function Footer() {
       {/* Bottom Copyright Bar */}
       <div className="relative z-10 bg-white/80 backdrop-blur-md py-4 border-t border-gray-300/80 text-center text-xs text-gray-700">
         <div className="agri-container flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="font-medium text-gray-800">© {new Date().getFullYear()} Agrimart — Ratnagiri Impex Pvt. Ltd. All rights reserved.</p>
+          <p className="font-medium text-gray-800">
+            © {new Date().getFullYear()} {footerData.copyrightText || 'Agrimart — Ratnagiri Impex Pvt. Ltd. All rights reserved.'}
+          </p>
           <div className="flex space-x-4 font-semibold">
             <Link href="/privacy-policy" className="hover:text-[#0d9749] transition-colors">Privacy Policy</Link>
             <span>•</span>

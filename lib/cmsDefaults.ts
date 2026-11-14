@@ -139,6 +139,33 @@ export interface ContactUsCmsData {
   googleMapsLink?: string;
 }
 
+export interface FooterCmsData {
+  aboutText: string;
+  logoImage?: string;
+  backgroundImage?: string;
+  corporateBrochureUrl?: string;
+  corporateBrochureText?: string;
+  brandBrochureUrl?: string;
+  brandBrochureText?: string;
+  address: string;
+  helplinePhone: string;
+  email: string;
+  workingHours: string;
+  googlePlayLink: string;
+  appStoreLink: string;
+  touchpointsCount: string;
+  touchpointsLabel: string;
+  statesCoveredCount: string;
+  statesCoveredLabel: string;
+  networkMapImage?: string;
+  facebookUrl?: string;
+  instagramUrl?: string;
+  twitterUrl?: string;
+  linkedinUrl?: string;
+  youtubeUrl?: string;
+  copyrightText?: string;
+}
+
 export const DEFAULT_HOMEPAGE_CMS: HomepageCmsData = {
   heroBanners: [
     {
@@ -522,4 +549,35 @@ export const DEFAULT_CONTACTUS_CMS: ContactUsCmsData = {
   workingHoursWeekend: 'Sunday: Closed',
   mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.309489574441!2d77.54580227598858!3d12.951980915307525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e18a99252ef%3A0xe54d63503f90e54!2sRatnagiri%20Impex%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   googleMapsLink: 'https://maps.app.goo.gl/3wJj62n6235q35678',
+};
+
+export const DEFAULT_FOOTER_CMS: FooterCmsData = {
+  aboutText:
+    'AGRIMART is an initiative of Ratnagiri Impex Pvt. Ltd., part of the Annapurna Group. Founded in 2000, we specialize in high-efficiency agricultural machinery, mechanization solutions, pest control sprayers, garden care equipment, and reliable customer service across India.',
+  logoImage: '/assets/branding/logo.png',
+  backgroundImage: '/assets/banners/footer_bg_hd.png',
+  corporateBrochureUrl: '/assets/brochures/corporate_brochure.pdf',
+  corporateBrochureText: 'Download Corporate Brochure',
+  brandBrochureUrl: '/assets/brochures/agrimart_brochure.pdf',
+  brandBrochureText: 'Download Agrimate Brochure',
+  address:
+    'Annapurna House, #1/1G, 7th Cross, New Guddadahalli, Mysore Road, Bangalore – 560026, Karnataka, India.',
+  helplinePhone: '7393 938 938',
+  email: 'ask@agrimart.in',
+  workingHours: 'Mon – Sat: 9:30 AM – 6:00 PM | Sunday: Closed',
+  googlePlayLink:
+    'https://play.google.com/store/apps/details?id=com.invenzo.ratnagiri&hl=en_IN&gl=US&pli=1',
+  appStoreLink: 'https://apps.apple.com/in/app/agrimart/id1599062786',
+  touchpointsCount: '750+',
+  touchpointsLabel: 'Network Touchpoints',
+  statesCoveredCount: '28',
+  statesCoveredLabel: 'States Covered',
+  networkMapImage: '/assets/branding/india_network_map_hd.png',
+  facebookUrl: 'https://www.facebook.com/agrimart20',
+  instagramUrl: 'https://www.instagram.com/agrimart20',
+  twitterUrl: 'https://x.com/Agrimart3',
+  linkedinUrl: 'https://www.linkedin.com/company/agrimart20',
+  youtubeUrl:
+    'https://www.youtube.com/channel/UCPChKPEwHssr4WmuOxrJY9g?reload=9&view_as=subscriber',
+  copyrightText: 'Agrimart — Ratnagiri Impex Pvt. Ltd. All rights reserved.',
 };

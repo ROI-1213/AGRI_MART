@@ -57,6 +57,7 @@ import {
   AppDownloadCmsData
 } from '@/lib/cmsDefaults';
 import { Product } from '@/types';
+import { AdminImageUploader, AdminGalleryUploader } from '@/components/AdminImageUploader';
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'products' | 'categories' | 'dealers' | 'enquiries' | 'homepage' | 'aboutus' | 'contactus' | 'footer' | 'security'>('dashboard');
@@ -2077,43 +2078,55 @@ export default function AdminPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {homeHeroBanners.map((banner, bIdx) => (
-                      <div key={banner.id} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-2.5">
-                        <div className="flex items-start gap-3">
-                          <div className="w-24 h-16 relative rounded bg-white border shrink-0 overflow-hidden">
-                            <Image src={banner.image} alt={banner.title} fill unoptimized className="object-cover" />
+                      <div key={banner.id} className="border border-gray-200 rounded-lg p-3.5 bg-gray-50 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold uppercase text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
+                            Slide {bIdx + 1}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <label className="inline-flex items-center gap-1 cursor-pointer text-[11px] font-semibold text-gray-700">
+                              <input
+                                type="checkbox"
+                                checked={banner.active !== false}
+                                onChange={(e) => {
+                                  const checked = e.target.checked;
+                                  setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, active: checked } : b)));
+                                }}
+                                className="rounded text-emerald-600"
+                              />
+                              <span>Active</span>
+                            </label>
+                            {homeHeroBanners.length > 1 && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (confirm(`Remove Slide ${bIdx + 1}?`)) {
+                                    setHomeHeroBanners(prev => prev.filter((_, i) => i !== bIdx));
+                                  }
+                                }}
+                                className="text-red-500 hover:text-red-700 p-0.5 cursor-pointer"
+                                title="Delete Slide"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
                           </div>
-                          <div className="flex-1 min-w-0 space-y-1.5 text-xs">
-                            <div className="flex items-center justify-between">
-                              <span className="text-[10px] font-bold uppercase text-emerald-700">Slide {bIdx + 1}</span>
-                              <div className="flex items-center gap-2">
-                                <label className="inline-flex items-center gap-1 cursor-pointer text-[11px] font-semibold text-gray-700">
-                                  <input
-                                    type="checkbox"
-                                    checked={banner.active !== false}
-                                    onChange={(e) => {
-                                      const checked = e.target.checked;
-                                      setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, active: checked } : b)));
-                                    }}
-                                    className="rounded text-emerald-600"
-                                  />
-                                  <span>Active</span>
-                                </label>
-                                {homeHeroBanners.length > 1 && (
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      if (confirm(`Remove Slide ${bIdx + 1}?`)) {
-                                        setHomeHeroBanners(prev => prev.filter((_, i) => i !== bIdx));
-                                      }
-                                    }}
-                                    className="text-red-500 hover:text-red-700 p-0.5"
-                                    title="Delete Slide"
-                                  >
-                                    <Trash2 className="w-3.5 h-3.5" />
-                                  </button>
-                                )}
-                              </div>
-                            </div>
+                        </div>
+
+                        {/* Direct File Upload for Slide Banner Image */}
+                        <AdminImageUploader
+                          label="Slide Banner Image"
+                          value={banner.image}
+                          onChange={(val) => setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, image: val } : b)))}
+                          folder="banners"
+                          aspect="banner"
+                          helpText="Upload a high-definition slide banner image from your computer."
+                          compact
+                        />
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                          <div>
+                            <label className="block font-semibold text-gray-600 mb-0.5">Banner Title / Alt Text</label>
                             <input
                               type="text"
                               value={banner.title}
@@ -2125,22 +2138,8 @@ export default function AdminPage() {
                               className="w-full px-2.5 py-1.5 bg-white border border-gray-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                             />
                           </div>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                           <div>
-                            <label className="block font-semibold text-gray-500 mb-0.5">Banner Image URL</label>
-                            <input
-                              type="text"
-                              value={banner.image}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, image: val } : b)));
-                              }}
-                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
-                            />
-                          </div>
-                          <div>
-                            <label className="block font-semibold text-gray-500 mb-0.5">Destination Link</label>
+                            <label className="block font-semibold text-gray-600 mb-0.5">Destination Link</label>
                             <div className="flex gap-1.5 items-center">
                               <input
                                 type="text"
@@ -2149,7 +2148,7 @@ export default function AdminPage() {
                                   const val = e.target.value;
                                   setHomeHeroBanners(prev => prev.map((b, i) => (i === bIdx ? { ...b, link: val } : b)));
                                 }}
-                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[11px]"
+                                className="w-full px-2 py-1.5 bg-white border border-gray-300 rounded font-mono text-[11px]"
                               />
                               <Link href={banner.link} target="_blank" className="text-emerald-700 hover:underline font-bold shrink-0">
                                 ↗
@@ -2400,25 +2399,35 @@ export default function AdminPage() {
                           )}
                         </div>
 
-                        <div className="flex items-center gap-3">
-                          <div className="w-20 h-10 relative rounded bg-white border shrink-0 overflow-hidden p-1 flex items-center justify-center">
-                            <Image src={brand.logo} alt={brand.name} fill unoptimized className="object-contain p-1" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Brand Name</label>
-                            <input
-                              type="text"
-                              value={brand.name}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setHomeBrandsSection(prev => ({
-                                  ...prev,
-                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, name: val } : b)
-                                }));
-                              }}
-                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-bold text-xs"
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Brand Name</label>
+                          <input
+                            type="text"
+                            value={brand.name}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeBrandsSection(prev => ({
+                                ...prev,
+                                brands: prev.brands.map((b, i) => i === bIdx ? { ...b, name: val } : b)
+                              }));
+                            }}
+                            className="w-full px-2.5 py-1.5 bg-white border border-gray-300 rounded font-bold text-xs"
+                          />
+                        </div>
+
+                        <div>
+                          <AdminImageUploader
+                            label="Brand Logo Artwork"
+                            value={brand.logo}
+                            onChange={(val) => {
+                              setHomeBrandsSection(prev => ({
+                                ...prev,
+                                brands: prev.brands.map((b, i) => i === bIdx ? { ...b, logo: val } : b)
+                              }));
+                            }}
+                            folder="brands"
+                            compact
+                          />
                         </div>
 
                         <div>
@@ -2437,37 +2446,20 @@ export default function AdminPage() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-1 gap-1.5">
-                          <div>
-                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Logo URL</label>
-                            <input
-                              type="text"
-                              value={brand.logo}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setHomeBrandsSection(prev => ({
-                                  ...prev,
-                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, logo: val } : b)
-                                }));
-                              }}
-                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link Href</label>
-                            <input
-                              type="text"
-                              value={brand.href}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setHomeBrandsSection(prev => ({
-                                  ...prev,
-                                  brands: prev.brands.map((b, i) => i === bIdx ? { ...b, href: val } : b)
-                                }));
-                              }}
-                              className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Link Href</label>
+                          <input
+                            type="text"
+                            value={brand.href}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setHomeBrandsSection(prev => ({
+                                ...prev,
+                                brands: prev.brands.map((b, i) => i === bIdx ? { ...b, href: val } : b)
+                              }));
+                            }}
+                            className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                          />
                         </div>
                       </div>
                     ))}
@@ -2576,25 +2568,19 @@ export default function AdminPage() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                          <div className="md:col-span-1 space-y-2">
-                            <div className="w-full h-32 relative rounded bg-white border overflow-hidden flex items-center justify-center">
-                              <Image src={pick.bannerImage} alt={pick.leadTitle} fill unoptimized className="object-contain p-2" />
-                            </div>
-                            <div>
-                              <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Banner Image URL</label>
-                              <input
-                                type="text"
-                                value={pick.bannerImage}
-                                onChange={(e) => {
-                                  const val = e.target.value;
-                                  setHomeTopPicksSection(prev => ({
-                                    ...prev,
-                                    picks: prev.picks.map((p, i) => i === pIdx ? { ...p, bannerImage: val } : p)
-                                  }));
-                                }}
-                                className="w-full px-2 py-1 bg-white border border-gray-300 rounded font-mono text-[10px]"
-                              />
-                            </div>
+                          <div className="md:col-span-1">
+                            <AdminImageUploader
+                              label="Machine Spotlight Photo"
+                              value={pick.bannerImage}
+                              onChange={(val) => {
+                                setHomeTopPicksSection(prev => ({
+                                  ...prev,
+                                  picks: prev.picks.map((p, i) => i === pIdx ? { ...p, bannerImage: val } : p)
+                                }));
+                              }}
+                              folder="products"
+                              helpText="Upload spotlight machinery image."
+                            />
                           </div>
 
                           <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
@@ -2902,24 +2888,23 @@ export default function AdminPage() {
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 items-end">
                           <div>
-                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Primary Image URL</label>
-                            <input
-                              type="text"
+                            <AdminImageUploader
+                              label="Product Photo"
                               value={prod.image}
-                              onChange={(e) => {
-                                const val = e.target.value;
+                              onChange={(val) => {
                                 setHomeFeaturedSection(prev => ({
                                   ...prev,
                                   products: prev.products.map((p, i) => i === pIdx ? { ...p, image: val } : p)
                                 }));
                               }}
-                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                              folder="products"
+                              compact
                             />
                           </div>
                           <div>
-                            <label className="block text-[9px] font-bold text-gray-500 uppercase">Badge Label</label>
+                            <label className="block text-[9px] font-bold text-gray-500 uppercase mb-1">Badge Label</label>
                             <input
                               type="text"
                               value={prod.badge}
@@ -2930,7 +2915,7 @@ export default function AdminPage() {
                                   products: prev.products.map((p, i) => i === pIdx ? { ...p, badge: val } : p)
                                 }));
                               }}
-                              className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded text-[11px] font-bold text-amber-700"
+                              className="w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-[11px] font-bold text-amber-700"
                             />
                           </div>
                         </div>
@@ -3070,18 +3055,17 @@ export default function AdminPage() {
                         </div>
 
                         <div>
-                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Trophy Image URL</label>
-                          <input
-                            type="text"
+                          <AdminImageUploader
+                            label="Trophy / Certificate Artwork"
                             value={award.image}
-                            onChange={(e) => {
-                              const val = e.target.value;
+                            onChange={(val) => {
                               setHomeAwardsSection(prev => ({
                                 ...prev,
                                 awards: prev.awards.map((a, i) => i === aIdx ? { ...a, image: val } : a)
                               }));
                             }}
-                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            folder="awards"
+                            compact
                           />
                         </div>
                       </div>
@@ -3218,18 +3202,17 @@ export default function AdminPage() {
                         </div>
 
                         <div>
-                          <label className="block text-[9px] font-bold text-gray-500 uppercase">Logo URL</label>
-                          <input
-                            type="text"
+                          <AdminImageUploader
+                            label="Institute Logo"
                             value={inst.logo}
-                            onChange={(e) => {
-                              const val = e.target.value;
+                            onChange={(val) => {
                               setHomeInstitutesSection(prev => ({
                                 ...prev,
                                 institutes: prev.institutes.map((item, i) => i === iIdx ? { ...item, logo: val } : item)
                               }));
                             }}
-                            className="w-full px-2 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]"
+                            folder="institutes"
+                            compact
                           />
                         </div>
                       </div>
@@ -3257,29 +3240,18 @@ export default function AdminPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="md:col-span-1 space-y-2">
-                      <div className="w-full aspect-[1024/340] relative rounded-lg bg-white border overflow-hidden">
-                        <Image
-                          src={homeAppBanner.bannerImage}
-                          alt={homeAppBanner.title || 'App Download'}
-                          fill
-                          unoptimized
-                          className="object-cover"
-                        />
-                      </div>
-                      <p className="text-[10px] text-gray-500 italic text-center">Banner artwork preview</p>
+                    <div className="md:col-span-1">
+                      <AdminImageUploader
+                        label="Mobile App Banner Mockup"
+                        value={homeAppBanner.bannerImage}
+                        onChange={(val) => setHomeAppBanner(prev => ({ ...prev, bannerImage: val }))}
+                        folder="banners"
+                        aspect="banner"
+                        helpText="Upload mobile app promotional artwork."
+                      />
                     </div>
 
                     <div className="md:col-span-2 space-y-3 text-xs">
-                      <div>
-                        <label className="block text-[10px] font-bold text-gray-500 uppercase mb-0.5">Banner Image URL</label>
-                        <input
-                          type="text"
-                          value={homeAppBanner.bannerImage}
-                          onChange={(e) => setHomeAppBanner(prev => ({ ...prev, bannerImage: e.target.value }))}
-                          className="w-full px-2.5 py-1.5 bg-gray-50 border border-gray-300 rounded font-mono text-[11px]"
-                        />
-                      </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
@@ -3461,28 +3433,14 @@ export default function AdminPage() {
                 <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
                   2. Bangalore Mega Showroom Photograph
                 </h2>
-                <div className="flex flex-col sm:flex-row gap-5 items-center">
-                  <div className="w-full sm:w-64 aspect-[4/3] relative rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shrink-0 shadow-sm">
-                    <Image
-                      src={aboutData.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
-                      alt="Bangalore Mega Showroom"
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 space-y-2 text-xs">
-                    <label className="block font-bold text-gray-700">Showroom Image Asset Path</label>
-                    <input
-                      type="text"
-                      value={aboutData.showroomImage || ''}
-                      onChange={(e) => setAboutData({ ...aboutData, showroomImage: e.target.value })}
-                      className="w-full px-3 py-2 border rounded-lg font-mono text-gray-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                    />
-                    <p className="text-[11px] text-gray-500 leading-relaxed">
-                      Rendered on the About Us page using loss-free ultra-high definition rendering.
-                    </p>
-                  </div>
+                <div className="p-2">
+                  <AdminImageUploader
+                    label="Mega Showroom Facility Photograph"
+                    value={aboutData.showroomImage || '/assets/about/agrimart_mega_showroom.jpg'}
+                    onChange={(url) => setAboutData({ ...aboutData, showroomImage: url })}
+                    folder="about"
+                    helpText="Upload Bangalore Mega Showroom photograph (JPG, PNG, WebP) directly from your computer."
+                  />
                 </div>
               </div>
 
@@ -3491,28 +3449,14 @@ export default function AdminPage() {
                 <h2 className="text-sm font-bold text-gray-900 border-b pb-3">
                   3. Central Warehouse &amp; Logistics Facility Photograph
                 </h2>
-                <div className="flex flex-col sm:flex-row gap-5 items-center">
-                  <div className="w-full sm:w-64 aspect-[4/3] relative rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shrink-0 shadow-sm">
-                    <Image
-                      src={aboutData.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
-                      alt="Central Warehouse Facility"
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 space-y-2 text-xs">
-                    <label className="block font-bold text-gray-700">Warehouse Image Asset Path</label>
-                    <input
-                      type="text"
-                      value={aboutData.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
-                      onChange={(e) => setAboutData({ ...aboutData, warehouseImage: e.target.value })}
-                      className="w-full px-3 py-2 border rounded-lg font-mono text-gray-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                    />
-                    <p className="text-[11px] text-gray-500 leading-relaxed">
-                      Displays alongside the showroom image in the Welcome section of About Us.
-                    </p>
-                  </div>
+                <div className="p-2">
+                  <AdminImageUploader
+                    label="Central Warehouse Facility Photograph"
+                    value={aboutData.warehouseImage || '/assets/about/ratnagiri_impex_warehouse.jpg'}
+                    onChange={(url) => setAboutData({ ...aboutData, warehouseImage: url })}
+                    folder="about"
+                    helpText="Upload central warehouse and logistics facility photo (JPG, PNG, WebP) directly from your computer."
+                  />
                 </div>
               </div>
 
@@ -3951,21 +3895,23 @@ export default function AdminPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-gray-700 mb-1">Logo Artwork URL</label>
-                      <input
-                        type="text"
+                      <AdminImageUploader
+                        label="White Brand Logo Artwork"
                         value={footerData.logoImage || ''}
-                        onChange={(e) => setFooterData({ ...footerData, logoImage: e.target.value })}
-                        className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        onChange={(url) => setFooterData({ ...footerData, logoImage: url })}
+                        folder="branding"
+                        helpText="White transparency logo for dark footer."
+                        compact
                       />
                     </div>
                     <div>
-                      <label className="block font-bold text-gray-700 mb-1">Scenic Background Image URL</label>
-                      <input
-                        type="text"
+                      <AdminImageUploader
+                        label="Scenic Background Image"
                         value={footerData.backgroundImage || ''}
-                        onChange={(e) => setFooterData({ ...footerData, backgroundImage: e.target.value })}
-                        className="w-full px-3 py-2 border rounded-lg font-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        onChange={(url) => setFooterData({ ...footerData, backgroundImage: url })}
+                        folder="footer"
+                        helpText="Botanical / machinery background watermark."
+                        compact
                       />
                     </div>
                   </div>
@@ -3995,12 +3941,14 @@ export default function AdminPage() {
                       />
                     </div>
                     <div>
-                      <label className="block font-semibold text-gray-600 mb-0.5">PDF File URL</label>
-                      <input
-                        type="text"
+                      <AdminImageUploader
+                        label="Corporate PDF Document"
                         value={footerData.corporateBrochureUrl || ''}
-                        onChange={(e) => setFooterData({ ...footerData, corporateBrochureUrl: e.target.value })}
-                        className="w-full px-2.5 py-1.5 bg-white border rounded font-mono text-[11px]"
+                        onChange={(url) => setFooterData({ ...footerData, corporateBrochureUrl: url })}
+                        folder="brochures"
+                        accept=".pdf,application/pdf"
+                        placeholder="/assets/brochures/corporate-brochure.pdf"
+                        compact
                       />
                     </div>
                   </div>
@@ -4017,12 +3965,14 @@ export default function AdminPage() {
                       />
                     </div>
                     <div>
-                      <label className="block font-semibold text-gray-600 mb-0.5">PDF File URL</label>
-                      <input
-                        type="text"
+                      <AdminImageUploader
+                        label="Brand Profile PDF Document"
                         value={footerData.brandBrochureUrl || ''}
-                        onChange={(e) => setFooterData({ ...footerData, brandBrochureUrl: e.target.value })}
-                        className="w-full px-2.5 py-1.5 bg-white border rounded font-mono text-[11px]"
+                        onChange={(url) => setFooterData({ ...footerData, brandBrochureUrl: url })}
+                        folder="brochures"
+                        accept=".pdf,application/pdf"
+                        placeholder="/assets/brochures/agrimate-profile.pdf"
+                        compact
                       />
                     </div>
                   </div>
@@ -4091,12 +4041,12 @@ export default function AdminPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-gray-700 mb-1">India Network Map Image URL</label>
-                    <input
-                      type="text"
+                    <AdminImageUploader
+                      label="India Network Map Artwork"
                       value={footerData.networkMapImage || ''}
-                      onChange={(e) => setFooterData({ ...footerData, networkMapImage: e.target.value })}
-                      className="w-full px-3 py-2 border rounded-lg font-mono text-[11px]"
+                      onChange={(url) => setFooterData({ ...footerData, networkMapImage: url })}
+                      folder="footer"
+                      compact
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -4809,93 +4759,25 @@ export default function AdminPage() {
 
                   {/* TAB 3: PHOTOS & MEDIA */}
                   {activeEditTab === 'images' && (
-                    <div className="space-y-5">
-                      {/* Primary Thumbnail */}
-                      <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <label className="block font-bold text-gray-800 mb-1">
-                          Primary Thumbnail Photo
-                        </label>
-                        <div className="flex items-center gap-3">
-                          <div className="w-16 h-16 relative bg-white rounded border border-gray-300 overflow-hidden shrink-0">
-                            <Image
-                              src={editingProduct.thumbnailImage || '/assets/branding/logo.png'}
-                              alt="Thumbnail"
-                              fill
-                              unoptimized
-                              className="object-contain p-1"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <input
-                              type="text"
-                              value={editingProduct.thumbnailImage || ''}
-                              onChange={(e) => setEditingProduct({ ...editingProduct, thumbnailImage: e.target.value })}
-                              placeholder="/assets/products/ripl037328/img_1.jpg"
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                            />
-                            <p className="text-[11px] text-gray-500 mt-1">
-                              Appears in catalog listings and search previews.
-                            </p>
-                          </div>
-                        </div>
+                    <div className="space-y-6">
+                      {/* Primary Thumbnail with Direct File Upload */}
+                      <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-2xs">
+                        <AdminImageUploader
+                          label="Primary Thumbnail Photo"
+                          value={editingProduct.thumbnailImage || ''}
+                          onChange={(url) => setEditingProduct({ ...editingProduct, thumbnailImage: url })}
+                          folder="products"
+                          helpText="Upload product thumbnail image directly from your computer (JPG, PNG, WebP). Appears in catalog listings, cart, and search previews."
+                        />
                       </div>
 
-                      {/* Gallery Images */}
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <label className="font-bold text-gray-800">
-                            Product Gallery Images ({editImages.length})
-                          </label>
-                        </div>
-
-                        {/* Add New Gallery Image input */}
-                        <div className="flex gap-2 mb-3">
-                          <input
-                            type="text"
-                            placeholder="Enter image URL (e.g. /assets/products/...)"
-                            value={newImageUrl}
-                            onChange={(e) => setNewImageUrl(e.target.value)}
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (newImageUrl.trim()) {
-                                setEditImages([...editImages, newImageUrl.trim()]);
-                                setNewImageUrl('');
-                              }
-                            }}
-                            className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-xs transition-colors shrink-0"
-                          >
-                            + Add Image
-                          </button>
-                        </div>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                          {editImages.map((imgUrl, iIdx) => (
-                            <div key={iIdx} className="relative group bg-white border border-gray-200 rounded-lg p-2 flex flex-col items-center">
-                              <div className="w-full h-24 relative bg-gray-50 rounded overflow-hidden mb-1">
-                                <Image
-                                  src={imgUrl}
-                                  alt={`Gallery ${iIdx + 1}`}
-                                  fill
-                                  unoptimized
-                                  className="object-contain p-1"
-                                />
-                              </div>
-                              <span className="text-[10px] text-gray-500 truncate w-full font-mono text-center mb-1">
-                                {imgUrl.split('/').pop()}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => setEditImages(editImages.filter((_, idx) => idx !== iIdx))}
-                                className="w-full py-1 bg-red-50 hover:bg-red-100 text-red-600 rounded text-[11px] font-bold transition-colors"
-                              >
-                                Remove
-                              </button>
-                            </div>
-                          ))}
-                        </div>
+                      {/* Gallery Images with Multi-File Upload & Drag-Drop */}
+                      <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-2xs">
+                        <AdminGalleryUploader
+                          images={editImages}
+                          onChange={(newImages) => setEditImages(newImages)}
+                          folder="products"
+                        />
                       </div>
 
                       {/* Multi-Language Brochures Quick Link in Tab 3 */}
@@ -5103,19 +4985,19 @@ export default function AdminPage() {
                             />
                           </div>
 
-                          {/* Brochure PDF File Path / URL */}
+                          {/* Brochure PDF File Path / Upload */}
                           <div className="sm:col-span-12">
-                            <label className="block font-bold text-gray-700 mb-1">
-                              PDF Brochure File Path or Public URL <span className="text-red-500">*</span>
-                            </label>
-                            <div className="flex gap-2">
-                              <input
-                                type="text"
-                                placeholder="/uploads/product_brochure/1/example.pdf or https://..."
-                                value={newBrochureUrl}
-                                onChange={(e) => setNewBrochureUrl(e.target.value)}
-                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                              />
+                            <AdminImageUploader
+                              label="PDF Brochure Document (Upload from Computer or enter path)"
+                              value={newBrochureUrl}
+                              onChange={(url) => setNewBrochureUrl(url)}
+                              folder="brochures"
+                              placeholder="/uploads/brochures/brochure.pdf"
+                              accept=".pdf,application/pdf"
+                              helpText="Select a PDF brochure file from your computer or paste a public link."
+                              compact
+                            />
+                            <div className="mt-2.5 flex justify-end">
                               <button
                                 type="button"
                                 onClick={() => {
@@ -5125,7 +5007,7 @@ export default function AdminPage() {
                                     return;
                                   }
                                   if (!newBrochureUrl.trim()) {
-                                    alert('Please provide a valid PDF URL or file path');
+                                    alert('Please upload a PDF brochure or provide a file path');
                                     return;
                                   }
                                   const effectiveName = newBrochureName.trim() || `${editingProduct.name || 'Machinery'} Brochure (${effectiveLang})`;
@@ -5425,6 +5307,17 @@ export default function AdminPage() {
                       onChange={(e) => setEditingCategory({ ...editingCategory, slug: e.target.value })}
                       placeholder="e.g. power-weeder-tillers"
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono text-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <AdminImageUploader
+                      label="Category Image / Icon"
+                      value={editingCategory.image || ''}
+                      onChange={(url) => setEditingCategory({ ...editingCategory, image: url })}
+                      folder="categories"
+                      helpText="Category showcase artwork (JPG, PNG, WebP)"
+                      compact
                     />
                   </div>
 

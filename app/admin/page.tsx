@@ -191,7 +191,7 @@ export default function AdminPage() {
   // Product Edit / Create Modal State
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isNewProduct, setIsNewProduct] = useState(false);
-  const [activeEditTab, setActiveEditTab] = useState<'basic' | 'pricing' | 'images' | 'specs' | 'brochures' | 'desc'>('basic');
+  const [activeEditTab, setActiveEditTab] = useState<'basic' | 'images' | 'specs' | 'brochures' | 'desc'>('basic');
   const [editSpecs, setEditSpecs] = useState<Array<{ key: string; value: string }>>([]);
   const [editImages, setEditImages] = useState<string[]>([]);
   const [newImageUrl, setNewImageUrl] = useState('');
@@ -1224,7 +1224,7 @@ export default function AdminPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                   <div>
                     <h1 className="text-xl font-bold text-gray-900">Products Catalogue ({products.length})</h1>
-                    <p className="text-xs text-gray-500">Every authentic product with complete real-time edit, pricing & spec controls</p>
+                    <p className="text-xs text-gray-500">Every authentic product with complete real-time edit, media & spec controls</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
@@ -4524,20 +4524,12 @@ export default function AdminPage() {
                     1. General & Brand
                   </button>
                   <button
-                    onClick={() => setActiveEditTab('pricing')}
-                    className={`py-3 px-3 border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
-                      activeEditTab === 'pricing' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
-                    }`}
-                  >
-                    2. Pricing & Stock
-                  </button>
-                  <button
                     onClick={() => setActiveEditTab('images')}
                     className={`py-3 px-3 border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
                       activeEditTab === 'images' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    3. Photos & Media ({editImages.length})
+                    2. Photos & Media ({editImages.length})
                   </button>
                   <button
                     onClick={() => setActiveEditTab('specs')}
@@ -4545,7 +4537,7 @@ export default function AdminPage() {
                       activeEditTab === 'specs' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    4. Technical Specs ({editSpecs.length})
+                    3. Technical Specs ({editSpecs.length})
                   </button>
                   <button
                     onClick={() => setActiveEditTab('brochures')}
@@ -4554,7 +4546,7 @@ export default function AdminPage() {
                     }`}
                   >
                     <FileText className="w-3.5 h-3.5" />
-                    <span>5. Multi-Language Brochures ({editBrochures.length})</span>
+                    <span>4. Multi-Language Brochures ({editBrochures.length})</span>
                   </button>
                   <button
                     onClick={() => setActiveEditTab('desc')}
@@ -4562,7 +4554,7 @@ export default function AdminPage() {
                       activeEditTab === 'desc' ? 'border-[#0d9749] text-[#0d9749]' : 'border-transparent text-gray-600 hover:text-gray-900'
                     }`}
                   >
-                    6. Description & Overview
+                    5. Description & Overview
                   </button>
                 </div>
 
@@ -4687,77 +4679,7 @@ export default function AdminPage() {
                     </div>
                   )}
 
-                  {/* TAB 2: PRICING & INVENTORY */}
-                  {activeEditTab === 'pricing' && (
-                    <div className="space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div>
-                          <label className="block font-bold text-gray-700 mb-1">
-                            MRP (₹)
-                          </label>
-                          <input
-                            type="number"
-                            value={editingProduct.mrp || 0}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, mrp: Number(e.target.value) })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono font-bold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block font-bold text-gray-700 mb-1">
-                            Selling Price (₹)
-                          </label>
-                          <input
-                            type="number"
-                            value={editingProduct.sellingPrice || 0}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, sellingPrice: Number(e.target.value) })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono font-bold text-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block font-bold text-gray-700 mb-1">
-                            Discount (%)
-                          </label>
-                          <input
-                            type="number"
-                            value={editingProduct.discountPercentage || 0}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, discountPercentage: Number(e.target.value) })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block font-bold text-gray-700 mb-1">
-                            Stock Quantity
-                          </label>
-                          <input
-                            type="number"
-                            value={editingProduct.stockQuantity ?? 10}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, stockQuantity: Number(e.target.value) })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block font-bold text-gray-700 mb-1">
-                            Availability Status
-                          </label>
-                          <select
-                            value={editingProduct.availability || 'In Stock'}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, availability: e.target.value })}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs bg-white font-semibold focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                          >
-                            <option value="In Stock">In Stock</option>
-                            <option value="Out of Stock">Out of Stock</option>
-                            <option value="Available on Order">Available on Order</option>
-                            <option value="Coming Soon">Coming Soon</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* TAB 3: PHOTOS & MEDIA */}
+                  {/* TAB 2: PHOTOS & MEDIA */}
                   {activeEditTab === 'images' && (
                     <div className="space-y-6">
                       {/* Primary Thumbnail with Direct File Upload */}

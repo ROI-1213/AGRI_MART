@@ -15,6 +15,7 @@ const nextConfig = {
       static: 300,
     },
     serverActions: {
+      bodySizeLimit: '50mb',
       allowedOrigins: allowedHosts || ['localhost:3000', '127.0.0.1:3000', '*.vercel.app'],
     },
   },

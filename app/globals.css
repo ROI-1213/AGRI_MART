@@ -330,3 +330,11 @@ p, span, div, a, button, input, textarea, select, label {
   }
 }
 
+/* 4K Ultra-HD High-DPI Crisp Image Rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+

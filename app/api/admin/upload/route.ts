@@ -1,15 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { upsertCmsSetting } from '@/lib/db';
+
+const MIME_MAP: Record<string, string> = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.svg': 'image/svg+xml',
+  '.gif': 'image/gif',
+  '.avif': 'image/avif',
+  '.pdf': 'application/pdf',
+};
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
     const rawFolder = (formData.get('folder') as string) || 'general';
-    // Sanitize folder name
     const folder = rawFolder.replace(/[^a-zA-Z0-9_-]/g, '_').toLowerCase();
 
-    // Check for multiple files ('files') or single file ('file')
     const files: File[] = [];
     const multiFiles = formData.getAll('files') as File[];
     const singleFile = formData.get('file') as File | null;
@@ -29,9 +39,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const uploadBaseDir = path.join(process.cwd(), 'public', 'uploads', folder);
-    await fs.mkdir(uploadBaseDir, { recursive: true });
-
     const uploadedUrls: string[] = [];
 
     for (const file of files) {
@@ -42,14 +49,45 @@ export async function POST(req: NextRequest) {
         .slice(0, 40);
 
       const uniqueFileName = `${cleanBaseName}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}${ext}`;
-      const filePath = path.join(uploadBaseDir, uniqueFileName);
+      const mimeType = file.type || MIME_MAP[ext] || 'image/png';
 
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
-      await fs.writeFile(filePath, buffer);
 
-      const publicUrl = `/uploads/${folder}/${uniqueFileName}`;
-      uploadedUrls.push(publicUrl);
+      let wroteToLocalDisk = false;
+      try {
+        const uploadBaseDir = path.join(process.cwd(), 'public', 'uploads', folder);
+        await fs.mkdir(uploadBaseDir, { recursive: true });
+        const filePath = path.join(uploadBaseDir, uniqueFileName);
+        await fs.writeFile(filePath, buffer);
+        wroteToLocalDisk = true;
+      } catch {
+        // Read-only filesystem (e.g. Vercel serverless)
+        wroteToLocalDisk = false;
+      }
+
+      let savedToDb = false;
+      try {
+        const dbKey = `upload_${folder}_${uniqueFileName}`;
+        await upsertCmsSetting(dbKey, {
+          fileName: uniqueFileName,
+          mimeType,
+          base64: buffer.toString('base64'),
+          updatedAt: new Date().toISOString(),
+        });
+        savedToDb = true;
+      } catch {
+        savedToDb = false;
+      }
+
+      if (savedToDb) {
+        uploadedUrls.push(`/api/uploads/${folder}/${uniqueFileName}`);
+      } else if (wroteToLocalDisk) {
+        uploadedUrls.push(`/uploads/${folder}/${uniqueFileName}`);
+      } else {
+        // Ultimate serverless fallback: self-contained Data URI
+        uploadedUrls.push(`data:${mimeType};base64,${buffer.toString('base64')}`);
+      }
     }
 
     return NextResponse.json({
